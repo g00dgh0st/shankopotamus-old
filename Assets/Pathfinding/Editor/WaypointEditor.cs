@@ -9,7 +9,7 @@ public class WaypointEditor : EditorWindow
     private GameObject waypointPrefab = null;
     private bool canPlaceNewWaypoint = true;
     private bool itsActive = true;
-
+    public  bool showGizmos = true;
     
     [MenuItem("Window/Pathfinding/WaypointEditor")]
     public static void ShowWindow()

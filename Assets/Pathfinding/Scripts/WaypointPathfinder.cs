@@ -8,6 +8,9 @@ using System.Threading;
 [ExecuteInEditMode]
 public class WaypointPathfinder : MonoBehaviour 
 {
+    // toggle gizmos
+    public bool showGizmos = true;
+  
     public enum WaypointMethod
     {
         ExactPosition,
@@ -22,7 +25,7 @@ public class WaypointPathfinder : MonoBehaviour
     public List<string> DisallowedTags;
     public WaypointNode[] Map = null;
     public WaypointMethod SearchMethod;
-
+    
     //Can i walk to that spot
     private bool freeSpot = true;
 

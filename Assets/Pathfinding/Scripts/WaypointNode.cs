@@ -43,19 +43,22 @@ public class WaypointNode : MonoBehaviour
         H = h;
     }
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmos()
     {
-		position = gameObject.transform.position;
-        Gizmos.color = (isActive) ? Color.yellow : Color.red;
-        Gizmos.DrawCube(position, new Vector3(1, 1, 1));
+      if( gameObject.transform.parent.gameObject.GetComponent<WaypointPathfinder>().showGizmos )
+      {
+      		position = gameObject.transform.position;
+          Gizmos.color = (isActive) ? Color.yellow : Color.red;
+          Gizmos.DrawCube(position, new Vector3(1, 1, 1));
 
-        foreach (WaypointNode n in neighbors)
-        {
-            if (n != null)
-            {
-                Gizmos.color = (isActive) ? Color.yellow : Color.red;
-                Gizmos.DrawLine(position + Vector3.up * 0.5F, n.position + Vector3.up * 0.5F);
-            }
-        }
+          foreach (WaypointNode n in neighbors)
+          {
+              if (n != null)
+              {
+                  Gizmos.color = (isActive) ? Color.yellow : Color.red;
+                  Gizmos.DrawLine(position + Vector3.up * 0.5F, n.position + Vector3.up * 0.5F);
+              }
+          }
+       }
     }
 }
