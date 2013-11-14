@@ -1,4 +1,4 @@
 shankopotamus
 =============
 
-It's a game.
+It's a game. Of DEATH!
