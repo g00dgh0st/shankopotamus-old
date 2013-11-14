@@ -38,6 +38,7 @@ public class WaypointPathfinder : MonoBehaviour
     void Awake()
     {
         instance = this;
+		gameObject.transform.position = Vector3.zero;
     }
 
 	void Start () 

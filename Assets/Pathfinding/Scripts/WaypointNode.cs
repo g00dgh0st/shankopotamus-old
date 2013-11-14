@@ -20,6 +20,7 @@ public class WaypointNode : MonoBehaviour
 
     void Start()
     {
+		position = gameObject.transform.position;
         if(Application.isPlaying)
         {
             gameObject.collider.enabled = false;
@@ -44,6 +45,7 @@ public class WaypointNode : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
+		position = gameObject.transform.position;
         Gizmos.color = (isActive) ? Color.yellow : Color.red;
         Gizmos.DrawCube(position, new Vector3(1, 1, 1));
 
