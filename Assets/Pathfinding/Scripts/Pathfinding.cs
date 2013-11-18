@@ -12,7 +12,8 @@ public class Pathfinding : MonoBehaviour
 {
     public List<Vector3> Path = new List<Vector3>();
     public PathfinderType PathType = PathfinderType.GridBased;
-	public bool JS = false;
+  	public bool JS = false;
+    public float speed;
 
     public void FindPath(Vector3 startPosition, Vector3 endPosition)
     {
@@ -46,7 +47,7 @@ public class Pathfinding : MonoBehaviour
     {
         if (Path.Count > 0)
         {
-            transform.position = Vector3.MoveTowards(transform.position, Path[0], Time.deltaTime * 30F);
+            transform.position = Vector3.MoveTowards(transform.position, Path[0], Time.deltaTime * 5F * speed );
             if (Vector3.Distance(transform.position, Path[0]) < 0.4F)
             {
                 Path.RemoveAt(0);
