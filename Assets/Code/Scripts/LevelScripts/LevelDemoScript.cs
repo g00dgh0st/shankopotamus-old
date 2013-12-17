@@ -9,7 +9,7 @@ public class LevelDemoScript : MonoBehaviour {
 
   private Level level; 
 
-  void Start() {
+  public void Start() {
     level = new Level( lvlName, startRoom, player );
   }
 }

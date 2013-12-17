@@ -8,17 +8,22 @@ public class Door {
   public Transform inBlocking;
   public Transform outBlocking;
   
-  static float animateTime = 1.5f; // this is used in FadeScript to determine how long to allow for door enter/exit animations
+  private Door destDoorObj;
   
-  void Door( GameObject d, Transform i, Transform o ) {
+  public static float animateTime = 1.5f; // this is used in FadeScript to determine how long to allow for door enter/exit animations
+  
+  public Door( GameObject d, Transform i, Transform o ) {
     destDoor = d;
     destRoom = destDoor.transform.parent.gameObject;
     inBlocking = i;
     outBlocking = o;
+
+    Object dd = destDoor.GetComponent<MonoBehaviour>();
+    destDoorObj = dd.GetType().GetMethod( "door" ).Invoke( dd, null ) as Door;
   }
   
   // must be called in coroutine
-  void Enter() {
+  public IEnumerator Enter() {
     Level.currentLevel.MovePlayer( inBlocking.position );
     
     while( Level.currentLevel.PlayerInMotion() ) yield return 0;
@@ -26,16 +31,16 @@ public class Door {
     AnimateIn();
   }
   
-  Vector3 DestBlocking() {
-    return destDoor.GetComponent<MonoBehaviour>().door.outBlocking.position;
+  public Vector3 DestBlocking() {
+    return (Vector3)destDoorObj.outBlocking.position;
   }
   
-  void DestAnimate() {
-    destDoor.GetComponent<MonoBehaviour>().door.AnimateOut();
+  public void DestAnimate() {
+    destDoorObj.AnimateOut();
   }
 
   // These Animate methods should be overridden in each Door's script.
-  // super() should be called after animation
-  virtual void AnimateIn() { Level.currentLevel.usedDoor = this; }
-  virtual void AnimateOut() { Level.currentLevel.usedDoor = null; }
+  // base should be called after animation
+  public virtual void AnimateIn()  { Level.currentLevel.usedDoor = this; }
+  public virtual void AnimateOut() { Level.currentLevel.usedDoor = null; }
 }

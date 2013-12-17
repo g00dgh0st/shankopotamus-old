@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MainDialog : MonoBehaviour {
 
-  enum dialogStates {UNDEFINED, INTRO, MOVEREQUEST, MOVEACK, DOORREQUEST, DOORACK, DOORQUIP};
+  public enum dialogStates {UNDEFINED, INTRO, MOVEREQUEST, MOVEACK, DOORREQUEST, DOORACK, DOORQUIP};
 
   string button1Text;
   string button2Text;
@@ -20,7 +20,7 @@ public class MainDialog : MonoBehaviour {
   dialogStates lastState;
   string lastPress;
 
-  void Start() {
+  public void Start() {
   	// Set current state info
   	lastState = dialogStates.UNDEFINED;
   	state = dialogStates.UNDEFINED;
@@ -29,15 +29,16 @@ public class MainDialog : MonoBehaviour {
   	transitionToState(dialogStates.INTRO);
 	
   	// Register the callbacks the dialog cares about
-  	dispatcher.registerCallback(dlEvents.PLAYERMOVE, eventHandler);
-  	dispatcher.registerCallback(dlEvents.BUTTONPRESS, eventHandler);
-  	dispatcher.registerCallback(dlEvents.DOORENTER, eventHandler);
+  	Dispatcher.registerCallback(Dispatcher.dlEvents.PLAYERMOVE, eventHandler);
+  	Dispatcher.registerCallback(Dispatcher.dlEvents.BUTTONPRESS, eventHandler);
+  	Dispatcher.registerCallback(Dispatcher.dlEvents.DOORENTER, eventHandler);
   }
 
-  void eventHandler( dlEvents e, Object object ) {
-  	if(e == dlEvents.BUTTONPRESS)
+  public void eventHandler( Dispatcher.dlEvents e, string str ) {
+  	if(e == Dispatcher.dlEvents.BUTTONPRESS)
   	{
-  		lastPress = object as String;
+  		lastPress = str;
+      
   		if(state == dialogStates.INTRO)
   		{
   			transitionToState(dialogStates.MOVEREQUEST);
@@ -55,14 +56,14 @@ public class MainDialog : MonoBehaviour {
   			transitionToState(dialogStates.INTRO);
   		}
   	}
-  	else if(e == dlEvents.PLAYERMOVE)
+  	else if(e == Dispatcher.dlEvents.PLAYERMOVE)
   	{
   		if(state == dialogStates.INTRO || state == dialogStates.MOVEREQUEST)
   		{
   			transitionToState(dialogStates.MOVEACK);
   		}
   	}
-  	else if(e == dlEvents.DOORENTER)
+  	else if(e == Dispatcher.dlEvents.DOORENTER)
   	{
   		if(state == dialogStates.MOVEACK || state == dialogStates.DOORREQUEST || state == dialogStates.DOORQUIP)
   		{
@@ -72,7 +73,7 @@ public class MainDialog : MonoBehaviour {
   }
 
 
-  void transitionToState( dialogStates toState ) {
+  public void transitionToState( dialogStates toState ) {
 
   	if(toState == dialogStates.INTRO)
   	{
@@ -196,24 +197,21 @@ public class MainDialog : MonoBehaviour {
 		
   }
 
-  void OnGUI() {
+  public void OnGUI() {
 
-  	GUI.Button button1 = GUI.Button( button1Rect, button1Text );
-  	GUI.Button button2 = GUI.Button( button2Rect, button2Text );
-  	GUI.Button button3 = GUI.Button( button3Rect, button3Text );
   	// Make a background box
   	GUI.Box (dialogRect, dialogText);
 	
-  	if (button1) {
-  		dispatcher.eventNotify(dlEvents.BUTTONPRESS, "button1");
+  	if (GUI.Button( button1Rect, button1Text )) {
+  		Dispatcher.eventNotify(Dispatcher.dlEvents.BUTTONPRESS, "button1");
   	}
 	
-  	if (button2) {
-  		dispatcher.eventNotify(dlEvents.BUTTONPRESS, "button2");
+  	if (GUI.Button( button2Rect, button2Text )) {
+  		Dispatcher.eventNotify(Dispatcher.dlEvents.BUTTONPRESS, "button2");
   	}
 	
-  	if (button3) {
-  		dispatcher.eventNotify(dlEvents.BUTTONPRESS, "button3");
+  	if (GUI.Button( button3Rect, button3Text )) {
+  		Dispatcher.eventNotify(Dispatcher.dlEvents.BUTTONPRESS, "button3");
   	}
   }
 }

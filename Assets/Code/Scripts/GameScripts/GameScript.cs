@@ -5,12 +5,12 @@ public class GameScript : MonoBehaviour {
 
   // this script is for handling global game scripting
 
-  void Awake() {
+  public void Awake() {
     Application.targetFrameRate = 60;
   }
 
-  void Start() {
+  public void Start() {
     // load global scripts here
-    gameObject.AddComponent<"FadeScript">();
+    gameObject.AddComponent( "FadeScript" );
   }
 }

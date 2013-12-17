@@ -3,16 +3,16 @@ using System.Collections;
 
 public class HoleDoorScript : MonoBehaviour {
 
-  class HoleDoor : Door {
+  public class HoleDoor : Door {
   
-    void HoleDoor( GameObject d, Transform i, Transform o ) : base( d, i, o ) {}
+    public HoleDoor( GameObject d, Transform i, Transform o ) : base( d, i, o ) {}
   
-    override void AnimateIn() {
+    public override void AnimateIn() {
       Level.currentLevel.MovePlayer( outBlocking.position );
       base.AnimateIn();
     }
   
-    override void AnimateOut() {
+    public override void AnimateOut() {
       Level.currentLevel.MovePlayer( inBlocking.position );
       base.AnimateOut();
     }
@@ -24,11 +24,11 @@ public class HoleDoorScript : MonoBehaviour {
 
   public HoleDoor door;
 
-  void Awake() {
+  public void Awake() {
     door = new HoleDoor( destDoor, inBlocking, outBlocking );
   }
 
-  void OnMouseOver() {
+  public void OnMouseOver() {
     if( Input.GetMouseButtonDown(0) ) StartCoroutine( door.Enter() );
   }
 }

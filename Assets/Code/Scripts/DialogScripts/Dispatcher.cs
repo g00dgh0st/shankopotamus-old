@@ -3,25 +3,27 @@ using System.Collections;
 
 public class Dispatcher : MonoBehaviour {
 
-  static ArrayList handlers = new ArrayList();
-  enum dlEvents {PLAYERMOVE, PLAYERCLICK, BUTTONPRESS, DOORENTER};
+  public static ArrayList handlers = new ArrayList();
+  public enum dlEvents {PLAYERMOVE, PLAYERCLICK, BUTTONPRESS, DOORENTER};
+  
+  public delegate void Callback( dlEvents evt, string str );
 
 
-  static void registerCallback( dlEvents event, Function handler ) {
+  public static bool registerCallback( dlEvents evt, Callback handler ) {
   	Hashtable temp = new Hashtable();
-  	temp["event"] = event;
+  	temp["event"] = evt;
   	temp["handler"] = handler;
   	handlers.Add( temp );
   	return true;
   }
 
-  static void removeCallback( dlEvents event, Function handler ) {
+  public static bool removeCallback( dlEvents evt, Callback handler ) {
   	for( int i = 0; i < handlers.Count; i++ ) {
   		Hashtable temp = handlers[i] as Hashtable;
-  		dlEvents tempevent = temp["event"];
-  		Function temphandler = temp["handler"] as Function;
+  		dlEvents tempevent = (dlEvents)temp["event"];
+  		Callback temphandler = temp["handler"] as Callback;
 		
-  		if( tempevent == event && temphandler == handler ) {
+  		if( tempevent == evt && temphandler == handler ) {
   			handlers.RemoveAt( i );
   			return true;
   		}
@@ -30,14 +32,14 @@ public class Dispatcher : MonoBehaviour {
   }
 
 
-  static void eventNotify( dlEvents e, Object object ) {
+  public static void eventNotify( dlEvents e, string str ) {
   	for( int i = 0; i < handlers.Count; i++ ) {
   		Hashtable temp = handlers[i] as Hashtable;
-  		dlEvents event = temp["event"];
-  		Function handler = temp["handler"] as Function;
+  		dlEvents evt = (dlEvents)temp["event"]; 
+  		Callback handler = temp["handler"] as Callback;
 		
-  		if( event == e ) {
-  			handler( e, object );
+  		if( evt == e ) {
+  			handler( e, str );
   		}
   	}
   }

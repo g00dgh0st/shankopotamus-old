@@ -1,8 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-class Player {
+public class Player {
   static bool canMove = true;
   
-  void Player() {};
+  public Player() {}
 }

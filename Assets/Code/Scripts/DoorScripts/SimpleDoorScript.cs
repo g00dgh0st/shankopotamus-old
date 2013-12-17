@@ -3,16 +3,16 @@ using System.Collections;
 
 public class SimpleDoorScript : MonoBehaviour {
   
-  class SimpleDoor extends Door {
+  public class SimpleDoor : Door {
   
-    void SimpleDoor( GameObject d, Transform i, Transform o ) : base( d, i, o ) {}
+    public SimpleDoor( GameObject d, Transform i, Transform o ) : base( d, i, o ) {}
   
-    override void AnimateIn() {
+    public override void AnimateIn() {
       Level.currentLevel.MovePlayer( outBlocking.position );
       base.AnimateIn();
     }
   
-    override void AnimateOut() {
+    public override void AnimateOut() {
       Level.currentLevel.MovePlayer( inBlocking.position );
       base.AnimateOut();
     }
@@ -24,11 +24,11 @@ public class SimpleDoorScript : MonoBehaviour {
 
   public SimpleDoor door;
 
-  void Awake() {
+  public void Awake() {
     door = new SimpleDoor( destDoor, inBlocking, outBlocking );
   }
 
-  void OnMouseOver() {
+  public void OnMouseOver() {
     if( Input.GetMouseButtonDown(0) ) StartCoroutine( door.Enter() );
   }
 }

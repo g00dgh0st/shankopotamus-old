@@ -3,11 +3,11 @@ using System.Collections;
 
 public class PlayerMove : Pathfinding {
   
-  void Start() {
+  public void Start() {
     speed = 1;
   }
 
-	void Update () {
+	public void Update () {
     if( Path.Count > 0 ) {
       transform.localScale = new Vector3( direction, 1, 1 );
       Move();
