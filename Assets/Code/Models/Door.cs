@@ -6,43 +6,45 @@ public class Door {
 
   public GameObject destDoor;
   
-  
-  public GameObject destRoom;
-  public Transform inBlocking;
-  public Transform outBlocking;
-  
-  private Door destDoorObj;
-  
+  protected GameObject destRoom;
+  protected Transform inBlocking;
+  protected Transform outBlocking;
   
   public Door( GameObject d, Transform i, Transform o ) {
     destDoor = d;
     destRoom = destDoor.transform.parent.gameObject;
     inBlocking = i;
     outBlocking = o;
-
-    Object dd = destDoor.GetComponent<MonoBehaviour>();
-    destDoorObj = dd.GetType().GetMethod( "door" ).Invoke( dd, null ) as Door;
   }
   
   // must be called in coroutine
-  public IEnumerator Enter() {
-    Level.currentLevel.MovePlayer( inBlocking.position );
+  public IEnumerator GoIn() {
+    Game.player.MoveTo( inBlocking.position );
     
-    while( Level.currentLevel.PlayerInMotion() ) yield return 0;
+    while( Game.player.InMotion() ) yield return 0;
     
     AnimateIn();
   }
   
-  public Vector3 DestBlocking() {
-    return (Vector3)destDoorObj.outBlocking.position;
+  public void GoOut() {
+    Game.player.TeleportTo( outBlocking.position );
+    
+    AnimateOut();
   }
   
-  public void DestAnimate() {
-    destDoorObj.AnimateOut();
-  }
-
   // These Animate methods should be overridden in each Door's script.
   // base should be called after animation
-  public virtual void AnimateIn()  { Level.currentLevel.usedDoor = this; }
-  public virtual void AnimateOut() { Level.currentLevel.usedDoor = null; }
+  public virtual void AnimateIn()  { 
+    Object destScript = destDoor.GetComponent( "MonoBehaviour" );
+    Level.ChangeRoom( (Door)destScript.GetType().GetMethod( "door" ).Invoke( destScript, null ) );
+  }
+  public virtual void AnimateOut() { 
+    // Level.currentDoor = null; 
+  }
+  
+  
+  
+  public GameObject GetDestRoom() {
+    return destRoom;
+  }
 }
