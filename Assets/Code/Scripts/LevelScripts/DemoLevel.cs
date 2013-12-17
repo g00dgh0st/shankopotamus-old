@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class LevelDemoScript : MonoBehaviour {
+public class DemoLevel : MonoBehaviour {
 
   public string lvlName;
   public GameObject startRoom;

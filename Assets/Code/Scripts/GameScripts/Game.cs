@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class GameScript : MonoBehaviour {
+public class Game : MonoBehaviour {
+  
 
   // this script is for handling global game scripting
 
@@ -11,6 +12,6 @@ public class GameScript : MonoBehaviour {
 
   public void Start() {
     // load global scripts here
-    gameObject.AddComponent( "FadeScript" );
+    gameObject.AddComponent( "FadeEffect" );
   }
 }

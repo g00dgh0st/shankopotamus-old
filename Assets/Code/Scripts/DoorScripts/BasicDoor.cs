@@ -1,11 +1,11 @@
 using UnityEngine;
 using System.Collections;
 
-public class SimpleDoorScript : MonoBehaviour {
+public class BasicDoor : MonoBehaviour {
   
-  public class SimpleDoor : Door {
+  public class BasicDoorObj : Door {
   
-    public SimpleDoor( GameObject d, Transform i, Transform o ) : base( d, i, o ) {}
+    public BasicDoorObj( GameObject d, Transform i, Transform o ) : base( d, i, o ) {}
   
     public override void AnimateIn() {
       Level.currentLevel.MovePlayer( outBlocking.position );
@@ -22,10 +22,10 @@ public class SimpleDoorScript : MonoBehaviour {
   public Transform inBlocking;
   public Transform outBlocking;
 
-  public SimpleDoor door;
+  public BasicDoorObj door;
 
   public void Awake() {
-    door = new SimpleDoor( destDoor, inBlocking, outBlocking );
+    door = new BasicDoorObj( destDoor, inBlocking, outBlocking );
   }
 
   public void OnMouseOver() {

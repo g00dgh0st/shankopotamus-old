@@ -1,11 +1,11 @@
 using UnityEngine;
 using System.Collections;
 
-public class HoleDoorScript : MonoBehaviour {
+public class HoleDoor : MonoBehaviour {
 
-  public class HoleDoor : Door {
+  public class HoleDoorObj : Door {
   
-    public HoleDoor( GameObject d, Transform i, Transform o ) : base( d, i, o ) {}
+    public HoleDoorObj( GameObject d, Transform i, Transform o ) : base( d, i, o ) {}
   
     public override void AnimateIn() {
       Level.currentLevel.MovePlayer( outBlocking.position );
@@ -22,10 +22,10 @@ public class HoleDoorScript : MonoBehaviour {
   public Transform inBlocking;
   public Transform outBlocking;
 
-  public HoleDoor door;
+  public HoleDoorObj door;
 
   public void Awake() {
-    door = new HoleDoor( destDoor, inBlocking, outBlocking );
+    door = new HoleDoorObj( destDoor, inBlocking, outBlocking );
   }
 
   public void OnMouseOver() {

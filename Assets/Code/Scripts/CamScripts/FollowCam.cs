@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FollowCamScript : MonoBehaviour {
+public class FollowCam : MonoBehaviour {
   public Transform playerTrans;
   public Transform rBound;
   public Transform lBound;

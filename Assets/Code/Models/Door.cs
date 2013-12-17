@@ -2,15 +2,17 @@ using UnityEngine;
 using System.Collections;
 
 public class Door {
+  public static float animateTime = 1.5f; // this is used in FadeScript to determine how long to allow for door enter/exit animations
 
   public GameObject destDoor;
+  
+  
   public GameObject destRoom;
   public Transform inBlocking;
   public Transform outBlocking;
   
   private Door destDoorObj;
   
-  public static float animateTime = 1.5f; // this is used in FadeScript to determine how long to allow for door enter/exit animations
   
   public Door( GameObject d, Transform i, Transform o ) {
     destDoor = d;

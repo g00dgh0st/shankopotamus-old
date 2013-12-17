@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class FadeScript : MonoBehaviour {
+public class FadeEffect : MonoBehaviour {
 
   // This script handles fading the screen in and out when changing rooms
 
