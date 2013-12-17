@@ -1,27 +1,28 @@
-﻿#pragma strict
+﻿using UnityEngine;
+using System.Collections;
 
 class Level {
-  static public var currentLevel : Level;
+  static public Level currentLevel;
   
-  public var lvlName  : String;
-  public var currentRoom : GameObject;
-  public var player : GameObject;
+  public string lvlName;
+  public GameObject currentRoom;
+  public GameObject player;
   
-  private var navAgent : NavMeshAgent;
+  private NavMeshAgent navAgent;
   
-  public var usedDoor : Door;
+  public Door usedDoor;
   
-  function Level( n : String, r : GameObject, p : GameObject ) {
+  void Level( string n, GameObject r, GameObject p ) {
     lvlName = n;
     player = p;
-    navAgent = player.GetComponent( "NavMeshAgent" ) as NavMeshAgent;
+    navAgent = player.GetComponent<"NavMeshAgent">() as NavMeshAgent;
     currentRoom = r;
     for( var room in GameObject.FindGameObjectsWithTag( "Room" ) ) room.SetActive( false );
     currentRoom.SetActive( true );
     Level.currentLevel = this;
   }
 
-  function ChangeRoom() {
+  void ChangeRoom() {
     currentRoom = usedDoor.destRoom;
     for( var room in GameObject.FindGameObjectsWithTag( "Room" ) ) room.SetActive( false );
     currentRoom.SetActive( true );
@@ -29,17 +30,17 @@ class Level {
     usedDoor.DestAnimate();
   }
   
-  function TeleportPlayer( d : Vector3 ) {
+  void TeleportPlayer( Vector3 d ){
     navAgent.enabled = false;
     player.transform.position = d;
     navAgent.enabled = true;
   }
   
-  function MovePlayer( d : Vector3 ) {
+  void MovePlayer( Vector3 d ){
     navAgent.destination = d;
   }
 
-  function PlayerInMotion() : boolean {
-    return navAgent.hasPath || navAgent.pathPending;
+  bool PlayerInMotion() {
+     return navAgent.hasPath || navAgent.pathPending;
   }
 }
