@@ -369,7 +369,7 @@ MonoBehaviour:
   - {fileID: 11400008}
   - {fileID: 11400010}
   - {fileID: 11400014}
-  SearchMethod: 1
+  SearchMethod: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -391,8 +391,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 11400010}
-  - {fileID: 11400008}
-  isActive: 1
+  isActive: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -435,7 +434,6 @@ MonoBehaviour:
   neighbors:
   - {fileID: 11400010}
   - {fileID: 11400014}
-  - {fileID: 11400002}
   isActive: 1
 --- !u!114 &11400010
 MonoBehaviour:

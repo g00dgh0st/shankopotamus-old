@@ -1,22 +1,36 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Level : MonoBehaviour {
-  public static string lvlName;
-  public static GameObject currentRoom;
+public class Level {
+  public string lvlName;
+  public GameObject currentRoom;
   
-  public void Start() {
+  public Level( string n, GameObject r ) {
+    currentRoom = r;
+    lvlName = n;
     foreach( GameObject room in GameObject.FindGameObjectsWithTag( "Room" ) ) room.SetActive( false );
     currentRoom.SetActive( true );
   }
   
-  public static void ChangeRoom( Door destDoor ) {
-    currentRoom = destDoor.GetDestRoom();
+  public IEnumerator ChangeRoom( GameObject destDoor ) {
+    currentRoom = destDoor.transform.parent.gameObject;
     foreach( GameObject room in GameObject.FindGameObjectsWithTag( "Room" ) ) room.SetActive( false );
     
-    Game.FadeOut();
+    // Game.Fade(); TODO MAKE THIS FADE
+    
+    yield return new WaitForSeconds(0.3f);
     
     currentRoom.SetActive( true );
-    destDoor.GoOut();
+    
+    MonoBehaviour destScript = (MonoBehaviour)destDoor.GetComponent( "MonoBehaviour" );
+    
+    switch( destScript.GetType().ToString() ) {
+      case "BasicDoor":
+        BasicDoor bd = destScript as BasicDoor;
+        bd.door.GoOut();
+        break;
+      default:
+        break;
+    }
   }
 }

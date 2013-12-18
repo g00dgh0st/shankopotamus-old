@@ -9,20 +9,17 @@ public class BasicDoor : MonoBehaviour {
   
     public override void AnimateIn() {
       Game.player.MoveTo( outBlocking.position );
-      base.AnimateIn();
     }
   
     public override void AnimateOut() {
       Game.player.MoveTo( inBlocking.position );
-      base.AnimateOut();
     }
   }
 
   public GameObject destDoor;
+  public BasicDoorObj door;
 
-  private BasicDoorObj door;
-
-  public void Start() {
+  public void Awake() {
     Transform inBlock = transform.Find( "inBlocking" );
     Transform outBlock = transform.Find( "outBlocking" );
     
@@ -30,6 +27,6 @@ public class BasicDoor : MonoBehaviour {
   }
 
   public void OnMouseOver() {
-    if( Input.GetMouseButtonDown(0) ) StartCoroutine( door.GoIn() );
+    if( Input.GetMouseButtonDown(0) ) Game.script.StartCoroutine( door.GoIn( destDoor ) );
   }
 }

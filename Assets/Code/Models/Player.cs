@@ -9,7 +9,7 @@ public class Player : Pathfinding {
     speed = moveSpeed; // override the Pathfinding speed
   }
 
-	public void Update () {
+	public void Update() {
     if( Path.Count > 0 ) {
       transform.localScale = new Vector3( direction, 1, 1 );
       Move();
