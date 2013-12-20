@@ -13,8 +13,8 @@ public class Level {
   }
   
   public IEnumerator ChangeRoom( GameObject destDoor ) {
+    currentRoom.SetActive( false );
     currentRoom = destDoor.transform.parent.gameObject;
-    foreach( GameObject room in GameObject.FindGameObjectsWithTag( "Room" ) ) room.SetActive( false );
     
     // Game.Fade(); TODO MAKE THIS FADE
     
