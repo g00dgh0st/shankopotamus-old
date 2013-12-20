@@ -18,7 +18,7 @@ class Blur extends PostEffectsBase {
 	@Range(0.0f, 10.0f)
 	public var blurSize : float = 3.0f;
 	
-	@Range(1, 4)
+	@Range(0, 4)
 	public var blurIterations : int = 2;
 
 	public var blurType = BlurType.StandardGauss;

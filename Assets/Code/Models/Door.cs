@@ -28,7 +28,7 @@ public abstract class Door {
     yield return new WaitForSeconds(0.1f);
     while( Game.player.InMotion() ) yield return 0;
     
-    Game.script.StartCoroutine( Game.level.ChangeRoom( destDoor ) );
+    Game.level.ChangeRoom( destDoor );
   }
   
   public void GoOut() {
