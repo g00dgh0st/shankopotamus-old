@@ -12,7 +12,8 @@ public class Game : MonoBehaviour {
   // For fading
   public static float aLerp;
   public static float aLerpSpeed;
-  public static ScreenOverlay camOverlay;
+  public static Texture2D blackTex;
+  public static int isFading = 0;
   
   public void Awake() { Application.targetFrameRate = 60; }
   
@@ -22,24 +23,47 @@ public class Game : MonoBehaviour {
     script = this;
     
     aLerp = 0.0f;
-    aLerpSpeed = 10.0f;
-    camOverlay = Camera.main.GetComponent( "ScreenOverlay" ) as ScreenOverlay;
+    aLerpSpeed = 0.05f;
+    blackTex = Resources.Load( "blackPxl" ) as Texture2D;
   }
   
+  public void OnGUI() {
+    if( aLerp <= 1.0f && Game.isFading == 1 ) {
+      GUI.color = new Color( GUI.color.r, GUI.color.g, GUI.color.b, aLerp );
+      GUI.DrawTexture( new Rect( 0, 0, Screen.width, Screen.height ), blackTex );
+      aLerp += aLerpSpeed;
+    } else if( aLerp > 1.0f && Game.isFading == 1 ) {
+      StartCoroutine( DelayFadeIn( 0.6f ) );
+      aLerp = 1.0f;
+    }
+    
+    if( aLerp >= 0.0f && Game.isFading == 2 ) {
+      GUI.color = new Color( GUI.color.r, GUI.color.g, GUI.color.b, aLerp );
+      GUI.DrawTexture( new Rect( 0, 0, Screen.width, Screen.height ), blackTex );
+      aLerp -= aLerpSpeed;
+    } else if( aLerp < 0.0f && Game.isFading == 2 ) {
+      Game.isFading = 0;
+    }
+  }
+  
+  public IEnumerator DelayFadeIn( float delay ) {
+    yield return new WaitForSeconds( delay );
+    Game.isFading = 2;
+  }
+
+// STATIC METHODS
+
   public delegate void Callback();
   
   public static IEnumerator FadeCamera( Callback cBack ) {
+    isFading = 1;
     aLerp = 0.0f;
-    while( aLerp <= 500.0f ) {
-      camOverlay.intensity = aLerp;
-      aLerp += aLerpSpeed;
+    
+    while( isFading != 2 ) {
       yield return 0;
     }
+    
     cBack();
-    while( aLerp >= 0.0f ) {
-      camOverlay.intensity = aLerp;
-      aLerp -= aLerpSpeed;
-      yield return 0;
-    }
   }
+
 }
