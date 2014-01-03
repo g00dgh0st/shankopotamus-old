@@ -14,7 +14,7 @@ public class Game : MonoBehaviour {
   public static float aLerpSpeed;
   public static Texture2D blackTex;
   public static int isFading = 0;
-  
+
   public void Awake() { Application.targetFrameRate = 60; }
   
   public void Start() {

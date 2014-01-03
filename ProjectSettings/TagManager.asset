@@ -9,6 +9,9 @@ TagManager:
   - WPPathfinder
   - Room
   - Door
+  - ZoomClicker
+  - ZoomView
+  - 
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

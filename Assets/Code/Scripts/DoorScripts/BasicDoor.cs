@@ -18,15 +18,23 @@ public class BasicDoor : MonoBehaviour {
 
   public GameObject destDoor;
   public BasicDoorObj door;
+  
+  private Texture2D cursor;
 
   public void Awake() {
     Transform inBlock = transform.Find( "inBlocking" );
     Transform outBlock = transform.Find( "outBlocking" );
     
     door = new BasicDoorObj( destDoor, inBlock, outBlock );
+    cursor = Resources.Load( "Cursors/cursor_door" ) as Texture2D;
   }
 
   public void OnMouseOver() {
+    Cursor.SetCursor( cursor, Vector2.zero, CursorMode.Auto );
     if( Input.GetMouseButtonDown(0) ) Game.script.StartCoroutine( door.GoIn( destDoor ) );
   }
+  
+  public void OnMouseExit() {
+  		Cursor.SetCursor( null, Vector2.zero, CursorMode.Auto );
+	}
 }

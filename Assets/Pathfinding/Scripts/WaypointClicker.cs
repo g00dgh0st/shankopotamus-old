@@ -7,8 +7,11 @@ public class WaypointClicker : MonoBehaviour {
   public WaypointClicker sibling;
   public int siblingOrder;
   
+  private Texture2D cursor;
+  
   void Start() {
     waypoint = transform.parent.position;
+    cursor = Resources.Load( "Cursors/cursor_feet" ) as Texture2D;
   }
   
 	void OnMouseDown() {
@@ -26,5 +29,13 @@ public class WaypointClicker : MonoBehaviour {
       siblingOrder = sibling.siblingOrder;
       sibling.siblingOrder = tempOrder;
     }
+	}
+  
+  public void OnMouseOver() {
+    Cursor.SetCursor( cursor, Vector2.zero, CursorMode.Auto );
+  }
+  
+  public void OnMouseExit() {
+		Cursor.SetCursor( null, Vector2.zero, CursorMode.Auto );
 	}
 }
