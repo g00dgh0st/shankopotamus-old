@@ -21,8 +21,11 @@ public class Level {
   }
   
   public void MoveCamToNewRoom() {
-    currentRoom.SetActive( false );
-    currentRoom = destScript.transform.parent.gameObject;
+    GameObject newRoom = destScript.transform.parent.gameObject;
+    
+    if( newRoom != currentRoom ) currentRoom.SetActive( false );
+    
+    currentRoom = newRoom;
     Camera.main.transform.position = currentRoom.transform.Find( "CamTrans" ).position;
     switch( destScript.GetType().ToString() ) {
       case "BasicDoor":
