@@ -91,7 +91,8 @@ ModelImporter:
     4300014: legL
     4300016: armL
     4300018: handL
-    7400000: Take 001
+    7400000: Walk
+    7400002: Idle
     9500000: //RootNode
     11100000: //RootNode
     13700000: armL
@@ -114,11 +115,103 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: Walk
       takeName: Take 001
       firstFrame: 1
       lastFrame: 32
       wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: armL
+        weight: 1
+      - path: armR
+        weight: 1
+      - path: body
+        weight: 1
+      - path: footL
+        weight: 1
+      - path: footR
+        weight: 1
+      - path: handL
+        weight: 1
+      - path: handR
+        weight: 1
+      - path: head
+        weight: 1
+      - path: jointBody
+        weight: 1
+      - path: jointBody/joint12
+        weight: 1
+      - path: jointBody/jointArmL
+        weight: 1
+      - path: jointBody/jointArmL/joint2
+        weight: 1
+      - path: jointBody/jointArmL/joint2/joint3
+        weight: 1
+      - path: jointBody/jointArmL/joint2/joint3/joint4
+        weight: 1
+      - path: jointBody/jointArmL/joint2/joint3/joint4/joint5
+        weight: 1
+      - path: jointBody/jointArmR
+        weight: 1
+      - path: jointBody/jointArmR/joint2 1
+        weight: 1
+      - path: jointBody/jointArmR/joint2 1/joint3 1
+        weight: 1
+      - path: jointBody/jointArmR/joint2 1/joint3 1/joint4 1
+        weight: 1
+      - path: jointBody/jointArmR/joint2 1/joint3 1/joint4 1/joint5 1
+        weight: 1
+      - path: jointBody/jointLegL
+        weight: 1
+      - path: jointBody/jointLegL/joint7
+        weight: 1
+      - path: jointBody/jointLegL/joint7/joint8
+        weight: 1
+      - path: jointBody/jointLegL/joint7/joint8/joint9
+        weight: 1
+      - path: jointBody/jointLegL/joint7/joint8/joint9/joint10
+        weight: 1
+      - path: jointBody/jointLegR
+        weight: 1
+      - path: jointBody/jointLegR/joint7 1
+        weight: 1
+      - path: jointBody/jointLegR/joint7 1/joint8 1
+        weight: 1
+      - path: jointBody/jointLegR/joint7 1/joint8 1/joint9 1
+        weight: 1
+      - path: jointBody/jointLegR/joint7 1/joint8 1/joint9 1/joint10 1
+        weight: 1
+      - path: legL
+        weight: 1
+      - path: legR
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: .100000001
+      wrapMode: 8
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
