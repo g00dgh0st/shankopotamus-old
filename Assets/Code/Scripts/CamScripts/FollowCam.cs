@@ -6,24 +6,53 @@ public class FollowCam : MonoBehaviour {
   public Transform lBound;
   public Transform tBound;
   public Transform bBound;
-  public float yOff = 10;
+  public float yOff = 5f;
   
   private Transform playerTrans;
   private Camera cam;
+  private float camHalfWidth;
+  private float camHalfHeight;
 
   public void Start() {
     playerTrans = GameObject.FindGameObjectsWithTag( "Player" )[0].transform;
     cam = Camera.main;
+    camHalfWidth = cam.pixelWidth / 2f;
+    camHalfHeight = cam.pixelHeight / 2f;
   }
 
   public void Update() {
     Vector3 camPos = cam.transform.position;
     Vector3 playerPos = playerTrans.position;
-  
-    // if( !( ( rBound != null && cam.WorldToScreenPoint( rBound.position ).x <= cam.pixelWidth && playerPos.x > camPos.x ) || ( lBound != null && cam.WorldToScreenPoint( lBound.position ).x >= 0 && playerPos.x < camPos.x ) ) )
-      cam.transform.position = new Vector3( playerPos.x, cam.transform.position.y + yOff, cam.transform.position.z );
-        
-    // if( !( ( tBound != null && cam.WorldToScreenPoint( tBound.position ).y <= cam.pixelHeight && playerPos.y > camPos.y ) || ( bBound != null && cam.WorldToScreenPoint( bBound.position ).y >= 0 && playerPos.y < camPos.y ) ) )
-      cam.transform.position = new Vector3( cam.transform.position.x, playerPos.y + yOff, cam.transform.position.z );
+
+    // Screen coords of new point
+    Vector3 newPosScreen = cam.WorldToScreenPoint( new Vector3( playerPos.x, playerPos.y + yOff, camPos.z ) ); 
+    
+    // check left bound
+    if( lBound != null ) {
+      float camLOffset = cam.WorldToScreenPoint( lBound.position ).x - ( newPosScreen.x - camHalfWidth );
+      if( camLOffset > 0 ) newPosScreen = new Vector3( newPosScreen.x + camLOffset, newPosScreen.y, newPosScreen.z );
+    }
+    
+    // check right bound
+    if( rBound != null ) {
+      float camROffset = cam.WorldToScreenPoint( rBound.position ).x - ( newPosScreen.x + camHalfWidth );
+      if( camROffset < 0 ) newPosScreen = new Vector3( newPosScreen.x + camROffset, newPosScreen.y, newPosScreen.z );
+    }
+    
+    // check top bound
+    if( tBound != null ) {
+      float camTOffset = cam.WorldToScreenPoint( tBound.position ).y - ( newPosScreen.y + camHalfHeight );
+      if( camTOffset < 0 ) newPosScreen = new Vector3( newPosScreen.x, newPosScreen.y + camTOffset, newPosScreen.z );
+    }
+    
+    // check bottom bound
+    if( bBound != null ) {
+      float camBOffset = cam.WorldToScreenPoint( bBound.position ).y - ( newPosScreen.y - camHalfHeight );
+      if( camBOffset > 0 ) newPosScreen = new Vector3( newPosScreen.x, newPosScreen.y + camBOffset, newPosScreen.z );
+    }
+    
+    // assign new position
+    cam.transform.position = cam.ScreenToWorldPoint( newPosScreen );
   }
 }
+
