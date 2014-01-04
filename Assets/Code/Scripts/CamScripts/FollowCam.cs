@@ -8,6 +8,10 @@ public class FollowCam : MonoBehaviour {
   public Transform bBound;
   public float yOff = 5f;
   
+  // TODO have the script resize these things for the room
+  public Vector3 playerScale;
+  public float cameraSize;
+  
   private Transform playerTrans;
   private Camera cam;
   private float camHalfWidth;
@@ -55,4 +59,5 @@ public class FollowCam : MonoBehaviour {
     cam.transform.position = cam.ScreenToWorldPoint( newPosScreen );
   }
 }
+
 
