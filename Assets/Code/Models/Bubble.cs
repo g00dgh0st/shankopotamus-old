@@ -22,7 +22,7 @@ public class Bubble {
     Vector3 bubPos = Camera.main.WorldToScreenPoint( trans.position );
     Vector2 txtSize = GUI.skin.GetStyle( "Box" ).CalcSize( new GUIContent( text ) );
     
-    return new Rect( bubPos.x, bubPos.y, txtSize.x, txtSize.y );
+    return new Rect( bubPos.x - ( txtSize.x / 2 ), Camera.main.pixelHeight - bubPos.y - txtSize.y, txtSize.x, txtSize.y );
   }
   
 }
