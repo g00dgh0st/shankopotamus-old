@@ -43,6 +43,7 @@ GameObject:
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400004}
+  - 114: {fileID: 11400056}
   m_Layer: 0
   m_Name: Level_1
   m_TagString: Untagged
@@ -339,7 +340,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400042}
   - 212: {fileID: 21200012}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: L01_CellBars_closed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +372,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400046}
   - 212: {fileID: 21200014}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: L01_Cell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +388,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400048}
   - 114: {fileID: 11400010}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Zoom_Cell4
   m_TagString: ZoomView
   m_Icon: {fileID: 0}
@@ -1817,7 +1818,7 @@ Transform:
   m_GameObject: {fileID: 100048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 92.8610992, y: -52.4364204, z: 0}
-  m_LocalScale: {x: 2.17681789, y: 2.17681789, z: 2.17681789}
+  m_LocalScale: {x: 1.53652394, y: 1.53652394, z: 1.53652394}
   m_Children:
   - {fileID: 400046}
   - {fileID: 400042}
@@ -2174,7 +2175,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.031353, y: .817552567, z: -1}
+  m_LocalPosition: {x: -3.09053135, y: .817552567, z: -1}
   m_LocalScale: {x: 1.38414204, y: 1.38414204, z: 1.38414204}
   m_Children: []
   m_Father: {fileID: 400076}
@@ -2495,7 +2496,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.9132233, y: 13.6018181, z: 0}
+  m_LocalPosition: {x: 12.9132233, y: 11.3317223, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400144}
@@ -3139,6 +3140,8 @@ MonoBehaviour:
   tBound: {fileID: 0}
   bBound: {fileID: 0}
   yOff: 3.5
+  playerScale: {x: 0, y: 0, z: 0}
+  cameraSize: 0
 --- !u!114 &11400040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3167,6 +3170,8 @@ MonoBehaviour:
   tBound: {fileID: 400162}
   bBound: {fileID: 400184}
   yOff: 2
+  playerScale: {x: 0, y: 0, z: 0}
+  cameraSize: 0
 --- !u!114 &11400044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3207,6 +3212,8 @@ MonoBehaviour:
   tBound: {fileID: 0}
   bBound: {fileID: 0}
   yOff: 3.5
+  playerScale: {x: 0, y: 0, z: 0}
+  cameraSize: 0
 --- !u!114 &11400050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3243,6 +3250,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destDoor: {fileID: 100118}
+--- !u!114 &11400056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5b146ec7a914e988711abcf3ddafa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
