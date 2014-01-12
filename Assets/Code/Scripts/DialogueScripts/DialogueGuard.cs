@@ -13,7 +13,7 @@ public class DialogueGuard : MonoBehaviour {
   
   public void OnMouseUp() {
     if( bub != null ) Game.dialogue.ClearBubble( bub );
-    bub = Game.dialogue.ShowBubble( "Hello, mang.", headTrans );
+    bub = Game.dialogue.ShowBubble( "Hello, mang.", headTrans, 5f );
   }
   
   public void OnMouseOver() {
