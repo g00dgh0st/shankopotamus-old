@@ -4,7 +4,7 @@ using System.Collections;
 public class Game : MonoBehaviour {
   public static Player player;
   public static Level level;
-  public static Dialogue dialogue;
+  public static DialogueManager dialogueManager;
   public static MonoBehaviour script;
   
   public string levelName;
@@ -21,7 +21,7 @@ public class Game : MonoBehaviour {
   public void Start() {
     player = (Player)GameObject.FindGameObjectsWithTag( "Player" )[0].GetComponent( "Player" );
     level = new Level( levelName, startRoom );
-    dialogue = gameObject.GetComponent( "Dialogue" ) as Dialogue;
+    dialogueManager = gameObject.GetComponent( "DialogueManager" ) as DialogueManager;
     script = this;
     
     aLerp = 0.0f;

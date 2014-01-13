@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Dialogue : MonoBehaviour {
+public class DialogueManager : MonoBehaviour {
   
   private ArrayList bubbleList;
   
@@ -10,20 +10,34 @@ public class Dialogue : MonoBehaviour {
   }
 
   public void OnGUI() {
-    ArrayList deletes = new ArrayList();
+    
+    
+    
+    
+    
+    // speech bubble handling
+    ArrayList bubDeletes = new ArrayList();
     
     foreach( Bubble bub in bubbleList ) {
       GUI.Box( bub.GetRect(), bub.text );
       
       if( bub.time < 999f ) {
         bub.time -= Time.deltaTime;
-        if( bub.time <= 0f ) deletes.Add( bub );
+        if( bub.time <= 0f ) bubDeletes.Add( bub );
       } 
     }
     
-    foreach( Bubble bub in deletes ) bubbleList.Remove( bub );
+    foreach( Bubble bub in bubDeletes ) bubbleList.Remove( bub );
   }
   
+  // dialogue functions
+  public void StartDialogue(  ) {
+    
+  }
+  
+  
+  
+  // speech bubble functions
   public Bubble ShowBubble( string tx, Transform tr ) {
     Bubble bub = new Bubble( tx, tr );
     bubbleList.Add( bub );
