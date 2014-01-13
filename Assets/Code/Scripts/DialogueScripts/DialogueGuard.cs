@@ -7,6 +7,7 @@ public class DialogueGuard : MonoBehaviour {
   private Transform headTrans;
   private Bubble bub;
   
+  // Begin Dialogue
   public Dialogue dialogue = new Dialogue(
     
     // Begin Steps
