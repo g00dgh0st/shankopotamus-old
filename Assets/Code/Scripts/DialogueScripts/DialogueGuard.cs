@@ -8,18 +8,26 @@ public class DialogueGuard : MonoBehaviour {
   private Bubble bub;
   
   public Dialogue dialogue = new Dialogue(
+    
+    // Begin Steps
     new Step[1] {
       
-      new Step( // begin step 1
+      // Step 1
+      new Step( 
         "Hello",
-          new Option[1] {
-            new Option(
-              "I don't want to talk to you",
-              delegate() { Debug.Log( "Hello" ); }
-            )
-          }
-      ) // end step 1
-    }
+          
+        // Begin Options
+        new Option[1] {
+          
+          // Option 1
+          new Option(
+            "I don't want to talk to you",
+            delegate() { Debug.Log( "Hello" ); }
+          )
+        } // End Options
+      ) 
+      
+    } // End Steps
   );
   
   
