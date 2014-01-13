@@ -7,20 +7,20 @@ public class DialogueGuard : MonoBehaviour {
   private Transform headTrans;
   private Bubble bub;
   
-  // public Dialogue dialogue = new Dialogue(
-  //   new Step[1] {
-  //     
-  //     new Step( // begin step 1
-  //       "Hello",
-  //         new Option[1] {
-  //           new Option(
-  //             "I don't want to talk to you",
-  //             delegate() { Debug.Log( "Hello" ); }
-  //           )
-  //         }
-  //     ) // end step 1
-  //   }
-  // );
+  public Dialogue dialogue = new Dialogue(
+    new Step[1] {
+      
+      new Step( // begin step 1
+        "Hello",
+          new Option[1] {
+            new Option(
+              "I don't want to talk to you",
+              delegate() { Debug.Log( "Hello" ); }
+            )
+          }
+      ) // end step 1
+    }
+  );
   
   
   
