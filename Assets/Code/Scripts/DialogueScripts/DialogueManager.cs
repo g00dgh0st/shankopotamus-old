@@ -33,9 +33,7 @@ public class DialogueManager : MonoBehaviour {
         if( dialogueFadeCounter > 0f ) {
           dialogueFadeCounter -= Time.deltaTime;
         } else {
-          dialogueFadeCounter = 999f;
-          currentStep = null;
-          currentDialogue = null;
+          CleanUpDialogue();
         }
       }
       
@@ -59,6 +57,7 @@ public class DialogueManager : MonoBehaviour {
   // dialogue functions
   public void StartDialogue( Dialogue dlg ) {
     Game.PauseClicks();
+    dialogueFadeCounter = 999f;
     currentDialogue = dlg;
     currentStep = currentDialogue.StartDialogue();
     if( currentStep.action != null ) currentStep.action();
@@ -76,9 +75,13 @@ public class DialogueManager : MonoBehaviour {
   
   public void ImmediateStopDialogue() {
     Game.ResumeClicks();
+    CleanUpDialogue();
+  }
+  
+  public void CleanUpDialogue() {
+    dialogueFadeCounter = 999f;
     currentStep = null;
     currentDialogue = null;
-    dialogueFadeCounter = 999f;
   }
   
   // speech bubble functions
