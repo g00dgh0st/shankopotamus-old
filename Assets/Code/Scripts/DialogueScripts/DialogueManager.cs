@@ -5,14 +5,17 @@ public class DialogueManager : MonoBehaviour {
   
   private ArrayList bubbleList;
   
+  private Step currentStep;
+  
   public void Start() {
     bubbleList = new ArrayList();
   }
 
   public void OnGUI() {
     
-    
-    
+    if( currentStep != null ) {
+      GUI.Box( new Rect( 0, 0, Screen.width, Screen.height / 5 ), currentStep.text );
+    }
     
     
     // speech bubble handling
@@ -31,11 +34,9 @@ public class DialogueManager : MonoBehaviour {
   }
   
   // dialogue functions
-  public void StartDialogue(  ) {
-    
+  public void StartDialogue( Dialogue dlg ) {
+    currentStep = dlg.GetFirstStep();
   }
-  
-  
   
   // speech bubble functions
   public Bubble ShowBubble( string tx, Transform tr ) {
