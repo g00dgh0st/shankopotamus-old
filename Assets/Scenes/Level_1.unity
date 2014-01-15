@@ -2691,8 +2691,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 517710391}
   - 114: {fileID: 517710394}
-  - 114: {fileID: 517710393}
-  - 114: {fileID: 517710392}
   - 114: {fileID: 517710395}
   m_Layer: 0
   m_Name: Level_1
@@ -2723,31 +2721,6 @@ Transform:
   - {fileID: 253408973}
   - {fileID: 1034400797}
   m_Father: {fileID: 0}
---- !u!114 &517710392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400004, guid: de0206bcf228e44e0b60ae97e31c4151,
-    type: 2}
-  m_PrefabInternal: {fileID: 710575738}
-  m_GameObject: {fileID: 517710390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 271bae1fbcb4e40689f4400eaea25118, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &517710393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400006, guid: de0206bcf228e44e0b60ae97e31c4151,
-    type: 2}
-  m_PrefabInternal: {fileID: 710575738}
-  m_GameObject: {fileID: 517710390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25909b71ae8b44d729c2f69337f3b654, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blackPxl: {fileID: 0}
 --- !u!114 &517710394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4094,7 +4067,9 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11400006, guid: de0206bcf228e44e0b60ae97e31c4151, type: 2}
+    - {fileID: 11400004, guid: de0206bcf228e44e0b60ae97e31c4151, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: de0206bcf228e44e0b60ae97e31c4151, type: 2}
   m_RootGameObject: {fileID: 517710390}
   m_IsPrefabParent: 0
