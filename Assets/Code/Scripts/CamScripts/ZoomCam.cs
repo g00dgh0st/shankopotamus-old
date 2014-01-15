@@ -10,6 +10,7 @@ public class ZoomCam : MonoBehaviour {
       Blur camBlur = Camera.main.GetComponent( "Blur" ) as Blur;
       camBlur.enabled = false;
       gameObject.SetActive( false );
+      Game.ResumeClicks();
     }
   }
 }

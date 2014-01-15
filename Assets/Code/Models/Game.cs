@@ -47,7 +47,7 @@ public class Game : MonoBehaviour {
       Game.isFading = 0;
     }
   }
-  
+    
   public IEnumerator DelayFadeIn( float delay ) {
     yield return new WaitForSeconds( delay );
     Game.isFading = 2;
@@ -66,6 +66,14 @@ public class Game : MonoBehaviour {
     }
     
     cBack();
+  }
+  
+  public static void PauseClicks() {
+    Camera.main.transform.Find( "ClickOverlay" ).gameObject.SetActive( true );
+  }
+  
+  public static void ResumeClicks() {
+    Camera.main.transform.Find( "ClickOverlay" ).gameObject.SetActive( false );
   }
 
 }

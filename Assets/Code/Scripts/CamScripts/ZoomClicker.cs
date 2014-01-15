@@ -22,6 +22,7 @@ public class ZoomClicker : MonoBehaviour {
     zoomView.transform.position = new Vector3( camPos.x, camPos.y, -9 );
     camBlur.enabled = true;
     zoomCam.SetActive( true );
+    Game.PauseClicks();
   }
   
   public void OnMouseOver() {

@@ -14,9 +14,28 @@ public class Option {
     action = a;
   }
   
+  public Option( string t, int idx ) {
+    text = t;
+    if( idx >= 0 ) {
+      action = delegate() { Game.dialogueManager.ChangeStep( idx ); };
+    } else {
+      action = delegate() { Game.dialogueManager.ImmediateStopDialogue(); };
+    }
+  }
+  
   public Option( string t, Callback a, Condition c ) {
     text = t;
     action = a;
+    condition = c;
+  }
+  
+  public Option( string t, int idx, Condition c ) {
+    text = t;
+    if( idx >= 0 ) {
+      action = delegate() { Game.dialogueManager.ChangeStep( idx ); };
+    } else {
+      action = delegate() { Game.dialogueManager.ImmediateStopDialogue(); };
+    }
     condition = c;
   }
 }
