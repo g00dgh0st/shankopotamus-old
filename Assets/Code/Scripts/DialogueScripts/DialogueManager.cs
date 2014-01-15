@@ -24,7 +24,7 @@ public class DialogueManager : MonoBehaviour {
       
       if( opts != null ) {
         for( int i=0; i < opts.Length; i++ ) {
-          if( GUI.Button( new Rect( 0, Screen.height - 30 - ( ( opts.Length - i - 1 ) * 35 ), Screen.width, 30 ), opts[i].text ) ) 
+          if( ( opts[i].condition == null || opts[i].condition() ) && GUI.Button( new Rect( 0, Screen.height - 30 - ( ( opts.Length - i - 1 ) * 35 ), Screen.width, 30 ), opts[i].text ) ) 
             opts[i].action();
         }
       }

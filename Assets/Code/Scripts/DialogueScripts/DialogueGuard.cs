@@ -48,7 +48,7 @@ public class DialogueGuard : MonoBehaviour {
         new Step( "Hello.",
           new Option[3] {
             new Option( "I don't want to talk to you.", 1 ),
-            new Option( "How come you aren't animated?", 2 ),
+            new Option( "How come you aren't animated?", 2, delegate() { return !(bool)dialogue.flags["isAngry"]; } ),
             new Option( "I have to go.", -1 )
           }
         ),
@@ -74,5 +74,4 @@ public class DialogueGuard : MonoBehaviour {
       } 
     );
   }
-
 }
