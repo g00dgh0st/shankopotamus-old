@@ -6,18 +6,28 @@ public class DialogueGuard : MonoBehaviour {
   public Texture2D cursor;
   
   private DialogueManager DM;
+  
+  private Bubble bub;
+  private Transform bubbleTrans;
 
   // Begin Dialogue
   public Dialogue dialogue;
 
   public void Start() {
     DM = Game.dialogueManager;
+    
+    bubbleTrans = transform.Find("BubbleTrans");
   
     SetupDialogue();    
   }
   
   public void OnMouseUp() {
-    Game.dialogueManager.StartDialogue( dialogue );
+    if( (bool)dialogue.flags["isAngry"] ) {
+      if( bub != null ) Game.dialogueManager.ClearBubble( bub );
+      bub = Game.dialogueManager.ShowBubble( "You made me angry. Go away.", bubbleTrans, 5f );
+    } else
+      Game.dialogueManager.StartDialogue( dialogue );
+    
   }
   
   public void OnMouseOver() {
@@ -35,14 +45,17 @@ public class DialogueGuard : MonoBehaviour {
     Hashtable flags = new Hashtable();
     flags.Add( "isAngry", false );
     
-    dialogue = new Dialogue( flags );
+    dialogue = new Dialogue( flags, gameObject );
     
     dialogue.StartDialogue = delegate() {
-      return dialogue.steps[0];
+      if( (bool)dialogue.flags["isAngry"] )
+        return dialogue.steps[5];
+      else
+        return dialogue.steps[0];
     };
     
     dialogue.SetSteps(
-    new Step[5] {
+    new Step[6] {
       
         // Step 0
         new Step( "Hello.",
@@ -70,7 +83,8 @@ public class DialogueGuard : MonoBehaviour {
           delegate() { dialogue.flags["isAngry"] = true; }    
         ),
         // Step 4
-        new Step( "Well next time, shut up.", delegate() { DM.StopDialogue(); } )
+        new Step( "Well next time, shut up.", delegate() { DM.StopDialogue(); } ),
+        new Step( "You made me angry. Go Away.", delegate() { DM.StopDialogue(); } )
       } 
     );
   }

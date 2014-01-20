@@ -7,42 +7,74 @@ public class DialogueManager : MonoBehaviour {
   
   private Step currentStep;
   private Dialogue currentDialogue;
-  private float dialogueFadeCounter = 999f;
+  private bool showOptions;
+  private bool queueStop;
+  private string ctdText = "...";
+  private int paceCounter = 0;
+  private string displayText;
+  
+  public GUIStyle dialogPromptStyle;
+  public GUIStyle dialogButtonStyle;
+  public GUIStyle dialogueContinueStyle;
+  public GUIStyle dialogueContinueTextStyle;
+  
+  public GUIStyle speechBubbleStyle;
   
   public void Start() {
     bubbleList = new ArrayList();
   }
 
   public void OnGUI() {
-    
+    if( paceCounter >= 5000 ) paceCounter = 0;
+    else paceCounter++;
     
     if( currentStep != null ) {
       // Dialogue handling
-      GUI.Box( new Rect( 0, 0, Screen.width, Screen.height / 5 ), currentStep.text );
+      
+      // Speaker cam, show text for time
+      if( !showOptions ) {
+        GUI.Box( new Rect( 0, 0, Screen.width, Screen.height / 5 ), displayText, dialogPromptStyle );
 
-      Option[] opts = currentStep.options;
-      
-      if( opts != null ) {
-        for( int i=0; i < opts.Length; i++ ) {
-          if( ( opts[i].condition == null || opts[i].condition() ) && GUI.Button( new Rect( 0, Screen.height - 30 - ( ( opts.Length - i - 1 ) * 35 ), Screen.width, 30 ), opts[i].text ) ) 
-            opts[i].action();
-        }
-      }
-      
-      if( dialogueFadeCounter < 999f ) {
-        if( dialogueFadeCounter > 0f ) {
-          dialogueFadeCounter -= Time.deltaTime;
+        if( displayText.Length < currentStep.text.Length ) {
+          if( paceCounter % 3 == 0 ) displayText = currentStep.text.Substring( 0, displayText.Length + 1 );
         } else {
-          CleanUpDialogue();
+          if( paceCounter % 50 == 0 )
+            if( ctdText.Length < 3 ) ctdText += ".";
+            else ctdText = ".";
+        
+          GUI.Box( new Rect( 0, 0, Screen.width, Screen.height / 5 ), ctdText, dialogueContinueTextStyle );
+        }
+        
+        if( GUI.Button( new Rect( 0, 0, Screen.width, Screen.height ), "", dialogueContinueStyle ) ) {
+          if( !showOptions ) {
+            showOptions = true;
+            TargetCamera( Game.player.transform.Find( "HeadTrans" ) );
+          }
+          if( queueStop ) {
+            queueStop = false;
+            TrueStopDialogue();
+          }
+        }
+        
+      } else {
+        // Player cam, show options
+        Option[] opts = currentStep.options;
+        if( opts != null ) {
+          for( int i=0; i < opts.Length; i++ ) {
+            if( ( opts[i].condition == null || opts[i].condition() ) && GUI.Button( new Rect( 0, 0 + ( i  * 30 ), Screen.width, 30 ), opts[i].text, dialogButtonStyle ) ) 
+              opts[i].action();
+          }
         }
       }
-      
-    } else {
+
+
+    } else if( bubbleList.Count > 0 ){
       // Speech Bubble handling
+      
       ArrayList bubDeletes = new ArrayList();
   
       foreach( Bubble bub in bubbleList ) {
-        GUI.Box( bub.GetRect(), bub.text );
+        GUI.Box( bub.GetRect(), bub.text, speechBubbleStyle );
     
         if( bub.time < 999f ) {
           bub.time -= Time.deltaTime;
@@ -57,32 +89,51 @@ public class DialogueManager : MonoBehaviour {
   // dialogue functions
   public void StartDialogue( Dialogue dlg ) {
     Game.PauseClicks();
-    dialogueFadeCounter = 999f;
+    Game.PauseCam();
+    
+    showOptions = false;
+    queueStop = false;
+    displayText = "";
+
     currentDialogue = dlg;
     currentStep = currentDialogue.StartDialogue();
     if( currentStep.action != null ) currentStep.action();
+    
+    Camera.main.orthographicSize = 2f;
+    
+    TargetCamera( currentDialogue.speaker.transform.Find( "HeadTrans" ) );
   }
   
   public void ChangeStep( int idx ) {
+    showOptions = false;
+    displayText = "";
+
     currentStep = currentDialogue.steps[idx];
     if( currentStep.action != null ) currentStep.action();
+    
+    TargetCamera( currentDialogue.speaker.transform.Find( "HeadTrans" ) );
   }
   
   public void StopDialogue() {
-    Game.ResumeClicks();
-    dialogueFadeCounter = 5.0f;
+    queueStop = true;
   }
   
   public void ImmediateStopDialogue() {
+    TrueStopDialogue();
+  }
+  
+  private void TrueStopDialogue() {
     Game.ResumeClicks();
+    Game.ResumeCam();
     CleanUpDialogue();
   }
   
-  public void CleanUpDialogue() {
-    dialogueFadeCounter = 999f;
+  private void CleanUpDialogue() {
     currentStep = null;
     currentDialogue = null;
   }
+  // end dialogue functions
+  
   
   // speech bubble functions
   public Bubble ShowBubble( string tx, Transform tr ) {
@@ -99,6 +150,13 @@ public class DialogueManager : MonoBehaviour {
   
   public void ClearBubble( Bubble bub ) {
     bubbleList.Remove( bub );
+  }
+  // end speech bubble functions
+  
+  
+  // cam targeting
+  private void TargetCamera( Transform t ) {
+    Camera.main.transform.position = new Vector3( t.position.x, t.position.y, -10f );
   }
 }
 

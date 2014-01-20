@@ -20,7 +20,7 @@ public class Bubble {
   
   public Rect GetRect() {
     Vector3 bubPos = Camera.main.WorldToScreenPoint( trans.position );
-    Vector2 txtSize = GUI.skin.GetStyle( "Box" ).CalcSize( new GUIContent( text ) );
+    Vector2 txtSize = Game.dialogueManager.speechBubbleStyle.CalcSize( new GUIContent( text ) );
     
     return new Rect( bubPos.x - ( txtSize.x / 2 ), Camera.main.pixelHeight - bubPos.y - txtSize.y, txtSize.x, txtSize.y );
   }

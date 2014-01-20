@@ -6,10 +6,12 @@ public class Dialogue {
   
   public Step[] steps;                // List of Steps for this Dialogue
   public Hashtable flags;             // Hashtable of string keys with boolean values 
+  public GameObject speaker;          // GO of the speaker character 
   public StartFunc StartDialogue;     // Function that handles starting the dialogue and loading the first Step
   
-  public Dialogue( Hashtable f ) {
+  public Dialogue( Hashtable f, GameObject s ) {
     flags = f;
+    speaker = s;
   }
 
   public void SetSteps( Step[] s ) {
