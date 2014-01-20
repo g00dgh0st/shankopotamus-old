@@ -61,7 +61,7 @@ public class DialogueManager : MonoBehaviour {
         Option[] opts = currentStep.options;
         if( opts != null ) {
           for( int i=0; i < opts.Length; i++ ) {
-            if( ( opts[i].condition == null || opts[i].condition() ) && GUI.Button( new Rect( 0, 0 + ( i  * 30 ), Screen.width, 30 ), opts[i].text, dialogButtonStyle ) ) 
+            if( ( opts[i].condition == null || opts[i].condition() ) && GUI.Button( new Rect( 0, 0 + ( i  * 30 ), Screen.width, 30 ), "• " + opts[i].text, dialogButtonStyle ) ) 
               opts[i].action();
           }
         }
