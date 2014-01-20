@@ -70,12 +70,12 @@ public class DialogueGuard : MonoBehaviour {
         // Step 2
         new Step( "Animation takes a lot of time. And the guy who made this is lazy.",
           new Option[2] {
-            new Option( "That sounds like a cop out.", 3 ),
+            new Option( "That's a dumb excuse. ", 3 ),
             new Option( "I need to leave.", -1 )
           }
         ),
         // Step 3
-        new Step( "You're a cop out! Now I'm angry!",
+        new Step( "You're a dumb excuse! Now I'm angry!",
           new Option[2] {
             new Option( "Sorry, didn't mean to offend you.", 4 ),
             new Option( "Ok bye.", -1 )
