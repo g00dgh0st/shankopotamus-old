@@ -33,7 +33,7 @@ public class DialogueManager : MonoBehaviour {
       
       // Speaker cam, show text for time
       if( !showOptions ) {
-        GUI.Box( new Rect( 0, 0, Screen.width, Screen.height / 5 ), displayText, dialogPromptStyle );
+        GUI.Box( new Rect( 0, 0, Screen.width, Screen.height / 6 ), displayText, dialogPromptStyle );
 
         if( displayText.Length < currentStep.text.Length ) {
           // animate step text
@@ -44,17 +44,22 @@ public class DialogueManager : MonoBehaviour {
             if( ctdText.Length < 3 ) ctdText += ".";
             else ctdText = ".";
         
-          GUI.Box( new Rect( 0, 0, Screen.width, Screen.height / 5 ), ctdText, dialogueContinueTextStyle );
+          GUI.Box( new Rect( 0, 0, Screen.width, Screen.height / 6 ), ctdText, dialogueContinueTextStyle );
         }
         
+        // invisible button to continue dialogue
         if( GUI.Button( new Rect( 0, 0, Screen.width, Screen.height ), "", dialogueContinueStyle ) ) {
-          if( !showOptions && displayText.Length == currentStep.text.Length ) {
-            showOptions = true;
-            TargetCamera( Game.player.transform.Find( "HeadTrans" ) );
-          } else if( displayText.Length < currentStep.text.Length ) displayText = currentStep.text;
-          if( queueStop ) {
-            queueStop = false;
-            TrueStopDialogue();
+          if( displayText.Length == currentStep.text.Length ) {
+            if( !showOptions ) {
+              showOptions = true;
+              TargetCamera( Game.player.transform.Find( "HeadTrans" ) );
+            } 
+            if( queueStop ) {
+              queueStop = false;
+              TrueStopDialogue();
+            }
+          } else {
+            displayText = currentStep.text;
           }
         }
         
@@ -68,8 +73,7 @@ public class DialogueManager : MonoBehaviour {
           }
         }
       }
-
-
+      // end dialogue handling
     } else if( bubbleList.Count > 0 ){
       // Speech Bubble handling
       
@@ -85,6 +89,7 @@ public class DialogueManager : MonoBehaviour {
       }
   
       foreach( Bubble bub in bubDeletes ) bubbleList.Remove( bub );
+      // end speech bubble handling
     }
   }
   
