@@ -5,7 +5,9 @@ public class Game : MonoBehaviour {
   public static Player player;
   public static Level level;
   public static DialogueManager dialogueManager;
+  public static Inventory inventory;
   public static MonoBehaviour script;
+  
   
   public string levelName;
   public GameObject startRoom;
@@ -22,6 +24,7 @@ public class Game : MonoBehaviour {
     player = (Player)GameObject.FindGameObjectsWithTag( "Player" )[0].GetComponent( "Player" );
     level = new Level( levelName, startRoom );
     dialogueManager = gameObject.GetComponent( "DialogueManager" ) as DialogueManager;
+    inventory = gameObject.GetComponent( "Inventory" ) as Inventory;
     script = this;
     
     aLerp = 0.0f;
