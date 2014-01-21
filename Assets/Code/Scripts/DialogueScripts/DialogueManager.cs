@@ -36,9 +36,11 @@ public class DialogueManager : MonoBehaviour {
         GUI.Box( new Rect( 0, 0, Screen.width, Screen.height / 5 ), displayText, dialogPromptStyle );
 
         if( displayText.Length < currentStep.text.Length ) {
+          // animate step text
           if( paceCounter % 3 == 0 ) displayText = currentStep.text.Substring( 0, displayText.Length + 1 );
-        } else {
-          if( paceCounter % 50 == 0 )
+        } else { 
+          // animate ellipsis
+          if( paceCounter % 40 == 0 )
             if( ctdText.Length < 3 ) ctdText += ".";
             else ctdText = ".";
         
@@ -46,10 +48,10 @@ public class DialogueManager : MonoBehaviour {
         }
         
         if( GUI.Button( new Rect( 0, 0, Screen.width, Screen.height ), "", dialogueContinueStyle ) ) {
-          if( !showOptions ) {
+          if( !showOptions && displayText.Length == currentStep.text.Length ) {
             showOptions = true;
             TargetCamera( Game.player.transform.Find( "HeadTrans" ) );
-          }
+          } else if( displayText.Length < currentStep.text.Length ) displayText = currentStep.text;
           if( queueStop ) {
             queueStop = false;
             TrueStopDialogue();

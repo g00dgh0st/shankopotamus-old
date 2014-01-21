@@ -77,14 +77,14 @@ public class Game : MonoBehaviour {
   }
   
   public static void PauseCam() {
-    foreach( Parallax p in FindObjectsOfType( typeof( Parallax ) ) ) p.enabled = false;
     Game.level.currentRoom.transform.Find( "CamTrans" ).gameObject.SetActive( false );
+    foreach( Parallax p in FindObjectsOfType( typeof( Parallax ) ) ) p.enabled = false;
   }
   
   public static void ResumeCam() {
     Camera.main.orthographicSize = 5f;
-    foreach( Parallax p in FindObjectsOfType( typeof( Parallax ) ) ) p.enabled = true;
     Game.level.currentRoom.transform.Find( "CamTrans" ).gameObject.SetActive( true );
+    foreach( Parallax p in FindObjectsOfType( typeof( Parallax ) ) ) p.enabled = true;
   }
 
 }
