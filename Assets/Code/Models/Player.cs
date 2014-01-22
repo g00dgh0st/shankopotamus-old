@@ -16,7 +16,7 @@ public class Player : Pathfinding {
     if( Path.Count > 0 ) {
       transform.localScale = new Vector3( direction, 1, 1 );
       Move();
-      if( !anim.IsPlaying( "Walk" ) ) anim.CrossFade( "Walk", 0.3f );
+      if( !anim.IsPlaying( "Walk" ) ) anim.CrossFade( "Walk", 0.2f );
     } else {
       if( !anim.IsPlaying( "Idle" ) ) anim.CrossFade( "Idle", 0.3f );
     }

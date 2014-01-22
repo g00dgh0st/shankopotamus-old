@@ -14,7 +14,12 @@ public class DialogueGuard2 : MonoBehaviour {
   
   public void OnMouseUp() {
     if( bub != null ) Game.dialogueManager.ClearBubble( bub );
-    bub = Game.dialogueManager.ShowBubble( "Don't touch me.", headTrans, 5f );
+    
+    if( Game.inventory.currentItem != null && Game.inventory.currentItem.name == "CakeBot" ) {
+      bub = Game.dialogueManager.ShowBubble( "Thanks, I've always wanted a robot", headTrans, 5f );
+      Game.inventory.RemoveItem( Game.inventory.currentItem );
+    } else
+      bub = Game.dialogueManager.ShowBubble( "Don't touch me.", headTrans, 5f );
   }
   
   public void OnMouseOver() {
