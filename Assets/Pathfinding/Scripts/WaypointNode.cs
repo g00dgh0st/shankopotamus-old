@@ -49,7 +49,7 @@ public class WaypointNode : MonoBehaviour
       {
       		position = gameObject.transform.position;
           Gizmos.color = (isActive) ? Color.yellow : Color.red;
-          Gizmos.DrawCube(position, new Vector3(0.5f, 0.5f, 0.5f));
+          Gizmos.DrawCube(position, new Vector3(0.1f, 0.1f, 0.1f));
 
           foreach (WaypointNode n in neighbors)
           {

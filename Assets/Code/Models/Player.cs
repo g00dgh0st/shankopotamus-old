@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Player : Pathfinding {
   public bool canMove = true;
-  public float moveSpeed = 1;
+  public float moveSpeed = 0.25f;
   
   private Animation anim;
   
