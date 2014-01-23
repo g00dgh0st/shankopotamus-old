@@ -85,7 +85,7 @@ public class Game : MonoBehaviour {
   }
   
   public static void ResumeCam() {
-    Camera.main.orthographicSize = 5f;
+    Camera.main.orthographicSize = 1f;
     Game.level.currentRoom.transform.Find( "CamTrans" ).gameObject.SetActive( true );
     foreach( Parallax p in FindObjectsOfType( typeof( Parallax ) ) ) p.enabled = true;
   }

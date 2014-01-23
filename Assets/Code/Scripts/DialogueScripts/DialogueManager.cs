@@ -106,7 +106,7 @@ public class DialogueManager : MonoBehaviour {
     currentStep = currentDialogue.StartDialogue();
     if( currentStep.action != null ) currentStep.action();
     
-    Camera.main.orthographicSize = 2f;
+    Camera.main.orthographicSize = 0.4f;
     
     TargetCamera( currentDialogue.speaker.transform.Find( "HeadTrans" ) );
   }
