@@ -12,7 +12,7 @@ public class DialogueGuard2 : MonoBehaviour {
     headTrans = gameObject.transform.Find( "HeadTrans" ) as Transform;
   }
   
-  public void OnMouseUp() {
+  public void OnClick() {
     if( bub != null ) Game.dialogueManager.ClearBubble( bub );
     
     if( Game.inventory.currentItem != null && Game.inventory.currentItem.name == "CakeBot" ) {
@@ -22,12 +22,11 @@ public class DialogueGuard2 : MonoBehaviour {
       bub = Game.dialogueManager.ShowBubble( "Don't touch me.", headTrans, 5f );
   }
   
-  public void OnMouseOver() {
-    Cursor.SetCursor( cursor, new Vector2( 10, 10 ), CursorMode.Auto );
+  public void OnHover( bool isOver ) {
+    if( isOver )
+      Cursor.SetCursor( cursor, new Vector2( 10, 10 ), CursorMode.Auto );
+    else
+  		Cursor.SetCursor( null, Vector2.zero, CursorMode.Auto );
   }
-  
-  public void OnMouseExit() {
-		Cursor.SetCursor( null, Vector2.zero, CursorMode.Auto );
-	}
 
 }

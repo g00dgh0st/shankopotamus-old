@@ -253,7 +253,7 @@ public class UICamera : MonoBehaviour
 	/// about what was actually hit in your OnClick, OnHover, and other event functions.
 	/// </summary>
 
-	static public RaycastHit lastHit;
+	static public RaycastHit2D lastHit;
 
 	/// <summary>
 	/// UICamera that sent out the event.
@@ -550,18 +550,18 @@ public class UICamera : MonoBehaviour
 	struct DepthEntry
 	{
 		public int depth;
-		public RaycastHit hit;
+		public RaycastHit2D hit;
 	}
 
 	static DepthEntry mHit = new DepthEntry();
 	static BetterList<DepthEntry> mHits = new BetterList<DepthEntry>();
-	static RaycastHit mEmpty = new RaycastHit();
+	static RaycastHit2D mEmpty = new RaycastHit2D();
 
 	/// <summary>
 	/// Returns the object under the specified position.
 	/// </summary>
 
-	static public bool Raycast (Vector3 inPos, out RaycastHit hit)
+	static public bool Raycast (Vector3 inPos, out RaycastHit2D hit)
 	{
 		for (int i = 0; i < list.size; ++i)
 		{
@@ -587,7 +587,8 @@ public class UICamera : MonoBehaviour
 
 			if (cam.eventType == EventType.World)
 			{
-				if (Physics.Raycast(ray, out hit, dist, mask))
+        hit = Physics2D.Raycast (ray.origin, ray.direction, dist, mask);
+        if (hit.collider != null)
 				{
 					hoveredObject = hit.collider.gameObject;
 					return true;
@@ -596,7 +597,7 @@ public class UICamera : MonoBehaviour
 			}
 			else if (cam.eventType == EventType.UI)
 			{
-				RaycastHit[] hits = Physics.RaycastAll(ray, dist, mask);
+				RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, ray.direction, dist, mask);
 
 				if (hits.Length > 1)
 				{
@@ -645,7 +646,7 @@ public class UICamera : MonoBehaviour
 				}
 				else if (hits.Length == 1)
 				{
-					Collider c = hits[0].collider;
+					Collider2D c = hits[0].collider;
 					UIWidget w = c.GetComponent<UIWidget>();
 
 					if (w != null)
@@ -676,7 +677,7 @@ public class UICamera : MonoBehaviour
 	/// Helper function to check if the specified hit is visible by the panel.
 	/// </summary>
 
-	static bool IsVisible (ref RaycastHit hit)
+	static bool IsVisible (ref RaycastHit2D hit)
 	{
 		UIPanel panel = NGUITools.FindInParents<UIPanel>(hit.collider.gameObject);
 

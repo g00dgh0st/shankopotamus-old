@@ -16,7 +16,7 @@ public class ZoomClicker : MonoBehaviour {
     zoomCam = Camera.main.transform.Find( "ZoomCam" ).gameObject;
   }
   
-	public void OnMouseUp() {
+	public void OnClick() {
     Vector3 camPos = Camera.main.transform.position;
     zoomView.SetActive( true );
     zoomView.transform.position = new Vector3( camPos.x, camPos.y, -9 );
@@ -25,11 +25,10 @@ public class ZoomClicker : MonoBehaviour {
     Game.PauseClicks();
   }
   
-  public void OnMouseOver() {
-    Cursor.SetCursor( cursor, Vector2.zero, CursorMode.Auto );
+  public void OnHover( bool isOver ) {
+    if( isOver )
+      Cursor.SetCursor( cursor, Vector2.zero, CursorMode.Auto );
+    else
+  		Cursor.SetCursor( null, Vector2.zero, CursorMode.Auto );
   }
-  
-  public void OnMouseExit() {
-		Cursor.SetCursor( null, Vector2.zero, CursorMode.Auto );
-	}
 }

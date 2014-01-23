@@ -14,16 +14,15 @@ public class BasicItem : MonoBehaviour {
 	  item = new Item( name, image );
 	}
   
-  public void OnMouseUp() {
+  public void OnClick() {
     Game.inventory.AddItem( item );
     Destroy( gameObject );
   }
   
-  public void OnMouseOver() {
-    Cursor.SetCursor( cursor, new Vector2( 10, 10 ), CursorMode.Auto );
+  public void OnHover( bool isOver ) {
+    if( isOver )
+      Cursor.SetCursor( cursor, new Vector2( 10, 10 ), CursorMode.Auto );
+    else
+  		Cursor.SetCursor( null, Vector2.zero, CursorMode.Auto );
   }
-  
-  public void OnMouseExit() {
-		Cursor.SetCursor( null, Vector2.zero, CursorMode.Auto );
-	}
 }

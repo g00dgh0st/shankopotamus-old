@@ -29,12 +29,14 @@ public class BasicDoor : MonoBehaviour {
     cursor = Resources.Load( "Cursors/cursor_door" ) as Texture2D;
   }
 
-  public void OnMouseOver() {
-    Cursor.SetCursor( cursor, Vector2.zero, CursorMode.Auto );
-    if( Input.GetMouseButtonDown(0) ) Game.script.StartCoroutine( door.GoIn( destDoor ) );
+  public void OnClick() {
+    Game.script.StartCoroutine( door.GoIn( destDoor ) );
   }
-  
-  public void OnMouseExit() {
+
+  public void OnHover( bool isOver ) {
+    if( isOver )
+      Cursor.SetCursor( cursor, Vector2.zero, CursorMode.Auto );
+    else
   		Cursor.SetCursor( null, Vector2.zero, CursorMode.Auto );
-	}
+  }
 }

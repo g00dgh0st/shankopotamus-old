@@ -14,8 +14,7 @@ public class WaypointClicker : MonoBehaviour {
     cursor = Resources.Load( "Cursors/cursor_feet" ) as Texture2D;
   }
   
-	void OnMouseDown() {
-    
+	void OnClick() {
     if( !sibling )
   	  Game.player.MoveTo( waypoint );
     else {
@@ -31,11 +30,10 @@ public class WaypointClicker : MonoBehaviour {
     }
 	}
   
-  public void OnMouseOver() {
-    Cursor.SetCursor( cursor, Vector2.zero, CursorMode.Auto );
+  public void OnHover( bool isOver ) {
+    if( isOver )
+      Cursor.SetCursor( cursor, Vector2.zero, CursorMode.Auto );
+    else
+  		Cursor.SetCursor( null, Vector2.zero, CursorMode.Auto );
   }
-  
-  public void OnMouseExit() {
-		Cursor.SetCursor( null, Vector2.zero, CursorMode.Auto );
-	}
 }

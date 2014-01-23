@@ -21,7 +21,7 @@ public class DialogueGuard : MonoBehaviour {
     SetupDialogue();    
   }
   
-  public void OnMouseUp() {
+  public void OnClick() {
     if( (bool)dialogue.flags["isAngry"] ) {
       if( bub != null ) Game.dialogueManager.ClearBubble( bub );
       bub = Game.dialogueManager.ShowBubble( "You made me angry. Go away.", bubbleTrans, 5f );
@@ -30,14 +30,12 @@ public class DialogueGuard : MonoBehaviour {
     
   }
   
-  public void OnMouseOver() {
-    Cursor.SetCursor( cursor, new Vector2( 10, 10 ), CursorMode.Auto );
+  public void OnHover( bool isOver ) {
+    if( isOver )
+      Cursor.SetCursor( cursor, new Vector2( 10, 10 ), CursorMode.Auto );
+    else
+  		Cursor.SetCursor( null, Vector2.zero, CursorMode.Auto );
   }
-  
-  public void OnMouseExit() {
-		Cursor.SetCursor( null, Vector2.zero, CursorMode.Auto );
-	}
-  
   
   // All dialogue is "written" here
   public void SetupDialogue() {
