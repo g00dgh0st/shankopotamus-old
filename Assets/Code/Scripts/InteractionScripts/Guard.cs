@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class DialogueGuard : MonoBehaviour {
+public class Guard : MonoBehaviour {
 
   
   private DialogueManager DM;

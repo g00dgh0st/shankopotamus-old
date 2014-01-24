@@ -1,14 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-///// I DONT LIKE THIS
+// Simple interaction for an object that is a pick up item
 
-
-[RequireComponent (typeof (SpriteRenderer))]
 public class ItemClicker : MonoBehaviour {
   
-  public GameObject item;
-
+  public string itemName;
   private Texture2D cursor;
 
 	public void Start() {
@@ -16,7 +13,7 @@ public class ItemClicker : MonoBehaviour {
 	}
   
   public void OnClick() {
-    Game.inventory.AddItem( item );
+    // Game.inventory.AddItem( itemName );
     Destroy( gameObject );
   }
   

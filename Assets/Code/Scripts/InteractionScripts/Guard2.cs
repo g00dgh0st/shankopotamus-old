@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class DialogueGuard2 : MonoBehaviour {
+public class Guard2 : MonoBehaviour {
 
   private Texture2D cursor;
   // speech bubble stuff
