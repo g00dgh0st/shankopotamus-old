@@ -18,7 +18,9 @@ public class Inventory : MonoBehaviour {
       Screen.showCursor = false;
       
       Vector3 mousePos = Camera.main.ScreenToWorldPoint( Input.mousePosition );
-      currentItem.gameObject.transform.position = new Vector3( mousePos.x, mousePos.y, 0 );
+      currentItem.gameObject.transform.position = new Vector3( mousePos.x, mousePos.y, 0f );
+      
+      Debug.Log( currentItem.gameObject.transform.position );
 
       if( Input.GetMouseButton( 1 ) ) currentItem = null;
     } else if( Screen.showCursor == false ) {
@@ -61,8 +63,6 @@ public class Inventory : MonoBehaviour {
     else
       return null;
   }
-  
-  
   
   private void RepositionGrid() {
     grid.GetComponent<UIGrid>().Reposition();
