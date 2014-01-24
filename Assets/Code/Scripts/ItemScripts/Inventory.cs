@@ -6,34 +6,29 @@ public class Inventory : MonoBehaviour {
   
   public Item currentItem;
   
+  private GameObject grid;
+  
+  
   public void Start() {
     items = new ArrayList();
+    grid = GameObject.Find( "InventoryGrid" );
   }
   
-  public void OnGUI() {
-    if( Input.GetMouseButtonUp( 1 ) && currentItem != null ) currentItem = null;
+  public void AddItem( GameObject i ) {
+    GameObject newItem = Instantiate( i ) as GameObject;
     
-    foreach( Item i in items ) {
-      if( i == currentItem ) continue;
-      if( GUI.Button( new Rect( Screen.width - 40, 0, 40, 40 ), i.image ) ) {
-        currentItem = i;
-      }
-    }
-    
-    if( currentItem != null ) {
-      Screen.showCursor = false;
-      GUI.Label( new Rect( Input.mousePosition.x - 20, Screen.height - Input.mousePosition.y - 20, 40, 40 ), currentItem.image );
-    } else if( Screen.showCursor == false ) 
-      Screen.showCursor = true;
-  }
-  
-  public void AddItem( Item i ) {
-    items.Add( i );
+    items.Add( i.GetComponent<InventoryItem>().item );
+        
+    // put into grid
+    newItem.transform.parent = grid.transform;
+    grid.GetComponent<UIGrid>().Reposition();
   }
 
-  public void RemoveItem( Item i ) {
-    if( currentItem == i ) currentItem = null;
-    items.Remove( i );
-  }
-  
+  // public void RemoveItem( Item i ) {
+  //   if( currentItem == i ) currentItem = null;
+  //   Destroy( i.invObject );
+  //   i.invObject = null;
+  //   items.Remove( i );
+  // }
+  // 
 }

@@ -16,7 +16,7 @@ public class Level {
   
   public void ChangeRoom( GameObject destDoor ) {
     destDoor.transform.parent.gameObject.SetActive( true );
-    destScript = (MonoBehaviour)destDoor.GetComponent( "MonoBehaviour" );
+    destScript = destDoor.GetComponent<MonoBehaviour>();
     destScript.StartCoroutine( Game.FadeCamera( MoveCamToNewRoom ) );
   }
   

@@ -4,10 +4,10 @@ using System.Collections;
 public class Item {
   
   public string name;
-  public Texture2D image;
+  public Sprite sprite;
   
-  public Item( string n, Texture2D t ) {
+  public Item( string n, Sprite s ) {
     name = n;
-    image = t;
+    sprite = s;
   }
 }

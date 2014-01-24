@@ -3,10 +3,10 @@ using System.Collections;
 
 public class DialogueGuard : MonoBehaviour {
 
-  public Texture2D cursor;
   
   private DialogueManager DM;
   
+  private Texture2D cursor;
   private Bubble bub;
   private Transform bubbleTrans;
 
@@ -19,6 +19,8 @@ public class DialogueGuard : MonoBehaviour {
     bubbleTrans = transform.Find("BubbleTrans");
   
     SetupDialogue();    
+    
+    cursor = Resources.Load( "Cursors/cursor_chat" ) as Texture2D;
   }
   
   public void OnClick() {

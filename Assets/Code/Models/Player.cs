@@ -9,7 +9,7 @@ public class Player : Pathfinding {
   
   public void Start() {
     speed = moveSpeed; // override the Pathfinding speed
-    anim = transform.Find( "TestShankFBX" ).gameObject.GetComponent( "Animation" ) as Animation;
+    anim = transform.Find( "TestShankFBX" ).gameObject.GetComponent<Animation>();
   }
 
 	public void Update() {

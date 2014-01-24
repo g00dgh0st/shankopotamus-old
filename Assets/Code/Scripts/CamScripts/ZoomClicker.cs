@@ -12,7 +12,7 @@ public class ZoomClicker : MonoBehaviour {
   public void Start() {
     cursor = Resources.Load( "Cursors/cursor_eye" ) as Texture2D;
     zoomView.SetActive( false );
-    camBlur = Camera.main.GetComponent( "Blur" ) as Blur;
+    camBlur = Camera.main.GetComponent<Blur>();
     zoomCam = Camera.main.transform.Find( "ZoomCam" ).gameObject;
   }
   

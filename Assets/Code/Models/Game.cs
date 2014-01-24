@@ -21,10 +21,10 @@ public class Game : MonoBehaviour {
   public void Awake() { Application.targetFrameRate = 60; }
   
   public void Start() {
-    player = (Player)GameObject.FindGameObjectsWithTag( "Player" )[0].GetComponent( "Player" );
+    player = GameObject.FindGameObjectsWithTag( "Player" )[0].GetComponent<Player>();
     level = new Level( levelName, startRoom );
-    dialogueManager = gameObject.GetComponent( "DialogueManager" ) as DialogueManager;
-    inventory = gameObject.GetComponent( "Inventory" ) as Inventory;
+    dialogueManager = gameObject.GetComponent<DialogueManager>();
+    inventory = gameObject.GetComponent<Inventory>();
     script = this;
     
     aLerp = 0.0f;

@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent (typeof (SpriteRenderer))]
-public class BasicItem : MonoBehaviour {
+///// I DONT LIKE THIS
 
-  public string name;
-  public Texture2D cursor;
-  public Texture2D image;
+
+[RequireComponent (typeof (SpriteRenderer))]
+public class ItemClicker : MonoBehaviour {
   
-  private Item item;
+  public GameObject item;
+
+  private Texture2D cursor;
 
 	public void Start() {
-	  item = new Item( name, image );
+    cursor = Resources.Load( "Cursors/cursor_hand" ) as Texture2D;
 	}
   
   public void OnClick() {
