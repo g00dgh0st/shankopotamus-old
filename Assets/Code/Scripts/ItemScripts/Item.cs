@@ -7,9 +7,10 @@ public class Item : MonoBehaviour {
   
   public void OnClick() {
     Item curr = Game.inventory.currentItem;
-    if( curr == null )
+    if( curr == null ) {
       Game.inventory.currentItem = this;
-    else
+      collider2D.enabled = false;
+    } else
       Game.inventory.CombineItems( curr, this );
   }
 }

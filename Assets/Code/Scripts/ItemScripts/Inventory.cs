@@ -18,11 +18,12 @@ public class Inventory : MonoBehaviour {
       Screen.showCursor = false;
       
       Vector3 mousePos = Camera.main.ScreenToWorldPoint( Input.mousePosition );
-      currentItem.gameObject.transform.position = new Vector3( mousePos.x, mousePos.y, 0f );
+      currentItem.gameObject.transform.position = new Vector3( mousePos.x, mousePos.y, -9f );
       
-      Debug.Log( currentItem.gameObject.transform.position );
-
-      if( Input.GetMouseButton( 1 ) ) currentItem = null;
+      if( Input.GetMouseButton( 1 ) ) {
+        currentItem.gameObject.collider2D.enabled = true;
+        currentItem = null;
+      }
     } else if( Screen.showCursor == false ) {
       Screen.showCursor = true;
       RepositionGrid();
@@ -59,7 +60,7 @@ public class Inventory : MonoBehaviour {
   
   public string CurrentItemName() {
     if( currentItem != null )
-      return currentItem.name;
+      return currentItem.itemName;
     else
       return null;
   }
