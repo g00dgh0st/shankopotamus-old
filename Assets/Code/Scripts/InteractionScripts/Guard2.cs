@@ -15,7 +15,11 @@ public class Guard2 : MonoBehaviour {
   
   public void OnClick() {
     if( bub != null ) Game.dialogueManager.ClearBubble( bub );
-    bub = Game.dialogueManager.ShowBubble( "Don't touch me.", headTrans, 5f );
+    if( Game.inventory.CurrentItemName() == "CakeBot" ) {
+      Game.inventory.UseCurrentItem();
+      bub = Game.dialogueManager.ShowBubble( "I've always wanted my own robot.", headTrans, 5f );
+    } else
+      bub = Game.dialogueManager.ShowBubble( "Don't touch me.", headTrans, 5f );
   }
   
   public void OnHover( bool isOver ) {
