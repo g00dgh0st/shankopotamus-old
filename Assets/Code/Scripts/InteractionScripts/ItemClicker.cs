@@ -5,7 +5,7 @@ using System.Collections;
 
 public class ItemClicker : MonoBehaviour {
   
-  public string itemName;
+  public GameObject item;
   private Texture2D cursor;
 
 	public void Start() {
@@ -13,7 +13,8 @@ public class ItemClicker : MonoBehaviour {
 	}
   
   public void OnClick() {
-    // Game.inventory.AddItem( itemName );
+    Game.inventory.AddItem( item );
+		Cursor.SetCursor( null, Vector2.zero, CursorMode.Auto );
     Destroy( gameObject );
   }
   

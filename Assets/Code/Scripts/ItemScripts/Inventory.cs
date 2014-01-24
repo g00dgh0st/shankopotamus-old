@@ -13,25 +13,28 @@ public class Inventory : MonoBehaviour {
     grid = GameObject.Find( "InventoryGrid" );
   }
   
-  public void AddItem( string itemName ) {
+  public void AddItem( GameObject i ) {
     
+    GameObject newItem = Instantiate( i ) as GameObject;
     
-    // GameObject newItem = Instantiate( i ) as GameObject;
-    
-    // items.Add( i.GetComponent<InventoryItem>().item );
+    items.Add( i.GetComponent<Item>() );
         
     // put into grid
-    // newItem.transform.parent = grid.transform;
-    // grid.GetComponent<UIGrid>().Reposition();
+    newItem.transform.parent = grid.transform;
+    newItem.transform.localScale = new Vector3( 1, 1, 1 );
+    grid.GetComponent<UIGrid>().Reposition();
   }
 
-  // public void RemoveItem( Item i ) {
-  //   if( currentItem == i ) currentItem = null;
-  //   Destroy( i.invObject );
-  //   i.invObject = null;
-  //   items.Remove( i );
-  // }
-  // 
+  public void RemoveItem( Item i ) {
+    if( currentItem == i ) currentItem = null;
+    items.Remove( i );
+    Destroy( ( (Item)i ).gameObject );
+  }
+  
+  public void CombineItems( Item a, Item b ) {
+    Debug.Log( a );
+    Debug.Log( b );
+  }
 }
 
 
