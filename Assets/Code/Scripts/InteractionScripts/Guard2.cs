@@ -15,7 +15,7 @@ public class Guard2 : MonoBehaviour {
   
   public void OnClick() {
     if( bub != null ) Game.dialogueManager.ClearBubble( bub );
-    Debug.Log( Game.inventory.CurrentItemName() );
+
     if( Game.inventory.CurrentItemName() == "CakeBot" ) {
       Game.inventory.UseCurrentItem();
       bub = Game.dialogueManager.ShowBubble( "I've always wanted my own robot.", headTrans, 5f );

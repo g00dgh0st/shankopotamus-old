@@ -53,11 +53,6 @@ public class Inventory : MonoBehaviour {
     RemoveItem( currentItem );
   }
   
-  public void CombineItems( Item a, Item b ) {
-    Debug.Log( a );
-    Debug.Log( b );
-  }
-  
   public string CurrentItemName() {
     if( currentItem != null )
       return currentItem.itemName;
