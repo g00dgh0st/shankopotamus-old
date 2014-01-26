@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: CakeBot
+  itemCombos: []
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
