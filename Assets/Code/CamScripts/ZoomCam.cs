@@ -5,12 +5,16 @@ public class ZoomCam : MonoBehaviour {
   
 	public void Update() {
     if( Input.GetMouseButton( 0 ) ) {
-      GameObject currentZoomView = GameObject.FindGameObjectsWithTag( "ZoomView" )[0];
-      currentZoomView.SetActive( false );
-      Blur camBlur = Camera.main.GetComponent<Blur>();
-      camBlur.enabled = false;
-      gameObject.SetActive( false );
-      Game.ResumeClicks();
+      RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+      
+      if( hit.collider.gameObject.name == "ClickOverlay" ) {
+        GameObject currentZoomView = GameObject.FindGameObjectsWithTag( "ZoomView" )[0];
+        currentZoomView.SetActive( false );
+        Blur camBlur = Camera.main.GetComponent<Blur>();
+        camBlur.enabled = false;
+        gameObject.SetActive( false );
+        Game.ResumeClicks();
+      }
     }
   }
 }
