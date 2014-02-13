@@ -3,9 +3,9 @@ using System.Collections;
 
 public class ZoomClicker : MonoBehaviour {
 
-  private Texture2D cursor;
-  private Blur camBlur;
-  private GameObject zoomCam;
+  protected Texture2D cursor;
+  protected Blur camBlur;
+  protected GameObject zoomCam;
   
   public GameObject zoomView;
 
@@ -27,7 +27,7 @@ public class ZoomClicker : MonoBehaviour {
   
   public void OnHover( bool isOver ) {
     if( isOver )
-      Cursor.SetCursor( cursor, Vector2.zero, CursorMode.Auto );
+      Cursor.SetCursor( cursor, new Vector2( 20f, 10f ), CursorMode.Auto );
     else
   		Cursor.SetCursor( null, Vector2.zero, CursorMode.Auto );
   }
