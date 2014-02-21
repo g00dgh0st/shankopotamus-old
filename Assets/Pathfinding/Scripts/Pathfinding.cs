@@ -48,7 +48,7 @@ public class Pathfinding : MonoBehaviour
     {
         if (Path.Count > 0)
         {
-            direction = ( transform.position - Path[0] ).x > 0f ? 1 : -1;
+            direction = ( transform.position - Path[0] ).x > 0f ? -1 : 1;
             transform.position = Vector3.MoveTowards(transform.position, Path[0], Time.deltaTime * 5F * speed );
             if (Vector3.Distance(transform.position, Path[0]) < 0.1F)
             {

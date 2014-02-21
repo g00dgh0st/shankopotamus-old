@@ -7,6 +7,7 @@ public class Game : MonoBehaviour {
   public static DialogueManager dialogueManager;
   public static Inventory inventory;
   public static MonoBehaviour script;
+  public static Hashtable cookies;
   
   
   public string levelName;
@@ -18,18 +19,19 @@ public class Game : MonoBehaviour {
   public static Texture2D blackTex;
   public static int isFading = 0;
 
-  public void Awake() { Application.targetFrameRate = 60; }
-  
   public void Start() {
     player = GameObject.FindGameObjectsWithTag( "Player" )[0].GetComponent<Player>();
     level = new Level( levelName, startRoom );
     dialogueManager = gameObject.GetComponent<DialogueManager>();
     inventory = gameObject.GetComponent<Inventory>();
     script = this;
+    cookies = new Hashtable();
     
     aLerp = 0.0f;
     aLerpSpeed = 0.05f;
     blackTex = Resources.Load( "blackPxl" ) as Texture2D;
+    
+    Application.targetFrameRate = 60;
   }
   
   public void OnGUI() {

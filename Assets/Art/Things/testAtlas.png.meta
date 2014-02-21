@@ -75,6 +75,24 @@ TextureImporter:
     - name: testAtlas_3
       rect:
         serializedVersion: 2
+        x: 28
+        y: 683
+        width: 150
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: testAtlas_4
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 482
+        width: 150
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: testAtlas_5
+      rect:
+        serializedVersion: 2
         x: 363
         y: 285
         width: 503

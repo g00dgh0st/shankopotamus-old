@@ -12,6 +12,9 @@ public class Dialogue {
   public Dialogue( Hashtable f, GameObject s ) {
     flags = f;
     speaker = s;
+    
+    Dialogue self = this;
+    StartDialogue = delegate() { return self.steps[0]; };
   }
 
   public void SetSteps( Step[] s ) {
