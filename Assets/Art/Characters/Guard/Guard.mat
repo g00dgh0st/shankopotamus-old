@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Shanko
+  m_Name: Guard
   m_Shader: {fileID: 4800000, guid: a7649eb1bedd547898e4f772c8184150, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
@@ -17,14 +17,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: e088ff6f05ca44639b5a0d1f2bd922f0, type: 3}
+          m_Texture: {fileID: 2800000, guid: 31583aa5d8b224bbba945d510530ad41, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 2800000, guid: 2ec349e1fea884378a4cffa59cdbabe9, type: 3}
+          m_Texture: {fileID: 2800000, guid: 121426f68d1f1443d98a4ac1b8be815d, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
