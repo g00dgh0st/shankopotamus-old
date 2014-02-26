@@ -9,7 +9,7 @@ Properties {
 SubShader {
 	Tags {"Queue"="AlphaTest" "IgnoreProjector"="True" "RenderType"="TransparentCutout"}
 	LOD 300
-	Cull off
+	Cull Off
 CGPROGRAM
 #pragma surface surf Lambert alphatest:_Cutoff
 

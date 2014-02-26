@@ -5,13 +5,26 @@ public class Player : Pathfinding {
   public bool canMove = true;
   public float moveSpeed = 0.25f;
   
+  private int lastDirection;
+  
   public void Start() {
     speed = moveSpeed; // override the Pathfinding speed
+    lastDirection = direction;
   }
 
 	public void Update() {
     if( Path.Count > 0 ) {
-      transform.localScale = new Vector3( direction, 1, 1 );
+      if( direction != lastDirection ) {
+        transform.localScale = new Vector3( direction, 1, 1 );
+        lastDirection = direction;
+        
+        foreach( MeshFilter filter in GetComponentsInChildren<MeshFilter>() ) {
+          Game.ReverseNormals( filter.mesh );
+        }
+        
+        // Game.ReverseNormals( GetComponentInChildren<SkinnedMeshRenderer>().sharedMesh );
+        
+      }
       Move();
     } 
   }

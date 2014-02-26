@@ -100,7 +100,7 @@ Shader "Diffuse Outline" {
 
             Tags { "LightMode" = "Always" }
 
-            Cull off
+            Cull Off
 
             ZWrite Off
 
