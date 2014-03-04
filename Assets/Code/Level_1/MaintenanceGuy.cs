@@ -10,6 +10,8 @@ public class MaintenanceGuy : MonoBehaviour {
   // private Bubble bub;
   // private Transform bubbleTrans;
 
+  private Animator animator;
+
   // Begin Dialogue
   public Dialogue dialogue;
 
@@ -21,6 +23,23 @@ public class MaintenanceGuy : MonoBehaviour {
     SetupDialogue();    
     
     cursor = Resources.Load( "Cursors/cursor_chat" ) as Texture2D;
+    animator = transform.parent.gameObject.GetComponent<Animator>();
+  }
+  
+  public void Update() {
+    // if( animator.GetBool( "RandomHead" ) ) {
+//       // animator.SetBool( "RandomHead", false ); 
+//     }
+    
+    Debug.Log ("fsdfds");
+    
+    Debug.Log( Random.Range( 1.0f, 2.0f ) );
+    
+    if( Random.Range( 1.0f, 2.0f ) == 1.0f ) {
+      Debug.Log( "ereer" );
+      animator.SetBool( "RandomHead", true ); 
+    }
+    
   }
   
   public void OnClick() {
