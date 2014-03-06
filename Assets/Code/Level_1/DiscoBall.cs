@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class DiscoBall : MonoBehaviour {
-  private bool isBroken = false;
+  public bool isBroken = false;
   
   public void OnEnable() {
     if( Game.cookies != null && Game.cookies.Contains( "BreakDiscoBall" ) ) {
@@ -16,5 +16,8 @@ public class DiscoBall : MonoBehaviour {
     transform.Find( "NormalBall" ).gameObject.SetActive( false );
     transform.Find( "BrokenBall" ).gameObject.SetActive( true );
     transform.Find( "Shock" ).gameObject.SetActive( true );
+    
+    Game.cookies.Add( "GetUpSewerGuy", true );
+    
   }
 }

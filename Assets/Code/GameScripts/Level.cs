@@ -15,18 +15,21 @@ public class Level {
   }
   
   public void ChangeRoom( GameObject destDoor ) {
-    destDoor.transform.parent.gameObject.SetActive( true );
+    // destDoor.transform.parent.gameObject.SetActive( true );
     destScript = destDoor.GetComponent<MonoBehaviour>();
-    destScript.StartCoroutine( Game.FadeCamera( MoveCamToNewRoom ) );
+    Game.script.StartCoroutine( Game.FadeCamera( MoveCamToNewRoom ) );
   }
   
   public void MoveCamToNewRoom() {
     GameObject newRoom = destScript.transform.parent.gameObject;
     
-    if( newRoom != currentRoom ) currentRoom.SetActive( false );
+    if( newRoom != currentRoom ) {
+      currentRoom.SetActive( false );
+      newRoom.SetActive( true );
+    }
     
     currentRoom = newRoom;
-    Camera.main.transform.position = currentRoom.transform.Find( "CamTrans" ).position;
+    // Camera.main.transform.position = currentRoom.transform.Find( "CamTrans" ).position;
     switch( destScript.GetType().ToString() ) {
       case "BasicDoor":
         BasicDoor bd = destScript as BasicDoor;

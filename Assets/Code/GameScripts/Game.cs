@@ -19,7 +19,7 @@ public class Game : MonoBehaviour {
   public static Texture2D blackTex;
   public static int isFading = 0;
 
-  public void Start() {
+  public void Awake() {
     player = GameObject.FindGameObjectsWithTag( "Player" )[0].GetComponent<Player>();
     level = new Level( levelName, startRoom );
     dialogueManager = gameObject.GetComponent<DialogueManager>();
@@ -67,7 +67,7 @@ public class Game : MonoBehaviour {
     aLerp = 0.0f;
     
     while( isFading != 2 ) {
-      yield return 0;
+      yield return null;
     }
     
     cBack();

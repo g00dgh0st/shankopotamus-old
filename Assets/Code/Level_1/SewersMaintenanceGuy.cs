@@ -1,54 +1,55 @@
 using UnityEngine;
 using System.Collections;
 
-public class MaintenanceGuy : MonoBehaviour {
+public class SewersMaintenanceGuy : MonoBehaviour {
 
-  
   private DialogueManager DM;
   
   private Texture2D cursor;
-  // private Bubble bub;
-  // private Transform bubbleTrans;
 
   private Animator animator;
 
   // Begin Dialogue
   public Dialogue dialogue;
+  
+  private Bubble bub;
+  
+  private Transform bubTrans;
+  
 
   public void Start() {
     DM = Game.dialogueManager;
-    
-    // bubbleTrans = transform.Find("BubbleTrans");
-  
+        
     SetupDialogue();    
     
     cursor = Resources.Load( "Cursors/cursor_chat" ) as Texture2D;
     animator = transform.parent.gameObject.GetComponent<Animator>();
+    bubTrans = transform.Find( "BubbleTrans" );
   }
   
   public void Update() {
-    // if( animator.GetBool( "RandomHead" ) ) {
-//       // animator.SetBool( "RandomHead", false ); 
-//     }
+    if( animator.GetBool( "RandomHead" ) ) animator.SetBool( "RandomHead", false ); 
     
-    Debug.Log ("fsdfds");
+    if( (bool)dialogue.flags["isFishing"] && Random.Range( 0, 200 ) == 1 ) animator.SetBool( "RandomHead", true );
     
-    Debug.Log( Random.Range( 1.0f, 2.0f ) );
-    
-    if( Random.Range( 1.0f, 2.0f ) == 1.0f ) {
-      Debug.Log( "ereer" );
-      animator.SetBool( "RandomHead", true ); 
+    if( Game.cookies.Contains( "GetUpSewerGuy" ) ) {
+      StartCoroutine( GetUp() );
     }
     
+    
+    if( animator.GetCurrentAnimatorStateInfo( 0 ).IsName( "Base Layer.GetUpFromFishing" ) ) {
+      dialogue.flags["isFishing"] = false;
+    } else if( (bool)dialogue.flags["isFishing"] == false && (bool)dialogue.flags["isUp"] == false ) {
+      GameObject rod = transform.parent.Find( "MaintenanceGuy" ).Find( "Holder" ).Find( "FishingRod" ).gameObject;
+      
+      Destroy( rod );
+      
+      dialogue.flags["isUp"] = true;
+    }    
   }
   
   public void OnClick() {
-    // if( (bool)dialogue.flags["isAngry"] ) {
-    //   if( bub != null ) Game.dialogueManager.ClearBubble( bub );
-    //   bub = Game.dialogueManager.ShowBubble( "You made me angry. Go away.", bubbleTrans, 5f );
-    // } else
-      Game.dialogueManager.StartDialogue( dialogue );
-    
+    Game.dialogueManager.StartDialogue( dialogue );
   }
   
   public void OnHover( bool isOver ) {
@@ -63,6 +64,7 @@ public class MaintenanceGuy : MonoBehaviour {
     
     Hashtable flags = new Hashtable();
     flags.Add( "isFishing", true );
+    flags.Add( "isUp", false );
     
     dialogue = new Dialogue( flags, gameObject );
     
@@ -82,5 +84,15 @@ public class MaintenanceGuy : MonoBehaviour {
         new Step( "Ok bye.", delegate() { DM.StopDialogue(); } )
       } 
     );
+  }
+  
+  private IEnumerator GetUp() {
+    Game.cookies.Remove( "GetUpSewerGuy" );
+    
+    yield return new WaitForSeconds( 1f );
+
+    bub = Game.dialogueManager.ShowBubble( "Damn disco ball's broken.", bubTrans, 5f );
+    
+    animator.Play( "GetUpFromFishing" );    
   }
 }
