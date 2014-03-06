@@ -37,7 +37,7 @@ public class SewersMaintenanceGuy : MonoBehaviour {
     }
     
     
-    if( animator.GetCurrentAnimatorStateInfo( 0 ).IsName( "Base Layer.GetUpFromFishing" ) ) {
+    if( animator.GetCurrentAnimatorStateInfo( 0 ).IsName( "Base Layer.GetUpFromFishing" ) && !animator.IsInTransition( 0 ) ) {
       dialogue.flags["isFishing"] = false;
     } else if( (bool)dialogue.flags["isFishing"] == false && (bool)dialogue.flags["isUp"] == false ) {
       GameObject rod = transform.parent.Find( "MaintenanceGuy" ).Find( "Holder" ).Find( "FishingRod" ).gameObject;
