@@ -12,15 +12,27 @@ public class Door : WaypointClicker {
   }
   
   void OnClick() {
-    // Game.PauseClicks();
+    Game.PauseClicks();
         
-    // StartCoroutine( GoThroughDoor() );
-    
     base.OnClick();
+    
+    StartCoroutine( GoThroughDoor() );
   }
   
-  // private IEnumerator GoThroughDoor() {
-    // Game.player.GetComponent<Player>().
-  // }
+  private IEnumerator GoThroughDoor() {
+    
+    yield return new WaitForSeconds( 0.5f );
+    
+    while( Game.player.InMotion() ) {
+      yield return null;
+    }
+    
+    Game.player.TeleportTo( destination.position );
+    
+    Game.player.MoveTo( exitPoint.position );
+    
+    Game.ResumeClicks();
+    
+  }
 
 }
