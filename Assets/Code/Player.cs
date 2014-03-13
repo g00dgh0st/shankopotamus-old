@@ -15,7 +15,7 @@ public class Player : Pathfinding {
 	public void Update() {
     if( Path.Count > 0 ) {
       if( direction != lastDirection ) {
-        transform.localScale = new Vector3( direction, 1, 1 );
+        transform.localScale = new Vector3( -1 * transform.localScale.x, transform.localScale.y, transform.localScale.z );
         lastDirection = direction;
         
         foreach( MeshFilter filter in GetComponentsInChildren<MeshFilter>() ) {

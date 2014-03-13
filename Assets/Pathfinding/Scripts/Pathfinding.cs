@@ -50,7 +50,7 @@ public class Pathfinding : MonoBehaviour
         {
             direction = ( transform.position - Path[0] ).x > 0f ? -1 : 1;
             transform.position = Vector3.MoveTowards(transform.position, Path[0], Time.deltaTime * 5F * speed );
-            if (Vector3.Distance(transform.position, Path[0]) < 0.1F)
+            if (Vector3.Distance(transform.position, Path[0]) < 0.01F)
             {
                 Path.RemoveAt(0);
             }

@@ -61,7 +61,7 @@ public class WaypointEditor : EditorWindow
 
                 if (Physics.Raycast(ray, out hit, Mathf.Infinity))
                 {
-                    if (waypointPrefab != null && canPlaceNewWaypoint && hit.transform.name != "Waypoint")
+                    if (waypointPrefab != null && canPlaceNewWaypoint && hit.transform.gameObject.GetComponent<WaypointNode>() == null)
                     {
                         GameObject newWaypoint = (GameObject)PrefabUtility.InstantiatePrefab(waypointPrefab);
                         newWaypoint.transform.position = hit.point;
@@ -79,7 +79,7 @@ public class WaypointEditor : EditorWindow
                         canPlaceNewWaypoint = false;
                         EditorUtility.SetDirty(activeNode);
                     }
-                    else if (hit.transform.name == "Waypoint")
+                    else if (hit.transform.gameObject.GetComponent<WaypointNode>() != null)
                     {
                         if (activeNode != null)
                         {

@@ -9,10 +9,10 @@ public class Game : MonoBehaviour {
   public static MonoBehaviour script;
   public static Hashtable cookies;
   
-  
   public string levelName;
   public GameObject startRoom;
-  
+  public static GameObject currentRoom;
+
   // For fading
   public static float aLerp;
   public static float aLerpSpeed;
@@ -32,6 +32,16 @@ public class Game : MonoBehaviour {
     blackTex = Resources.Load( "blackPxl" ) as Texture2D;
     
     Application.targetFrameRate = 60;
+    
+    currentRoom = startRoom;
+  }
+  
+  void Start() {
+    foreach( GameObject room in GameObject.FindGameObjectsWithTag( "Room" ) ) {
+      if( room != startRoom ) room.SetActive( false );
+    }
+    float cScale = startRoom.GetComponent<Room>().characterScale;
+    player.transform.localScale = new Vector3( cScale, cScale, cScale );
   }
   
   public void OnGUI() {
@@ -110,5 +120,4 @@ public class Game : MonoBehaviour {
 			mesh.SetTriangles(triangles, m);
 		}
   }
-
 }

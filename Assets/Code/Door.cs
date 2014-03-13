@@ -6,9 +6,20 @@ public class Door : WaypointClicker {
   public Transform destination;
   public Transform exitPoint;
   
+  private GameObject room;
+  private GameObject destRoom;
+  
+  void Awake() {
+    string[] names = transform.parent.gameObject.name.Split( '_' );
+    
+    room = GameObject.Find( names[1] );
+    destRoom = GameObject.Find( names[2] );
+  }
+  
   void Start() {
     base.Start();
     cursor = Resources.Load( "Cursors/cursor_door" ) as Texture2D;
+        
   }
   
   void OnClick() {
@@ -27,11 +38,27 @@ public class Door : WaypointClicker {
       yield return null;
     }
     
-    Game.player.TeleportTo( destination.position );
+    StartCoroutine( Game.FadeCamera( delegate() {
+      
+      destRoom.SetActive( true );
+      
+      Game.currentRoom = destRoom;
+      
+      Game.player.TeleportTo( destination.position );
+      
+      Camera.main.transform.position = Game.player.transform.Find( "CamTarget" ).position;
     
-    Game.player.MoveTo( exitPoint.position );
+      room.SetActive( false );
+      
+      float cScale = destRoom.GetComponent<Room>().characterScale;
+      
+      Game.player.transform.localScale = new Vector3( ( Game.player.transform.localScale.x < 0 ? -cScale : cScale ), cScale, cScale );
     
-    Game.ResumeClicks();
+      Game.player.MoveTo( exitPoint.position );
+    
+      Game.ResumeClicks();
+    } ) );
+    
     
   }
 
