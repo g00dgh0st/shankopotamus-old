@@ -102,7 +102,7 @@ public class WaypointEditor : EditorWindow
 
                 if (Physics.Raycast(ray, out hit, Mathf.Infinity))
                 {
-                    if (hit.transform.name == "Waypoint")
+                    if (hit.transform.gameObject.GetComponent<WaypointNode>() != null)
                     {
                         WaypointNode node = hit.transform.GetComponent<WaypointNode>();
 
@@ -125,7 +125,7 @@ public class WaypointEditor : EditorWindow
 
                 if (Physics.Raycast(ray, out hit, Mathf.Infinity))
                 {
-                    if (hit.transform.name == "Waypoint")
+                    if (hit.transform.gameObject.GetComponent<WaypointNode>() != null)
                     {
                         WaypointNode node = hit.transform.GetComponent<WaypointNode>();
 
@@ -146,7 +146,7 @@ public class WaypointEditor : EditorWindow
 
                 if (Physics.Raycast(ray, out hit, Mathf.Infinity))
                 {
-                    if (hit.transform.name == "Waypoint")
+                    if (hit.transform.gameObject.GetComponent<WaypointNode>() != null)
                     {
                         WaypointNode node = hit.transform.GetComponent<WaypointNode>();
                         GameObject[] wpList = GameObject.FindGameObjectsWithTag("Waypoint");
@@ -171,7 +171,7 @@ public class WaypointEditor : EditorWindow
 
                 if (Physics.Raycast(ray, out hit, Mathf.Infinity))
                 {
-                    if (hit.transform.name == "Waypoint")
+                    if (hit.transform.gameObject.GetComponent<WaypointNode>() != null)
                     {
                         WaypointNode node = hit.transform.GetComponent<WaypointNode>();
 

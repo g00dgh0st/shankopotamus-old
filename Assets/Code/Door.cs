@@ -47,7 +47,7 @@ public class Door : WaypointClicker {
       Game.player.TeleportTo( destination.position );
       
       Vector3 plPos = Game.player.transform.Find( "CamTarget" ).position;
-      Camera.main.transform.position = new Vector3( plPos.x, plPos.y, -10f );
+      Camera.main.transform.position = new Vector3( plPos.x, plPos.y, -20f );
     
       room.SetActive( false );
       

@@ -4,13 +4,13 @@ using System.Collections;
 public class CameraControl : MonoBehaviour {
   
   private Transform playerTrans;
-  private float mouseScrollThreshold = 30f;
+  private float mouseScrollThreshold = 50f;
   private float mouseScrollSpeed = 1.5f;
 
 	// Use this for initialization
 	void Start () {
 	  playerTrans = Game.player.gameObject.transform.Find( "CamTarget" );
-    transform.position = new Vector3( playerTrans.position.x, playerTrans.position.y, -10 );
+    transform.position = new Vector3( playerTrans.position.x, playerTrans.position.y, -20f );
     
     
 	}
@@ -20,7 +20,7 @@ public class CameraControl : MonoBehaviour {
     
     ArrayList sprites = new ArrayList();
     
-    foreach( Transform child in Game.currentRoom.transform ) {
+    foreach( Transform child in Game.currentRoom.transform.Find( "Sprites" ) ) {
       if( child.gameObject.CompareTag( "MainSprite" ) ) sprites.Add( child.gameObject );
     }
     
@@ -34,7 +34,7 @@ public class CameraControl : MonoBehaviour {
     Vector3 newPos;
 
     if( Game.player.InMotion() ) {
-      Vector3 diff = new Vector3( playerTrans.position.x, playerTrans.position.y, -10 ) - pos;
+      Vector3 diff = new Vector3( playerTrans.position.x, playerTrans.position.y, -20f ) - pos;
       newPos = pos + ( diff * 0.05f );
       
       if( CheckBounds( roomBounds, newPos, pos ) )
