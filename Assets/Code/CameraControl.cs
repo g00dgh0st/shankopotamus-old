@@ -6,6 +6,8 @@ public class CameraControl : MonoBehaviour {
   private Transform playerTrans;
   private float mouseScrollThreshold = 50f;
   private float mouseScrollSpeed = 1.5f;
+  
+  public bool isPaused = false;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +19,8 @@ public class CameraControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+    
+    if( isPaused ) return;
     
     ArrayList sprites = new ArrayList();
     

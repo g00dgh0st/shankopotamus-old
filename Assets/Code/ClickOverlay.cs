@@ -6,7 +6,7 @@ public class ClickOverlay : MonoBehaviour {
     if( Game.cookies.Contains( "zoomed" ) ) {
       Game.cookies.Remove( "zoomed" );
       GameObject.FindGameObjectWithTag( "ZoomView" ).SetActive( false );
-      Game.ResumeClicks();
+      Game.ZoomOut();
     }
   }
 }

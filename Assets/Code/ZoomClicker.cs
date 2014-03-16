@@ -13,7 +13,7 @@ public class ZoomClicker : MonoBehaviour {
   void OnClick() {
     zoomView.SetActive( true );
     Game.cookies.Add( "zoomed", true );
-    Game.PauseClicks();
+    Game.ZoomIn();
     zoomView.transform.position = new Vector3( Camera.main.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z + 5f );
   }
   

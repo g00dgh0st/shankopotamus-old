@@ -91,16 +91,25 @@ public class Game : MonoBehaviour {
     Camera.main.transform.Find( "ClickOverlay" ).gameObject.SetActive( false );
   }
   
-  // public static void PauseCam() {
-    // Game.level.currentRoom.transform.Find( "CamTrans" ).gameObject.SetActive( false );
-    // foreach( Parallax p in FindObjectsOfType( typeof( Parallax ) ) ) p.enabled = false;
-  // }
+  public static void PauseCam() {
+    Camera.main.gameObject.GetComponent<CameraControl>().isPaused = true;
+  }
   
-  // public static void ResumeCam() {
-    // Camera.main.orthographicSize = 1f;
-    // Game.level.currentRoom.transform.Find( "CamTrans" ).gameObject.SetActive( true );
-    // foreach( Parallax p in FindObjectsOfType( typeof( Parallax ) ) ) p.enabled = true;
-  // }
+  public static void ResumeCam() {
+    Camera.main.gameObject.GetComponent<CameraControl>().isPaused = false;
+  }
+  
+  public static void ZoomIn() {
+    Game.PauseClicks();
+    Game.PauseCam();
+    Camera.main.gameObject.GetComponent<Blur>().enabled = true;
+  }
+  
+  public static void ZoomOut() {
+    Game.ResumeClicks();
+    Game.ResumeCam();
+    Camera.main.gameObject.GetComponent<Blur>().enabled = false;
+  }
   
   public static void ReverseNormals( Mesh mesh ) {
 		Vector3[] normals = mesh.normals;
