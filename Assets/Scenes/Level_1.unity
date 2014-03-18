@@ -2921,46 +2921,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xOffset: .100000001
   yOffset: .0500000007
---- !u!1001 &427190116
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1485608710}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 5a3c8cd0a7b74406eb7220d5212d4f39, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -56.6130981
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5a3c8cd0a7b74406eb7220d5212d4f39, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -41.7052765
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5a3c8cd0a7b74406eb7220d5212d4f39, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5a3c8cd0a7b74406eb7220d5212d4f39, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5a3c8cd0a7b74406eb7220d5212d4f39, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5a3c8cd0a7b74406eb7220d5212d4f39, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5a3c8cd0a7b74406eb7220d5212d4f39, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 5a3c8cd0a7b74406eb7220d5212d4f39, type: 2}
-  m_RootGameObject: {fileID: 629976383}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &436770630
 GameObject:
   m_ObjectHideFlags: 0
@@ -4493,104 +4453,6 @@ SpriteRenderer:
   m_SortingLayerID: 747986461
   m_Sprite: {fileID: 21300000, guid: fe7419a8c5b9542a58285828407606fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!1 &629976383
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: 5a3c8cd0a7b74406eb7220d5212d4f39, type: 2}
-  m_PrefabInternal: {fileID: 427190116}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 629976384}
-  - 114: {fileID: 629976387}
-  - 114: {fileID: 629976386}
-  - 65: {fileID: 629976385}
-  m_Layer: 9
-  m_Name: Item
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &629976384
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: 5a3c8cd0a7b74406eb7220d5212d4f39, type: 2}
-  m_PrefabInternal: {fileID: 427190116}
-  m_GameObject: {fileID: 629976383}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -56.6130981, y: -41.7052765, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1485608710}
---- !u!65 &629976385
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500000, guid: 5a3c8cd0a7b74406eb7220d5212d4f39,
-    type: 2}
-  m_PrefabInternal: {fileID: 427190116}
-  m_GameObject: {fileID: 629976383}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 49.7737541, y: 50, z: 0}
-  m_Center: {x: -25.1131229, y: -25, z: 0}
---- !u!114 &629976386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400002, guid: 5a3c8cd0a7b74406eb7220d5212d4f39,
-    type: 2}
-  m_PrefabInternal: {fileID: 427190116}
-  m_GameObject: {fileID: 629976383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e696a7d3be0144e6da887af9fa2265be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: item
-  label: 
-  description: 
---- !u!114 &629976387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 5a3c8cd0a7b74406eb7220d5212d4f39,
-    type: 2}
-  m_PrefabInternal: {fileID: 427190116}
-  m_GameObject: {fileID: 629976383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96b31ce75e592f45a1cff563a4869db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  rightAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  bottomAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  topAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  mColor: {r: 1, g: 1, b: 1, a: 1}
-  mPivot: 2
-  mWidth: 50
-  mHeight: 50
-  mDepth: 0
-  autoResizeBoxCollider: 1
-  hideIfOffScreen: 0
-  keepAspectRatio: 0
-  aspectRatio: 1
-  mSprite: {fileID: 21300000, guid: 96a7278fdada640748480dc728c9ecf6, type: 3}
-  mMat: {fileID: 0}
-  mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
-  nextSprite: {fileID: 0}
 --- !u!1001 &644990364
 Prefab:
   m_ObjectHideFlags: 0
@@ -10396,6 +10258,7 @@ GameObject:
   - 4: {fileID: 1450852183}
   - 114: {fileID: 1450852182}
   - 114: {fileID: 1450852184}
+  - 114: {fileID: 1450852185}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -10444,6 +10307,34 @@ MonoBehaviour:
     label: Cheese
     description: A piece of some stanky cheese.
     sprite: {fileID: 21300000, guid: 3feb5f0cbf87f46c69457f38d11656b7, type: 3}
+    combos:
+    - combine: 
+      result: 
+  - name: test_item
+    label: Test Item
+    description: Hellooo
+    sprite: {fileID: 21300000, guid: 96a7278fdada640748480dc728c9ecf6, type: 3}
+    combos:
+    - combine: cheese
+      result: coke
+  - name: coke
+    label: Coke
+    description: fdsfdsfsdf
+    sprite: {fileID: 21300000, guid: 920affdd8ce7c438f916a28bfd5e2a9d, type: 3}
+    combos:
+    - combine: 
+      result: 
+--- !u!114 &1450852185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1450852181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 561ad8e10e35341439bff7d3c340a84b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1463314546
 GameObject:
   m_ObjectHideFlags: 0
@@ -10805,8 +10696,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 25, y: 25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 629976384}
+  m_Children: []
   m_Father: {fileID: 1211383909}
 --- !u!114 &1485608711
 MonoBehaviour:
