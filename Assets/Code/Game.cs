@@ -2,13 +2,18 @@ using UnityEngine;
 using System.Collections;
 
 public class Game : MonoBehaviour {
+  // Global jank
   public static Player player;
-  // public static Level level;
-  // public static DialogueManager dialogueManager;
-  // public static Inventory inventory;
-  public static MonoBehaviour script;
+  public static Game script;
   public static Hashtable cookies;
+  public static GameObject cursor;
+
+  // items stuff
+  public ArrayList items;
+  public Inventory inventory;
+  public static GameObject heldItem;
   
+  // level and room stuff
   public string levelName;
   public GameObject startRoom;
   public static GameObject currentRoom;
@@ -21,11 +26,13 @@ public class Game : MonoBehaviour {
 
   public void Awake() {
     player = GameObject.FindGameObjectsWithTag( "Player" )[0].GetComponent<Player>();
-    // level = new Level( levelName, startRoom );
-    // dialogueManager = gameObject.GetComponent<DialogueManager>();
-    // inventory = gameObject.GetComponent<Inventory>();
+    cursor = GameObject.Find( "CustomCursor" );
     script = this;
     cookies = new Hashtable();
+    heldItem = null;
+
+    items = new ArrayList();
+    inventory = gameObject.GetComponent<Inventory>();
     
     aLerp = 0.0f;
     aLerpSpeed = 0.05f;
@@ -44,6 +51,7 @@ public class Game : MonoBehaviour {
     player.transform.localScale = new Vector3( cScale, cScale, cScale );
   }
   
+// BEGIN FADE STUFF
   public void OnGUI() {
     if( aLerp <= 1.0f && Game.isFading == 1 ) {
       GUI.color = new Color( GUI.color.r, GUI.color.g, GUI.color.b, aLerp );
@@ -67,7 +75,66 @@ public class Game : MonoBehaviour {
     yield return new WaitForSeconds( delay );
     Game.isFading = 2;
   }
+// END FADE STUFF
 
+// BEGIN ITEM STUFF
+
+  /////// /sd/f/sd/f d/s/f sd/f/sd/f /sdf/sd/fs/d/fsd/f/sd/f/sdfs/df/sd/f/sd/f/ds
+  /////// TODOSANJEEV
+  
+  void Update() {
+    if( heldItem != null && Input.GetMouseButton( 1 ) ) DropItem();
+  }
+  
+  public void HoldItem( GameObject item ) {
+    Game.heldItem = item;
+    Game.cursor.GetComponent<CustomCursor>().SetCursor( item.GetComponent<UI2DSprite>().sprite2D );
+    Screen.showCursor = false;
+    item.SetActive( false );
+  }
+  
+  public void DropItem() {
+    Game.heldItem.SetActive( true );
+    Game.cursor.SetActive( false );
+    Screen.showCursor = true;
+    Game.heldItem = null;
+  }
+  
+  public void AddItem( string itemName ) {
+    items.Add( itemName );
+    GameObject newItem = Instantiate( Resources.Load( "Item" ) ) as GameObject;
+    Item template = null;
+    
+    foreach( Item tmp in inventory.items ) {
+      if( tmp.name == itemName ) {
+        template = tmp;
+        break;
+      }
+    }
+    
+    if( template == null ) return;
+    
+    newItem.GetComponent<UI2DSprite>().sprite2D = template.sprite;
+    
+    GameObject inv = GameObject.Find( "Inventory" );
+    
+    newItem.name = "item_" + itemName;
+    newItem.GetComponent<ItemClicker>().label = template.label;
+    newItem.GetComponent<ItemClicker>().description = template.description;
+    newItem.GetComponent<ItemClicker>().name = template.name;
+    
+    newItem.transform.parent = inv.transform;
+    newItem.transform.localScale = new Vector3( 1f, 1f, 1f );
+    inv.GetComponent<UIGrid>().Reposition();
+    newItem.transform.localPosition = new Vector3( newItem.transform.localPosition.x, newItem.transform.localPosition.y, 0f );
+  }
+  
+  public void RemoveItem( string itemName ) {
+    items.Remove( itemName );
+    Destroy( GameObject.Find( "item_" + itemName ) );
+  }
+// END ITEM STUFF
+  
 // STATIC METHODS
 
   public delegate void Callback();

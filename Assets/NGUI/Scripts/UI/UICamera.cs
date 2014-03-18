@@ -1473,7 +1473,10 @@ public class UICamera : MonoBehaviour
 					{
 						float time = RealTime.time;
 
-						Notify(currentTouch.pressed, "OnClick", null);
+            if( Game.heldItem == null )
+  						Notify(currentTouch.pressed, "OnClick", null);
+            else
+  						Notify(currentTouch.pressed, "OnItemClick", null);
 
 						if (currentTouch.clickTime + 0.35f > time)
 						{

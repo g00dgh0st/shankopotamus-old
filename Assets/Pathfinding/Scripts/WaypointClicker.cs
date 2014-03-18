@@ -4,11 +4,11 @@ using System.Collections;
 public class WaypointClicker : MonoBehaviour {
   protected Vector3 waypoint;
   
-  protected Texture2D cursor;
+  protected Sprite cursor;
   
   protected void Start() {
     waypoint = transform.parent.position;
-    cursor = Resources.Load( "Cursors/cursor_feet" ) as Texture2D;
+    cursor = Resources.Load<Sprite>( "Cursors/cursor_feet" );
   }
   
 	protected void OnClick() {
@@ -16,9 +16,14 @@ public class WaypointClicker : MonoBehaviour {
 	}
   
   void OnHover( bool isOver ) {
-    if( isOver )
-      Cursor.SetCursor( cursor, Vector2.zero, CursorMode.Auto );
-    else
-  		Cursor.SetCursor( null, Vector2.zero, CursorMode.Auto );
+    if( Game.heldItem != null ) return;
+    if( isOver ) {
+      Game.cursor.GetComponent<CustomCursor>().SetCursor( cursor );
+      Game.cursor.SetActive( true );
+      Screen.showCursor = false;
+    } else {
+      Game.cursor.SetActive( false );
+      Screen.showCursor = true;
+    }
   }
 }

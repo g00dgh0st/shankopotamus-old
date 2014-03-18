@@ -8,7 +8,7 @@ public class Passthrough : WaypointClicker {
   
   void Start() {
     base.Start();
-    cursor = Resources.Load( "Cursors/cursor_hand" ) as Texture2D;
+    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
   }
   
 	void OnClick() {

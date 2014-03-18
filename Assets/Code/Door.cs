@@ -18,7 +18,7 @@ public class Door : WaypointClicker {
   
   void Start() {
     base.Start();
-    cursor = Resources.Load( "Cursors/cursor_door" ) as Texture2D;
+    cursor = Resources.Load<Sprite>( "Cursors/cursor_door" );
         
   }
   

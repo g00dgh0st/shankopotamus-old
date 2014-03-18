@@ -1,20 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ZoomClicker : MonoBehaviour {
-  public GameObject zoomView;
+public class ItemClicker : MonoBehaviour {
+  public string name;
+  public string label;
+  public string description;
+  
   private Sprite cursor;
   
   void Start() {
-    zoomView.SetActive( false );
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_eye" );
+    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
   }
-  
+
   void OnClick() {
-    zoomView.SetActive( true );
-    Game.cookies.Add( "zoomed", true );
-    Game.ZoomIn();
-    zoomView.transform.position = new Vector3( Camera.main.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z + 5f );
+    Game.script.HoldItem( gameObject );
   }
   
   void OnHover( bool isOver ) {
