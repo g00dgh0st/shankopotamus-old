@@ -78,9 +78,6 @@ public class Game : MonoBehaviour {
 // END FADE STUFF
 
 // BEGIN ITEM STUFF
-
-  /////// /sd/f/sd/f d/s/f sd/f/sd/f /sdf/sd/fs/d/fsd/f/sd/f/sdfs/df/sd/f/sd/f/ds
-  /////// TODOSANJEEV
   
   void Update() {
     if( heldItem != null && Input.GetMouseButton( 1 ) ) DropItem();
@@ -122,6 +119,7 @@ public class Game : MonoBehaviour {
     newItem.GetComponent<ItemClicker>().label = template.label;
     newItem.GetComponent<ItemClicker>().description = template.description;
     newItem.GetComponent<ItemClicker>().name = template.name;
+    newItem.GetComponent<ItemClicker>().combos = template.combos;
     
     newItem.transform.parent = inv.transform;
     newItem.transform.localScale = new Vector3( 1f, 1f, 1f );
@@ -132,6 +130,12 @@ public class Game : MonoBehaviour {
   public void RemoveItem( string itemName ) {
     items.Remove( itemName );
     Destroy( GameObject.Find( "item_" + itemName ) );
+  }
+  
+  public void UseItem() {
+    string iName = Game.heldItem.GetComponent<ItemClicker>().name;
+    DropItem();
+    RemoveItem( iName );
   }
 // END ITEM STUFF
   

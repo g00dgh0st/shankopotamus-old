@@ -47,16 +47,16 @@ public class CameraControl : MonoBehaviour {
       
       newPos = pos;
       
-      if( Input.mousePosition.x > Screen.width - mouseScrollThreshold ) 
+      if( Input.mousePosition.x > Screen.width - mouseScrollThreshold || Input.GetKey( KeyCode.RightArrow ) ) 
         newPos = new Vector3( newPos.x + ( mouseScrollSpeed * Time.deltaTime ), newPos.y, newPos.z );
 
-      if( Input.mousePosition.x < 0 + mouseScrollThreshold ) 
+      if( Input.mousePosition.x < 0 + mouseScrollThreshold || Input.GetKey( KeyCode.LeftArrow ) ) 
         newPos = new Vector3( newPos.x - ( mouseScrollSpeed * Time.deltaTime ), newPos.y, newPos.z );
 
-      if( Input.mousePosition.y > Screen.height - mouseScrollThreshold ) 
+      if( Input.mousePosition.y > Screen.height - mouseScrollThreshold || Input.GetKey( KeyCode.UpArrow ) ) 
         newPos = new Vector3( newPos.x, newPos.y + ( mouseScrollSpeed * Time.deltaTime ), newPos.z );
       
-      if( Input.mousePosition.y < 0 + mouseScrollThreshold ) 
+      if( Input.mousePosition.y < 0 + mouseScrollThreshold || Input.GetKey( KeyCode.DownArrow ) ) 
         newPos = new Vector3( newPos.x, newPos.y - ( mouseScrollSpeed * Time.deltaTime ), newPos.z );
       
       if( newPos != pos && CheckBounds( roomBounds, newPos, pos ) )

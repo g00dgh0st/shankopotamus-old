@@ -39,8 +39,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 69.6832581, y: 70, z: 0}
-  m_Center: {x: -35.158371, y: -35, z: 0}
+  m_Size: {x: 49.7737541, y: 50, z: 0}
+  m_Center: {x: -25.1131229, y: -25, z: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -70,8 +70,8 @@ MonoBehaviour:
     absolute: 0
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 2
-  mWidth: 70
-  mHeight: 70
+  mWidth: 50
+  mHeight: 50
   mDepth: 0
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0

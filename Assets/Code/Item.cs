@@ -7,4 +7,5 @@ public class Item {
   public string label;
   public string description;
   public Sprite sprite;
+  public ItemCombo[] combos;
 }
