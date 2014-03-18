@@ -139,6 +139,20 @@ public class Game : MonoBehaviour {
   }
 // END ITEM STUFF
   
+// BEGIN DIALOGUE STUFF
+  public void ShowSpeechBubble( string text, Transform target, float time ) {
+    GameObject bub = Instantiate( Resources.Load( "SpeechBubble" ) ) as GameObject;
+    bub.GetComponent<SpeechBubble>().text = text;
+    bub.GetComponent<SpeechBubble>().target = target;
+    bub.GetComponent<SpeechBubble>().time = time;
+  }
+  
+// END DIALOGUE STUFF
+  
+  
+  
+  
+  
 // STATIC METHODS
 
   public delegate void Callback();
