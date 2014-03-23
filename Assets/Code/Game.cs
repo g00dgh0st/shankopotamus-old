@@ -7,6 +7,7 @@ public class Game : MonoBehaviour {
   public static Game script;
   public static Hashtable cookies;
   public static GameObject cursor;
+  public static DialogueManager dialogueManager;
 
   // items stuff
   public ArrayList items;
@@ -29,9 +30,11 @@ public class Game : MonoBehaviour {
     cursor = GameObject.Find( "CustomCursor" );
     script = this;
     cookies = new Hashtable();
-    heldItem = null;
+    
+    dialogueManager = gameObject.GetComponent<DialogueManager>();
 
     items = new ArrayList();
+    heldItem = null;
     inventory = gameObject.GetComponent<Inventory>();
     
     aLerp = 0.0f;
@@ -167,6 +170,10 @@ public class Game : MonoBehaviour {
     }
     
     cBack();
+  }
+  
+  public static void TargetCam( Transform trns ) {
+    Camera.main.transform.position = new Vector3( trns.position.x, trns.position.y, Camera.main.transform.position.z );
   }
   
   public static void PauseClicks() {

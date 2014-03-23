@@ -19,7 +19,7 @@ public class Option {
     if( idx >= 0 ) {
       action = delegate() { Game.dialogueManager.ChangeStep( idx ); };
     } else {
-      action = delegate() { Game.dialogueManager.ImmediateStopDialogue(); };
+      action = delegate() { Game.dialogueManager.StopDialogue(); };
     }
   }
   
@@ -34,7 +34,7 @@ public class Option {
     if( idx >= 0 ) {
       action = delegate() { Game.dialogueManager.ChangeStep( idx ); };
     } else {
-      action = delegate() { Game.dialogueManager.ImmediateStopDialogue(); };
+      action = delegate() { Game.dialogueManager.StopDialogue(); };
     }
     condition = c;
   }
