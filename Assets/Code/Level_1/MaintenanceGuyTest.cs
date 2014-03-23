@@ -62,7 +62,7 @@ public class MaintenanceGuyTest : MonoBehaviour {
           }
         ),
         // Step 1
-        new Step( transform.parent.Find( "CamTarget" ), "Ok bye.", delegate() { Game.dialogueManager.StopDialogue(); } ),
+        new Step( transform.parent.Find( "CamTarget" ), "Ok bye." ),
         // Step 2
         new Step( transform.parent.Find( "CamTarget" ), "Animation takes a lot of time. And the guy who made this is lazy.",
           new Option[2] {
@@ -75,12 +75,11 @@ public class MaintenanceGuyTest : MonoBehaviour {
           new Option[2] {
             new Option( "Sorry, didn't mean to offend you.", 4 ),
             new Option( "Ok bye.", -1 )
-          },
-          delegate() { dialogue.flags["isAngry"] = true; }    
+          }   
         ),
         // Step 4
-        new Step( transform.parent.Find( "CamTarget" ), "Well next time, shut up.", delegate() { Game.dialogueManager.StopDialogue(); } ),
-        new Step( transform.parent.Find( "CamTarget" ), "You made me angry. Go Away.", delegate() { Game.dialogueManager.StopDialogue(); } )
+        new Step( transform.parent.Find( "CamTarget" ), "Well next time, shut up." ),
+        new Step( transform.parent.Find( "CamTarget" ), "You made me angry. Go Away." )
       } 
     );
   }

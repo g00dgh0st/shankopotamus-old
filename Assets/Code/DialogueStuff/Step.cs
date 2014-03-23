@@ -8,7 +8,7 @@ public class Step {
   public string text;                 // This is the text prompt that shows when the Step is loaded
   public Option[] options;            // These are the options that will show for the user while on this Step
   public Callback action;             // This is an action that will be called when this Step is loaded
-  
+  public bool endStep = false;
   
   public Step( Transform s, string t, Option[] o, Callback a ) {
     text = t;
@@ -28,5 +28,12 @@ public class Step {
     action = a;
     speaker = s;
     options = null;
+  }
+  
+  public Step( Transform s, string t ) {
+    text = t;
+    speaker = s;
+    options = null;
+    endStep = true;
   }
 }

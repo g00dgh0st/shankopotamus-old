@@ -27,13 +27,15 @@ public class DialogueManager : MonoBehaviour {
     step = dialogue.steps[idx];
     if( step.action != null ) step.action();
     
-    // Camera.main.orthographicSize = 0.4f;
+    Camera.main.orthographicSize = 0.5f;
     Game.TargetCam( step.speaker );
     bub.SetActive( true );
     bub.GetComponent<DialogueBubble>().SetText( step.text );
   }
   
   public void ChangeStep( int idx ) {
+    ClearOptions();
+    
     step = dialogue.steps[idx];
     if( step.action != null ) step.action();
     
@@ -43,18 +45,30 @@ public class DialogueManager : MonoBehaviour {
   }
   
   public void ContinueDialogue() {
+    // end dialogue if last step
+    if( step.endStep ) {
+      StopDialogue();
+      return;
+    }
+    
     if( step.options != null ) {
+      // check for options
       bub.SetActive( false );
       
-      GameObject newOpt = Instantiate( opt ) as GameObject;
+      Game.TargetCam( Game.player.transform.Find( "CamTarget" ) );
       
-      newOpt.transform.parent = opt.transform.parent;
+      for( int i=0; i < step.options.Length; i++ ) {
+        GameObject newOpt = Instantiate( opt ) as GameObject;
+        newOpt.SetActive( true );
+        newOpt.transform.parent = opt.transform.parent;
+        newOpt.transform.localScale = new Vector3( 1f, 1f, 1f );
+        newOpt.transform.position = Vector3.zero;
+        newOpt.GetComponent<OptionButton>().Setup( step.options[i].text, i );
+      }
       
-      newOpt.SetActive( true );
-      
-      /// HERERERER
-      
+      opt.transform.parent.GetComponent<UIGrid>().Reposition();
     } else {
+      // if no options, go to the next step in the array
       int stepIdx = Step[].IndexOf( dialogue.steps, step ); 
       if( dialogue.steps.Length > stepIdx + 1 )
         ChangeStep( stepIdx + 1 );
@@ -64,12 +78,29 @@ public class DialogueManager : MonoBehaviour {
   }
   
   public void StopDialogue() {
-    // do sumfink
+    inDialogue = false;
+    
+    Game.ResumeClicks();
+    Game.ResumeCam();
+    
+    dialogue = null;
+    step = null;
+    
+    Camera.main.orthographicSize = 1f;
+    Game.TargetCam( Game.player.transform.Find( "CamTarget" ) );
+    bub.SetActive( false );
+    ClearOptions();
+
   }
 
   public void ChooseOption( int optionIndex ) {
-    Debug.Log( "Fsdfd" );
-    // step.options[optionIndex].action();
+    step.options[optionIndex].action();
+  }
+  
+  private void ClearOptions() {
+    foreach( GameObject obj in GameObject.FindGameObjectsWithTag( "OptionButton" ) ) {
+      Destroy( obj );
+    }
   }
 
 }
