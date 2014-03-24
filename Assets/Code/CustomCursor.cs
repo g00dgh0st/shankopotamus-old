@@ -3,8 +3,8 @@ using System.Collections;
 
 public class CustomCursor : MonoBehaviour {
 
-	void Update () {
-    transform.position = Camera.main.ScreenToWorldPoint( Input.mousePosition );
+	void Update() {
+    transform.position = GameObject.Find( "Camera" ).GetComponent<Camera>().ScreenToWorldPoint( Input.mousePosition );
 	}
   
   public void SetCursor( Sprite sprite ) {
