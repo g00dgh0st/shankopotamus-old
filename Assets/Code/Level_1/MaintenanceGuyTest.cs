@@ -24,11 +24,6 @@ public class MaintenanceGuyTest : MonoBehaviour {
   void OnItemClick() {
     if( bub != null ) Destroy( bub );
     
-    if( Game.heldItem.name == "item_cheese" ) {
-      Game.script.UseItem();
-      bub = Game.script.ShowSpeechBubble( "I love cheese. \n Thanks.", transform.parent.Find( "BubTarget" ), 5f );
-    } else
-      bub = Game.script.ShowSpeechBubble( "Get that crap away from me.", transform.parent.Find( "BubTarget" ), 5f );
   }
   
   void OnHover( bool isOver ) {
@@ -46,40 +41,41 @@ public class MaintenanceGuyTest : MonoBehaviour {
   
   // All dialogue is "written" here
   public void SetupDialogue() {
+    Transform camTarget = transform.parent.Find( "CamTarget" );
     
     Hashtable flags = new Hashtable();
     
     dialogue = new Dialogue( flags );
     
     dialogue.SetSteps(
-    new Step[6] {
+    new Step[5] {
       
         // Step 0
-        new Step( transform.parent.Find( "CamTarget" ), "Hello hippo weirdo man!",
+        new Step( camTarget, "Hey, can you do me a favor?",
           new Option[2] {
-            new Option( "I don't want to talk to you.", 1 ),
-            new Option( "I have to go.", -1 )
+            new Option( "What kind of favor?", 1 ),
+            new Option( "No.", -1 )
           }
         ),
-        // Step 1
-        new Step( transform.parent.Find( "CamTarget" ), "Ok bye." ),
-        // Step 2
-        new Step( transform.parent.Find( "CamTarget" ), "Animation takes a lot of time. And the guy who made this is lazy.",
+        new Step( camTarget, "I need you to get that cook to make me a \"Three Meat Surprise\".",
           new Option[2] {
-            new Option( "That's a dumb excuse. ", 3 ),
-            new Option( "I need to leave.", -1 )
+            new Option( "Why can't you ask him yourself?", 2 ),
+            new Option( "Sure, I'll talk to him." , 4 )
+          },
+          delegate() { /*Set three meat surprise open flag*/ }    
+        ),
+        new Step( camTarget, "I stabbed him once. He didn't take to kindly to it.",
+          new Option[2] {
+            new Option( "Why did you stab him?", 3 ),
+            new Option( "I'll go ask him for some \"Three Meat Surprise\".", 4 )
           }
         ),
-        // Step 3
-        new Step( transform.parent.Find( "CamTarget" ), "You're a dumb excuse! Now I'm angry!",
-          new Option[2] {
-            new Option( "Sorry, didn't mean to offend you.", 4 ),
-            new Option( "Ok bye.", -1 )
-          }   
+        new Step( camTarget, "It seemed like a decent idea at the time.", 
+          new Option[1] {
+            new Option( "Well you can't argue with that logic. I'll see what I can do.", 4 )
+          }
         ),
-        // Step 4
-        new Step( transform.parent.Find( "CamTarget" ), "Well next time, shut up." ),
-        new Step( transform.parent.Find( "CamTarget" ), "You made me angry. Go Away." )
+        new Step( camTarget, "Thanks. And don't tell him that it's for me." )
       } 
     );
   }

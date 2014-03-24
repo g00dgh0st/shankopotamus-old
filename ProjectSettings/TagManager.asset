@@ -10,11 +10,13 @@ TagManager:
   - Room
   - MainSprite
   - ZoomView
-  - 
+  - OptionButton
   - 
   - 
   - Enemy
   - Obst
+  - 
+  - FxTemporaire
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

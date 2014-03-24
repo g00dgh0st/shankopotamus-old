@@ -96,6 +96,8 @@ public class DialogueManager : MonoBehaviour {
   }
 
   public void ChooseOption( int optionIndex ) {
+    Game.cursor.SetActive( false );
+    Screen.showCursor = true;
     step.options[optionIndex].action();
   }
   
