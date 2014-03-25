@@ -12,6 +12,7 @@ public class Option {
   public Option( string t, Callback a ) {
     text = t;
     action = a;
+    condition = null;
   }
   
   public Option( string t, int idx ) {
@@ -21,6 +22,7 @@ public class Option {
     } else {
       action = delegate() { Game.dialogueManager.StopDialogue(); };
     }
+    condition = null;
   }
   
   public Option( string t, Callback a, Condition c ) {

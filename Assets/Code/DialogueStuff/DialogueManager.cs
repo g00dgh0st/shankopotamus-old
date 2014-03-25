@@ -58,6 +58,8 @@ public class DialogueManager : MonoBehaviour {
       Game.TargetCam( Game.player.transform.Find( "CamTarget" ) );
       
       for( int i=0; i < step.options.Length; i++ ) {
+        if( step.options[i].condition != null && step.options[i].condition() == false ) continue;
+        
         GameObject newOpt = Instantiate( opt ) as GameObject;
         newOpt.SetActive( true );
         newOpt.transform.parent = opt.transform.parent;

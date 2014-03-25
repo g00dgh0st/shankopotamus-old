@@ -28,6 +28,7 @@ public class Game : MonoBehaviour {
   public void Awake() {
     player = GameObject.FindGameObjectsWithTag( "Player" )[0].GetComponent<Player>();
     cursor = GameObject.Find( "CustomCursor" );
+    cursor.SetActive( false );
     script = this;
     cookies = new Hashtable();
     
@@ -139,6 +140,7 @@ public class Game : MonoBehaviour {
     string iName = Game.heldItem.GetComponent<ItemClicker>().name;
     DropItem();
     RemoveItem( iName );
+    Game.heldItem = null;
   }
 // END ITEM STUFF
   

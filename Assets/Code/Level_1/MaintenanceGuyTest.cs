@@ -16,14 +16,15 @@ public class MaintenanceGuyTest : MonoBehaviour {
 
 
   void OnClick() {
-    // if( bub != null ) Destroy( bub );
-    // bub = Game.script.ShowSpeechBubble( "Don't touch me.", transform.parent.Find( "BubTarget" ), 5f );
-    Game.dialogueManager.StartDialogue( dialogue, 0);
+    Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 0); } );
   }
 
   void OnItemClick() {
-    if( bub != null ) Destroy( bub );
-    
+    if( Game.heldItem.name == "item_three_meat_surprise" ) {
+      Game.script.UseItem();
+      if( bub != null ) Destroy( bub );
+      bub = Game.script.ShowSpeechBubble( "This smells like raw sewage. My mouth is already watering.\nAlso this is the end of this test demo. Go away.", transform.parent.Find( "BubTarget" ), 5f );
+    } 
   }
   
   void OnHover( bool isOver ) {
@@ -43,9 +44,7 @@ public class MaintenanceGuyTest : MonoBehaviour {
   public void SetupDialogue() {
     Transform camTarget = transform.parent.Find( "CamTarget" );
     
-    Hashtable flags = new Hashtable();
-    
-    dialogue = new Dialogue( flags );
+    dialogue = new Dialogue();
     
     dialogue.SetSteps(
     new Step[5] {
@@ -62,9 +61,9 @@ public class MaintenanceGuyTest : MonoBehaviour {
             new Option( "Why can't you ask him yourself?", 2 ),
             new Option( "Sure, I'll talk to him." , 4 )
           },
-          delegate() { /*Set three meat surprise open flag*/ }    
+          delegate() { GameObject.Find( "CookTest" ).transform.Find( "Clicker" ).GetComponent<CookTest>().threeMeatOpen = true; }    
         ),
-        new Step( camTarget, "I stabbed him once. He didn't take to kindly to it.",
+        new Step( camTarget, "I stabbed him once. He didn't take too kindly to it.",
           new Option[2] {
             new Option( "Why did you stab him?", 3 ),
             new Option( "I'll go ask him for some \"Three Meat Surprise\".", 4 )

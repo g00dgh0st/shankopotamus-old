@@ -3,10 +3,8 @@ using System.Collections;
 
 public class Dialogue {
   public Step[] steps;                // List of Steps for this Dialogue
-  public Hashtable flags;             // Hashtable of string keys with boolean values 
   
-  public Dialogue( Hashtable f ) {
-    flags = f;
+  public Dialogue() {
     Dialogue self = this;
   }
 

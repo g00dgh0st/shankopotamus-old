@@ -15,6 +15,10 @@ public class OptionButton : MonoBehaviour {
     optionIndex = i;
   }
   
+  void Update() {
+    gameObject.GetComponent<BoxCollider2D>().size = new Vector2( gameObject.GetComponent<UISprite>().width, 40f );
+  }
+  
   void OnClick() {
     Game.dialogueManager.ChooseOption( optionIndex );
   }

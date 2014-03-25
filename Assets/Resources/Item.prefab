@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
-  - 65: {fileID: 6500000}
+  - 61: {fileID: 6100000}
   m_Layer: 9
   m_Name: Item
   m_TagString: Untagged
@@ -25,22 +25,21 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -56.6130981, y: -41.7052765, z: 0}
+  m_LocalPosition: {x: 782.514465, y: -275.438782, z: 4750.00098}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!65 &6500000
-BoxCollider:
+--- !u!61 &6100000
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 49.7737541, y: 50, z: 0}
-  m_Center: {x: -25.1131229, y: -25, z: 0}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 50, y: 50}
+  m_Center: {x: -25, y: -25}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -95,6 +94,7 @@ MonoBehaviour:
   name: item
   label: 
   description: 
+  combos: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
