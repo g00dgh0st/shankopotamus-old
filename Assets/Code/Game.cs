@@ -224,4 +224,18 @@ public class Game : MonoBehaviour {
 			mesh.SetTriangles(triangles, m);
 		}
   }
+  
+  public static void CursorHover( bool isOver, Sprite cursor ) {
+    if( Game.heldItem != null ) return;
+    if( isOver ) {
+      Game.cursor.GetComponent<CustomCursor>().SetCursor( cursor );
+      Game.cursor.transform.position = GameObject.Find( "Camera" ).GetComponent<Camera>().ScreenToWorldPoint( Input.mousePosition );
+      Game.cursor.SetActive( true );
+      Screen.showCursor = false;
+    } else {
+      Game.cursor.SetActive( false );
+      Screen.showCursor = true;
+    }
+  }
+  
 }

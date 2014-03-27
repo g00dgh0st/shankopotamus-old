@@ -33,41 +33,37 @@ public class CookTest : MonoBehaviour {
   void OnItemClick() {
     if( !wantsIngredients ) return;
     
-    if( Game.heldItem.name == "item_ham" ) {
-      hasHam = true;
-      Game.script.UseItem();
-      if( bub != null ) Destroy( bub );
-      bub = Game.script.ShowSpeechBubble( "That's a nice looking ham.", transform.parent.Find( "BubTarget" ), 5f );
-    } else if( Game.heldItem.name == "item_chicken" ) {
-      hasChicken = true;
-      Game.script.UseItem();
-      if( bub != null ) Destroy( bub );
-      bub = Game.script.ShowSpeechBubble( "Are you sure this is chicken? Whatever it's good enough.", transform.parent.Find( "BubTarget" ), 5f );
-    } else if( Game.heldItem.name == "item_rat" ) {
-      hasRat = true;
-      Game.script.UseItem();
-      if( bub != null ) Destroy( bub );
-      bub = Game.script.ShowSpeechBubble( "This rat smells like it's been living in a sewer. That's good, it adds more flavor.", transform.parent.Find( "BubTarget" ), 5f );
-    }
+    if( Game.heldItem.name == "item_ham" || Game.heldItem.name == "item_rat" || Game.heldItem.name == "item_chicken" ) {
+      Game.player.MoveTo( waypoint.position, delegate() {
+        if( Game.heldItem.name == "item_ham" ) {
+          hasHam = true;
+          Game.script.UseItem();
+          if( bub != null ) Destroy( bub );
+          bub = Game.script.ShowSpeechBubble( "That's a nice looking ham.", transform.parent.Find( "BubTarget" ), 5f );
+        } else if( Game.heldItem.name == "item_chicken" ) {
+          hasChicken = true;
+          Game.script.UseItem();
+          if( bub != null ) Destroy( bub );
+          bub = Game.script.ShowSpeechBubble( "Are you sure this is chicken? Whatever it's good enough.", transform.parent.Find( "BubTarget" ), 5f );
+        } else if( Game.heldItem.name == "item_rat" ) {
+          hasRat = true;
+          Game.script.UseItem();
+          if( bub != null ) Destroy( bub );
+          bub = Game.script.ShowSpeechBubble( "This rat smells like it's been living in a sewer. That's good, it adds more flavor.", transform.parent.Find( "BubTarget" ), 5f );
+        }
     
-    if( hasRat && hasChicken && hasHam ) {
-      if( bub != null ) Destroy( bub );
-      bub = Game.script.ShowSpeechBubble( "That's all the ingredients. Here's my world famous \"Three Meat Surprise\".", transform.parent.Find( "BubTarget" ), 5f );
-      Game.script.AddItem( "three_meat_surprise" );
-      wantsIngredients = false;
+        if( hasRat && hasChicken && hasHam ) {
+          if( bub != null ) Destroy( bub );
+          bub = Game.script.ShowSpeechBubble( "That's all the ingredients. Here's my world famous \"Three Meat Surprise\".", transform.parent.Find( "BubTarget" ), 5f );
+          Game.script.AddItem( "three_meat_surprise" );
+          wantsIngredients = false;
+        }
+      });
     }
   }
   
   void OnHover( bool isOver ) {
-    if( Game.heldItem != null ) return;
-    if( isOver ) {
-      Game.cursor.GetComponent<CustomCursor>().SetCursor( cursor );
-      Game.cursor.SetActive( true );
-      Screen.showCursor = false;
-    } else {
-      Game.cursor.SetActive( false );
-      Screen.showCursor = true;
-    }
+    Game.CursorHover( isOver, cursor );
   }
   
   
@@ -97,7 +93,7 @@ public class CookTest : MonoBehaviour {
         ),
         new Step( camTarget, "This isn't for that stabby guy over there is it?",
           new Option[2] {
-            new Option( "It's for me, I love meats and surprises.", 3 ),
+            new Option( "It's for me.", 3 ),
             new Option( "Why does it matter?", 8 )
           }
         ),

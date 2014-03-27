@@ -50,7 +50,7 @@ public class Player : Pathfinding {
     
     if( ( target.x > transform.position.x && transform.localScale.x < 0 ) || ( target.x < transform.position.x && transform.localScale.x > 0 ) ) {
       transform.localScale = new Vector3( -1 * transform.localScale.x, transform.localScale.y, transform.localScale.z );
-      lastDirection = direction;
+      lastDirection = -direction;
     }
 
     Game.ResumeClicks();

@@ -9,6 +9,7 @@ public class Step {
   public Option[] options;            // These are the options that will show for the user while on this Step
   public Callback action;             // This is an action that will be called when this Step is loaded
   public bool endStep = false;
+  public bool actionLast = false;
   
   public Step( Transform s, string t, Option[] o, Callback a ) {
     text = t;
@@ -28,6 +29,14 @@ public class Step {
     action = a;
     speaker = s;
     options = null;
+  }
+  
+  public Step( Transform s, string t, Callback a, bool last ) {
+    text = t;
+    action = a;
+    speaker = s;
+    options = null;
+    actionLast = true;
   }
   
   public Step( Transform s, string t ) {

@@ -25,7 +25,7 @@ public class DialogueManager : MonoBehaviour {
     dialogue = dlg;
     
     step = dialogue.steps[idx];
-    if( step.action != null ) step.action();
+    if( step.action != null && !step.actionLast ) step.action();
     
     Camera.main.orthographicSize = 0.5f;
     Game.TargetCam( step.speaker );
@@ -37,7 +37,7 @@ public class DialogueManager : MonoBehaviour {
     ClearOptions();
     
     step = dialogue.steps[idx];
-    if( step.action != null ) step.action();
+    if( step.action != null && !step.actionLast ) step.action();
     
     Game.TargetCam( step.speaker );
     bub.SetActive( true );
@@ -45,6 +45,10 @@ public class DialogueManager : MonoBehaviour {
   }
   
   public void ContinueDialogue() {
+    
+    if( step.actionLast ) step.action();
+    if( step == null ) return;
+    
     // end dialogue if last step
     if( step.endStep ) {
       StopDialogue();
