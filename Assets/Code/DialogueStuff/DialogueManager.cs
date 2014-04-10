@@ -75,8 +75,8 @@ public class DialogueManager : MonoBehaviour {
         newOpt.GetComponent<OptionButton>().Setup( step.options[i].text, i );
       }
       
-      GameObject.Find( "OptsContainer" ).GetComponent<UIScrollView>().ResetPosition();
       opt.transform.parent.GetComponent<UIGrid>().Reposition();
+      GameObject.Find( "OptsContainer" ).GetComponent<UIScrollView>().ResetPosition();
     } else {
       // if no options, go to the next step in the array
       int stepIdx = Step[].IndexOf( dialogue.steps, step ); 
