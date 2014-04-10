@@ -14,7 +14,7 @@ public class Pathfinding : MonoBehaviour
     public PathfinderType PathType = PathfinderType.GridBased;
   	public bool JS = false;
     public float speed;
-    protected int direction = 1;
+    public int direction = 1;
     
     public void FindPath(Vector3 startPosition, Vector3 endPosition)
     {

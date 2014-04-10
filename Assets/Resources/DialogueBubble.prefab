@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,12 +88,12 @@ MonoBehaviour:
     absolute: 0
   bottomAnchor:
     target: {fileID: 0}
-    relative: 1
-    absolute: -80
+    relative: 0
+    absolute: 0
   topAnchor:
     target: {fileID: 0}
-    relative: 1
-    absolute: 0
+    relative: 0
+    absolute: 80
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mWidth: 675

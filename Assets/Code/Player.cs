@@ -8,18 +8,14 @@ public class Player : Pathfinding {
   public bool canMove = true;
   public float moveSpeed = 0.25f;
   
-  private int lastDirection;
-  
   public void Start() {
     speed = moveSpeed; // override the Pathfinding speed
-    lastDirection = direction;
   }
 
 	public void Update() {
     if( Path.Count > 0 ) {
-      if( direction != lastDirection ) {
+      if( ( transform.localScale.x > 0 && direction < 0 ) || ( transform.localScale.x < 0 && direction > 0 ) ) {
         transform.localScale = new Vector3( -1 * transform.localScale.x, transform.localScale.y, transform.localScale.z );
-        lastDirection = direction;
         
         foreach( MeshFilter filter in GetComponentsInChildren<MeshFilter>() ) {
           Game.ReverseNormals( filter.mesh );
@@ -48,10 +44,7 @@ public class Player : Pathfinding {
       yield return null;
     }
     
-    if( ( target.x > transform.position.x && transform.localScale.x < 0 ) || ( target.x < transform.position.x && transform.localScale.x > 0 ) ) {
-      transform.localScale = new Vector3( -1 * transform.localScale.x, transform.localScale.y, transform.localScale.z );
-      lastDirection = -direction;
-    }
+    FaceTarget( target );
 
     Game.ResumeClicks();
     
@@ -65,5 +58,22 @@ public class Player : Pathfinding {
   
   public bool InMotion() {
     return Path.Count > 0;
+  }
+  
+  public void FaceTarget( Vector3 target ) {
+    if( ( target.x > transform.position.x && transform.localScale.x < 0 ) || ( target.x < transform.position.x && transform.localScale.x > 0 ) ) {
+      transform.localScale = new Vector3( -1 * transform.localScale.x, transform.localScale.y, transform.localScale.z );
+    }
+  }
+  
+  public void FaceTarget( Vector3 target, float delay ) {
+    StartCoroutine( DelayFaceTarget( target, delay ) );
+  }
+  
+  public IEnumerator DelayFaceTarget( Vector3 target, float delay ) {
+    yield return new WaitForSeconds( delay );
+    if( ( target.x > transform.position.x && transform.localScale.x < 0 ) || ( target.x < transform.position.x && transform.localScale.x > 0 ) ) {
+      transform.localScale = new Vector3( -1 * transform.localScale.x, transform.localScale.y, transform.localScale.z );
+    }
   }
 }

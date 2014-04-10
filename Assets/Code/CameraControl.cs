@@ -18,8 +18,7 @@ public class CameraControl : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-    
+	void Update () {    
     if( isPaused ) return;
     
     ArrayList sprites = new ArrayList();

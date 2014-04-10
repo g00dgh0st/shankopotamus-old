@@ -45,4 +45,12 @@ public class Step {
     options = null;
     endStep = true;
   }
+  
+  public Step( Transform s, string t, int idx ) {
+    text = t;
+    speaker = s;
+    options = null;
+    action = delegate() { Game.dialogueManager.ChangeStep( idx ); };
+    actionLast = true;
+  }
 }

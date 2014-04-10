@@ -175,7 +175,7 @@ public class Game : MonoBehaviour {
   }
   
   public static void TargetCam( Transform trns ) {
-    Camera.main.transform.position = new Vector3( trns.position.x, trns.position.y, Camera.main.transform.position.z );
+    Camera.main.transform.position = new Vector3( trns.position.x, trns.position.y - 0.1f, Camera.main.transform.position.z );
   }
   
   public static void PauseClicks() {
@@ -236,6 +236,15 @@ public class Game : MonoBehaviour {
       Game.cursor.SetActive( false );
       Screen.showCursor = true;
     }
+  }
+  
+  public static T GetScript<T>() where T : Component {
+    GameObject go = GameObject.Find( typeof(T).ToString() );
+    
+    if( go.transform.Find( "Clicker" ) )
+      return ( T ) go.transform.Find( "Clicker" ).gameObject.GetComponent<T>();
+    else
+      return ( T ) go.GetComponent<T>();
   }
   
 }

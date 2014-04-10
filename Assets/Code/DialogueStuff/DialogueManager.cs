@@ -27,7 +27,7 @@ public class DialogueManager : MonoBehaviour {
     step = dialogue.steps[idx];
     if( step.action != null && !step.actionLast ) step.action();
     
-    Camera.main.orthographicSize = 0.5f;
+    Camera.main.orthographicSize = 0.4f;
     Game.TargetCam( step.speaker );
     bub.SetActive( true );
     bub.GetComponent<DialogueBubble>().SetText( step.text );
@@ -42,13 +42,16 @@ public class DialogueManager : MonoBehaviour {
     Game.TargetCam( step.speaker );
     bub.SetActive( true );
     bub.GetComponent<DialogueBubble>().SetText( step.text );
+    
+    Game.player.FaceTarget( step.speaker.transform.position, 0.1f );
   }
   
   public void ContinueDialogue() {
+    Step startedStep = step;
     
     if( step.actionLast ) step.action();
     if( step == null ) return;
-    
+    if( step != startedStep ) return;
     // end dialogue if last step
     if( step.endStep ) {
       StopDialogue();
@@ -72,6 +75,7 @@ public class DialogueManager : MonoBehaviour {
         newOpt.GetComponent<OptionButton>().Setup( step.options[i].text, i );
       }
       
+      GameObject.Find( "OptsContainer" ).GetComponent<UIScrollView>().ResetPosition();
       opt.transform.parent.GetComponent<UIGrid>().Reposition();
     } else {
       // if no options, go to the next step in the array
