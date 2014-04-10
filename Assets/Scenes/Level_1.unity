@@ -5120,11 +5120,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -21.4551582
+      value: -11.0725365
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -12.7183247
+      value: -16.623148
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.z
@@ -14222,7 +14222,7 @@ Transform:
   m_PrefabInternal: {fileID: 508331217}
   m_GameObject: {fileID: 1333868172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.4551582, y: -12.7183247, z: .206691563}
+  m_LocalPosition: {x: -11.0725365, y: -16.623148, z: .206691563}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1092221449}
@@ -15696,7 +15696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 0}
   levelName: LevelOne
-  startRoom: {fileID: 421766015}
+  startRoom: {fileID: 1239921773}
 --- !u!4 &1450852183
 Transform:
   m_ObjectHideFlags: 0
