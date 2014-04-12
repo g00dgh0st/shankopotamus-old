@@ -13,10 +13,6 @@ public class Parallax : MonoBehaviour {
     startPos = transform.position;
   }
   
-  void OnEnable() {
-    startPos = transform.position;
-  }
-
   public void Update() {
     Vector3 camPos = cam.transform.position;
     Vector3 diffPos = startPos - camPos;

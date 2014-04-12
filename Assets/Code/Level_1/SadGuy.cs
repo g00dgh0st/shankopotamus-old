@@ -7,6 +7,9 @@ public class SadGuy : MonoBehaviour {
   
   private Dialogue dialogue;
   
+  public GameObject roger;
+  public GameObject roger_block;
+  
   void Start() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
     
@@ -95,7 +98,7 @@ public class SadGuy : MonoBehaviour {
       // 17
       new Step( camTarget, "What was that, Roger? I couldn't understand you. Well, I suppose it would be good for Roger to get some fresh air. Just be sure to bring him back!",
         new Option[1] {
-          new Option( "Yeah, sure.", -1 )
+          new Option( "Yeah, sure.", delegate() { Destroy( roger ); Destroy( roger_block ); Game.script.AddItem( "chicken" ); ; Game.dialogueManager.StopDialogue(); } )
         }
       ),
       // 18
