@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 938cf5acd652947429651f903cf58781
+guid: 0c37214b2d19f41f9bfbd09e243b6373
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -21,7 +21,7 @@ TextureImporter:
   generateCubemap: 0
   seamlessCubemap: 0
   textureFormat: -3
-  maxTextureSize: 64
+  maxTextureSize: 1024
   textureSettings:
     filterMode: -1
     aniso: 1
@@ -30,12 +30,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 500
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings:
@@ -44,6 +44,33 @@ TextureImporter:
     textureFormat: -2
     compressionQuality: 50
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: power_panel_test_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 890
+        width: 480
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: power_panel_test_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 226
+        width: 500
+        height: 658
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: power_panel_test_2
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 13
+        width: 355
+        height: 207
+      alignment: 0
+      pivot: {x: 0, y: 0}
   spritePackingTag: 
   userData: 
