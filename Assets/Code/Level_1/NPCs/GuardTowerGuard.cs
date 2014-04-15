@@ -99,7 +99,7 @@ public class GuardTowerGuard : MonoBehaviour {
         }
       ),
       // 8
-      new Step( camTarget, "Get out!", delegate() { Game.dialogueManager.StopDialogue(); exitDoor.OnClick(); }, true )
+      new Step( camTarget, "Get out!", delegate() { Game.dialogueManager.StopDialogue(); exitDoor.OnClick(); Game.script.ShowSpeechBubble( "Yup.", Game.player.transform.Find( "BubTarget" ), 0.5f ); }, true )
     } );
   }  
 }

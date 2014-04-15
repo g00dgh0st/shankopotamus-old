@@ -24,6 +24,9 @@ public class Game : MonoBehaviour {
   public static float aLerpSpeed;
   public static Texture2D blackTex;
   public static int isFading = 0;
+  
+  // paused or not
+  public static bool clicksPaused = false;
 
   public void Awake() {
     player = GameObject.FindGameObjectsWithTag( "Player" )[0].GetComponent<Player>();
@@ -78,6 +81,9 @@ public class Game : MonoBehaviour {
   public IEnumerator DelayFadeIn( float delay ) {
     yield return new WaitForSeconds( delay );
     Game.isFading = 2;
+    foreach( GameObject bub in GameObject.FindGameObjectsWithTag( "SpeechBubble" ) ) {
+      Destroy( bub );
+    }
   }
 // END FADE STUFF
 
@@ -179,10 +185,12 @@ public class Game : MonoBehaviour {
   }
   
   public static void PauseClicks() {
+    Game.clicksPaused = true;
     Camera.main.transform.Find( "ClickOverlay" ).gameObject.SetActive( true );
   }
   
   public static void ResumeClicks() {
+    Game.clicksPaused = false;
     Camera.main.transform.Find( "ClickOverlay" ).gameObject.SetActive( false );
   }
   

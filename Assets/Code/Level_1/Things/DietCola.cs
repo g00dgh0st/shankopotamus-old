@@ -10,16 +10,19 @@ public class DietCola : MonoBehaviour {
   }
   
   void OnClick() {
-    GuardTowerGuard scrip = Game.GetScript<GuardTowerGuard>();
+    Game.player.MoveTo( transform.position, delegate() { 
     
-    if( !scrip.atScreens && scrip.firstTime ) {
-      Game.GetScript<GuardTowerGuard>().OnClick();
-    } else if( !scrip.atScreens && !scrip.firstTime ) {
-      scrip.DontTouchBubble();
-    } else if( scrip.atScreens ) {
-      Game.script.AddItem( "diet_cola" );
-      Destroy( gameObject );
-    }
+      GuardTowerGuard scrip = Game.GetScript<GuardTowerGuard>();
+    
+      if( !scrip.atScreens && scrip.firstTime ) {
+        Game.GetScript<GuardTowerGuard>().OnClick();
+      } else if( !scrip.atScreens && !scrip.firstTime ) {
+        scrip.DontTouchBubble();
+      } else if( scrip.atScreens ) {
+        Game.script.AddItem( "diet_cola" );
+        Destroy( gameObject );
+      }
+    } );
   }
   
   void OnHover( bool isOver ) {

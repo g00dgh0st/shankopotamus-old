@@ -10,17 +10,19 @@ public class Radio : MonoBehaviour {
   }
   
   void OnClick() {
-    GuardTowerGuard scrip = Game.GetScript<GuardTowerGuard>();
+    Game.player.MoveTo( transform.position, delegate() { 
+      GuardTowerGuard scrip = Game.GetScript<GuardTowerGuard>();
     
-    if( !scrip.atScreens && scrip.firstTime ) {
-      Game.GetScript<GuardTowerGuard>().OnClick();
-    } else if( !scrip.atScreens && !scrip.firstTime ) {
-      scrip.DontTouchBubble();
-    } else if( scrip.atScreens ) {
-      Debug.Log( "Break, get battery" );
-      Game.script.AddItem( "battery" );
-      Destroy( gameObject );
-    }
+      if( !scrip.atScreens && scrip.firstTime ) {
+        Game.GetScript<GuardTowerGuard>().OnClick();
+      } else if( !scrip.atScreens && !scrip.firstTime ) {
+        scrip.DontTouchBubble();
+      } else if( scrip.atScreens ) {
+        Debug.Log( "Break, get battery" );
+        Game.script.AddItem( "battery" );
+        Destroy( gameObject );
+      }
+    } );
   }
   
   void OnHover( bool isOver ) {
