@@ -22,7 +22,7 @@ public class Door : WaypointClicker {
         
   }
   
-  void OnClick() {
+  public void OnClick() {
     Game.PauseClicks();
         
     base.OnClick();

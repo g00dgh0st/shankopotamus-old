@@ -33,10 +33,10 @@ public class SadGuy : MonoBehaviour {
     dialogue = new Dialogue();
     
     dialogue.SetSteps(
-    new Step[26] {
+    new Step[] {
       // 0
       new Step( camTarget, "Look, Roger, we have a visitor!",
-        new Option[1] {
+        new Option[] {
           new Option( "Who's Roger?", 1 )
         }
       ),
@@ -46,7 +46,7 @@ public class SadGuy : MonoBehaviour {
       new Step( chickenTarget, "cluck.", 3 ),
       // 3
       new Step( camTarget, "Oh, Roger, behave! I apologize, he has has a fowl mouth! Ohoho! A joke!",
-        new Option[4] {
+        new Option[] {
           new Option( "Why do you have a pet chicken?", 7 ),
           new Option( "Those are nice glasses.", 18 ),
           new Option( "You seem really old, have you been in here a while?", 23 ),
@@ -59,7 +59,7 @@ public class SadGuy : MonoBehaviour {
       new Step( chickenTarget, "cluck.", 6 ),
       // 6
       new Step( camTarget, "What would you like to talk about, friend?",
-        new Option[5] {
+        new Option[] {
           new Option( "Why do you have a pet chicken?", 7 ),
           new Option( "Would you mind if I borrowed Roger for a bit?", 15 ),
           new Option( "Those are nice glasses.", 18 ),
@@ -77,7 +77,7 @@ public class SadGuy : MonoBehaviour {
       new Step( chickenTarget, "cluck.", 11 ),
       // 11
       new Step( camTarget, "Oh I do remember that, it was one shell of a good time! Ohoho a joke! Because of the eggs, you see!",
-        new Option[1] {
+        new Option[] {
           new Option( "Can you understand what he says?", 12 )
         }
       ),
@@ -87,7 +87,7 @@ public class SadGuy : MonoBehaviour {
       new Step( chickenTarget, "cluck.", 14 ),
       // 14
       new Step( camTarget, "See! He knows exactly what I'm going to say!",
-        new Option[1] {
+        new Option[] {
           new Option( "Would you mind if I borrowed Roger for a bit?", 15 )
         }
       ),
@@ -97,57 +97,57 @@ public class SadGuy : MonoBehaviour {
       new Step( chickenTarget, "If I spend another minute with this man, I might kill myself.", 17 ),
       // 17
       new Step( camTarget, "What was that, Roger? I couldn't understand you. Well, I suppose it would be good for Roger to get some fresh air. Just be sure to bring him back!",
-        new Option[1] {
+        new Option[] {
           new Option( "Yeah, sure.", delegate() { Destroy( roger ); Destroy( roger_block ); Game.script.AddItem( "chicken" ); ; Game.dialogueManager.StopDialogue(); } )
         }
       ),
       // 18
       new Step( camTarget, "Why thank you, I made them myself.",
-        new Option[2] {
+        new Option[] {
           new Option( "Could you make another pair of glasses?", 19 ),
           new Option( "Can I borrow your glasses for a bit?", 20 )
         }
       ),
       // 19
       new Step( camTarget, "Unfortunately, I don't have the tools anymore. I let someone borrow them, and they never gave them back.",
-        new Option[1] {
+        new Option[] {
           new Option( "Can I borrow your glasses for a bit?", 20 )
         }
       ),
       // 20
       new Step( camTarget, "Well, I hate to be so forward, but may I propose a trade?",
-        new Option[1] {
+        new Option[] {
           new Option( "Sure, what do you need?", 21 )
         }
       ),
       // 21
       new Step( camTarget, "This prison can get pretty drafty, and my bald head can get really cold at night. It would be great if I had a nice hat to keep me warm.",
-        new Option[2] {
+        new Option[] {
           new Option( "Where am I supposed to find a hat?", 22 ),
           new Option( "I'll go get you a hat.", -1 )
         }
       ),
       // 22
       new Step( camTarget, "Maybe go to Hats 'R' Us! Oho! Another joke!",
-        new Option[1] {
+        new Option[] {
           new Option( "Yeah, uh, funny joke. I'll go find a hat.", -1 )
         }
       ),
       // 23
       new Step( camTarget, "Why, yes, I've been in here for nearly 60 years.",
-        new Option[1] {
+        new Option[] {
           new Option( "What did you do to get such a long sentence?", 24 )
         }
       ),
       // 24
       new Step( camTarget, "I didn't pay my taxes for 30 years.",
-        new Option[1] {
+        new Option[] {
           new Option( "That doesn't seem bad enough to have to spend so much time in here.", 25 )
         }
       ),
       // 25
       new Step( camTarget, "I also did a lot of pedophile stuff.",
-        new Option[1] {
+        new Option[] {
           new Option( "Oh.", -1 )
         }
       )
