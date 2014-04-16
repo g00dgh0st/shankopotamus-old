@@ -1,0 +1,112 @@
+fileFormatVersion: 2
+guid: a176adac8bd44464886cc3c5d495101c
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 512
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 500
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: Camera_0
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 488
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Camera_1
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 488
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Camera_2
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 432
+        width: 132
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Camera_3
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 351
+        width: 76
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Camera_4
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 15
+        width: 30
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Camera_5
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 120
+        width: 26
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Camera_6
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 15
+        width: 29
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+  spritePackingTag: 
+  userData: 

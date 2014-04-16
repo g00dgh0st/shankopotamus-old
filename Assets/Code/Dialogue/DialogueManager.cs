@@ -31,6 +31,8 @@ public class DialogueManager : MonoBehaviour {
     Game.TargetCam( step.speaker );
     bub.SetActive( true );
     bub.GetComponent<DialogueBubble>().SetText( step.text );
+    
+    Game.player.FaceTarget( step.speaker.transform.position, 0.1f );
   }
   
   public void ChangeStep( int idx ) {

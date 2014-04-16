@@ -7,10 +7,6 @@ public class PigSewer : MonoBehaviour {
   private bool fadeStarted = false;
   private bool bubShown = false;
   
-  void Start() {
-    Game.cookies.Add( "pigInSewer", true );
-  }
-
   void OnEnable() {
     if( Game.cookies != null && Game.cookies.Contains( "pigInSewer" ) ) {
       StartCoroutine( Engage() );

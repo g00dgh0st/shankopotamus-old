@@ -11,6 +11,10 @@ public class SecurityScreens : MonoBehaviour {
   
   public Transform guardPos;
   
+  public GameObject cafeteriaCam;
+  public GameObject showersCam;
+  public GameObject cellblockCam;
+  
   void Start() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
     
@@ -52,6 +56,24 @@ public class SecurityScreens : MonoBehaviour {
         }
       } );
     }
+  }
+  
+  public void DestroyCam( string name ) {
+    switch( name ) {
+      case "cafeteria":
+        cafeteriaCam.SetActive( false );
+        break;
+      case "showers":
+        showersCam.SetActive( false );
+        break;
+      case "cellblock":
+        cellblockCam.SetActive( false );
+        break;
+      default:
+        break;
+    }
+    
+    camerasOff++;
   }
   
   void OnHover( bool isOver ) {
