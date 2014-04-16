@@ -7,6 +7,8 @@ public class SewersMaintenanceGuy : MonoBehaviour {
   
   private Dialogue dialogue;
   
+  public FuseBox fusebox;
+  
   void Start() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
     
@@ -33,6 +35,7 @@ public class SewersMaintenanceGuy : MonoBehaviour {
       //0
       new Step( camTarget, "Don't touch me.", 
         new Option[] {
+          new Option( "Hey, I broke-- I mean, there's a broken fuse box over there.", 14, delegate() { return fusebox.broken; } ),
           new Option( "What are you doing?", 1 ),
           new Option( "Can I use your ladder?", 9 ),
           new Option( "Can I borrow your fishing rod?", 3 ),
@@ -129,7 +132,12 @@ public class SewersMaintenanceGuy : MonoBehaviour {
         new Option[] {
           new Option( "What if I trade you for it?", 10 )
         }
-      )
+      ),
+      // 14
+      new Step( camTarget, "Dern it. Why can't people read sticky notes?", 
+        delegate() {
+          Debug.Log( "Move him and ladder to fuse box" );
+      }, true )
     } );
   }  
 }

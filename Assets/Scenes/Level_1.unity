@@ -17767,6 +17767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0656510c60995470a89a0b2bc6cb9513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fusebox: {fileID: 1829670412}
 --- !u!61 &982695591
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34477,6 +34478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomView: {fileID: 2032055027}
   moveTo: {fileID: 0}
+  broken: 1
 --- !u!61 &1829670413
 BoxCollider2D:
   m_ObjectHideFlags: 0

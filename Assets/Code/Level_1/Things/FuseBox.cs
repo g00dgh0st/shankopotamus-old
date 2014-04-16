@@ -9,6 +9,8 @@ public class FuseBox : MonoBehaviour {
   
   private bool open = false;
   
+  public bool broken = true;
+  
   void Start() {
     zoomView.SetActive( false );
     cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
