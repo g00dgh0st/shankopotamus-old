@@ -59,6 +59,7 @@ public class SewersMaintenanceGuy : MonoBehaviour {
       // 3
       new Step( camTarget, "I'm using it.",
         new Option[] {
+          new Option( "What can you catch down here?", 2 ),
           new Option( "Shouldn't you be working?", 4 ),
           new Option( "What about your ladder?", 9 ),
           new Option( "Ok. I'll leave then.", -1 )
@@ -100,9 +101,9 @@ public class SewersMaintenanceGuy : MonoBehaviour {
         }
       ),
       // 9
-      new Step( camTarget, "No. I'm on the job. I need it.",
+      new Step( camTarget, "I'm using it.",
         new Option[] {
-          new Option( "But you're not working now.", 4 ),
+          new Option( "Why don't you sit on something else?", 12 ),
           new Option( "What if I trade you for it?", 10 )
         }
       ),
@@ -119,6 +120,14 @@ public class SewersMaintenanceGuy : MonoBehaviour {
         new Option[] {
           new Option( "Can I have your fishing rod?", 3 ), 
           new Option( "Ok I'll try to find a can.", -1 )
+        }
+      ),
+      // 12
+      new Step( camTarget, "How about I sit on your face?", 13 ),
+      // 13
+      new Step( camTarget, "That didn't come out right.",
+        new Option[] {
+          new Option( "What if I trade you for it?", 10 )
         }
       )
     } );
