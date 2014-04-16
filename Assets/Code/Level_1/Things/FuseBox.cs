@@ -9,7 +9,7 @@ public class FuseBox : MonoBehaviour {
   
   private bool open = false;
   
-  public bool broken = true;
+  public bool broken = false;
   
   void Start() {
     zoomView.SetActive( false );

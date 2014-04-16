@@ -15,6 +15,7 @@ public class ZoomFuseBox : MonoBehaviour {
     if( !broken ) {
       transform.Find( "normal" ).gameObject.SetActive( false );
       transform.Find( "broken" ).gameObject.SetActive( true );
+      Game.GetScript<FuseBox>().broken = true;
       StartCoroutine( CloseOut() );
     }
   }
