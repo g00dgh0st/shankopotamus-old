@@ -25,6 +25,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 61: {fileID: 6100000}
+  - 114: {fileID: 11400000}
+  - 50: {fileID: 5000000}
   m_Layer: 0
   m_Name: PigSewer
   m_TagString: Untagged
@@ -57,6 +59,21 @@ GameObject:
   m_Component:
   - 4: {fileID: 400006}
   m_Layer: 0
+  m_Name: BubTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400008}
+  m_Layer: 0
   m_Name: Sprites
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +90,7 @@ Transform:
   m_LocalPosition: {x: -5.00564957, y: .134352788, z: -.457519561}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 400006}
+  m_Father: {fileID: 400008}
 --- !u!4 &400002
 Transform:
   m_ObjectHideFlags: 1
@@ -81,9 +98,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: -.192779198, w: .98124218}
-  m_LocalPosition: {x: -4.60201073, y: -.568128109, z: 0}
-  m_LocalScale: {x: 1.40367997, y: 1.40367997, z: 1.40367997}
+  m_LocalPosition: {x: -4.48670959, y: -1.0869813, z: 0}
+  m_LocalScale: {x: 1.87199998, y: 1.87199998, z: 1.87199998}
   m_Children:
+  - {fileID: 400008}
   - {fileID: 400006}
   m_Father: {fileID: 0}
 --- !u!4 &400004
@@ -96,7 +114,7 @@ Transform:
   m_LocalPosition: {x: -5.13231277, y: -.151209787, z: -.457519561}
   m_LocalScale: {x: .969617009, y: .96961683, z: 1.40367997}
   m_Children: []
-  m_Father: {fileID: 400006}
+  m_Father: {fileID: 400008}
 --- !u!4 &400006
 Transform:
   m_ObjectHideFlags: 1
@@ -104,12 +122,38 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: .192779198, w: .98124218}
+  m_LocalPosition: {x: -.058851663, y: .265954286, z: 0}
+  m_LocalScale: {x: .712412953, y: .712412953, z: .712412953}
+  m_Children: []
+  m_Father: {fileID: 400002}
+--- !u!4 &400008
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_LocalRotation: {x: 0, y: 0, z: .192779198, w: .98124218}
   m_LocalPosition: {x: 3.34380627, y: 1.48300111, z: .325942934}
   m_LocalScale: {x: .712413132, y: .712413132, z: .712413132}
   m_Children:
   - {fileID: 400004}
   - {fileID: 400000}
   m_Father: {fileID: 400002}
+--- !u!50 &5000000
+Rigidbody2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!61 &6100000
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -121,6 +165,17 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: .49000001, y: .469999999}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4055579a00134a1d9cf3e200932efb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -140,7 +195,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_SortingLayerID: 747986461
   m_Sprite: {fileID: 21300000, guid: 63dbe76b29ee749ca8e8b94d573e9439, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -162,9 +217,9 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 1
-  m_SortingOrder: 0
-  m_SortingLayerID: 4096241421
+  m_SortingLayer: 3
+  m_SortingOrder: 1
+  m_SortingLayerID: 747986461
   m_Sprite: {fileID: 21300002, guid: 63dbe76b29ee749ca8e8b94d573e9439, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
