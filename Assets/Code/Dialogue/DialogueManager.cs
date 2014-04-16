@@ -27,7 +27,7 @@ public class DialogueManager : MonoBehaviour {
     step = dialogue.steps[idx];
     if( step.action != null && !step.actionLast ) step.action();
     
-    Camera.main.orthographicSize = 0.4f;
+    Camera.main.orthographicSize = 0.6f;
     Game.TargetCam( step.speaker );
     bub.SetActive( true );
     bub.GetComponent<DialogueBubble>().SetText( step.text );
