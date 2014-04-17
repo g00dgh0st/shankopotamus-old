@@ -3156,7 +3156,7 @@ MonoBehaviour:
   startingRenderQueue: 3000
   mAlpha: 1
   mClipping: 2
-  mClipRange: {x: .111053467, y: 38, z: 714.666626, w: 100}
+  mClipRange: {x: .0555114746, y: 38.5, z: 712.777771, w: 100}
   mClipSoftness: {x: 4, y: 4}
   mDepth: 0
   mClipOffset: {x: 0, y: 0}
@@ -7500,8 +7500,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 391703198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.273625135, y: -.16299884, z: -.0136261238}
-  m_LocalScale: {x: .951927722, y: .95192796, z: 1.17956305}
+  m_LocalPosition: {x: -.277615577, y: -.130124867, z: -.0136261238}
+  m_LocalScale: {x: 1.13012838, y: 1.13012874, z: 1.40037715}
   m_Children: []
   m_Father: {fileID: 117131240}
 --- !u!212 &391703200
@@ -7523,7 +7523,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_SortingLayerID: 4096241421
   m_Sprite: {fileID: 21300002, guid: 63dbe76b29ee749ca8e8b94d573e9439, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8656,7 +8656,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 448725137}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 307.333313, y: 190.625015, z: 0}
+  m_LocalPosition: {x: 306.333344, y: 190.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1011110387}
@@ -14562,8 +14562,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 806728171}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.262943268, y: .142162159, z: -.0136261238}
-  m_LocalScale: {x: .981756449, y: .981756866, z: .840336204}
+  m_LocalPosition: {x: -.26023072, y: .23089017, z: -.0136261238}
+  m_LocalScale: {x: 1.16554129, y: 1.16554177, z: .997647226}
   m_Children: []
   m_Father: {fileID: 117131240}
 --- !u!212 &806728173
@@ -18115,7 +18115,7 @@ Transform:
   m_GameObject: {fileID: 1011110386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00497512426, y: .00497512426, z: .00497512426}
+  m_LocalScale: {x: .00498753134, y: .00498753134, z: .00498753134}
   m_Children:
   - {fileID: 446293067}
   - {fileID: 1064466907}
@@ -19358,6 +19358,82 @@ Transform:
   - {fileID: 1463569502}
   - {fileID: 1235604187}
   m_Father: {fileID: 1829813682}
+--- !u!1 &1082053656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1082053657}
+  - 212: {fileID: 1082053660}
+  - 61: {fileID: 1082053659}
+  - 114: {fileID: 1082053658}
+  m_Layer: 0
+  m_Name: CheeseItem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1082053657
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1082053656}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.851480484, y: -.388249397, z: 0}
+  m_LocalScale: {x: .281417847, y: .281417876, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1248173388}
+--- !u!114 &1082053658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1082053656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f674413cc29634390b32f2c0f55cbb11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: cheese
+  point: {fileID: 0}
+--- !u!61 &1082053659
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1082053656}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: .600000024, y: .600000024}
+  m_Center: {x: 0, y: -3.81469727e-06}
+--- !u!212 &1082053660
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1082053656}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 3
+  m_SortingOrder: 0
+  m_SortingLayerID: 747986461
+  m_Sprite: {fileID: 21300000, guid: 3feb5f0cbf87f46c69457f38d11656b7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &1082147508
 Prefab:
   m_ObjectHideFlags: 0
@@ -21910,7 +21986,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1211383908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 332.333313, y: 155.625015, z: 0}
+  m_LocalPosition: {x: 331.333344, y: 155.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1485608710}
@@ -22597,6 +22673,7 @@ Transform:
   m_LocalPosition: {x: -16.7173996, y: -12.0504198, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1082053657}
   - {fileID: 656916405}
   - {fileID: 1525436011}
   - {fileID: 1087872611}
@@ -25129,6 +25206,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1360302011}
   - 61: {fileID: 1360302012}
+  - 114: {fileID: 1360302013}
   m_Layer: 0
   m_Name: Clicker
   m_TagString: Untagged
@@ -25158,6 +25236,19 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 1, y: 1}
   m_Center: {x: 0, y: 0}
+--- !u!114 &1360302013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1360302010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f674413cc29634390b32f2c0f55cbb11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: fishing_rod
+  point: {fileID: 0}
 --- !u!1 &1368500006
 GameObject:
   m_ObjectHideFlags: 0
@@ -27260,8 +27351,8 @@ MonoBehaviour:
     description: A piece of some stanky cheese.
     sprite: {fileID: 21300000, guid: 3feb5f0cbf87f46c69457f38d11656b7, type: 3}
     combos:
-    - combine: 
-      result: 
+    - combine: fishing_rod
+      result: cheese_rod
   - name: chicken
     label: Chicken
     description: This is a chicken. Possibly.
@@ -27303,6 +27394,18 @@ MonoBehaviour:
     label: Fuse Box Key
     description: It's a key. For a fuse box.
     sprite: {fileID: 21300000, guid: 07fb8a6b24b694ae3afefa725d6446cf, type: 3}
+    combos: []
+  - name: fishing_rod
+    label: Fishing Rod
+    description: Good for fishing, I guess.
+    sprite: {fileID: 21300000, guid: 475ef19a59a1b42aa8a5a93bcb65a3e8, type: 3}
+    combos:
+    - combine: cheese
+      result: cheese_rod
+  - name: cheese_rod
+    label: Fishing Rod w/ Cheese
+    description: Good for fishing, but with cheese.
+    sprite: {fileID: 21300000, guid: 49581001a453947f19f0f6a00af989c7, type: 3}
     combos: []
 --- !u!114 &1450852185
 MonoBehaviour:
@@ -28738,8 +28841,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1525436010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.268714905, y: -.182404518, z: -1}
-  m_LocalScale: {x: 1.40367997, y: 1.40367997, z: 1.40367997}
+  m_LocalPosition: {x: -.305702209, y: -.14952755, z: -1}
+  m_LocalScale: {x: 1.72417963, y: 1.72417963, z: 1.72417963}
   m_Children:
   - {fileID: 639180611}
   - {fileID: 2061661892}
@@ -34543,8 +34646,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomView: {fileID: 2032055027}
-  moveTo: {fileID: 0}
-  broken: 1
+  moveTo: {fileID: 440279863}
+  broken: 0
 --- !u!61 &1829670413
 BoxCollider2D:
   m_ObjectHideFlags: 0

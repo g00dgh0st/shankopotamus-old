@@ -36,7 +36,7 @@ public class SewersMaintenanceGuy : MonoBehaviour {
   
   void Update() {
     if( moving ) {
-      transform.parent.position = new Vector3( transform.parent.position.x + 0.05f, transform.parent.position.y, 0.8f );
+      transform.parent.position = new Vector3( transform.parent.position.x + 0.02f, transform.parent.position.y, 0.8f );
       if( transform.parent.position.x > dest.position.x ) moving = false;
     }
   }
@@ -136,8 +136,7 @@ public class SewersMaintenanceGuy : MonoBehaviour {
       // 8
       new Step( camTarget, "Right now I'm preventing myself from breaking your face. How's that for maintenance?",
         new Option[] {
-          new Option( "Can I borrow your fishing rod?", 3 ),
-          new Option( "Can I use your ladder?", 9 ),
+          new Option( "What if something broke right now?", 5 ),
           new Option( "I think I'll leave you alone.", -1 )
         }
       ),
