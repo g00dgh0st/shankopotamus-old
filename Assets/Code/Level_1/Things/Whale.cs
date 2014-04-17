@@ -36,7 +36,7 @@ public class Whale : MonoBehaviour {
   }
   
   void OnClick() {
-    Game.player.MoveTo( movepoint.position, delegate() { Game.script.ShowSpeechBubble( "This whale is blocking the path. \nMaybe if I could flush something really big into the sewers...", Game.player.transform.Find( "BubTarget" ), 5f ); } );
+    Game.player.MoveTo( movepoint.position, delegate() { Game.script.ShowSpeechBubble( "This whale is blocking the path. \nMaybe if I could flush something really big through the sewers...", Game.player.transform.Find( "BubTarget" ), 5f ); } );
   }
   
   void OnCollisionEnter2D( Collision2D collider ) {
