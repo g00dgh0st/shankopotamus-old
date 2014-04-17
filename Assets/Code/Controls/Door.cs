@@ -23,6 +23,10 @@ public class Door : WaypointClicker {
   }
   
   public void OnClick() {
+    if( Game.cookies.Contains( "stopDoor" ) ) {
+      Game.cookies.Remove( "stopDoor" );
+    }
+    
     Game.PauseClicks();
         
     base.OnClick();
@@ -36,6 +40,12 @@ public class Door : WaypointClicker {
     
     while( Game.player.InMotion() ) {
       yield return null;
+    }
+    
+    if( Game.cookies.Contains( "stopDoor" ) ) {
+      Game.cookies.Remove( "stopDoor" );
+      Game.ResumeClicks();
+      return false;
     }
     
     StartCoroutine( Game.FadeCamera( delegate() {

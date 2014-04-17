@@ -8,6 +8,11 @@ public class CafeteriaGuard : MonoBehaviour {
   
   private Dialogue dialogue;
   
+  private bool moving = false;
+  private bool distracted = false;
+  
+  public Transform moveTo;
+  
   void Start() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
     
@@ -15,11 +20,36 @@ public class CafeteriaGuard : MonoBehaviour {
   }
 
   void OnClick() {
-    Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 0); } );
+    if( distracted ) return;
+    if( GameObject.Find( "item_tray" ) == null )
+      Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 0); } );
+    else
+      Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 10); } );
   }
 
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
+  void OnHover( bool isOver  ) {
+    if( !distracted ) Game.CursorHover( isOver, cursor );
+  }
+  
+  void Update() {
+    if( moving ) {
+      transform.parent.position = new Vector3( transform.parent.position.x - 0.01f, transform.parent.position.y, -3 );
+      if( transform.parent.position.x < moveTo.position.x ) moving = false;
+    }
+    
+    if( !distracted && GameObject.Find( "item_tray" ) && Game.player.transform.position.x > 2.74f && Game.player.InMotion() ) {
+      Game.player.StopMove();
+       Game.dialogueManager.StartDialogue( dialogue, 10 );
+    }
+  }
+  
+  public IEnumerator Distraction() {
+    yield return new WaitForSeconds( 1f );
+    Game.script.ShowSpeechBubble( "Hey! Are you bastards lighting each other on fire again?", transform.parent.Find( "BubTarget" ), 5f );
+    moving = true;
+    distracted = true;
+    yield return new WaitForSeconds( 5f );
+    Game.script.ShowSpeechBubble( "Looks kinda cool. I'll just stand here and watch.", transform.parent.Find( "BubTarget" ), 5f );
   }
   
   // All dialogue is "written" here
@@ -81,7 +111,13 @@ public class CafeteriaGuard : MonoBehaviour {
       // 8
       new Step( camTarget, "I've got my eye on you, punk." ),
       // 9
-      new Step( camTarget, "I had a weird childhood." )
+      new Step( camTarget, "I had a weird childhood." ),
+      // 10
+      new Step( camTarget, "Where do you think you're going with that tray? Gimme that!", 
+        delegate() {
+          Game.dialogueManager.StopDialogue();
+          Game.script.RemoveItem( "tray" );
+      }, true ),
     } );
   }  
 }

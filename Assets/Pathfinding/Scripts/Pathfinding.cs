@@ -56,6 +56,11 @@ public class Pathfinding : MonoBehaviour
             }
         }
     }
+    
+    public void StopMove() {
+      if( !Game.cookies.Contains( "stopDoor" ) ) Game.cookies.Add( "stopDoor", true );
+      Path.RemoveAt(0);
+    }
 
     protected virtual void SetList(List<Vector3> path)
     {

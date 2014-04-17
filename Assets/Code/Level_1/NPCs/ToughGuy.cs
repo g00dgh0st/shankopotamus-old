@@ -5,6 +5,7 @@ public class ToughGuy : MonoBehaviour {
   
   public bool wantsMeat = false;
   public bool talkedOnce = false;
+  public bool onFire = false;
   
   private Sprite cursor;
   
@@ -20,23 +21,37 @@ public class ToughGuy : MonoBehaviour {
 
 
   void OnClick() {
-    int index;
+    if( Game.GetScript<WimpyGuy>().onFire ) {
+      Game.script.ShowSpeechBubble( "Nothing like eating good food in front of a warm fire.", transform.parent.Find( "BubTarget" ), 3f );
+      return;
+    } 
     
-    if( wantsMeat ) {
-      index = 32;
-    } else if( talkedOnce ) {
-      index = 8;
+    if( !onFire ) {
+      int index;
+    
+      if( wantsMeat ) {
+        index = 32;
+      } else if( talkedOnce ) {
+        index = 8;
+      } else {
+        index = 0;
+      }
+    
+      Game.player.MoveTo( waypoint.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, index ); } );
     } else {
-      index = 0;
+      Game.script.ShowSpeechBubble( "Ah crap, I'm on fire again.", transform.parent.Find( "BubTarget" ), 3f );
     }
-    
-    Game.player.MoveTo( waypoint.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, index ); } );
   }
 
   void OnItemClick() {
     if( wantsMeat && Game.heldItem.name == "item_three_meat_surprise" ) {
       Game.player.MoveTo( transform.position, delegate() {
         Game.script.UseItem();
+        GameObject.Find( "WimpyGuy" ).transform.Find( "fire" ).gameObject.SetActive( true );
+        Game.GetScript<WimpyGuy>().onFire = true;
+        Game.script.ShowSpeechBubble( "I set him on fire.", transform.parent.Find( "BubTarget" ), 3f );
+        Game.script.ShowSpeechBubble( "AAAAHHHH!", GameObject.Find( "WimpyGuy" ).transform.Find( "BubTarget" ), 3f );
+        StartCoroutine( Game.GetScript<CafeteriaGuard>().Distraction() );
       });
     } 
   }
