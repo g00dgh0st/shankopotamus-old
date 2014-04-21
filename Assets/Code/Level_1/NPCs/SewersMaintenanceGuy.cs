@@ -12,8 +12,8 @@ public class SewersMaintenanceGuy : MonoBehaviour {
   public Transform dest;
   
   private bool atFuseBox = false;
-  
   private bool moving = false;
+  public bool wantsStew = false;
   
   void Start() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
@@ -22,7 +22,7 @@ public class SewersMaintenanceGuy : MonoBehaviour {
   }
 
   void OnItemClick() {
-    if( Game.heldItem.name == "item_pancake_stew" ) {
+    if( wantsStew && Game.heldItem.name == "item_pancake_stew" ) {
       Game.script.UseItem();
       Game.script.ShowSpeechBubble( "Thanks. You can have the ladder.", transform.parent.Find( "BubTarget" ), 3f );
 
@@ -161,7 +161,8 @@ public class SewersMaintenanceGuy : MonoBehaviour {
           new Option( "What's Pancake Stew?", 11 ),
           new Option( "Can I have your fishing rod?", 3, delegate() { return !atFuseBox; } ),
           new Option( "Ok, I'll try to find one.", -1 )
-        }
+        },
+        delegate() { wantsStew = true; }
       ),
       // 11
       new Step( camTarget, "That's a stupid question. The prison's been running out of cans lately, so if you can find one, I'll give you the ladder.",

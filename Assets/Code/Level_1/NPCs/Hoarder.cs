@@ -4,8 +4,10 @@ using System.Collections;
 public class Hoarder : MonoBehaviour {
   
   private Sprite cursor;
-  
   private Dialogue dialogue;
+
+  public SewersMaintenanceGuy sewerDude;
+  private bool wantsHoney = false;
   
   void Start() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
@@ -64,7 +66,7 @@ public class Hoarder : MonoBehaviour {
       new Step( camTarget, "I got pretty much anything you need. You name it, I got it.",
         new Option[] {
           new Option( "Do you have a deflated basketball signed by Phill Collins?", 4 ),
-          new Option( "Do you have any Pancake Stew?", 5 ),
+          new Option( "Do you have any Pancake Stew?", 5, delegate() { return sewerDude.wantsStew; } ),
           new Option( "Why do you have so much stuff?", 9 )
         }
       ),
@@ -72,7 +74,7 @@ public class Hoarder : MonoBehaviour {
       new Step( camTarget, "Yeah, but it's not for sale.",
         new Option[] {
           new Option( "How about a sweater knitted from the beard hairs of a homeless guy from Euguene, Oregon?", 12 ),
-          new Option( "Do you have any Pancake Stew?", 5 ),
+          new Option( "Do you have any Pancake Stew?", 5, delegate() { return sewerDude.wantsStew; } ),
           new Option( "Why do you have so much stuff?", 9 )
         }
       ),
@@ -126,7 +128,7 @@ public class Hoarder : MonoBehaviour {
       new Step( camTarget, "I got seven. He also makes hats.",
         new Option[] {
           new Option( "What about a can of Surge soda?", 13 ),
-          new Option( "Do you have any Pancake Stew?", 5 ),
+          new Option( "Do you have any Pancake Stew?", 5, delegate() { return sewerDude.wantsStew; } ),
           new Option( "Why do you have so much stuff?", 9 )
         }
       ),
@@ -135,7 +137,7 @@ public class Hoarder : MonoBehaviour {
       // 14
       new Step( camTarget, "So you want the potato skins or what?",
         new Option[] {
-          new Option( "Do you have any Pancake Stew?", 5 ),
+          new Option( "Do you have any Pancake Stew?", 5, delegate() { return sewerDude.wantsStew; } ),
           new Option( "No thanks. I'll talk to you later.", -1 )
         }
       )

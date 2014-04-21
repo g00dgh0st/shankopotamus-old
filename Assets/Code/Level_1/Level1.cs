@@ -6,6 +6,6 @@ using System.Collections;
 public class Level1 : MonoBehaviour {
 
   void Start() {
-    Game.script.AddItem( "wine_bottle" );
+    Game.script.AddItem( "pancake_stew" );
   }
 }
