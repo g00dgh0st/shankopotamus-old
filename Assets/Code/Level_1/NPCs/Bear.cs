@@ -13,7 +13,14 @@ public class Bear : MonoBehaviour {
     
     SetupDialogue();
   }
-
+  
+  void OnItemClick() {
+    if( Game.heldItem.name == "item_wine_bottle" ) {
+      Game.script.UseItem();
+      Game.script.ShowSpeechBubble( "Bosco is in debt to you. Here, take honey.", transform.parent.Find( "BubTarget" ), 3f );
+      Game.script.AddItem( "honey" );
+    }
+  }
 
   void OnClick() {
     Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 0); } );

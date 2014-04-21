@@ -12,6 +12,14 @@ public class Hoarder : MonoBehaviour {
     
     SetupDialogue();
   }
+  
+  void OnItemClick() {
+    if( Game.heldItem.name == "item_honey" ) {
+      Game.script.UseItem();
+      Game.script.ShowSpeechBubble( "Thanks, guy. Here's that Pancake Stew I promised you.", transform.parent.Find( "BubTarget" ), 3f );
+      Game.script.AddItem( "pancake_stew" );
+    }
+  }
 
 
   void OnClick() {

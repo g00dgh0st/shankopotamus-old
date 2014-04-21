@@ -13,6 +13,13 @@ public class Croc : MonoBehaviour {
     SetupDialogue();
   }
 
+  void OnItemClick() {
+    if( Game.heldItem.name == "item_glasses" ) {
+      Game.script.UseItem();
+      Game.script.ShowSpeechBubble( "Great. Here, take this bottle, and fill it up with some wine.", transform.parent.Find( "BubTarget" ), 3f );
+      Game.script.AddItem( "empty_bottle" );
+    }
+  }
 
   void OnClick() {
     Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );

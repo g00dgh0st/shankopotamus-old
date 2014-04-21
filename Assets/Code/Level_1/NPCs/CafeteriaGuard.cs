@@ -21,7 +21,7 @@ public class CafeteriaGuard : MonoBehaviour {
 
   void OnClick() {
     if( distracted ) return;
-    if( GameObject.Find( "item_tray" ) == null )
+    if( GameObject.Find( "item_spoon" ) == null )
       Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 0); } );
     else
       Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 10); } );
@@ -37,7 +37,7 @@ public class CafeteriaGuard : MonoBehaviour {
       if( transform.parent.position.x < moveTo.position.x ) moving = false;
     }
     
-    if( !distracted && GameObject.Find( "item_tray" ) && Game.player.transform.position.x > 2.74f && Game.player.InMotion() ) {
+    if( !distracted && GameObject.Find( "item_spoon" ) && Game.player.transform.position.x > 2.74f && Game.player.InMotion() ) {
       Game.player.StopMove();
        Game.dialogueManager.StartDialogue( dialogue, 10 );
     }
@@ -113,10 +113,9 @@ public class CafeteriaGuard : MonoBehaviour {
       // 9
       new Step( camTarget, "I had a weird childhood." ),
       // 10
-      new Step( camTarget, "Where do you think you're going with that tray? Gimme that!", 
+      new Step( camTarget, "Where do you think you're going with that spoon? Put it back where you got it!", 
         delegate() {
           Game.dialogueManager.StopDialogue();
-          Game.script.RemoveItem( "tray" );
       }, true ),
     } );
   }  

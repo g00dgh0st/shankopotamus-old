@@ -21,6 +21,14 @@ public class SewersMaintenanceGuy : MonoBehaviour {
     SetupDialogue();
   }
 
+  void OnItemClick() {
+    if( Game.heldItem.name == "item_pancake_stew" ) {
+      Game.script.UseItem();
+      Game.script.ShowSpeechBubble( "Thanks. You can have the ladder.", transform.parent.Find( "BubTarget" ), 3f );
+
+      // Move from ladder
+    }
+  }
 
   void OnClick() {
     if( !atFuseBox )

@@ -85,7 +85,10 @@ public class Bat : MonoBehaviour {
         }
       ),
       // 8
-      new Step( camTarget, "That is correct! You may take the Action Swede." ),
+      new Step( camTarget, "That is correct! You may take the Action Swede.", delegate() {
+        Game.script.AddItem( "action_swede" );
+        Game.dialogueManager.StopDialogue();
+      }, true ),
       // 9
       new Step( camTarget, "No! You moron, that doesn't even make sense. You can try again.", 7 ),
       // 10

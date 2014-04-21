@@ -15,6 +15,15 @@ public class SadGuy : MonoBehaviour {
     
     SetupDialogue();
   }
+  
+  void OnItemClick() {
+    if( Game.heldItem.name == "item_hat" ) {
+      Game.script.UseItem();
+      Game.script.ShowSpeechBubble( "Why, thank you! Here, take my glasses. My head shall never be cold again!", transform.parent.Find( "BubTarget" ), 3f );
+      Game.script.AddItem( "glasses" );
+      transform.parent.Find( "pig_hat" ).gameObject.SetActive( true );
+    }
+  }
 
 
   void OnClick() {
