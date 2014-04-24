@@ -13,7 +13,12 @@ public class SewersMaintenanceGuy : MonoBehaviour {
   
   private bool atFuseBox = false;
   private bool moving = false;
+  private bool noLadder = false;
   public bool wantsStew = false;
+  
+  public Transform ladder;
+  public Transform fishingPos;
+  public Transform fixingPos;
   
   void Start() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
@@ -22,12 +27,23 @@ public class SewersMaintenanceGuy : MonoBehaviour {
   }
 
   void OnItemClick() {
-    if( wantsStew && Game.heldItem.name == "item_pancake_stew" ) {
-      Game.script.UseItem();
-      Game.script.ShowSpeechBubble( "Thanks. You can have the ladder.", transform.parent.Find( "BubTarget" ), 3f );
-
-      // Move from ladder
-    }
+    Game.player.MoveTo( transform.position, delegate() {
+      if( wantsStew && Game.heldItem.name == "item_pancake_stew" ) {
+        Game.script.UseItem();
+        Game.script.ShowSpeechBubble( "Thanks. You can have the ladder.", transform.parent.Find( "BubTarget" ), 3f );
+        wantsStew = false;
+        noLadder = true;
+        if( !atFuseBox ) {
+          ladder.parent = transform.parent.parent;
+          ladder.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+          transform.parent.position = fishingPos.position;
+        } else {
+          ladder.parent = transform.parent.parent;
+          ladder.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+          transform.parent.position = fixingPos.position;
+        }
+      }
+    });
   }
 
   void OnClick() {
@@ -52,7 +68,8 @@ public class SewersMaintenanceGuy : MonoBehaviour {
   IEnumerator MoveToFix() {
     yield return new WaitForSeconds( 0.3f );
     
-    Transform rod = transform.parent.parent.Find( "FishingRod" );
+    Transform rod = transform.parent.Find( "FishingRod" );
+    rod.parent = transform.parent.parent;
     Transform dropPoint = GameObject.Find( "RodDropPoint" ).transform;
     
     rod.position = dropPoint.position;
@@ -83,7 +100,7 @@ public class SewersMaintenanceGuy : MonoBehaviour {
         new Option[] {
           new Option( "Hey, I broke-- I mean, there's a broken fuse box over there.", 14, delegate() { return fusebox.broken && !atFuseBox; } ),
           new Option( "What are you doing?", 1 ),
-          new Option( "Can I use your ladder?", 9 ),
+          new Option( "Can I use your ladder?", 9, delegate() { return !noLadder; } ),
           new Option( "Can I borrow your fishing rod?", 3 ),
           new Option( "Sorry.", -1 )
         }
@@ -94,7 +111,7 @@ public class SewersMaintenanceGuy : MonoBehaviour {
           new Option( "Shouldn't you be working?", 4 ),
           new Option( "What can you catch down here?", 2 ),
           new Option( "Can I borrow your fishing rod?", 3 ),
-          new Option( "Can I use your ladder?", 9 )
+          new Option( "Can I use your ladder?", 9, delegate() { return !noLadder; } )
         }
       ),
       // 2
@@ -102,7 +119,7 @@ public class SewersMaintenanceGuy : MonoBehaviour {
         new Option[] {
           new Option( "Are you sure that fish is safe to eat?", 6 ),
           new Option( "Can I borrow your fishing rod?", 3 ),
-          new Option( "Can I use your ladder?", 9 )
+          new Option( "Can I use your ladder?", 9, delegate() { return !noLadder; } )
         }
       ),
       // 3
@@ -110,7 +127,7 @@ public class SewersMaintenanceGuy : MonoBehaviour {
         new Option[] {
           new Option( "What can you catch down here?", 2 ),
           new Option( "Shouldn't you be working?", 4 ),
-          new Option( "What about your ladder?", 9 ),
+          new Option( "What about your ladder?", 9, delegate() { return !noLadder; } ),
           new Option( "Ok. I'll leave then.", -1 )
         }
       ),
@@ -137,7 +154,7 @@ public class SewersMaintenanceGuy : MonoBehaviour {
       new Step( camTarget, "These fish are die-hard \"Toddlers & Tiaras\" fans. They deserve it.",
         new Option[] {
           new Option( "Can I borrow your fishing rod?", 3 ),
-          new Option( "Can I use your ladder?", 9 ),
+          new Option( "Can I use your ladder?", 9, delegate() { return !noLadder; } ),
           new Option( "Bye.", -1 )
         }
       ),
@@ -190,7 +207,7 @@ public class SewersMaintenanceGuy : MonoBehaviour {
       // 15
       new Step( camTarget, "What do you want?",
         new Option[] {
-          new Option( "Do you actually need to use that ladder?", 16 ),
+          new Option( "Do you actually need to use that ladder?", 16, delegate() { return !noLadder; } ),
           new Option( "Nothing.", -1 )
         }
       ), 

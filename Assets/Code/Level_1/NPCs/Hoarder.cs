@@ -7,7 +7,7 @@ public class Hoarder : MonoBehaviour {
   private Dialogue dialogue;
 
   public SewersMaintenanceGuy sewerDude;
-  private bool wantsHoney = false;
+  public bool wantsHoney = false;
   
   void Start() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
@@ -16,16 +16,20 @@ public class Hoarder : MonoBehaviour {
   }
   
   void OnItemClick() {
-    if( Game.heldItem.name == "item_honey" ) {
+    if( wantsHoney && Game.heldItem.name == "item_honey" ) {
       Game.script.UseItem();
       Game.script.ShowSpeechBubble( "Thanks, guy. Here's that Pancake Stew I promised you.", transform.parent.Find( "BubTarget" ), 3f );
       Game.script.AddItem( "pancake_stew" );
+      wantsHoney = false;
     }
   }
 
 
   void OnClick() {
-    Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
+    if( wantsHoney )
+      Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 15 ); } );
+    else
+      Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
   }
 
   void OnHover( bool isOver ) {
@@ -44,6 +48,7 @@ public class Hoarder : MonoBehaviour {
       new Step( camTarget, "Hey, guy, you want some potato skins?",
         new Option[] {
           new Option( "Not really.", 1 ),
+          new Option( "Do you have any Pancake Stew?", 5, delegate() { return sewerDude.wantsStew && GameObject.Find( "item_pancake_stew" ) == null;  } ),
           new Option( "Why do you have so much stuff?", 9 ),
           new Option( "Do you have anything useful?", 3 )
         }
@@ -66,7 +71,7 @@ public class Hoarder : MonoBehaviour {
       new Step( camTarget, "I got pretty much anything you need. You name it, I got it.",
         new Option[] {
           new Option( "Do you have a deflated basketball signed by Phill Collins?", 4 ),
-          new Option( "Do you have any Pancake Stew?", 5, delegate() { return sewerDude.wantsStew; } ),
+          new Option( "Do you have any Pancake Stew?", 5, delegate() { return sewerDude.wantsStew && GameObject.Find( "item_pancake_stew" ) == null; } ),
           new Option( "Why do you have so much stuff?", 9 )
         }
       ),
@@ -74,7 +79,7 @@ public class Hoarder : MonoBehaviour {
       new Step( camTarget, "Yeah, but it's not for sale.",
         new Option[] {
           new Option( "How about a sweater knitted from the beard hairs of a homeless guy from Euguene, Oregon?", 12 ),
-          new Option( "Do you have any Pancake Stew?", 5, delegate() { return sewerDude.wantsStew; } ),
+          new Option( "Do you have any Pancake Stew?", 5, delegate() { return sewerDude.wantsStew && GameObject.Find( "item_pancake_stew" ) == null; } ),
           new Option( "Why do you have so much stuff?", 9 )
         }
       ),
@@ -95,7 +100,8 @@ public class Hoarder : MonoBehaviour {
         new Option[] {
           new Option( "How do you expect me to get any?", 8 ),
           new Option( "I'll try to get some.", -1 )
-        }
+        },
+        delegate() { wantsHoney = true; }    
       ),
       // 8
       new Step( camTarget, "Not my problem. But if you want a can of Pancake Stew, you'll get me a jar of honey.",
@@ -128,7 +134,7 @@ public class Hoarder : MonoBehaviour {
       new Step( camTarget, "I got seven. He also makes hats.",
         new Option[] {
           new Option( "What about a can of Surge soda?", 13 ),
-          new Option( "Do you have any Pancake Stew?", 5, delegate() { return sewerDude.wantsStew; } ),
+          new Option( "Do you have any Pancake Stew?", 5, delegate() { return sewerDude.wantsStew && GameObject.Find( "item_pancake_stew" ) == null; } ),
           new Option( "Why do you have so much stuff?", 9 )
         }
       ),
@@ -137,8 +143,16 @@ public class Hoarder : MonoBehaviour {
       // 14
       new Step( camTarget, "So you want the potato skins or what?",
         new Option[] {
-          new Option( "Do you have any Pancake Stew?", 5, delegate() { return sewerDude.wantsStew; } ),
+          new Option( "Do you have any Pancake Stew?", 5, delegate() { return sewerDude.wantsStew && GameObject.Find( "item_pancake_stew" ) == null; } ),
           new Option( "No thanks. I'll talk to you later.", -1 )
+        }
+      ),
+      // 15
+      new Step( camTarget, "You got that honey?",
+        new Option[] {
+          new Option( "I'll go get some.", -1 ),
+          new Option( "Why do you have so much stuff?", 9 ),
+          new Option( "Do you have anything useful?", 3 )
         }
       )
     } );

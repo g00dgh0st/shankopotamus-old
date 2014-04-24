@@ -10,6 +10,11 @@ public class SadGuy : MonoBehaviour {
   public GameObject roger;
   public GameObject roger_block;
   
+  private bool hasChicken = true;
+  private bool talkedOnce = false;
+  public bool wantsHat = false;
+  public Croc croc;
+  
   void Start() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
     
@@ -17,17 +22,26 @@ public class SadGuy : MonoBehaviour {
   }
   
   void OnItemClick() {
-    if( Game.heldItem.name == "item_hat" ) {
+    if( Game.heldItem.name == "item_hat" && wantsHat ) {
       Game.script.UseItem();
       Game.script.ShowSpeechBubble( "Why, thank you! Here, take my glasses. My head shall never be cold again!", transform.parent.Find( "BubTarget" ), 3f );
       Game.script.AddItem( "glasses" );
       transform.parent.Find( "pig_hat" ).gameObject.SetActive( true );
+      wantsHat = false;
     }
   }
 
 
   void OnClick() {
-    Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
+    if( wantsHat )
+      Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 28 ); } );
+    else if( hasChicken ) {
+      if( talkedOnce )
+        Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 4 ); } );
+      else
+        Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
+    } else
+      Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 26 ); } );
   }
 
   void OnHover( bool isOver ) {
@@ -47,7 +61,8 @@ public class SadGuy : MonoBehaviour {
       new Step( camTarget, "Look, Roger, we have a visitor!",
         new Option[] {
           new Option( "Who's Roger?", 1 )
-        }
+        },
+        delegate() { talkedOnce = true; }    
       ),
       // 1
       new Step( camTarget, "This is Roger. He's my pet chicken and my best friend. Isn't that right Roger?", 2 ),
@@ -57,7 +72,7 @@ public class SadGuy : MonoBehaviour {
       new Step( camTarget, "Oh, Roger, behave! I apologize, he has has a fowl mouth! Ohoho! A joke!",
         new Option[] {
           new Option( "Why do you have a pet chicken?", 7 ),
-          new Option( "Those are nice glasses.", 18 ),
+          new Option( "Those are nice glasses.", 18, delegate() { return croc.wantsGlasses && GameObject.Find( "item_glasses" ) == null; } ),
           new Option( "You seem really old, have you been in here a while?", 23 ),
           new Option( "I'll talk to you later.", -1 )
         }
@@ -107,7 +122,7 @@ public class SadGuy : MonoBehaviour {
       // 17
       new Step( camTarget, "What was that, Roger? I couldn't understand you. Well, I suppose it would be good for Roger to get some fresh air. Just be sure to bring him back!",
         new Option[] {
-          new Option( "Yeah, sure.", delegate() { Destroy( roger ); Destroy( roger_block ); Game.script.AddItem( "chicken" ); ; Game.dialogueManager.StopDialogue(); } )
+          new Option( "Yeah, sure.", delegate() { hasChicken = false; Destroy( roger ); Destroy( roger_block ); Game.script.AddItem( "chicken" ); ; Game.dialogueManager.StopDialogue(); } )
         }
       ),
       // 18
@@ -134,7 +149,8 @@ public class SadGuy : MonoBehaviour {
         new Option[] {
           new Option( "Where am I supposed to find a hat?", 22 ),
           new Option( "I'll go get you a hat.", -1 )
-        }
+        },
+        delegate() { wantsHat = true; }
       ),
       // 22
       new Step( camTarget, "Maybe go to Hats 'R' Us! Oho! Another joke!",
@@ -149,7 +165,7 @@ public class SadGuy : MonoBehaviour {
         }
       ),
       // 24
-      new Step( camTarget, "I didn't pay my taxes for 30 years.",
+      new Step( camTarget, "I didn't pay my taxes for 10 years.",
         new Option[] {
           new Option( "That doesn't seem bad enough to have to spend so much time in here.", 25 )
         }
@@ -158,6 +174,23 @@ public class SadGuy : MonoBehaviour {
       new Step( camTarget, "I also did a lot of pedophile stuff.",
         new Option[] {
           new Option( "Oh.", -1 )
+        }
+      ),
+      // 26
+      new Step( camTarget, "Hello friend! How is Roger doing?",
+        new Option[] {
+          new Option( "He's just fine. He's made some new friends.", 27 ),
+          new Option( "Those are nice glasses.", 18, delegate() { return croc.wantsGlasses && GameObject.Find( "item_glasses" ) == null; } ),
+          new Option( "You seem really old, have you been in here a while?", 23 ),
+          new Option( "I'll talk to you later.", -1 )
+        }
+      ),
+      // 27
+      new Step( camTarget, "Wonderful! I do hope he comes back soon.",
+        new Option[] {
+          new Option( "Those are nice glasses.", 18, delegate() { return croc.wantsGlasses && GameObject.Find( "item_glasses" ) == null; } ),
+          new Option( "You seem really old, have you been in here a while?", 23 ),
+          new Option( "I'll talk to you later.", -1 )
         }
       )
     } );

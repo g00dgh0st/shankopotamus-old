@@ -7,8 +7,7 @@ public class ZoomClicker : MonoBehaviour {
   
   public Transform moveTo;
   
-  void Start() {
-    zoomView.SetActive( false );
+  void Awake() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_eye" );
   }
   

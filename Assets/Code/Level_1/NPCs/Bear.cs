@@ -8,6 +8,10 @@ public class Bear : MonoBehaviour {
   
   private Dialogue dialogue;
   
+  public bool wantsWine = false;
+  
+  public Hoarder hoarder;
+  
   void Start() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
     
@@ -15,15 +19,19 @@ public class Bear : MonoBehaviour {
   }
   
   void OnItemClick() {
-    if( Game.heldItem.name == "item_wine_bottle" ) {
+    if( Game.heldItem.name == "item_wine_bottle" && wantsWine ) {
       Game.script.UseItem();
-      Game.script.ShowSpeechBubble( "Bosco is in debt to you. Here, take honey.", transform.parent.Find( "BubTarget" ), 3f );
+      Game.script.ShowSpeechBubble( "Praise be to Allah. Please, take honey.", transform.parent.Find( "BubTarget" ), 3f );
       Game.script.AddItem( "honey" );
+      wantsWine = false;
     }
   }
 
   void OnClick() {
-    Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 0); } );
+    if( wantsWine )
+      Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 13 ); } );
+    else
+      Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 0); } );
   }
 
   void OnHover( bool isOver ) {
@@ -41,7 +49,7 @@ public class Bear : MonoBehaviour {
       // 0
       new Step( camTarget, "Hello. What brings you to Bosco's cell?", 
         new Option[] {
-          new Option( "Can I have some of your honey?", 9 ),
+          new Option( "Can I have some of your honey?", 9, delegate() { return hoarder.wantsHoney && GameObject.Find( "item_honey" ) == null; } ),
           new Option( "Are those military medals?", 1 ),
           new Option( "Are you going to eat that cake?", 12 ),
           new Option( "Nothing.", -1 )
@@ -65,7 +73,7 @@ public class Bear : MonoBehaviour {
       new Step( camTarget, "The object of game was to stab your opponent in the eye. Bosco is bad at game.",
         new Option[] {
           new Option( "That sounds like a terrible game.", 4 ),
-          new Option( "Can I have some honey?", 9 ),
+          new Option( "Can I have some honey?", 9, delegate() { return hoarder.wantsHoney && GameObject.Find( "item_honey" ) == null; } ),
           new Option( "How did you end up in here?", 5 )
         }
       ),
@@ -73,7 +81,7 @@ public class Bear : MonoBehaviour {
       new Step( camTarget, "Vodka helps.", 
         new Option[] {
           new Option( "How did you end up in here?", 5 ),
-          new Option( "Can I have some of your honey?", 9 ),
+          new Option( "Can I have some of your honey?", 9, delegate() { return hoarder.wantsHoney && GameObject.Find( "item_honey" ) == null; } ),
           new Option( "I'll see you later.", -1 )
         }
       ),
@@ -93,14 +101,14 @@ public class Bear : MonoBehaviour {
       // 7
       new Step( camTarget, "You seem like nice person. When Bosco rules the world, Bosco will be sure to give you a swift death.",
         new Option[] {
-          new Option( "That sounds great. Can I have some honey?", 9 ),
+          new Option( "That sounds great. Can I have some honey?", 9, delegate() { return hoarder.wantsHoney && GameObject.Find( "item_honey" ) == null; } ),
           new Option( "Um...I have to go.", -1 )
         }
       ),
       // 8
       new Step( camTarget, "Telling Bosco not to kill is like telling chimpanzee not to eat baby. He may try to change, but in the end. Chimpanzee always eat baby.", 
         new Option[] {
-          new Option( "Well, that's fair. Can I have some honey?", 9 ),
+          new Option( "Well, that's fair. Can I have some honey?", 9, delegate() { return hoarder.wantsHoney && GameObject.Find( "item_honey" ) == null; } ),
           new Option( "I'll talk to you later.", -1 )
         }
       ),
@@ -115,7 +123,8 @@ public class Bear : MonoBehaviour {
         new Option[] {
           new Option( "Where can I get some?", 11 ),
           new Option( "I'll go get you some wine.", -1 )
-        }
+        },
+        delegate() { wantsWine = true; }    
       ),
       // 11
       new Step( camTarget, "Crocodile on second floor makes wine in toilet. Go quickly. Bosco is getting shakes something fierce.",
@@ -124,7 +133,15 @@ public class Bear : MonoBehaviour {
         }
       ),
       // 12 
-      new Step( camTarget, "Bosco has gluten allergy. It is Bosco's only weakness. That and alcoholism. Cake is yours." )
+      new Step( camTarget, "Bosco has gluten allergy. It is Bosco's only weakness. That and alcoholism. Cake is yours." ),
+      // 13
+      new Step( camTarget, "Do you have Bosco's wine? Bosco's palms are getting sweaty.",
+        new Option[] {
+          new Option( "I'll be back with some wine.", -1 ),
+          new Option( "Are those military medals?", 1 ),
+          new Option( "Are you going to eat that cake?", 12 )
+        }
+      )
     } );
   }  
 }

@@ -7,6 +7,10 @@ public class Pig : MonoBehaviour {
   
   private Dialogue dialogue;
   
+  public SadGuy sadguy;
+  
+  public bool wantsSwede = false;
+  
   void Start() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
     
@@ -14,17 +18,21 @@ public class Pig : MonoBehaviour {
   }
   
   void OnItemClick() {
-    if( Game.heldItem.name == "item_action_swede" ) {
+    if( Game.heldItem.name == "item_action_swede" && wantsSwede ) {
       Game.script.UseItem();
       Game.script.ShowSpeechBubble( "Thanks! Here, take my hat.", transform.parent.Find( "BubTarget" ), 3f );
       Game.script.AddItem( "hat" );
       transform.parent.Find( "pig_hat" ).gameObject.SetActive( false );
+      wantsSwede = false;
     }
   }
 
 
   void OnClick() {
-    Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
+    if( wantsSwede )
+      Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 12 ); } );
+    else
+      Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
   }
 
   void OnHover( bool isOver ) {
@@ -43,7 +51,8 @@ public class Pig : MonoBehaviour {
       new Step( camTarget, "Hello there, good sir. ",
         new Option[] {
           new Option( "What's with all the sausage?", 1 ),
-          new Option( "Can I have your hat?", 7 )
+          new Option( "Can I have your hat?", 7, delegate() { return sadguy.wantsHat && GameObject.Find( "item_hat" ) == null; } ),
+          new Option( "Bye.", -1 )
         }
       ),
       // 1
@@ -76,7 +85,8 @@ public class Pig : MonoBehaviour {
       // 6
       new Step( camTarget, "Your loss. Best sausage you'll ever eat.",
         new Option[] {
-          new Option( "Can I have your hat?", 7 )
+          new Option( "Can I have your hat?", 7, delegate() { return sadguy.wantsHat && GameObject.Find( "item_hat" ) == null; } ),
+          new Option( "See you later.", -1 )
         }
       ),
       // 7
@@ -96,12 +106,14 @@ public class Pig : MonoBehaviour {
         new Option[] {
           new Option( "What is an Action Swede?", 10 ),
           new Option( "Where can I find it?", 11 )
-        }
+        },
+        delegate() { wantsSwede = true; }   
       ),
       // 10
       new Step( camTarget, "Action Swede? He's only the coolest, most awesome superhero in all of Scandinavia! I'm his biggest fan, and I paid a lot of money for a limited edition mint condition Action Swede figure.",
         new Option[] {
-          new Option( "What happened to it?", 11 )
+          new Option( "What happened to it?", 11 ),
+          new Option( "I'll look for it.", -1 )
         }
       ),
       // 11
@@ -109,7 +121,15 @@ public class Pig : MonoBehaviour {
         new Option[] {
           new Option( "I'll go talk to him.", -1 )
         }
-      )
+      ),
+      // 12
+      new Step( camTarget, "Did you get my Action Swede back?",
+        new Option[] {
+          new Option( "No, I'll be right back", -1 ),
+          new Option( "What's with all the sausage?", 1 ),
+          new Option( "Can I have your hat?", 7, delegate() { return sadguy.wantsHat && GameObject.Find( "item_hat" ) == null; } )
+        }
+      ),
     } );
   }  
 }

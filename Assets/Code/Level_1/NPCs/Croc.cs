@@ -7,6 +7,10 @@ public class Croc : MonoBehaviour {
   
   private Dialogue dialogue;
   
+  public Bear bear;
+  
+  public bool wantsGlasses = false;
+  
   void Start() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
     
@@ -14,15 +18,19 @@ public class Croc : MonoBehaviour {
   }
 
   void OnItemClick() {
-    if( Game.heldItem.name == "item_glasses" ) {
+    if( wantsGlasses && Game.heldItem.name == "item_glasses" ) {
       Game.script.UseItem();
       Game.script.ShowSpeechBubble( "Great. Here, take this bottle, and fill it up with some wine.", transform.parent.Find( "BubTarget" ), 3f );
       Game.script.AddItem( "empty_bottle" );
+      wantsGlasses = false;
     }
   }
 
   void OnClick() {
-    Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
+    if( wantsGlasses )
+      Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 10 ); } );
+    else
+      Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
   }
 
   void OnHover( bool isOver ) {
@@ -42,7 +50,7 @@ public class Croc : MonoBehaviour {
         new Option[] {
           new Option( "I heard you're the toughest guy in the prison.", 1 ),
           new Option( "You have a lot of books here.", 6 ),
-          new Option( "I heard you have some wine?", 7 ),
+          new Option( "I heard you have some wine?", 7, delegate() { return bear.wantsWine && GameObject.Find( "item_wine_bottle" ) == null && GameObject.Find( "item_empty_bottle" ) == null; } ),
           new Option( "Bye.", -1 )
         }
       ),
@@ -51,15 +59,15 @@ public class Croc : MonoBehaviour {
         new Option[] {
           new Option( "Why have you allegedly shanked so many people?", 2 ),
           new Option( "You have a lot of books here.", 6 ), 
-          new Option( "I heard you have some wine?", 7 )
-        }
+          new Option( "I heard you have some wine?", 7, delegate() { return bear.wantsWine && GameObject.Find( "item_wine_bottle" ) == null && GameObject.Find( "item_empty_bottle" ) == null; } )
+        } 
       ),
       // 2 
       new Step( camTarget, "For various reasons, allegedly. Sometimes for money, sometimes in anger. And sometimes just for fun.",
         new Option[] {
           new Option( "So you're a hitman? Allegedly?", 3 ),
           new Option( "You have a lot of books here.", 6 ),
-          new Option( "I heard you have some wine?", 7 )
+          new Option( "I heard you have some wine?", 7, delegate() { return bear.wantsWine && GameObject.Find( "item_wine_bottle" ) == null && GameObject.Find( "item_empty_bottle" ) == null; } )
         }
       ),
       // 3
@@ -67,7 +75,7 @@ public class Croc : MonoBehaviour {
         new Option[] {
           new Option( "Do you have any tips for shanking someone?", 4 ),
           new Option( "You have a lot of books here.", 6 ),
-          new Option( "I heard you have some wine?", 7 )
+          new Option( "I heard you have some wine?", 7, delegate() { return bear.wantsWine && GameObject.Find( "item_wine_bottle" ) == null && GameObject.Find( "item_empty_bottle" ) == null; } )
         }
       ),
       // 4
@@ -77,14 +85,14 @@ public class Croc : MonoBehaviour {
         new Option[] {
           new Option( "Thanks for the advice. I may allegedly use it sometime.", -1 ),
           new Option( "You have a lot of books here.", 6 ),
-          new Option( "I heard you have some wine?", 7 )
+          new Option( "I heard you have some wine?", 7, delegate() { return bear.wantsWine && GameObject.Find( "item_wine_bottle" ) == null && GameObject.Find( "item_empty_bottle" ) == null; } )
         }
       ),
       // 6
       new Step( camTarget, "I enjoy reading. It keeps my mind as sharp as my shanks. Alleged shanks.",
         new Option[] {
           new Option( "I heard you're the toughest guy in the prison", 1 ),
-          new Option( "Do you have any wine?", 7 ),
+          new Option( "Do you have any wine?", 7, delegate() { return bear.wantsWine && GameObject.Find( "item_wine_bottle" ) == null && GameObject.Find( "item_empty_bottle" ) == null; } ),
           new Option( "Bye.", -1 )
         }
       ),
@@ -98,12 +106,21 @@ public class Croc : MonoBehaviour {
       new Step( camTarget, "Well that will come at a price. My eyes unfortunately aren't what they used to be, and it makes reading all the books quite difficult. If you could go find me some glasses, then I would be happy to part with a bottle of wine.",
         new Option[] {
           new Option( "Any idea where I can find some glasses?", 9 )
-        }
+        },
+        delegate() { wantsGlasses = true; }
       ),
       // 9
       new Step( camTarget, "One of the other inmates must have a pair, you should ask around.",
         new Option[] {
           new Option( "I'll go do that.", -1 )
+        }
+      ),
+      // 10
+      new Step( camTarget, "Were you able to find some glasses?",
+        new Option[] {
+          new Option( "I'll go do that.", -1 ),
+          new Option( "I heard you're the toughest guy in the prison.", 1 ),
+          new Option( "You have a lot of books here.", 6 )
         }
       )
     } );

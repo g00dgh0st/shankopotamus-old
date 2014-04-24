@@ -3320,7 +3320,7 @@ MonoBehaviour:
   startingRenderQueue: 3000
   mAlpha: 1
   mClipping: 2
-  mClipRange: {x: .0555114746, y: 38.5, z: 712.777771, w: 100}
+  mClipRange: {x: -.0555267334, y: 38, z: 714.333496, w: 100}
   mClipSoftness: {x: 4, y: 4}
   mDepth: 0
   mClipOffset: {x: 0, y: 0}
@@ -9166,7 +9166,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 448725137}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 306.333344, y: 190.5, z: 0}
+  m_LocalPosition: {x: 307.000153, y: 191, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1011110387}
@@ -10397,11 +10397,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -17.1128464
+      value: -16.5237331
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -8.46206188
+      value: -8.46085453
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.z
@@ -10637,6 +10637,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roger: {fileID: 387650488}
   roger_block: {fileID: 249077202}
+  wantsHat: 0
+  croc: {fileID: 2000554275}
 --- !u!61 &515385597
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10889,6 +10891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254de9a42c0c64e43b2cf79eaa4f852c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pig: {fileID: 2061661893}
 --- !u!61 &529224276
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12275,10 +12278,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 598812094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.897686005, y: -.164322376, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -.0831339806, y: -.111518376, z: 0}
+  m_LocalScale: {x: .712413132, y: .712413132, z: .712413132}
   m_Children: []
-  m_Father: {fileID: 1829813682}
+  m_Father: {fileID: 1081991591}
 --- !u!114 &598812096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18614,6 +18617,9 @@ MonoBehaviour:
   fusebox: {fileID: 1829670412}
   dest: {fileID: 2054732136}
   wantsStew: 0
+  ladder: {fileID: 1463569502}
+  fishingPos: {fileID: 1479761618}
+  fixingPos: {fileID: 1321262812}
 --- !u!61 &982695591
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18898,6 +18904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sewerDude: {fileID: 982695590}
+  wantsHoney: 0
 --- !u!61 &1009889898
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18935,7 +18942,7 @@ Transform:
   m_GameObject: {fileID: 1011110386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00498753134, y: .00498753134, z: .00498753134}
+  m_LocalScale: {x: .00497512426, y: .00497512426, z: .00497512426}
   m_Children:
   - {fileID: 446293067}
   - {fileID: 1064466907}
@@ -20225,6 +20232,8 @@ Transform:
   - {fileID: 512950117}
   - {fileID: 982695589}
   - {fileID: 618148818}
+  - {fileID: 1370794663}
+  - {fileID: 598812095}
   - {fileID: 1463569502}
   - {fileID: 1235604187}
   m_Father: {fileID: 1829813682}
@@ -22900,7 +22909,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1211383908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 331.333344, y: 155.5, z: 0}
+  m_LocalPosition: {x: 332.000153, y: 156, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1485608710}
@@ -25175,6 +25184,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .125, y: .125, z: .125}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1321262811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1321262812}
+  m_Layer: 0
+  m_Name: fixingPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1321262812
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1321262811}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.951411247, y: -.408588886, z: .800000012}
+  m_LocalScale: {x: 1.40367997, y: 1.40367997, z: 1.40367997}
+  m_Children: []
+  m_Father: {fileID: 2077499066}
 --- !u!1001 &1322428314
 Prefab:
   m_ObjectHideFlags: 0
@@ -25472,7 +25507,7 @@ Transform:
   m_PrefabInternal: {fileID: 508331217}
   m_GameObject: {fileID: 1333868172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.1128464, y: -8.46206188, z: -1}
+  m_LocalPosition: {x: -16.5237331, y: -8.46085453, z: -1}
   m_LocalScale: {x: 2.00158, y: 2.00158, z: 2.00158}
   m_Children:
   - {fileID: 1092221449}
@@ -26421,13 +26456,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1370794662}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.657423019, y: -.100466251, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: .0880325288, y: -.0660264343, z: 0}
+  m_LocalScale: {x: .712413132, y: .712413132, z: .712413132}
   m_Children:
   - {fileID: 1560910800}
   - {fileID: 1360302011}
   - {fileID: 511599015}
-  m_Father: {fileID: 1829813682}
+  m_Father: {fileID: 1081991591}
 --- !u!212 &1370794664
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26584,7 +26619,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1371910868
 Transform:
   m_ObjectHideFlags: 0
@@ -28480,6 +28515,11 @@ MonoBehaviour:
     description: A can of Pancake Stew
     sprite: {fileID: 21300000, guid: 4844748bfcff94f9d84cf8964ab6c25c, type: 3}
     combos: []
+  - name: ladder
+    label: Ladder
+    description: A wooden ladder
+    sprite: {fileID: 21300000, guid: 1b00a16e9c8364e88b52da939d8a007b, type: 3}
+    combos: []
 --- !u!114 &1450852185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28614,8 +28654,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 1463569502}
   - 212: {fileID: 1463569503}
+  - 114: {fileID: 1463569505}
+  - 61: {fileID: 1463569504}
   m_Layer: 0
-  m_Name: ladder_test
+  m_Name: ladder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28655,6 +28697,30 @@ SpriteRenderer:
   m_SortingLayerID: 747986461
   m_Sprite: {fileID: 21300000, guid: 1b00a16e9c8364e88b52da939d8a007b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!61 &1463569504
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1463569501}
+  m_Enabled: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: .280000001, y: .389999986}
+  m_Center: {x: 9.53674316e-07, y: 0}
+--- !u!114 &1463569505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1463569501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f674413cc29634390b32f2c0f55cbb11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: ladder
+  point: {fileID: 0}
 --- !u!1 &1464172274
 GameObject:
   m_ObjectHideFlags: 0
@@ -29084,6 +29150,32 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 274382489}
+--- !u!1 &1479761617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1479761618}
+  m_Layer: 0
+  m_Name: fishingPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1479761618
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1479761617}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.409017563, y: -.691740513, z: 0}
+  m_LocalScale: {x: 1.40367997, y: 1.40367997, z: 1.40367997}
+  m_Children: []
+  m_Father: {fileID: 1829813682}
 --- !u!1 &1480439291
 GameObject:
   m_ObjectHideFlags: 0
@@ -30081,6 +30173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1848c0a87e5244351a89578da56ba9a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wantsWine: 0
+  hoarder: {fileID: 1009889897}
 --- !u!61 &1538976660
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35176,7 +35270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1796117076
 Transform:
   m_ObjectHideFlags: 0
@@ -36015,10 +36109,9 @@ Transform:
   m_LocalPosition: {x: -18.5048447, y: -7.70817041, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1370794663}
   - {fileID: 484790687}
-  - {fileID: 598812095}
   - {fileID: 1081991591}
+  - {fileID: 1479761618}
   - {fileID: 610421389}
   m_Father: {fileID: 1781675022}
 --- !u!114 &1829813683
@@ -40073,6 +40166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a65270f5b54c947849fc98607a8e684a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bear: {fileID: 1538976659}
+  wantsGlasses: 0
 --- !u!61 &2000554276
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40720,7 +40815,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2032055028
 Transform:
   m_ObjectHideFlags: 0
@@ -41312,6 +41407,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe787d54e54154f89b7d62038538a72f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sadguy: {fileID: 515385596}
+  wantsSwede: 0
 --- !u!61 &2061661894
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41690,6 +41787,7 @@ Transform:
   m_Children:
   - {fileID: 218571830}
   - {fileID: 2054732136}
+  - {fileID: 1321262812}
   - {fileID: 177867889}
   - {fileID: 1768428228}
   m_Father: {fileID: 1781675022}

@@ -7,6 +7,8 @@ public class Bat : MonoBehaviour {
   
   private Dialogue dialogue;
   
+  public Pig pig;
+  
   void Start() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
     
@@ -34,7 +36,7 @@ public class Bat : MonoBehaviour {
       new Step( camTarget, "Who dares disturb my slumber?",
         new Option[] {
           new Option( "I heard that you know the code for the guard tower door.", 14 ),
-          new Option( "The pig said you stole an action figure from him.", 1 ),
+          new Option( "The pig said you stole an action figure from him.", 1, delegate() { return pig.wantsSwede && GameObject.Find( "item_action_swede" ) == null; } ),
           new Option( "What are all the scratches on the walls?", 10 )
         }
       ),
