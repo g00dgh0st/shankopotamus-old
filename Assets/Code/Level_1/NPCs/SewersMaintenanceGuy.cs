@@ -26,9 +26,9 @@ public class SewersMaintenanceGuy : MonoBehaviour {
     SetupDialogue();
   }
 
-  void OnItemClick() {
-    Game.player.MoveTo( transform.position, delegate() {
-      if( wantsStew && Game.heldItem.name == "item_pancake_stew" ) {
+  void OnItemClick( string itemName ) {
+    if( wantsStew && itemName == "pancake_stew" ) {
+      Game.player.MoveTo( transform.position, delegate() {
         Game.script.UseItem();
         Game.script.ShowSpeechBubble( "Thanks. You can have the ladder.", transform.parent.Find( "BubTarget" ), 3f );
         wantsStew = false;
@@ -42,8 +42,8 @@ public class SewersMaintenanceGuy : MonoBehaviour {
           ladder.gameObject.GetComponent<BoxCollider2D>().enabled = true;
           transform.parent.position = fixingPos.position;
         }
-      }
-    });
+      });
+    }
   }
 
   void OnClick() {

@@ -1476,7 +1476,7 @@ public class UICamera : MonoBehaviour
             if( Game.heldItem == null )
   						Notify(currentTouch.pressed, "OnClick", null);
             else
-  						Notify(currentTouch.pressed, "OnItemClick", null);
+  						Notify(currentTouch.pressed, "OnItemClick", Game.heldItem.name.Replace( "item_", "" ) );
 
 						if (currentTouch.clickTime + 0.35f > time)
 						{
