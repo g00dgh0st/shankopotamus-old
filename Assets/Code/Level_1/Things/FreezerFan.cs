@@ -7,6 +7,24 @@ public class FreezerFan : MonoBehaviour {
   
   public ExhaustSwitch exhaust;
   public bool steaming;
+
+  void OnEnable() {
+    if( Game.cookies != null && Game.cookies.Contains( "showersOn" ) && (int)Game.cookies["showersOn"] == 4 && !exhaust.goingOut ) {
+      steaming = true;
+      transform.Find( "steam" ).gameObject.SetActive( true );
+    } else {
+      steaming = false;
+      transform.Find( "steam" ).gameObject.SetActive( false );
+    }
+    
+    if( exhaust.goingOut ) {
+      transform.Find( "wind_in" ).gameObject.SetActive( true );
+      transform.Find( "wind_out" ).gameObject.SetActive( false );
+    } else {
+      transform.Find( "wind_out" ).gameObject.SetActive( true );
+      transform.Find( "wind_in" ).gameObject.SetActive( false );
+    }
+  }
   
   void Start() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
