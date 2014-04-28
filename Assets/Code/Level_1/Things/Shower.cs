@@ -16,11 +16,22 @@ public class Shower : MonoBehaviour {
         transform.Find( "sparks" ).gameObject.SetActive( true );
         transform.Find( "steam" ).gameObject.SetActive( true );
         isOn = true;
+        if( Game.cookies.Contains( "showersOn" ) ) {
+          Game.cookies["showersOn"] = (int)Game.cookies["showersOn"] + 1;
+        } else {
+          Game.cookies.Add( "showersOn", 1 );
+        }
       } else {
         transform.Find( "sparks" ).gameObject.SetActive( false );
         transform.Find( "steam" ).gameObject.SetActive( false );
         isOn = false;
+        if( Game.cookies.Contains( "showersOn" ) && (int)Game.cookies["showersOn"] > 1 ) {
+          Game.cookies["showersOn"] = (int)Game.cookies["showersOn"] - 1;
+        } else if( (int)Game.cookies["showersOn"] <= 1 ) {
+          Game.cookies.Remove( "showersOn" );
+        }
       }
+      transform.parent.Find( "SteamFog" ).gameObject.GetComponent<SteamFog>().CheckShowers();
     });
   }
   
