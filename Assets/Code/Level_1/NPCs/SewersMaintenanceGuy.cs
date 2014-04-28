@@ -98,7 +98,7 @@ public class SewersMaintenanceGuy : MonoBehaviour {
       //0
       new Step( camTarget, "Don't touch me.", 
         new Option[] {
-          new Option( "Hey, I broke-- I mean, there's a broken fuse box over there.", 14, delegate() { return fusebox.broken && !atFuseBox; } ),
+          new Option( "I broke that- I mean, that fuse box over there broke.", 14, delegate() { return fusebox.broken && !atFuseBox; } ),
           new Option( "What are you doing?", 1 ),
           new Option( "Can I use your ladder?", 9, delegate() { return !noLadder; } ),
           new Option( "Can I borrow your fishing rod?", 3 ),
