@@ -18908,11 +18908,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -6.61731815
+      value: -11.1213875
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.59343648
+      value: -16.5421181
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.z
@@ -29964,7 +29964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &937347050
 Transform:
   m_ObjectHideFlags: 0
@@ -42453,7 +42453,7 @@ Transform:
   m_PrefabInternal: {fileID: 508331217}
   m_GameObject: {fileID: 1333868172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.61731815, y: -1.59343648, z: -1}
+  m_LocalPosition: {x: -11.1213875, y: -16.5421181, z: -1}
   m_LocalScale: {x: 2.00158, y: 2.00158, z: 2.00158}
   m_Children:
   - {fileID: 1092221449}
@@ -45500,7 +45500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 0}
   levelName: LevelOne
-  startRoom: {fileID: 1001483619}
+  startRoom: {fileID: 1239921773}
 --- !u!4 &1450852183
 Transform:
   m_ObjectHideFlags: 0
