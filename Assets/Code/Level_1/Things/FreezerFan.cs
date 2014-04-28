@@ -12,6 +12,9 @@ public class FreezerFan : MonoBehaviour {
     if( Game.cookies != null && Game.cookies.Contains( "showersOn" ) && (int)Game.cookies["showersOn"] == 4 && !exhaust.goingOut ) {
       steaming = true;
       transform.Find( "steam" ).gameObject.SetActive( true );
+      
+      transform.parent.Find( "Icicle" ).gameObject.SetActive( true );
+      
     } else {
       steaming = false;
       transform.Find( "steam" ).gameObject.SetActive( false );
