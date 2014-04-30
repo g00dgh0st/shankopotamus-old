@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 6fa508ed5597c6b4c987cecd3d11c5b7
+labels:
+- USFX
+- loop
+- mono
+- missile
+- rocket
+- flamethrower
+- flame
+- thruster
+AudioImporter:
+  serializedVersion: 4
+  format: -1
+  quality: -1
+  stream: 1
+  3D: 1
+  forceToMono: 0
+  useHardware: 0
+  loopable: 0
+  userData: 
