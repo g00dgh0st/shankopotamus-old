@@ -17,7 +17,7 @@ public class PolyNav2D : MonoBehaviour {
 	public float inflateRadius = 0.1f;
 
 	[SerializeField]
-	private PolygonCollider2D masterCollider;
+	public PolygonCollider2D masterCollider;
 	[SerializeField] [HideInInspector]
 	private EdgeCollider2D edgeCollider;
 
@@ -51,7 +51,7 @@ public class PolyNav2D : MonoBehaviour {
 	void Reset(){
 
 		gameObject.name = "@PolyNav2D";
-		masterCollider = GetComponent<PolygonCollider2D>();
+		// masterCollider = GetComponent<PolygonCollider2D>();
 		masterCollider.isTrigger = true;
 		transform.position = new Vector3(transform.position.x, transform.position.y, 10);
 	}
