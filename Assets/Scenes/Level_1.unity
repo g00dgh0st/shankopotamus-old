@@ -693,9 +693,9 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 1
-  m_SortingLayerID: 4096241421
+  m_SortingLayerID: 747986461
   m_Sprite: {fileID: 21300012, guid: a176adac8bd44464886cc3c5d495101c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &36885409
@@ -18966,11 +18966,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.03887439
+      value: -2.06875491
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.54331636
+      value: -5.11928988
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.z
@@ -25206,6 +25206,9 @@ MonoBehaviour:
   navObstacles:
   - {fileID: 1213412451}
   - {fileID: 489532060}
+  - {fileID: 1315311296}
+  - {fileID: 871819861}
+  - {fileID: 1774568255}
   obstaclesLayer: 12
   inflateRadius: .00100000005
   masterCollider: {fileID: 649320687}
@@ -26167,9 +26170,9 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 1
-  m_SortingLayerID: 4096241421
+  m_SortingLayerID: 747986461
   m_Sprite: {fileID: 21300008, guid: a176adac8bd44464886cc3c5d495101c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &718557247
@@ -26812,9 +26815,9 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 2
-  m_SortingLayerID: 4096241421
+  m_SortingLayerID: 747986461
   m_Sprite: {fileID: 21300004, guid: a176adac8bd44464886cc3c5d495101c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &757076397
@@ -28831,6 +28834,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destination: {fileID: 1547279846}
   exitPoint: {fileID: 271076226}
+--- !u!1 &871819859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 871819860}
+  - 60: {fileID: 871819862}
+  - 114: {fileID: 871819861}
+  m_Layer: 12
+  m_Name: NavObstacle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &871819860
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 871819859}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.45588136, y: -.68635273, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1413918825}
+--- !u!114 &871819861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 871819859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4f7f33d8fc7c0419b2308165807ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invertPolygon: 0
+  polyCollider: {fileID: 871819862}
+--- !u!60 &871819862
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 871819859}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Poly:
+    m_Paths:
+    - - {x: .270461798, y: -.0493459702}
+      - {x: .367439032, y: -.0929493904}
+      - {x: -.12693119, y: -.092692852}
+      - {x: -.170978785, y: -.0509228706}
 --- !u!1001 &874058281
 Prefab:
   m_ObjectHideFlags: 0
@@ -37591,9 +37650,9 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 15
-  m_SortingLayerID: 4096241421
+  m_SortingLayerID: 747986461
   m_Sprite: {fileID: 21300006, guid: a176adac8bd44464886cc3c5d495101c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1145232256
@@ -40120,9 +40179,9 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 1
-  m_SortingLayerID: 4096241421
+  m_SortingLayerID: 747986461
   m_Sprite: {fileID: 21300010, guid: a176adac8bd44464886cc3c5d495101c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1211328189
@@ -40438,6 +40497,7 @@ Transform:
   m_LocalPosition: {x: .402875423, y: -4.25151443, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1413918825}
   - {fileID: 1357423727}
   - {fileID: 1982417141}
   - {fileID: 64483212}
@@ -42489,6 +42549,62 @@ SpriteRenderer:
   m_SortingLayerID: 4096241421
   m_Sprite: {fileID: 21300004, guid: 0c37214b2d19f41f9bfbd09e243b6373, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1315311294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1315311295}
+  - 60: {fileID: 1315311297}
+  - 114: {fileID: 1315311296}
+  m_Layer: 12
+  m_Name: NavObstacle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1315311295
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1315311294}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.89793754, y: -.686353207, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1413918825}
+--- !u!114 &1315311296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1315311294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4f7f33d8fc7c0419b2308165807ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invertPolygon: 0
+  polyCollider: {fileID: 1315311297}
+--- !u!60 &1315311297
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1315311294}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Poly:
+    m_Paths:
+    - - {x: .144835234, y: -.0531525612}
+      - {x: .0933449268, y: -.0815286636}
+      - {x: -.22210288, y: -.0774655342}
+      - {x: -.129103184, y: -.0509228706}
 --- !u!1 &1316825450
 GameObject:
   m_ObjectHideFlags: 0
@@ -42881,7 +42997,7 @@ Transform:
   m_PrefabInternal: {fileID: 508331217}
   m_GameObject: {fileID: 1333868172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.03887439, y: -1.54331636, z: 0}
+  m_LocalPosition: {x: -2.06875491, y: -5.11928988, z: 0}
   m_LocalScale: {x: 2.00158, y: 2.00158, z: 2.00158}
   m_Children:
   - {fileID: 1092221449}
@@ -42916,7 +43032,7 @@ MonoBehaviour:
   stoppingDistance: .00100000005
   slowingDistance: 2
   decelerationRate: 2.5
-  closerPointOnInvalid: 0
+  closerPointOnInvalid: 1
   rotateTransform: 0
   rotateSpeed: 350
   sendMessages: 1
@@ -44962,6 +45078,63 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0, z: .145141482}
     m_Extent: {x: .0655283332, y: 3.99680272e-17, z: .187081099}
   m_DirtyAABB: 0
+--- !u!1 &1413918824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1413918825}
+  - 60: {fileID: 1413918826}
+  m_Layer: 0
+  m_Name: Navigation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1413918825
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1413918824}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1315311295}
+  - {fileID: 871819860}
+  - {fileID: 1774568254}
+  m_Father: {fileID: 1220121192}
+--- !u!60 &1413918826
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1413918824}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Poly:
+    m_Paths:
+    - - {x: -2.94858551, y: -.726762772}
+      - {x: -2.01156378, y: -.719552517}
+      - {x: -2.01271176, y: -.781769753}
+      - {x: -1.86784792, y: -.78328228}
+      - {x: -1.73927939, y: -.722685814}
+      - {x: -.721815705, y: -.73416996}
+      - {x: -.725544572, y: -.783195496}
+      - {x: .710661888, y: -.783771515}
+      - {x: .710951209, y: -.729729176}
+      - {x: 1.71179008, y: -.723295689}
+      - {x: 1.83611774, y: -.79304409}
+      - {x: 2.00126147, y: -.786658764}
+      - {x: 2.00185251, y: -.732065201}
+      - {x: 2.95947671, y: -.724010944}
+      - {x: 3.95255613, y: -.962410927}
+      - {x: -3.94229889, y: -.974341393}
 --- !u!1 &1415293033
 GameObject:
   m_ObjectHideFlags: 0
@@ -45891,6 +46064,46 @@ Prefab:
       propertyPath: camName
       value: showers
       objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
+      propertyPath: m_SortingLayerID
+      value: 747986461
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200002, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200002, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
+      propertyPath: m_SortingLayerID
+      value: 747986461
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200006, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200006, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
+      propertyPath: m_SortingLayerID
+      value: 747986461
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200010, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200010, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
+      propertyPath: m_SortingLayerID
+      value: 747986461
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200008, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200008, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
+      propertyPath: m_SortingLayerID
+      value: 747986461
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
   m_RootGameObject: {fileID: 1357423726}
@@ -45955,7 +46168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 0}
   levelName: LevelOne
-  startRoom: {fileID: 729043436}
+  startRoom: {fileID: 1220121191}
 --- !u!4 &1450852183
 Transform:
   m_ObjectHideFlags: 0
@@ -54721,6 +54934,62 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1140415742}
   m_GameObject: {fileID: 1773382068}
   m_Mesh: {fileID: 4300002, guid: 78a17f8c9af834fea90787a26ead2393, type: 3}
+--- !u!1 &1774568253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1774568254}
+  - 60: {fileID: 1774568256}
+  - 114: {fileID: 1774568255}
+  m_Layer: 12
+  m_Name: NavObstacle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1774568254
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1774568253}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.8470974, y: -.68635273, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1413918825}
+--- !u!114 &1774568255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1774568253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4f7f33d8fc7c0419b2308165807ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invertPolygon: 0
+  polyCollider: {fileID: 1774568256}
+--- !u!60 &1774568256
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1774568253}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Poly:
+    m_Paths:
+    - - {x: .191448689, y: -.0592226982}
+      - {x: .310154438, y: -.0909738541}
+      - {x: -.0696465969, y: -.0907177925}
+      - {x: -.121595621, y: -.0627746582}
 --- !u!1 &1775755314
 GameObject:
   m_ObjectHideFlags: 0
@@ -56384,9 +56653,9 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 3
-  m_SortingOrder: 11
-  m_SortingLayerID: 747986461
+  m_SortingLayer: 1
+  m_SortingOrder: 1
+  m_SortingLayerID: 4096241421
   m_Sprite: {fileID: 21300000, guid: ed6858f65ca0e4e27b5b3d6ec6e763c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1788030940
