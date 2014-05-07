@@ -29,7 +29,7 @@ public class Door : WaypointClicker {
     
     Game.PauseClicks();
         
-    base.OnClick();
+    Game.player.MoveTo( transform.position );
     
     StartCoroutine( GoThroughDoor() );
   }

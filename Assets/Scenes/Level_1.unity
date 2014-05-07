@@ -235,6 +235,68 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .125, y: .125, z: .125}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &6154635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 6154636}
+  - 61: {fileID: 6154638}
+  - 114: {fileID: 6154637}
+  - 114: {fileID: 6154639}
+  m_Layer: 11
+  m_Name: NavClicker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6154636
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 6154635}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 20}
+  m_LocalScale: {x: 8.40000725, y: 5.875, z: 1}
+  m_Children: []
+  m_Father: {fileID: 624754018}
+--- !u!114 &6154637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 6154635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9c72fc7917364539b0233cc982dd406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &6154638
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 6154635}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1, y: 1}
+  m_Center: {x: 0, y: 0}
+--- !u!114 &6154639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 6154635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40feef549a7a24780b55211483f6b246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &11715870
 GameObject:
   m_ObjectHideFlags: 0
@@ -22418,6 +22480,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 90309688}
+  - {fileID: 6154636}
   - {fileID: 1011110387}
   m_Father: {fileID: 0}
 --- !u!81 &624754019
@@ -25204,11 +25267,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generateOnUpdate: 1
   navObstacles:
+  - {fileID: 1774568255}
+  - {fileID: 871819861}
+  - {fileID: 1315311296}
   - {fileID: 1213412451}
   - {fileID: 489532060}
-  - {fileID: 1315311296}
-  - {fileID: 871819861}
-  - {fileID: 1774568255}
   obstaclesLayer: 12
   inflateRadius: .00100000005
   masterCollider: {fileID: 649320687}
@@ -43027,11 +43090,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93cc6a4987f7c684798156c56d545838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 2
-  mass: 20
+  maxSpeed: 1
+  mass: 1
   stoppingDistance: .00100000005
-  slowingDistance: 2
-  decelerationRate: 2.5
+  slowingDistance: .100000001
+  decelerationRate: 5
   closerPointOnInvalid: 1
   rotateTransform: 0
   rotateSpeed: 350
@@ -45101,7 +45164,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1413918824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1315311295}
@@ -69635,7 +69698,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2126333503}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.225594997, y: .894800007, z: 0}
+  m_LocalPosition: {x: -.225594997, y: .894800007, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 729043437}

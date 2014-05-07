@@ -14,10 +14,6 @@ public class Player : MonoBehaviour {
   }
 
 	public void Update() {
-		if (Input.GetMouseButton(0)) {
-			MoveTo( Camera.main.ScreenToWorldPoint( Input.mousePosition ) );
-		}
-    
     if( InMotion() ) {
       GetComponent<LayerSetter>().SetOrder( Game.currentRoom.GetComponent<Room>().GetNewOrder( transform.position.y ) );
       if( ( transform.localScale.x > 0 && Direction() < 0 ) || ( transform.localScale.x < 0 && Direction() > 0 ) ) {
