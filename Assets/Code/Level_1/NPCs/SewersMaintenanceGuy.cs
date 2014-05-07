@@ -28,7 +28,7 @@ public class SewersMaintenanceGuy : MonoBehaviour {
 
   void OnItemClick( string itemName ) {
     if( wantsStew && itemName == "pancake_stew" ) {
-      Game.player.MoveTo( transform.position, delegate() {
+      Game.player.MoveTo( transform.position, delegate( bool b ) {
         Game.script.UseItem();
         Game.script.ShowSpeechBubble( "Thanks. You can have the ladder.", transform.parent.Find( "BubTarget" ), 3f );
         wantsStew = false;
@@ -48,9 +48,9 @@ public class SewersMaintenanceGuy : MonoBehaviour {
 
   void OnClick() {
     if( !atFuseBox )
-      Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
+      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
     else {
-      Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 15 ); } );
+      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 15 ); } );
     }
   }
 

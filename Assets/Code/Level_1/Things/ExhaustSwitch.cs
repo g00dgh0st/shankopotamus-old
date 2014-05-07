@@ -18,7 +18,7 @@ public class ExhaustSwitch : MonoBehaviour {
   
   void OnItemClick() {
     if( Game.heldItem.name == "item_ladder" ) {
-      Game.player.MoveTo( transform.position, delegate() {
+      Game.player.MoveTo( transform.position, delegate( bool b ) {
         Game.script.UseItem();
         goingOut = false;
         transform.Find( "switch_in" ).gameObject.SetActive( true );

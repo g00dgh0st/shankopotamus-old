@@ -19,7 +19,7 @@ public class FuseBox : MonoBehaviour {
   void OnItemClick() {
     if( Game.heldItem.name == "item_fuse_box_key" && !open ) {
       Transform pos = moveTo == null ? transform : moveTo;
-      Game.player.MoveTo( pos.position, delegate() {
+      Game.player.MoveTo( pos.position, delegate( bool b ) {
         Game.script.UseItem();
         transform.parent.Find( "closed" ).gameObject.SetActive( false );
         transform.parent.Find( "open" ).gameObject.SetActive( true );
@@ -32,7 +32,7 @@ public class FuseBox : MonoBehaviour {
   void OnClick() {
     if( open ) {
       Transform pos = moveTo == null ? transform : moveTo;
-      Game.player.MoveTo( pos.position, delegate() {
+      Game.player.MoveTo( pos.position, delegate( bool b ) {
         zoomView.SetActive( true );
         Game.cookies.Add( "zoomed", true );
         Game.ZoomIn();

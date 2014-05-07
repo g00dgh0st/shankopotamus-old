@@ -10,7 +10,7 @@ public class Radio : MonoBehaviour {
   }
   
   void OnClick() {
-    Game.player.MoveTo( transform.position, delegate() { 
+    Game.player.MoveTo( transform.position, delegate( bool b ) { 
       GuardTowerGuard scrip = Game.GetScript<GuardTowerGuard>();
     
       if( !scrip.atScreens && scrip.firstTime ) {

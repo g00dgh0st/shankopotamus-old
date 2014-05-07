@@ -34,14 +34,14 @@ public class SadGuy : MonoBehaviour {
 
   void OnClick() {
     if( wantsHat )
-      Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 28 ); } );
+      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 28 ); } );
     else if( hasChicken ) {
       if( talkedOnce )
-        Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 4 ); } );
+        Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 4 ); } );
       else
-        Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
+        Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
     } else
-      Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 26 ); } );
+      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 26 ); } );
   }
 
   void OnHover( bool isOver ) {

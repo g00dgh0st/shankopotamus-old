@@ -19,7 +19,7 @@ public class SecurityCamera : MonoBehaviour {
   
   void OnClick() {
     Transform pos = moveTo == null ? transform : moveTo;
-    Game.player.MoveTo( pos.position, delegate() { 
+    Game.player.MoveTo( pos.position, delegate( bool b ) { 
       Game.script.ShowSpeechBubble( "Looks like a security camera.", Game.player.transform.Find( "BubTarget" ), 5f );
     } );
   }
@@ -27,7 +27,7 @@ public class SecurityCamera : MonoBehaviour {
   void OnItemClick() {
     if( Game.heldItem.name == "item_wire_cutter" && !broked ) {
       Transform pos = moveTo == null ? transform : moveTo;
-      Game.player.MoveTo( pos.position, delegate() { 
+      Game.player.MoveTo( pos.position, delegate( bool b ) { 
       
         Debug.Log( "Cut wire" );
         transform.parent.Find( "Wire" ).gameObject.SetActive( false );

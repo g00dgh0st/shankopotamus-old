@@ -21,9 +21,9 @@ public class GuardTowerGuard : MonoBehaviour {
 
   public void OnClick() {
     if( firstTime )
-      Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
+      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
     else
-      Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 2 ); } );
+      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 2 ); } );
   }
 
   void OnHover( bool isOver ) {

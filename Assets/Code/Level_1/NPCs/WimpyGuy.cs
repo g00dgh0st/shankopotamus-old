@@ -39,7 +39,7 @@ public class WimpyGuy : MonoBehaviour {
         index = 4;
       }
     
-      Game.player.MoveTo( waypoint.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, index ); } );
+      Game.player.MoveTo( waypoint.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, index ); } );
     } else {
       Game.script.ShowSpeechBubble( "Oh jeez, I'm on fire. Boy it hurts.", transform.parent.Find( "BubTarget" ), 3f );
     }
@@ -47,7 +47,7 @@ public class WimpyGuy : MonoBehaviour {
 
   void OnItemClick() {
     if( toughGuy.wantsMeat && Game.heldItem.name == "item_three_meat_surprise" ) {
-      Game.player.MoveTo( transform.position, delegate() {
+      Game.player.MoveTo( transform.position, delegate( bool b ) {
         Game.script.UseItem();
         GameObject.Find( "ToughGuy" ).transform.Find( "fire" ).gameObject.SetActive( true );
         toughGuy.onFire = true;

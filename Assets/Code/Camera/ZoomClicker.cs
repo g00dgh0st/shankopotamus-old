@@ -14,7 +14,7 @@ public class ZoomClicker : MonoBehaviour {
   void OnClick() {
     Transform pos = moveTo == null ? transform : moveTo;
     
-    Game.player.MoveTo( pos.position, delegate() {
+    Game.player.MoveTo( pos.position, delegate( bool b ) {
       zoomView.SetActive( true );
       Game.cookies.Add( "zoomed", true );
       Game.ZoomIn();

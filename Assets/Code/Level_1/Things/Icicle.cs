@@ -21,7 +21,7 @@ public class Icicle : MonoBehaviour {
     Game.CursorHover( isOver, cursor );
   }
   
-  public void StartGetHam() {
+  public void StartGetHam( bool b ) {
     Game.PauseClicks();
     StartCoroutine( GetHam() );
   }

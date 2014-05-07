@@ -37,7 +37,7 @@ public class ToughGuy : MonoBehaviour {
         index = 0;
       }
     
-      Game.player.MoveTo( waypoint.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, index ); } );
+      Game.player.MoveTo( waypoint.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, index ); } );
     } else {
       Game.script.ShowSpeechBubble( "Ah crap, I'm on fire again.", transform.parent.Find( "BubTarget" ), 3f );
     }
@@ -45,7 +45,7 @@ public class ToughGuy : MonoBehaviour {
 
   void OnItemClick() {
     if( wantsMeat && Game.heldItem.name == "item_three_meat_surprise" ) {
-      Game.player.MoveTo( transform.position, delegate() {
+      Game.player.MoveTo( transform.position, delegate( bool b ) {
         Game.script.UseItem();
         GameObject.Find( "WimpyGuy" ).transform.Find( "fire" ).gameObject.SetActive( true );
         Game.GetScript<WimpyGuy>().onFire = true;

@@ -11,7 +11,7 @@ public class Shower : MonoBehaviour {
   }
   
   void OnClick() {
-    Game.player.MoveTo( transform.position, delegate() {
+    Game.player.MoveTo( transform.position, delegate( bool b ) {
       if( !isOn ) {
         transform.Find( "sparks" ).gameObject.SetActive( true );
         transform.Find( "steam" ).gameObject.SetActive( true );

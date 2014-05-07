@@ -16,7 +16,7 @@ public class SimpleItemPickup : MonoBehaviour {
   void OnClick() {
     Transform moveTo = ( point == null ? transform : point );
     
-    Game.player.MoveTo( moveTo.position, delegate() { 
+    Game.player.MoveTo( moveTo.position, delegate( bool b ) { 
       Game.script.AddItem( itemName );
       if( gameObject.name == "Clicker" )
         Destroy( gameObject.transform.parent.gameObject );

@@ -22,9 +22,9 @@ public class CafeteriaGuard : MonoBehaviour {
   void OnClick() {
     if( distracted ) return;
     if( GameObject.Find( "item_spoon" ) == null )
-      Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 0); } );
+      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0); } );
     else
-      Game.player.MoveTo( transform.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 10); } );
+      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 10); } );
   }
 
   void OnHover( bool isOver  ) {

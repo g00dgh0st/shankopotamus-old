@@ -44,7 +44,7 @@ public class SecurityScreens : MonoBehaviour {
     if( scrip.firstTime ) {
       Game.GetScript<GuardTowerGuard>().OnClick();
     } else {
-      Game.player.MoveTo( transform.position, delegate() { 
+      Game.player.MoveTo( transform.position, delegate( bool b ) { 
         if( camerasOff == 0 ) {
           Game.dialogueManager.StartDialogue( dialogue, 0 );
         } else if( camerasOff == 1 ) {

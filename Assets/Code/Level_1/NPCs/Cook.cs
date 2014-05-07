@@ -25,14 +25,14 @@ public class Cook : MonoBehaviour {
 
 
   void OnClick() {
-    Game.player.MoveTo( waypoint.position, delegate() { Game.dialogueManager.StartDialogue( dialogue, 0); } );
+    Game.player.MoveTo( waypoint.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0); } );
   }
 
   void OnItemClick() {
     if( !wantsIngredients ) return;
     
     if( Game.heldItem.name == "item_ham" || Game.heldItem.name == "item_rat" || Game.heldItem.name == "item_chicken" ) {
-      Game.player.MoveTo( waypoint.position, delegate() {
+      Game.player.MoveTo( waypoint.position, delegate( bool b ) {
         if( Game.heldItem.name == "item_ham" ) {
           hasHam = true;
           Game.script.UseItem();
