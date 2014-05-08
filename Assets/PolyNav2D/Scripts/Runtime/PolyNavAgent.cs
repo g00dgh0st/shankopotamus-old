@@ -9,8 +9,8 @@ public class PolyNavAgent : MonoBehaviour{
 	public float maxSpeed             = 3.5f;
 	public float mass                 = 20;
 	public float stoppingDistance     = 0.1f;
-	public float slowingDistance      = 1;
-	public float decelerationRate     = 2;
+  // public float slowingDistance      = 1;
+  // public float decelerationRate     = 2;
 	public bool closerPointOnInvalid  = false;
 	public bool rotateTransform       = false;
 	public float rotateSpeed          = 350;
@@ -191,20 +191,20 @@ public class PolyNavAgent : MonoBehaviour{
 		}
 
 		//calculate velocities
-		if (remainingDistance < slowingDistance){
-			
-			velocity += Arrive(nextPoint) / mass;
-
-		} else {
+    // if (remainingDistance < slowingDistance){
+    //   
+    //   velocity += Arrive(nextPoint) / mass;
+    // 
+    // } else {
 
 			velocity += Seek(nextPoint) / mass;
-		}
+    // }
 
 		velocity = Truncate(velocity, maxSpeed);
 		//
 
 		//slow down if wall ahead
-		LookAhead();
+    // LookAhead();
 
 		//move the agent
 		agentPosition += velocity * Time.deltaTime;
@@ -230,7 +230,7 @@ public class PolyNavAgent : MonoBehaviour{
 		}
 
 		//Check and remove if we reached a point. proximity distance depents
-		float proximity = (activePath[activePath.Count -1] == nextPoint)? stoppingDistance : 0.05f;
+		float proximity = (activePath[activePath.Count -1] == nextPoint)? stoppingDistance : 0.001f;
 		if ((agentPosition - nextPoint).magnitude <= proximity){
 
 			activePath.RemoveAt(0);
@@ -312,21 +312,21 @@ public class PolyNavAgent : MonoBehaviour{
 	}
 
 	//slowing at target's arrival
-	private Vector2 Arrive(Vector2 pos){
-
-		var desiredVelocity = (pos - agentPosition);
-		float dist= desiredVelocity.magnitude;
-
-		if (dist > 0){
-			var reqSpeed = dist / (decelerationRate * 0.3f);
-			reqSpeed = Mathf.Min(reqSpeed, maxSpeed);
-			desiredVelocity *= reqSpeed / dist;
-		}
-
-		Vector2 steer= desiredVelocity - velocity;
-		steer = Truncate(steer, maxForce);
-		return steer;
-	}
+  // private Vector2 Arrive(Vector2 pos){
+  // 
+  //   var desiredVelocity = (pos - agentPosition);
+  //   float dist= desiredVelocity.magnitude;
+  // 
+  //   if (dist > 0){
+  //     var reqSpeed = dist / (decelerationRate * 0.3f);
+  //     reqSpeed = Mathf.Min(reqSpeed, maxSpeed);
+  //     desiredVelocity *= reqSpeed / dist;
+  //   }
+  // 
+  //   Vector2 steer= desiredVelocity - velocity;
+  //   steer = Truncate(steer, maxForce);
+  //   return steer;
+  // }
 
 	//slowing when there is an obstacle ahead
 	//not implemented as best as it could.TODO

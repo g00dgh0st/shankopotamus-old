@@ -11,8 +11,6 @@ public class ToughGuy : MonoBehaviour {
   
   public Dialogue dialogue;
   
-  public Transform waypoint;
-  
   void Awake() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
     
@@ -37,7 +35,7 @@ public class ToughGuy : MonoBehaviour {
         index = 0;
       }
     
-      Game.player.MoveTo( waypoint.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, index ); } );
+      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, index ); } );
     } else {
       Game.script.ShowSpeechBubble( "Ah crap, I'm on fire again.", transform.parent.Find( "BubTarget" ), 3f );
     }

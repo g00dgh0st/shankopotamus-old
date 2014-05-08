@@ -7,8 +7,6 @@ public class WimpyGuy : MonoBehaviour {
   
   private Dialogue dialogue;
   
-  public Transform waypoint;
-  
   private ToughGuy toughGuy;
   
   public bool onFire = false;
@@ -39,7 +37,7 @@ public class WimpyGuy : MonoBehaviour {
         index = 4;
       }
     
-      Game.player.MoveTo( waypoint.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, index ); } );
+      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, index ); } );
     } else {
       Game.script.ShowSpeechBubble( "Oh jeez, I'm on fire. Boy it hurts.", transform.parent.Find( "BubTarget" ), 3f );
     }

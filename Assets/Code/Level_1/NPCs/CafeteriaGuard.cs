@@ -11,8 +11,6 @@ public class CafeteriaGuard : MonoBehaviour {
   private bool moving = false;
   private bool distracted = false;
   
-  public Transform moveTo;
-  
   void Start() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
     
@@ -34,7 +32,7 @@ public class CafeteriaGuard : MonoBehaviour {
   void Update() {
     if( moving ) {
       transform.parent.position = new Vector3( transform.parent.position.x - 0.01f, transform.parent.position.y, -3 );
-      if( transform.parent.position.x < moveTo.position.x ) moving = false;
+      if( transform.parent.position.x < transform.position.x ) moving = false;
     }
     
     if( !distracted && GameObject.Find( "item_spoon" ) && Game.player.transform.position.x > 2.74f && Game.player.InMotion() ) {
