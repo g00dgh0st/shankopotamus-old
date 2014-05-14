@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class Door : MonoBehaviour {
+  
+  public static bool goingThrough = false;
 
   // dest door
   public Transform destination;
@@ -28,6 +30,10 @@ public class Door : MonoBehaviour {
     Game.CursorHover( isOver, cursor );
   }
   
+  void Update() {
+    if( collider2D.OverlapPoint( Game.player.transform.position ) && !Game.clicksPaused && !Door.goingThrough ) OnClick();
+  }
+  
   public void OnClick() {
     if( Game.cookies.Contains( "stopDoor" ) ) {
       Game.cookies.Remove( "stopDoor" );
@@ -49,6 +55,8 @@ public class Door : MonoBehaviour {
       yield return null;
     }
     
+    Game.player.StopMove();
+    
     // if stopped because of stopDoor
     if( Game.cookies.Contains( "stopDoor" ) ) {
       Game.cookies.Remove( "stopDoor" );
@@ -57,6 +65,8 @@ public class Door : MonoBehaviour {
     }
     
     StartCoroutine( Game.FadeCamera( delegate() {
+      
+      Door.goingThrough = true;
       
       Game.currentRoom = destRoom;
 
@@ -68,13 +78,11 @@ public class Door : MonoBehaviour {
       Camera.main.transform.position = new Vector3( plPos.x, plPos.y, Camera.main.transform.position.z );
     
       float cScale = destRoom.GetComponent<Room>().characterScale;
-      
       Game.player.transform.localScale = new Vector3( ( Game.player.transform.localScale.x < 0 ? -cScale : cScale ), cScale, cScale );
-    
-      Game.player.MoveTo( destination.gameObject.GetComponent<Door>().exitPoint.position );
-    
       Game.ResumeClicks();
       
+      Game.player.MoveTo( destination.gameObject.GetComponent<Door>().exitPoint.position, delegate( bool b ) { Door.goingThrough = false; } );
+    
       room.SetActive( false );
     } ) );
     
