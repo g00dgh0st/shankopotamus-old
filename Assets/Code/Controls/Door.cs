@@ -74,8 +74,7 @@ public class Door : MonoBehaviour {
 
       Game.player.TeleportTo( destination.position );
       
-      Vector3 plPos = Game.player.transform.Find( "CamTarget" ).position;
-      Camera.main.transform.position = new Vector3( plPos.x, plPos.y, Camera.main.transform.position.z );
+      Camera.main.GetComponent<CameraControl>().Reset();
     
       float cScale = destRoom.GetComponent<Room>().characterScale;
       Game.player.transform.localScale = new Vector3( ( Game.player.transform.localScale.x < 0 ? -cScale : cScale ), cScale, cScale );

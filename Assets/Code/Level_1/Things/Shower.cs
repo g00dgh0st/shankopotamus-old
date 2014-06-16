@@ -15,6 +15,7 @@ public class Shower : MonoBehaviour {
       if( !isOn ) {
         transform.Find( "sparks" ).gameObject.SetActive( true );
         transform.Find( "steam" ).gameObject.SetActive( true );
+        transform.Find( "Showers_Handle" ).localScale = new Vector3( -1.346163f, 1.346163f, 1.346163f );
         isOn = true;
         if( Game.cookies.Contains( "showersOn" ) ) {
           Game.cookies["showersOn"] = (int)Game.cookies["showersOn"] + 1;
@@ -24,6 +25,7 @@ public class Shower : MonoBehaviour {
       } else {
         transform.Find( "sparks" ).gameObject.SetActive( false );
         transform.Find( "steam" ).gameObject.SetActive( false );
+        transform.Find( "Showers_Handle" ).localScale = new Vector3( 1.346163f, 1.346163f, 1.346163f );
         isOn = false;
         if( Game.cookies.Contains( "showersOn" ) && (int)Game.cookies["showersOn"] > 1 ) {
           Game.cookies["showersOn"] = (int)Game.cookies["showersOn"] - 1;

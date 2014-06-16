@@ -6,6 +6,12 @@ public class Room : MonoBehaviour {
   public float characterScale = 1f;
   public yBoundary[] yBounds;
   
+  public enum CameraType { Static, HorizontalScroll, VerticalScroll, FreeScroll };
+  
+  public CameraType cameraType = CameraType.FreeScroll;
+  
+  public float XYLock;
+  
   void Start() {
     SetUp();
   }
