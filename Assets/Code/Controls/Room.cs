@@ -2,15 +2,28 @@
 using System.Collections;
 
 public class Room : MonoBehaviour {
-
+  
+  // char scaling stuff
+  public enum ScaleType { Static, Depth };
+  public ScaleType characterScaleType = ScaleType.Static;
+  
   public float characterScale = 1f;
-  public yBoundary[] yBounds;
   
+  public float backY = 0.0f;
+  public float frontY = 0.0f;
+  
+  public float backScale = 1f;
+  public float frontScale = 1f;
+  
+  // cam control stuff
   public enum CameraType { Static, HorizontalScroll, VerticalScroll, FreeScroll };
-  
   public CameraType cameraType = CameraType.FreeScroll;
   
-  public float XYLock;
+  public float YLock;
+  public float XLock;
+  
+  // for layer sorting
+  public yBoundary[] yBounds;
   
   void Start() {
     SetUp();

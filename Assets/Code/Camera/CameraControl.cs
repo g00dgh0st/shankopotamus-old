@@ -29,10 +29,10 @@ public class CameraControl : MonoBehaviour {
         transform.position = new Vector3( Game.currentRoom.transform.position.x, Game.currentRoom.transform.position.y, transform.position.z );
         break;
       case Room.CameraType.HorizontalScroll:
-        transform.position = new Vector3( plPos.x, Game.currentRoom.GetComponent<Room>().XYLock, transform.position.z );
+        transform.position = new Vector3( plPos.x, Game.currentRoom.GetComponent<Room>().YLock, transform.position.z );
         break;
       case Room.CameraType.VerticalScroll:
-        transform.position = new Vector3( Game.currentRoom.GetComponent<Room>().XYLock, plPos.y, transform.position.z );
+        transform.position = new Vector3( Game.currentRoom.GetComponent<Room>().XLock, plPos.y, transform.position.z );
         break;
       default:
         transform.position = new Vector3( plPos.x, plPos.y, transform.position.z );
