@@ -38,7 +38,10 @@ public class Room : MonoBehaviour {
  	Gizmos.color = Color.red;
  	
   foreach( yBoundary bound in yBounds ) {
-    Gizmos.DrawLine( bound.pos1, bound.pos2 );
+    if( bound.boundType == yBoundary.BoundType.Dynamic )
+      Gizmos.DrawLine( bound.dynamicTrans1.position, bound.dynamicTrans2.position );
+    else
+      Gizmos.DrawLine( bound.pos1, bound.pos2 );
   }
   
  }
@@ -71,25 +74,43 @@ public class Room : MonoBehaviour {
 [System.Serializable]
 public class yBoundary {
   public string name;
+
+  public enum BoundType { Static, Dynamic };
+  public BoundType boundType = BoundType.Static;
+  public Transform dynamicTrans1;
+  public Transform dynamicTrans2;
+
   public Vector2 pos1;
   public Vector2 pos2;
+
   public int orderAbove;
   public int orderBelow;
   
   public Vector2 DistanceToPoint( Vector2 point ) {
-    Vector2 a = point - pos1;
-    Vector2 n = ( pos2 - pos1 ).normalized;
+    Vector2 p1;
+    Vector2 p2;
+    
+    if( boundType == BoundType.Dynamic ) {
+      p1 = dynamicTrans1.position;
+      p2 = dynamicTrans2.position;
+    } else {
+      p1 = pos1;
+      p2 = pos2;
+    }
+    
+    Vector2 a = point - p1;
+    Vector2 n = ( p2 - p1 ).normalized;
 
-    float d = Vector2.Distance( pos1, pos2 );
+    float d = Vector2.Distance( p1, p2 );
     float t = Vector2.Dot( n, a );
 
-    if( t <= 0f ) return pos1 - point;
+    if( t <= 0f ) return p1 - point;
 
-    if( t >= d ) return pos2 - point;
+    if( t >= d ) return p2 - point;
 
     Vector2 b = n * t;
 
-    Vector2 closestPoint = pos1 + b;
+    Vector2 closestPoint = p1 + b;
 
     return closestPoint - point;
   }

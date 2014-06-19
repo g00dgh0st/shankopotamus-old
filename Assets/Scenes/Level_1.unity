@@ -25637,7 +25637,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 642849169}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: boundary1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25650,10 +25650,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 642849168}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .262355208, y: -1.3926115, z: 0}
+  m_LocalPosition: {x: -.248742938, y: -.330361724, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1674419299}
 --- !u!1001 &644990364
 Prefab:
   m_ObjectHideFlags: 0
@@ -27144,20 +27144,37 @@ MonoBehaviour:
   XLock: 0
   yBounds:
   - name: Right Table
+    boundType: 0
+    dynamicTrans1: {fileID: 0}
+    dynamicTrans2: {fileID: 0}
     pos1: {x: 3.01999998, y: -1.54499996}
     pos2: {x: 1.88999999, y: -1.40684199}
     orderAbove: -1
     orderBelow: 1
   - name: Left Table
+    boundType: 0
+    dynamicTrans1: {fileID: 0}
+    dynamicTrans2: {fileID: 0}
     pos1: {x: 1.08000004, y: -1.52499998}
     pos2: {x: .262355208, y: -1.39261198}
     orderAbove: -1
     orderBelow: 1
   - name: Right Door Overlay
+    boundType: 0
+    dynamicTrans1: {fileID: 0}
+    dynamicTrans2: {fileID: 0}
     pos1: {x: 3.94000006, y: -1.63}
     pos2: {x: 4.19999981, y: -1.67999995}
     orderAbove: 0
     orderBelow: 3
+  - name: Tough Guy
+    boundType: 1
+    dynamicTrans1: {fileID: 642849169}
+    dynamicTrans2: {fileID: 1955002737}
+    pos1: {x: 3.94000006, y: -1.63}
+    pos2: {x: 4.19999981, y: -1.67999995}
+    orderAbove: -1
+    orderBelow: 2
 --- !u!1 &729151398
 GameObject:
   m_ObjectHideFlags: 0
@@ -32265,6 +32282,9 @@ MonoBehaviour:
   XLock: 0
   yBounds:
   - name: 
+    boundType: 0
+    dynamicTrans1: {fileID: 0}
+    dynamicTrans2: {fileID: 0}
     pos1: {x: 0, y: 0}
     pos2: {x: 0, y: 0}
     orderAbove: -1
@@ -33557,11 +33577,17 @@ MonoBehaviour:
   XLock: 0
   yBounds:
   - name: 
+    boundType: 0
+    dynamicTrans1: {fileID: 0}
+    dynamicTrans2: {fileID: 0}
     pos1: {x: 0, y: 0}
     pos2: {x: 0, y: 0}
     orderAbove: -1
     orderBelow: 0
   - name: 
+    boundType: 0
+    dynamicTrans1: {fileID: 0}
+    dynamicTrans2: {fileID: 0}
     pos1: {x: 0, y: 0}
     pos2: {x: 0, y: 0}
     orderAbove: 0
@@ -41983,6 +42009,9 @@ MonoBehaviour:
   XLock: 0
   yBounds:
   - name: 
+    boundType: 0
+    dynamicTrans1: {fileID: 0}
+    dynamicTrans2: {fileID: 0}
     pos1: {x: 0, y: 0}
     pos2: {x: 0, y: 0}
     orderAbove: 0
@@ -53220,6 +53249,8 @@ Transform:
   - {fileID: 38775667}
   - {fileID: 967876302}
   - {fileID: 933755970}
+  - {fileID: 642849169}
+  - {fileID: 1955002737}
   - {fileID: 1944942416}
   m_Father: {fileID: 729043437}
 --- !u!1001 &1679232515
@@ -65355,6 +65386,32 @@ SpriteRenderer:
   m_SortingLayerID: 747986461
   m_Sprite: {fileID: 21300004, guid: e4be8bc3648f24e54b8cc53544e32b0a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1955002736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1955002737}
+  m_Layer: 0
+  m_Name: boundary2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1955002737
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1955002736}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .237082958, y: -.415866852, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1674419299}
 --- !u!1 &1956297886
 GameObject:
   m_ObjectHideFlags: 0
