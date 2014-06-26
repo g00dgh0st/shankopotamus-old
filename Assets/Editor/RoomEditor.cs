@@ -8,6 +8,16 @@ using System.Reflection;
 [CanEditMultipleObjects]
 public class RoomEditor : Editor
 {
+
+    void OnSceneGUI() {
+      Room room = Selection.activeGameObject.GetComponent<Room>();
+      foreach( yBoundary bounds in room.yBounds ) {
+        if( bounds.boundType == yBoundary.BoundType.Dynamic ) continue;
+        bounds.pos1 = Handles.PositionHandle( bounds.pos1, Quaternion.identity );
+        bounds.pos2 = Handles.PositionHandle( bounds.pos2, Quaternion.identity );
+      }
+      if (GUI.changed) EditorUtility.SetDirty (target);
+    }
  
     //Add the ShowOnEnum methods in here
     private void SetFieldCondition()
@@ -22,6 +32,7 @@ public class RoomEditor : Editor
         ShowOnEnum("characterScaleType","Depth","frontY"); 
         ShowOnEnum("characterScaleType","Depth","backScale"); 
         ShowOnEnum("characterScaleType","Depth","frontScale"); 
+        
        
     }
  
