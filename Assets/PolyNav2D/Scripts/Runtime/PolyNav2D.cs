@@ -8,12 +8,15 @@ using System.Linq;
 
 [RequireComponent(typeof(PolygonCollider2D))]
 [AddComponentMenu("Navigation/Poly|Nav2D")]
-//Singleton. Main class for map generation
+///Singleton. Main class for map generation and navigation
 public class PolyNav2D : MonoBehaviour {
 
+	///If true map will recalculate whenever an obstacle changes position, rotation or scale.
 	public bool generateOnUpdate = true;
 	public List<PolyNavObstacle> navObstacles = new List<PolyNavObstacle>();
+	///The layer that the obstacles will be assinged to.
 	public int obstaclesLayer;
+	///The radious from the edges to offset the agents.
 	public float inflateRadius = 0.1f;
 
 	[SerializeField]
@@ -26,6 +29,7 @@ public class PolyNav2D : MonoBehaviour {
 
 	static PolyNav2D _current;
 	
+	///The current instance of PolyNav2D
 	public static PolyNav2D current{
 		get
 		{
@@ -51,7 +55,7 @@ public class PolyNav2D : MonoBehaviour {
 	void Reset(){
 
 		gameObject.name = "@PolyNav2D";
-		// masterCollider = GetComponent<PolygonCollider2D>();
+		masterCollider = GetComponent<PolygonCollider2D>();
 		masterCollider.isTrigger = true;
 		transform.position = new Vector3(transform.position.x, transform.position.y, 10);
 	}
@@ -59,7 +63,7 @@ public class PolyNav2D : MonoBehaviour {
 	void Awake(){
 
 		if (_current != null && _current != this){
-			DestroyImmediate(gameObject, false);
+			//DestroyImmediate(gameObject, false);
 			return;
 		}
 
@@ -70,7 +74,7 @@ public class PolyNav2D : MonoBehaviour {
 		GenerateMap();
 	}
 
-	//Adds a PolyNavObstacle to the map
+	///Adds a PolyNavObstacle to the map.
 	public void AddObstacle( PolyNavObstacle navObstacle ){
 
 		navObstacle.gameObject.layer = obstaclesLayer;
@@ -81,7 +85,7 @@ public class PolyNav2D : MonoBehaviour {
 		}
 	}
 
-	//Removes a PolyNavObstacle to the map
+	///Removes a PolyNavObstacle to the map.
 	public void RemoveObstacle ( PolyNavObstacle navObstacle ){
 		
 		navObstacles.Remove(navObstacle);
@@ -89,7 +93,7 @@ public class PolyNav2D : MonoBehaviour {
 	}
 
 
-	//find a path 'from' and 'to', providing a callback for when path is ready
+	///Find a path 'from' and 'to', providing a callback for when path is ready containing the path.
 	public void FindPath(Vector2 start, Vector2 end, System.Action<List<Vector2>> callback){
 
 		if (CheckLOS(start, end)){
@@ -117,7 +121,7 @@ public class PolyNav2D : MonoBehaviour {
 		StartCoroutine( AStar.CalculatePath(startNode, endNode, tempNodes, callback) );
 	}
 
-	//Generate the map
+	///Generate the map
 	public void GenerateMap (){
 		
 		CreatePolyMap();
@@ -138,8 +142,9 @@ public class PolyNav2D : MonoBehaviour {
 		//create a polygon object for each obstacle
 		List<Polygon> subPolygons = new List<Polygon>();
 		foreach(PolyNavObstacle obstacle in navObstacles){
-			List<Vector2> inflatedPoints = InflatePolygon(obstacle.points.ToList(), Mathf.Max(0.01f, inflateRadius) );
-			subPolygons.Add(new Polygon(TransformPoints(inflatedPoints.ToArray(), obstacle.transform).ToList() ));
+			List<Vector2> transformedPoints = TransformPoints(obstacle.points, obstacle.transform).ToList();
+			List<Vector2> inflatedPoints = InflatePolygon(transformedPoints, Mathf.Max(0.01f, inflateRadius) );
+			subPolygons.Add(new Polygon(inflatedPoints));
 		}
 
 		//invert the main polygon points so that we save checking for inward/outward later (for Inflate)
@@ -148,8 +153,9 @@ public class PolyNav2D : MonoBehaviour {
 		System.Array.Reverse(masterCollider.points);
 
 		//create the main polygon map (based on inverted) also containing the obstacle polygons
-		List<Vector2> masterInflatedPoints = InflatePolygon(reversedPoints.ToList(), Mathf.Max(0.01f, inflateRadius) );
-		map = new PolyMap(TransformPoints(masterInflatedPoints.ToArray(), masterCollider.transform).ToList(), subPolygons);
+		List<Vector2> masterTransformedPoints = TransformPoints(reversedPoints, masterCollider.transform).ToList();
+		List<Vector2> masterInflatedPoints = InflatePolygon(masterTransformedPoints, Mathf.Max(0.01f, inflateRadius) );
+		map = new PolyMap(masterInflatedPoints, subPolygons);
 
 		//set the points of the border collider same as master collider
 		List<Vector2> borderPoints = new List<Vector2>();
@@ -229,7 +235,7 @@ public class PolyNav2D : MonoBehaviour {
 	}
 
 
-	//Determine if 2 points see each other. Used for linking nodes together
+	///Determine if 2 points see each other.
 	public bool CheckLOS ( Vector2 posA, Vector2 posB ){
 
 		/*LEGACY
@@ -248,7 +254,7 @@ public class PolyNav2D : MonoBehaviour {
 		return true;
 	}
 
-	//Helper function to determine if a point is within a valid area
+	///determine if a point is within a valid (walkable) area.
 	public bool PointIsValid ( Vector2 point ){
 
 		/*LEGACY
@@ -264,7 +270,7 @@ public class PolyNav2D : MonoBehaviour {
 		return true;
 	}
 
-	//Inflate. Kind of scales a polygon based on it's vertices average normal
+	///Kind of scales a polygon based on it's vertices average normal.
 	public static List<Vector2> InflatePolygon(List<Vector2> points, float dist){
 
 		List<Vector2> inflatedPoints= new List<Vector2>();
@@ -282,7 +288,7 @@ public class PolyNav2D : MonoBehaviour {
 		return inflatedPoints;
 	}
 
-	//Check if or not a point is concave to the polygon points provided
+	///Check if or not a point is concave to the polygon points provided
 	public static bool PointIsConcave(List<Vector2> points, int point){
 
 		Vector2 current = points[point];
@@ -297,7 +303,7 @@ public class PolyNav2D : MonoBehaviour {
 		return cross > 0;
 	}
 
-	//Check intersection of two segments, each defined by two vectors
+	///Check intersection of two segments, each defined by two vectors.
 	public static bool SegmentsCross ( Vector2 a ,   Vector2 b ,   Vector2 c ,   Vector2 d  ){
 
 		 float denominator = ((b.x - a.x) * (d.y - c.y)) - ((b.y - a.y) * (d.x - c.x));
@@ -317,7 +323,7 @@ public class PolyNav2D : MonoBehaviour {
 	    return (r > 0 && r < 1) && (s > 0 && s < 1);
 	}
 
-	//Is a point inside a polygon
+	///Is a point inside a polygon?
 	public static bool PointInsidePolygon(List<Vector2> polyPoints, Vector2 point){
 
 		float xMin = 0;
@@ -339,7 +345,7 @@ public class PolyNav2D : MonoBehaviour {
 		return (intersections & 1) == 1;
 	}
 
-	//Finds the closer edge point to the navigation area
+	///Finds the closer edge point to the navigation valid area
 	public Vector2 GetCloserEdgePoint ( Vector2 point ){
 
 		List<Vector2> possiblePoints= new List<Vector2>();
@@ -380,7 +386,7 @@ public class PolyNav2D : MonoBehaviour {
 	}
 
 
-	//WORK IN PROGRESS for agent radious. NOT USED left here cause it's interesting...
+	//Legacy
 	public static List<Vector2> InflatePath(List<Vector2> points, float dist){
 
 		List<Vector2> inflatedPath= new List<Vector2>();

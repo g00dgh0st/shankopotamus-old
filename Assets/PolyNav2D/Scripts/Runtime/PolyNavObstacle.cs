@@ -4,8 +4,10 @@ using System.Collections;
 [ExecuteInEditMode]
 [RequireComponent(typeof(PolygonCollider2D))]
 [AddComponentMenu("Navigation/PolyNavObstacle")]
+///Place on a game object to act as an obstacle
 public class PolyNavObstacle : MonoBehaviour {
 
+	///Inverts the polygon (done automatically if collider already exists due to a sprite)
 	public bool invertPolygon = false;
 
 	private Vector3 lastPos;
@@ -16,6 +18,7 @@ public class PolyNavObstacle : MonoBehaviour {
 	[SerializeField] [HideInInspector]
 	private PolygonCollider2D polyCollider;
 
+	///The polygon points of the obstacle
 	public Vector2[] points{
 		get
 		{

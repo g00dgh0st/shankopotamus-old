@@ -16,10 +16,9 @@ public class ClickToMove : MonoBehaviour{
 	}
 
 	private void Update () {
-		if (Input.GetMouseButtonDown(0)) {
+
+		if (Input.GetMouseButtonDown(0))
 			agent.SetDestination(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-		  
-		}
 	}
 
 	//Message from Agent

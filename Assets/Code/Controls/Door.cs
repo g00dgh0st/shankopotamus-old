@@ -8,6 +8,7 @@ public class Door : MonoBehaviour {
   // dest door
   public Transform destination;
   // exit point for this door
+  [HideInInspector]
   public Transform exitPoint;
   
   private GameObject room;

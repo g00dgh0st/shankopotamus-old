@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+///Calculates paths using A*
 static class AStar {
 
 	private static float heuristicWeight = 1;

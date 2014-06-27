@@ -11,6 +11,7 @@ public class RoomEditor : Editor
 
     void OnSceneGUI() {
       Room room = Selection.activeGameObject.GetComponent<Room>();
+      if( room.yBounds.Length == 0 ) return;
       foreach( yBoundary bounds in room.yBounds ) {
         if( bounds.boundType == yBoundary.BoundType.Dynamic ) continue;
         bounds.pos1 = Handles.PositionHandle( bounds.pos1, Quaternion.identity );
