@@ -122,6 +122,7 @@ public class PolyNavAgent : MonoBehaviour{
 			Debug.LogError("No PolyNav2D in scene!");
 			return false;
 		}
+    
 
 		//goal is almost the same as the last goal. Nothing happens for performace in case it's called frequently
 		if ((goal - primeGoal).magnitude < Mathf.Epsilon)
@@ -135,7 +136,7 @@ public class PolyNavAgent : MonoBehaviour{
 			OnArrived();
 			return true;
 		}
-
+    
 		//check if goal is valid
 		if (!polyNav.PointIsValid(goal)){
 			if(closerPointOnInvalid){
@@ -151,7 +152,16 @@ public class PolyNavAgent : MonoBehaviour{
 		//the prime goal will be repathed anyway
 		if (requests > 0)
 			return true;
-
+    
+    // find a point on the bottom edge 
+    if( Game.currentRoom.GetComponent<Room>().lockToBottom ) {
+      float offset = 0.01f;
+      while( PolyNav2D.current.masterCollider.OverlapPoint( new Vector2( goal.x, goal.y - offset ) ) ) {
+        offset += 0.01f;
+      }
+      goal = polyNav.GetCloserEdgePoint( new Vector2( goal.x, goal.y - offset ) );
+    }
+    
 		//compute path
 		requests++;
 		polyNav.FindPath(agentPosition, goal, SetPath);

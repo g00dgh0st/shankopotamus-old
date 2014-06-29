@@ -25,6 +25,11 @@ public class Room : MonoBehaviour {
   // for layer sorting
   public yBoundary[] yBounds;
   
+  
+  // misc nav stuff
+  public bool lockToBottom = false;
+  public float navRadius = 0.0f;
+  
   void Start() {
     SetUp();
   }
@@ -33,22 +38,22 @@ public class Room : MonoBehaviour {
     SetUp();
   }
   
-  void OnDrawGizmosSelected () {
- 	// Display the explosion radius when selected
- 	Gizmos.color = Color.red;
+  void OnDrawGizmosSelected() {
+    Gizmos.color = Color.red;
  	
-  foreach( yBoundary bound in yBounds ) {
-    if( bound.boundType == yBoundary.BoundType.Dynamic )
-      Gizmos.DrawLine( bound.dynamicTrans1.position, bound.dynamicTrans2.position );
-    else
-      Gizmos.DrawLine( bound.pos1, bound.pos2 );
-  }
+    foreach( yBoundary bound in yBounds ) {
+      if( bound.boundType == yBoundary.BoundType.Dynamic )
+        Gizmos.DrawLine( bound.dynamicTrans1.position, bound.dynamicTrans2.position );
+      else
+        Gizmos.DrawLine( bound.pos1, bound.pos2 );
+    }
   
  }
   
   private void SetUp() {
     if( Game.currentRoom == gameObject ) {
       PolyNav2D.current.masterCollider = transform.Find( "Navigation" ).GetComponent<PolygonCollider2D>();
+      PolyNav2D.current.inflateRadius = navRadius;
       PolyNav2D.current.GenerateMap();
     }
   }

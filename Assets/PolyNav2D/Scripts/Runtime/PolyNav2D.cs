@@ -143,7 +143,7 @@ public class PolyNav2D : MonoBehaviour {
 		List<Polygon> subPolygons = new List<Polygon>();
 		foreach(PolyNavObstacle obstacle in navObstacles){
 			List<Vector2> transformedPoints = TransformPoints(obstacle.points, obstacle.transform).ToList();
-			List<Vector2> inflatedPoints = InflatePolygon(transformedPoints, Mathf.Max(0.01f, inflateRadius) );
+			List<Vector2> inflatedPoints = InflatePolygon(transformedPoints, Mathf.Max(0.001f, inflateRadius) );
 			subPolygons.Add(new Polygon(inflatedPoints));
 		}
 
@@ -154,7 +154,7 @@ public class PolyNav2D : MonoBehaviour {
 
 		//create the main polygon map (based on inverted) also containing the obstacle polygons
 		List<Vector2> masterTransformedPoints = TransformPoints(reversedPoints, masterCollider.transform).ToList();
-		List<Vector2> masterInflatedPoints = InflatePolygon(masterTransformedPoints, Mathf.Max(0.01f, inflateRadius) );
+		List<Vector2> masterInflatedPoints = InflatePolygon(masterTransformedPoints, Mathf.Max(0.001f, inflateRadius) );
 		map = new PolyMap(masterInflatedPoints, subPolygons);
 
 		//set the points of the border collider same as master collider
@@ -177,7 +177,7 @@ public class PolyNav2D : MonoBehaviour {
 		foreach(Polygon poly in map.allPolygons){
 
 			//Inflate even more for nodes, by a marginal value to allow CheckLOS between them
-			List<Vector2> inflatedPoints = InflatePolygon(poly.points, 0.05f);
+			List<Vector2> inflatedPoints = InflatePolygon(poly.points, 0.005f);
 			for (int i = 0; i < inflatedPoints.Count; i++){
 
 				//if point is concave dont create a node
@@ -355,7 +355,7 @@ public class PolyNav2D : MonoBehaviour {
 		foreach(var poly in map.allPolygons){
 
 			//marginal inflate
-			List<Vector2> inflatedPoints= InflatePolygon(poly.points, 0.01f);
+			List<Vector2> inflatedPoints= InflatePolygon(poly.points, 0.001f);
 
 			for (int i = 0; i < inflatedPoints.Count; i++){
 
