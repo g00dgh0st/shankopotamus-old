@@ -1,0 +1,139 @@
+fileFormatVersion: 2
+guid: ebbf67660e669438682d5f3e457ad0fd
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 500
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: HallwayDoors_0
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 1631
+        width: 219
+        height: 470
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: HallwayDoors_1
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 1591
+        width: 105
+        height: 515
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: HallwayDoors_2
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 1591
+        width: 307
+        height: 499
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: HallwayDoors_3
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 1079
+        width: 284
+        height: 446
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: HallwayDoors_4
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 1079
+        width: 268
+        height: 446
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: HallwayDoors_5
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 614
+        width: 277
+        height: 425
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: HallwayDoors_6
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 610
+        width: 254
+        height: 429
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: HallwayDoors_7
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 42
+        width: 107
+        height: 515
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: HallwayDoors_8
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 81
+        width: 219
+        height: 472
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: HallwayDoors_9
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 58
+        width: 229
+        height: 499
+      alignment: 0
+      pivot: {x: 0, y: 0}
+  spritePackingTag: 
+  userData: 

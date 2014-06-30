@@ -29,6 +29,7 @@ public class Room : MonoBehaviour {
   // misc nav stuff
   public bool lockToBottom = false;
   public float navRadius = 0.0f;
+  public float lookAhead = 0.5f;
   
   void Start() {
     SetUp();

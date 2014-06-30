@@ -29,6 +29,17 @@ public class Door : MonoBehaviour {
   
   void OnHover( bool isOver ) {
     Game.CursorHover( isOver, cursor );
+    
+    if( transform.Find( "closed" ) && transform.Find( "open" ) ) {
+      if( isOver ) {
+        transform.Find( "closed" ).gameObject.SetActive( false );
+        transform.Find( "open" ).gameObject.SetActive( true );
+      } else if( !isOver && !Game.clicksPaused ){
+        transform.Find( "closed" ).gameObject.SetActive( true );
+        transform.Find( "open" ).gameObject.SetActive( false );
+      }
+    } 
+        
   }
   
   void Update() {
@@ -39,6 +50,11 @@ public class Door : MonoBehaviour {
     if( Game.cookies.Contains( "stopDoor" ) ) {
       Game.cookies.Remove( "stopDoor" );
     }
+    
+    if( transform.Find( "closed" ) && transform.Find( "open" ) ) {
+      transform.Find( "closed" ).gameObject.SetActive( false );
+      transform.Find( "open" ).gameObject.SetActive( true );
+    } 
     
     Game.PauseClicks();
         
@@ -67,6 +83,11 @@ public class Door : MonoBehaviour {
     
     StartCoroutine( Game.FadeCamera( delegate() {
       
+      if( transform.Find( "closed" ) && transform.Find( "open" ) ) {
+        transform.Find( "closed" ).gameObject.SetActive( true );
+        transform.Find( "open" ).gameObject.SetActive( false );
+      } 
+      
       Door.goingThrough = true;
       
       Game.currentRoom = destRoom;
@@ -75,13 +96,24 @@ public class Door : MonoBehaviour {
 
       Game.player.TeleportTo( destination.position );
       
+      if( destination.Find( "closed" ) && destination.Find( "open" ) ) {
+        destination.Find( "closed" ).gameObject.SetActive( false );
+        destination.Find( "open" ).gameObject.SetActive( true );
+      } 
+      
       Camera.main.GetComponent<CameraControl>().Reset();
     
       float cScale = destRoom.GetComponent<Room>().characterScale;
       Game.player.transform.localScale = new Vector3( ( Game.player.transform.localScale.x < 0 ? -cScale : cScale ), cScale, cScale );
       Game.ResumeClicks();
       
-      Game.player.MoveTo( destination.gameObject.GetComponent<Door>().exitPoint.position, delegate( bool b ) { Door.goingThrough = false; } );
+      Game.player.MoveTo( destination.gameObject.GetComponent<Door>().exitPoint.position, delegate( bool b ) { 
+        Door.goingThrough = false; 
+        if( destination.Find( "closed" ) && destination.Find( "open" ) ) {
+          destination.Find( "closed" ).gameObject.SetActive( true );
+          destination.Find( "open" ).gameObject.SetActive( false );
+        } 
+      } );
     
       room.SetActive( false );
     } ) );

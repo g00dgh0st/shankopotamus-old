@@ -10,6 +10,8 @@ public class CameraControl : MonoBehaviour {
   public bool isPaused = false;
   
   public Room.CameraType camType = Room.CameraType.FreeScroll;
+  
+  public float lookAhead = 0.5f;
 
 	// Use this for initialization
 	void Start() {
@@ -19,6 +21,7 @@ public class CameraControl : MonoBehaviour {
   
   public void Reset() {
     camType = Game.currentRoom.GetComponent<Room>().cameraType;
+    lookAhead = Game.currentRoom.GetComponent<Room>().lookAhead;
     Vector3 plPos = playerTrans.position;
     
     switch( camType ) {
@@ -61,47 +64,23 @@ public class CameraControl : MonoBehaviour {
 
     if( Game.player.InMotion() && camType != Room.CameraType.Static ) {
       
-      Vector3 diff;
+      Vector3 diff = playerTrans.position - pos + ( (Vector3)Game.player.gameObject.GetComponent<PolyNavAgent>().movingDirection * lookAhead  );
       
       switch( camType ) {
-        case Room.CameraType.FreeScroll:
-          diff = new Vector3( playerTrans.position.x, playerTrans.position.y, transform.position.z ) - pos;
-          break;
         case Room.CameraType.HorizontalScroll:
-          diff = new Vector3( playerTrans.position.x, transform.position.y, transform.position.z ) - pos;
+          newPos = pos + ( new Vector3( diff.x, 0f, 0f ) * 0.05f );
           break;
         case Room.CameraType.VerticalScroll:
-          diff = new Vector3( transform.position.x, playerTrans.position.y, transform.position.z ) - pos;
+          newPos = pos + ( new Vector3( 0f, diff.y, 0f ) * 0.05f );
           break;
+        case Room.CameraType.FreeScroll:
         default:
-          diff = new Vector3( playerTrans.position.x, playerTrans.position.y, transform.position.z ) - pos;
+          newPos = pos + ( new Vector3( diff.x, diff.y, 0f ) * 0.05f );
           break;
       }
       
-      newPos = pos + ( diff * 0.05f );
-      
-      if( CheckBounds( roomBounds, newPos, pos ) )
-        transform.position = newPos;
+      if( CheckBounds( roomBounds, newPos, pos ) ) transform.position = newPos;
     } 
-    // else if( Input.mousePosition.x < Screen.width && Input.mousePosition.x > 0 && Input.mousePosition.y > 0 && Input.mousePosition.y < Screen.height ){
-    //   
-    //   newPos = pos;
-    //   
-    //   if( Input.mousePosition.x > Screen.width - mouseScrollThreshold || Input.GetKey( KeyCode.RightArrow ) ) 
-    //     newPos = new Vector3( newPos.x + ( mouseScrollSpeed * Time.deltaTime ), newPos.y, newPos.z );
-    //   
-    //   if( Input.mousePosition.x < 0 + mouseScrollThreshold || Input.GetKey( KeyCode.LeftArrow ) ) 
-    //     newPos = new Vector3( newPos.x - ( mouseScrollSpeed * Time.deltaTime ), newPos.y, newPos.z );
-    //   
-    //   if( Input.mousePosition.y > Screen.height - mouseScrollThreshold || Input.GetKey( KeyCode.UpArrow ) ) 
-    //     newPos = new Vector3( newPos.x, newPos.y + ( mouseScrollSpeed * Time.deltaTime ), newPos.z );
-    //   
-    //   if( Input.mousePosition.y < 0 + mouseScrollThreshold || Input.GetKey( KeyCode.DownArrow ) ) 
-    //     newPos = new Vector3( newPos.x, newPos.y - ( mouseScrollSpeed * Time.deltaTime ), newPos.z );
-    //   
-    //   if( newPos != pos && CheckBounds( roomBounds, newPos, pos ) )
-    //     transform.position = newPos;
-    // }
 	}
   
   private bool CheckBounds( Bounds roomBounds, Vector3 newPos, Vector3 pos ) {

@@ -1,0 +1,184 @@
+fileFormatVersion: 2
+guid: 885f14b1847154846b26db2b739e9027
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 500
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: CellBlock_Doors_0
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1764
+        width: 580
+        height: 525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: CellBlock_Doors_1
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 1755
+        width: 569
+        height: 527
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: CellBlock_Doors_2
+      rect:
+        serializedVersion: 2
+        x: 1353
+        y: 1751
+        width: 570
+        height: 527
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: CellBlock_Doors_3
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 1743
+        width: 584
+        height: 527
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: CellBlock_Doors_4
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 1167
+        width: 572
+        height: 523
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: CellBlock_Doors_5
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 1164
+        width: 600
+        height: 536
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: CellBlock_Doors_6
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 1154
+        width: 598
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: CellBlock_Doors_7
+      rect:
+        serializedVersion: 2
+        x: 2044
+        y: 1145
+        width: 575
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: CellBlock_Doors_8
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 581
+        width: 370
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: CellBlock_Doors_9
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 585
+        width: 363
+        height: 527
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: CellBlock_Doors_10
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 581
+        width: 363
+        height: 527
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: CellBlock_Doors_11
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 17
+        width: 376
+        height: 523
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: CellBlock_Doors_12
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 0
+        width: 389
+        height: 540
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: CellBlock_Doors_13
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 8
+        width: 387
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: CellBlock_Doors_14
+      rect:
+        serializedVersion: 2
+        x: 1367
+        y: 52
+        width: 365
+        height: 529
+      alignment: 0
+      pivot: {x: 0, y: 0}
+  spritePackingTag: 
+  userData: 
