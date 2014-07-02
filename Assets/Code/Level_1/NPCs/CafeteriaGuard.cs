@@ -35,9 +35,9 @@ public class CafeteriaGuard : MonoBehaviour {
       if( transform.parent.position.x < transform.position.x ) moving = false;
     }
     
-    if( !distracted && GameObject.Find( "item_spoon" ) && Game.player.transform.position.x > 2.74f && Game.player.InMotion() ) {
-      Game.player.StopMove();
-       Game.dialogueManager.StartDialogue( dialogue, 10 );
+    if( !distracted && GameObject.Find( "item_spoon" ) && Game.player.transform.position.x > 2.74f && Game.player.InMotion() && Game.player.gameObject.GetComponent<PolyNavAgent>().movingDirection.x > 0 ) {
+      Game.player.StopMove( true );
+      Game.dialogueManager.StartDialogue( dialogue, 10 );
     }
   }
   
@@ -47,7 +47,7 @@ public class CafeteriaGuard : MonoBehaviour {
     moving = true;
     distracted = true;
     yield return new WaitForSeconds( 5f );
-    Game.script.ShowSpeechBubble( "Looks kinda cool. I'll just stand here and watch.", transform.parent.Find( "BubTarget" ), 5f );
+    Game.script.ShowSpeechBubble( "Looks kinda cool. I'll just stand here and watch instead of doing my job.", transform.parent.Find( "BubTarget" ), 5f );
   }
   
   // All dialogue is "written" here

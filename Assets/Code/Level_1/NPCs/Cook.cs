@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Cook : MonoBehaviour {
+public class Cook : Clicker {
   
   public bool threeMeatOpen = false;
   public bool wantsIngredients = false;
@@ -23,14 +23,14 @@ public class Cook : MonoBehaviour {
 
 
   void OnClick() {
-    Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0); } );
+    Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0); } );
   }
 
   void OnItemClick() {
     if( !wantsIngredients ) return;
     
     if( Game.heldItem.name == "item_ham" || Game.heldItem.name == "item_rat" || Game.heldItem.name == "item_chicken" ) {
-      Game.player.MoveTo( transform.position, delegate( bool b ) {
+      Game.player.MoveTo( movePoint, delegate( bool b ) {
         if( Game.heldItem.name == "item_ham" ) {
           hasHam = true;
           Game.script.UseItem();

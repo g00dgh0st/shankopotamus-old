@@ -75,9 +75,9 @@ public class GuardTowerGuard : MonoBehaviour {
         }
       ),
       // 4
-      new Step( camTarget, "That's the security camera feed. I'm already on thin ice after using one of the screens to marathon through every \"House of Cards\" episode.", 5 ),
+      new Step( camTarget, "That's the security camera feed. I'm already on thin ice after using one of the screens to marathon through every \"House of Cards\" episode.", 9 ),
       // 5
-      new Step( camTarget, "If those screens were to go down now, I'd be fired. Out of a cannon. And then I'd lose my job.",
+      new Step( camTarget, "And then I'd lose my job.",
         new Option[] {
           new Option( "You don't seem to be paying much attention to them now.", 6 ),
           new Option( "Can I borrow your radio?", 7 ),
@@ -99,7 +99,11 @@ public class GuardTowerGuard : MonoBehaviour {
         }
       ),
       // 8
-      new Step( camTarget, "Get out!", delegate() { Game.dialogueManager.StopDialogue(); exitDoor.OnClick(); Game.script.ShowSpeechBubble( "Yup.", Game.player.transform.Find( "BubTarget" ), 0.5f ); }, true )
+      new Step( camTarget, "Get out!", delegate() { Game.dialogueManager.StopDialogue(); exitDoor.OnClick(); Game.script.ShowSpeechBubble( "Yup.", Game.player.transform.Find( "BubTarget" ), 0.5f ); }, true ),
+      // 9
+      new Step( camTarget, "If those screens were to go out now, I'd be fired.", 10 ),
+      // 10
+      new Step( camTarget, "I mean set on fire.", 5 )
     } );
   }  
 }

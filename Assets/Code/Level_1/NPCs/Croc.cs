@@ -23,9 +23,9 @@ public class Croc : MonoBehaviour {
       Game.script.ShowSpeechBubble( "Great. Here, take this bottle, and fill it up with some wine.", transform.parent.Find( "BubTarget" ), 3f );
       Game.script.AddItem( "empty_bottle" );
       wantsGlasses = false;
-    }
+    } 
     
-    if( Game.heldItem.name == "item_icicle" ) {
+    if( Game.heldItem != null && Game.heldItem.name == "item_icicle" ) {
       Game.script.UseItem();
       Game.script.ShowSpeechBubble( "Oh I'm dead! There's no animation, but pretend like I'm dead.", transform.parent.Find( "BubTarget" ), 5f ); 
     }

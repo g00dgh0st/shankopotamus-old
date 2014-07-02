@@ -3,10 +3,7 @@ using System.Collections;
 
 public class Whale : MonoBehaviour {
 
-  public GameObject waypoint1;
-  public GameObject waypoint2;
-  
-  public Transform movepoint;
+  public Transform moveTo;
   
   private Sprite cursor;
   
@@ -15,8 +12,6 @@ public class Whale : MonoBehaviour {
   }
   
   IEnumerator MoveWhale() {
-    waypoint1.SetActive( true );
-    waypoint2.SetActive( true );
     Debug.Log( "Knock Whale" );
     gameObject.GetComponent<SpriteRenderer>().enabled = false;
     
@@ -36,10 +31,10 @@ public class Whale : MonoBehaviour {
   }
   
   void OnClick() {
-    Game.player.MoveTo( movepoint.position, delegate( bool b ) { Game.script.ShowSpeechBubble( "This whale is blocking the path. \nMaybe if I could flush something really big through the sewers...", Game.player.transform.Find( "BubTarget" ), 5f ); } );
+    Game.player.MoveTo( moveTo.position, delegate( bool b ) { Game.script.ShowSpeechBubble( "This whale is blocking the path. \nMaybe if I could flush something really big through the sewers...", Game.player.transform.Find( "BubTarget" ), 5f ); } );
   }
   
-  void OnCollisionEnter2D( Collision2D collider ) {
+  void OnTriggerEnter2D( Collider2D collider ) {
     if( collider.gameObject.name == "PigSewer" ) {
       Destroy( collider.gameObject );
       StartCoroutine( MoveWhale() );

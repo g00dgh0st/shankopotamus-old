@@ -17,6 +17,7 @@ public class RoomEditor : Editor
         bounds.pos1 = Handles.PositionHandle( bounds.pos1, Quaternion.identity );
         bounds.pos2 = Handles.PositionHandle( bounds.pos2, Quaternion.identity );
       }
+            
       if (GUI.changed) EditorUtility.SetDirty (target);
     }
  

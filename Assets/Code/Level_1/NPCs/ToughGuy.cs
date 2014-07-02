@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ToughGuy : MonoBehaviour {
+public class ToughGuy : Clicker {
   
   public bool wantsMeat = false;
   public bool talkedOnce = false;
@@ -35,7 +35,7 @@ public class ToughGuy : MonoBehaviour {
         index = 0;
       }
     
-      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, index ); } );
+      Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, index ); } );
     } else {
       Game.script.ShowSpeechBubble( "Ah crap, I'm on fire again.", transform.parent.Find( "BubTarget" ), 3f );
     }
@@ -43,7 +43,7 @@ public class ToughGuy : MonoBehaviour {
 
   void OnItemClick() {
     if( wantsMeat && Game.heldItem.name == "item_three_meat_surprise" ) {
-      Game.player.MoveTo( transform.position, delegate( bool b ) {
+      Game.player.MoveTo( movePoint, delegate( bool b ) {
         Game.script.UseItem();
         GameObject.Find( "WimpyGuy" ).transform.Find( "fire" ).gameObject.SetActive( true );
         Game.GetScript<WimpyGuy>().onFire = true;

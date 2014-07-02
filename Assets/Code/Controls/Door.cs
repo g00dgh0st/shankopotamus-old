@@ -16,11 +16,17 @@ public class Door : MonoBehaviour {
   
   protected Sprite cursor;
   
+  public bool isLocked = false;
+  
   void Awake() {
     string[] names = gameObject.name.Split( '_' );
     
     room = GameObject.Find( names[1] );
     destRoom = GameObject.Find( names[2] );
+    
+    if( isLocked ) {
+      transform.Find( "blocker" ).gameObject.SetActive( true );
+    }
   }
   
   void Start() {
@@ -30,6 +36,7 @@ public class Door : MonoBehaviour {
   void OnHover( bool isOver ) {
     Game.CursorHover( isOver, cursor );
     
+    if( isLocked ) return;
     if( transform.Find( "closed" ) && transform.Find( "open" ) ) {
       if( isOver ) {
         transform.Find( "closed" ).gameObject.SetActive( false );
@@ -43,24 +50,29 @@ public class Door : MonoBehaviour {
   }
   
   void Update() {
+    if( isLocked ) return;
     if( collider2D.OverlapPoint( Game.player.transform.position ) && !Game.clicksPaused && !Door.goingThrough ) OnClick();
   }
   
   public void OnClick() {
-    if( Game.cookies.Contains( "stopDoor" ) ) {
-      Game.cookies.Remove( "stopDoor" );
-    }
+    if( isLocked ) {
+      Game.script.ShowSpeechBubble( "It's locked.",  Game.player.transform.Find( "BubTarget" ), 2f );
+    } else {
+      if( Game.cookies.Contains( "stopDoor" ) ) {
+        Game.cookies.Remove( "stopDoor" );
+      }
     
-    if( transform.Find( "closed" ) && transform.Find( "open" ) ) {
-      transform.Find( "closed" ).gameObject.SetActive( false );
-      transform.Find( "open" ).gameObject.SetActive( true );
-    } 
+      if( transform.Find( "closed" ) && transform.Find( "open" ) ) {
+        transform.Find( "closed" ).gameObject.SetActive( false );
+        transform.Find( "open" ).gameObject.SetActive( true );
+      } 
     
-    Game.PauseClicks();
+      Game.PauseClicks();
         
-    Game.player.MoveTo( transform.position );
+      Game.player.MoveTo( transform.position );
     
-    StartCoroutine( GoThroughDoor() );
+      StartCoroutine( GoThroughDoor() );
+    }
   }
   
   private IEnumerator GoThroughDoor() {
@@ -72,7 +84,7 @@ public class Door : MonoBehaviour {
       yield return null;
     }
     
-    Game.player.StopMove();
+    Game.player.StopMove( false );
     
     // if stopped because of stopDoor
     if( Game.cookies.Contains( "stopDoor" ) ) {
@@ -117,8 +129,16 @@ public class Door : MonoBehaviour {
     
       room.SetActive( false );
     } ) );
-    
-    
+  }
+  
+  public void Lock() {
+    isLocked = true;
+    transform.Find( "blocker" ).gameObject.SetActive( true );
+  }
+  
+  public void Unlock() {
+    isLocked = false;
+    transform.Find( "blocker" ).gameObject.SetActive( false );
   }
 
 }

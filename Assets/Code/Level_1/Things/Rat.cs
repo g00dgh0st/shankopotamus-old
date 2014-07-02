@@ -14,11 +14,7 @@ public class Rat : MonoBehaviour {
   }
   
   void OnClick() {
-    if( GameObject.Find( "Whale" ) ) {
-      Game.TargetCam( Game.player.transform.Find( "CamTarget" ) );
-      Game.script.ShowSpeechBubble( "This whale is in the way. I can't reach that.", Game.player.transform.Find( "BubTarget" ), 3f );
-    } else
-      Game.player.MoveTo( runAwayPos.position );
+    Game.player.MoveTo( runAwayPos.position );
   }
   
   void OnHover( bool isOver ) {
@@ -26,7 +22,6 @@ public class Rat : MonoBehaviour {
   }
   
   void Update() {
-    
     if( hole.ratPos == 1 && hole.moveTo == null ) {
       if( Vector3.Distance( Game.player.transform.position, runAwayPos.position ) < 0.5f ) {
         hole.ratPos = 0;
@@ -34,7 +29,7 @@ public class Rat : MonoBehaviour {
         transform.localScale = new Vector3( -1f, 1f, 1f );
       }
     } else if ( hole.ratPos == 0 && hole.moveTo == null ) {
-      if( Vector3.Distance( Game.player.transform.position, runAwayPos.position ) > 0.5f ) {
+      if( Vector3.Distance( Game.player.transform.position, runAwayPos.position ) > 0.5f && Game.player.transform.position.x < runAwayPos.position.x ) {
         hole.ratPos = 1;
         hole.moveTo = hole.ratOut;
       }

@@ -57,7 +57,8 @@ public class Player : MonoBehaviour {
 		gameObject.GetComponent<PolyNavAgent>().SetDestination(dest);
   }
   
-  public void StopMove() {
+  public void StopMove( bool stopDoor ) {
+    if( !Game.cookies.Contains( "stopDoor" ) && stopDoor == true ) Game.cookies.Add( "stopDoor", true );
 		gameObject.GetComponent<PolyNavAgent>().Stop();
   }
   

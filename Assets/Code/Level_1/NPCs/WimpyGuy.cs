@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class WimpyGuy : MonoBehaviour {
+public class WimpyGuy : Clicker {
     
   private Sprite cursor;
   
@@ -37,7 +37,7 @@ public class WimpyGuy : MonoBehaviour {
         index = 4;
       }
     
-      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, index ); } );
+      Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, index ); } );
     } else {
       Game.script.ShowSpeechBubble( "Oh jeez, I'm on fire. Boy it hurts.", transform.parent.Find( "BubTarget" ), 3f );
     }
@@ -45,7 +45,7 @@ public class WimpyGuy : MonoBehaviour {
 
   void OnItemClick() {
     if( toughGuy.wantsMeat && Game.heldItem.name == "item_three_meat_surprise" ) {
-      Game.player.MoveTo( transform.position, delegate( bool b ) {
+      Game.player.MoveTo( movePoint, delegate( bool b ) {
         Game.script.UseItem();
         GameObject.Find( "ToughGuy" ).transform.Find( "fire" ).gameObject.SetActive( true );
         toughGuy.onFire = true;

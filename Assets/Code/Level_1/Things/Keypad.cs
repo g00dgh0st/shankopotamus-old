@@ -7,15 +7,8 @@ public class Keypad : MonoBehaviour {
   private UILabel label;
   public bool open = false;
   
-  public GameObject door;
-  public GameObject doorWaypoint;
-  
   void Awake() {
     label = GameObject.Find( "Keypad_Label" ).GetComponent<UILabel>();
-  }
-  
-  void Start() {
-    doorWaypoint.SetActive( false );
   }
   
   void OnEnable() { 
@@ -35,9 +28,8 @@ public class Keypad : MonoBehaviour {
       label.text += number;
     } else if( number == -1 && label.text.Length > 0 && int.Parse( label.text ) == solution ) {
       label.text = "YUP";
-      Destroy( door );
+      GameObject.Find( "Door_Hallway_Stairway" ).GetComponent<Door>().Unlock();
       open = true;
-      doorWaypoint.SetActive( true );
       StartCoroutine( HideKeypad() );
     } else if( number == -1 && label.text.Length > 0 && int.Parse( label.text ) != solution ) {
       string[] texts = new string[] { "NO", "NO", "NO", "NO", "NO", "LOL NO", "HELL NO", "NOPE", "WRONG", "UR DUMB", "WTF NO" };
