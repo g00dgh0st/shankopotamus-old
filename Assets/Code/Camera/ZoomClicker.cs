@@ -1,20 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ZoomClicker : MonoBehaviour {
+public class ZoomClicker : Clicker {
   public GameObject zoomView;
   private Sprite cursor;
-  
-  public Transform moveTo;
   
   void Awake() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_eye" );
   }
   
   void OnClick() {
-    Transform pos = moveTo == null ? transform : moveTo;
-    
-    Game.player.MoveTo( pos.position, delegate( bool b ) {
+    Game.player.MoveTo( movePoint, delegate( bool b ) {
       zoomView.SetActive( true );
       Game.cookies.Add( "zoomed", true );
       Game.ZoomIn();
