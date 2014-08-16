@@ -36,7 +36,7 @@ public class Step {
     action = a;
     speaker = s;
     options = null;
-    actionLast = true;
+    actionLast = last;
   }
   
   public Step( Transform s, string t ) {

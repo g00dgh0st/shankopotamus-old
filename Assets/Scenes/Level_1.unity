@@ -6743,7 +6743,7 @@ MonoBehaviour:
   startingRenderQueue: 3000
   mAlpha: 1
   mClipping: 2
-  mClipRange: {x: -.111053467, y: 58, z: 643.111389, w: 100}
+  mClipRange: {x: .0555267334, y: 74.5, z: 584.777832, w: 100}
   mClipSoftness: {x: 4, y: 4}
   mDepth: 0
   mClipOffset: {x: 0, y: 0}
@@ -17455,7 +17455,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 448725137}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 271.333588, y: 171, z: 0}
+  m_LocalPosition: {x: 242.333405, y: 154.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1011110387}
@@ -21393,11 +21393,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -29.7976437
+      value: -21.682991
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.93694544
+      value: -16.5634823
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.z
@@ -23382,6 +23382,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pig: {fileID: 2061661893}
+  admittedFigure: 0
+  admittedDoesntHave: 0
+  askedCode: 0
 --- !u!61 &529224276
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37475,7 +37478,7 @@ Transform:
   m_GameObject: {fileID: 1011110386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00552486209, y: .00552486209, z: .00552486209}
+  m_LocalScale: {x: .00607902743, y: .00607902743, z: .00607902743}
   m_Children:
   - {fileID: 446293067}
   - {fileID: 1064466907}
@@ -46107,7 +46110,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1211383908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 296.333588, y: 136, z: 0}
+  m_LocalPosition: {x: 267.333405, y: 119.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1485608710}
@@ -49040,7 +49043,7 @@ Transform:
   m_PrefabInternal: {fileID: 508331217}
   m_GameObject: {fileID: 1333868172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.7976437, y: -3.93694544, z: 0}
+  m_LocalPosition: {x: -21.682991, y: -16.5634823, z: 0}
   m_LocalScale: {x: 1.55294144, y: 1.55294144, z: 1.55294144}
   m_Children:
   - {fileID: 1092221449}
@@ -52794,7 +52797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 0}
   levelName: LevelOne
-  startRoom: {fileID: 988238188}
+  startRoom: {fileID: 1917672257}
 --- !u!4 &1450852183
 Transform:
   m_ObjectHideFlags: 0
