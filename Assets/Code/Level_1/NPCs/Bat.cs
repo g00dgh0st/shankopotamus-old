@@ -42,7 +42,7 @@ public class Bat : MonoBehaviour {
           new Option( "The Pig said you stole something from him.", 1, delegate() { return pig.wantsSwede && GameObject.Find( "item_action_swede" ) == null && admittedFigure == false; } ),
           new Option( "Are you going to give the Pig's toy back?", 4, delegate() { return pig.wantsSwede && GameObject.Find( "item_action_swede" ) == null && admittedFigure == true && admittedDoesntHave == false; } ),
           new Option( "Who has the Action Swede?", 13, delegate() { return pig.wantsSwede && GameObject.Find( "item_action_swede" ) == null && admittedFigure == true && admittedDoesntHave == true; } ),
-          new Option( "A little bird told me you know the code to the Guard Tower door.", 20, delegate() { return Game.script.GetComponent<Level1>().lookingForCode == true && askedCode == false; } ),
+          new Option( "A little bird told me you know the code to the Guard Tower door.", 20, delegate() { return Game.script.GetComponent<Level1>().knowBatCode == true && askedCode == false; } ),
           new Option( "What is the code to the Guard Tower door?", 22, delegate() { return askedCode == true; } ),
           new Option( "What are all the scratches on the walls?", 23 ),
           new Option( "My bad. Go back to sleep.", -1 )

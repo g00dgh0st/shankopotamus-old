@@ -6,6 +6,7 @@ using System.Collections;
 public class Level1 : MonoBehaviour {
   
   public bool lookingForCode = false;
+  public bool knowBatCode = false;
 
   void Start() {
 
