@@ -8,6 +8,7 @@ public class Bat : MonoBehaviour {
   private Dialogue dialogue;
   
   public Pig pig;
+  public Cook cook;
   
   public bool admittedFigure = false;
   public bool admittedDoesntHave = false;
@@ -119,7 +120,8 @@ public class Bat : MonoBehaviour {
         new Option[] {
           new Option( "Where can I find the Frog?", 14 ),
           new Option( "I guess I'll go talk to the Frog then.", -1 )
-        }
+        },
+        delegate() { cook.knowSwede = true; }  
       ),
       // 14
       new Step( camTarget, "He is the cook in the cafeteria. You must try his blood sausage. I believe he makes it out of the blood of the smaller inmates.", 
