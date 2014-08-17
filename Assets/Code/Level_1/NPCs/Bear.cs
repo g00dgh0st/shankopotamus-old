@@ -186,7 +186,8 @@ public class Bear : MonoBehaviour {
         new Option[] {
           new Option( "I have another question for you.", 0 ),
           new Option( "Thanks. I gotta go.", -1 )
-        }
+        },
+        delegate() { Game.script.GetComponent<Level1>().knowBatCode = true; }
       )
     } );
   }  

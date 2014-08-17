@@ -9864,7 +9864,7 @@ MonoBehaviour:
   mTrueTypeFont: {fileID: 12800000, guid: 7584e4ba86965466f93860484f3aeab8, type: 3}
   mFont: {fileID: 0}
   mText: "fdsfsdfsdfsdf sdf sdf\n fsd fsdf sdfs df sdf "
-  mFontSize: 25
+  mFontSize: 20
   mFontStyle: 0
   mAlignment: 1
   mEncoding: 1
@@ -72502,7 +72502,7 @@ Prefab:
         type: 3}
     - target: {fileID: 11400004, guid: a9b5c3552c7504c5d9c05a11c9a9ab41, type: 2}
       propertyPath: mFontSize
-      value: 25
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a9b5c3552c7504c5d9c05a11c9a9ab41, type: 2}
