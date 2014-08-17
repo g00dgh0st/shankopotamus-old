@@ -62,7 +62,7 @@ public class CafeteriaGuard : MonoBehaviour {
       new Step( camTarget, "Don't touch me.",
         new Option[] {
           new Option( "I didn't touch you.", 1 ),
-          new Option( "Would you mind leaving for a few minutes?", 3 ),
+          new Option( "Would you mind leaving for a few minutes?", 3, delegate() { return Game.script.GetComponent<Level1>().needCafeDistraction; } ),
           new Option( "Sorry.", -1 )
         }
       ),
@@ -77,14 +77,14 @@ public class CafeteriaGuard : MonoBehaviour {
       new Step( camTarget, "That's what they all say.", 
         new Option[] {
           new Option( "Do a lot of people touch you?", 9 ),
-          new Option( "I gotta go.", -1 )
+          new Option( "I'm going to go now.", -1 )
         }
       ),
       // 3
       new Step( camTarget, "Do you think I'm stupid?", 
         new Option[] {
           new Option( "I just heard there's some free cake in the cell block.", 4 ),
-          new Option( "I figured it was worth a shot.", 8 ),
+          new Option( "You never know if you don't try.", 8 ),
           new Option( "Nevermind.", -1 )
         }
       ),
@@ -114,6 +114,7 @@ public class CafeteriaGuard : MonoBehaviour {
       new Step( camTarget, "Where do you think you're going with that spoon? Put it back where you got it!", 
         delegate() {
           Game.dialogueManager.StopDialogue();
+          Game.script.GetComponent<Level1>().needCafeDistraction = true;
       }, true ),
     } );
   }  
