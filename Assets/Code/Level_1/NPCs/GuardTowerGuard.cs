@@ -45,7 +45,7 @@ public class GuardTowerGuard : MonoBehaviour {
       // 0
       new Step( camTarget, "How did you get in here?! This is for authorized personnel only!",
         new Option[] {
-          new Option( "Is this not the bathroom?", 8 ),
+          new Option( "Is this not the bathroom?", 6 ),
           new Option( "If I'm in here, then I'm probably authorized.", 1 ),
           new Option( "I'll just be going now.", delegate() { Game.dialogueManager.StopDialogue(); exitDoor.OnClick(); } )
         }
@@ -54,7 +54,9 @@ public class GuardTowerGuard : MonoBehaviour {
       new Step( camTarget, "Huh, I guess you're right.",
         new Option[] {
           new Option( "What are all those screens for?", 3 ),
-          new Option( "Can I borrow your radio?", 7 ),
+          new Option( "What's in the box?", 4 ),
+          new Option( "Can I borrow that bottle of Diet Cola?", 5 ),
+          new Option( "What are you doing?", 7 ),
           new Option( "I gotta go.", -1 )
         },
         delegate() { firstTime = false; }  
@@ -63,47 +65,50 @@ public class GuardTowerGuard : MonoBehaviour {
       new Step( camTarget, "Don't touch me.",
         new Option[] {
           new Option( "What are all those screens for?", 3 ),
-          new Option( "Can I borrow your radio?", 7 ),
+          new Option( "What's in the box?", 4 ),
+          new Option( "Can I borrow that bottle of Diet Cola?", 5 ),
+          new Option( "What are you doing?", 7 ),
           new Option( "I gotta go.", -1 )
         }
       ),
       // 3
-      new Step( camTarget, "Don't touch them! My job depends on those screens.",
+      new Step( camTarget, "Don't touch them. It's the security camera feed.", 
         new Option[] {
-          new Option( "Why are they so important?", 4 ),
-          new Option( "You don't seem to be paying much attention to them now.", 6 ),
+          new Option( "What's in the box?", 4 ),
+          new Option( "Can I borrow that bottle of Diet Cola?", 5 ),
+          new Option( "What are you doing?", 7 ),
+          new Option( "I gotta go.", -1 )
         }
       ),
       // 4
-      new Step( camTarget, "That's the security camera feed. I'm already on thin ice after using one of the screens to marathon through every \"House of Cards\" episode.", 9 ),
-      // 5
-      new Step( camTarget, "And then I'd lose my job.",
+      new Step( camTarget, "Don't touch it. It's got confiscated items in it.", 
         new Option[] {
-          new Option( "You don't seem to be paying much attention to them now.", 6 ),
-          new Option( "Can I borrow your radio?", 7 ),
+          new Option( "What are all those screens for?", 3 ),
+          new Option( "Can I borrow that bottle of Diet Cola?", 5 ),
+          new Option( "What are you doing?", 7 ),
+          new Option( "I gotta go.", -1 )
+        }
+      ),
+      // 5
+      new Step( camTarget, "Don't touch it. Criminals like you don't deserve to enjoy the crisp, refreshing taste of Diet Cola.", 
+        new Option[] {
+          new Option( "What are all those screens for?", 3 ),
+          new Option( "What's in the box?", 4 ),
+          new Option( "What are you doing?", 7 ),
           new Option( "I gotta go.", -1 )
         }
       ),
       // 6
-      new Step( camTarget, "I don't have to pay attention to them, I just need to make sure they stay up. Now go away!", 
-        new Option[] {
-          new Option( "Can I borrow your radio?", 7 ),
-          new Option( "I gotta go.", -1 )
-        }
-      ),
+      new Step( camTarget, "Get out!", delegate() { Game.dialogueManager.StopDialogue(); exitDoor.OnClick(); Game.script.ShowSpeechBubble( "Yup.", Game.player.transform.Find( "BubTarget" ), 0.5f ); }, true ),
       // 7
-      new Step( camTarget, "Can't you see I'm using it? I'm trying to listen to the same 20 songs over and over again. Leave me alone!",
+      new Step( camTarget, "Don't touch me. I'm working on my dance moves.", 
         new Option[] {
           new Option( "What are all those screens for?", 3 ),
+          new Option( "What's in the box?", 4 ),
+          new Option( "Can I borrow that bottle of Diet Cola?", 5 ),
           new Option( "I gotta go.", -1 )
         }
-      ),
-      // 8
-      new Step( camTarget, "Get out!", delegate() { Game.dialogueManager.StopDialogue(); exitDoor.OnClick(); Game.script.ShowSpeechBubble( "Yup.", Game.player.transform.Find( "BubTarget" ), 0.5f ); }, true ),
-      // 9
-      new Step( camTarget, "If those screens were to go out now, I'd be fired.", 10 ),
-      // 10
-      new Step( camTarget, "I mean set on fire.", 5 )
+      )
     } );
   }  
 }
