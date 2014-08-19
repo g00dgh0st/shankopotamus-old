@@ -10,6 +10,7 @@ public class Pig : MonoBehaviour {
   public SadGuy sadguy;
   
   public bool wantsSwede = false;
+  public bool firstTalk = false;
   
   void Start() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
@@ -29,9 +30,11 @@ public class Pig : MonoBehaviour {
 
 
   void OnClick() {
-    if( wantsSwede )
-      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 12 ); } );
-    else
+    if( firstTalk && !wantsSwede )
+      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 3 ); } );
+    else if( wantsSwede )
+      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 17 ); } );
+      else
       Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
   }
 
@@ -48,88 +51,139 @@ public class Pig : MonoBehaviour {
     dialogue.SetSteps(
     new Step[] {
       // 0
-      new Step( camTarget, "Hello there, good sir. ",
+      new Step( camTarget, "...",
         new Option[] {
-          new Option( "What's with all the sausage?", 1 ),
-          new Option( "Can I have your hat?", 7, delegate() { return sadguy.wantsHat && GameObject.Find( "item_hat" ) == null; } ),
-          new Option( "Bye.", -1 )
+          new Option( "Hello?", 1 ),
+          new Option( "Good talk. Bye.", -1 )
         }
       ),
       // 1
-      new Step( camTarget, "Would you like to try some? I'm testing out a new recipe.",
+      new Step( camTarget, "Hey, you got any bacon?", 
         new Option[] {
-          new Option( "What's in it?", 2 ),
-          new Option( "No thanks.", 6 )
-        }
+          new Option( "No.", 3 ),
+          new Option( "Should you be eating bacon?", 2 )
+        },
+        delegate() { firstTalk = true; }  
       ),
       // 2
-      new Step( camTarget, "Let's see, there's garlic, onions, bay leaves, thyme, parsley, salt, pepper, cayenne, allspice, and, of course, a good helping of ground human.",
+      new Step( camTarget, "Why, 'cause I'm Jewish?", 
         new Option[] {
-          new Option( "Did you say human?", 3 )
+          new Option( "Never mind. I have a question.", 3 ),
+          new Option( "Imma go now.", -1 )
         }
       ),
       // 3
-      new Step( camTarget, "Yeah human. It's the best meat for sausage. Lot's of fat, so it's real succulent and juicy.",
+      new Step( camTarget, "How can I...uh...do for you?", 
         new Option[] {
-          new Option( "How do you even get human meat?", 4 )
+          new Option( "That's a nice hat. Can I have it?", 13, delegate() { return !wantsSwede && sadguy.wantsHat && GameObject.Find( "item_hat" ) == null; } ),
+          new Option( "Where can I find your Action Swede?", 17, delegate() { return wantsSwede; } ),
+          new Option( "Is that a super powered toilet?", 10 ),
+          new Option( "What's with all the sausage?", 4 ),
+          new Option( "Bye.", -1 )
         }
       ),
       // 4
-      new Step( camTarget, "On the outside, it was much easier. I got most of my product through Craigslist. Internet people are so gullible.", 5 ),
-      // 5
-      new Step( camTarget, "Then one day, some FBI agents set up a sting, and caught me trying to grind up a spicy Puerto Rican guy. And now I'm stuck in here, making sausage out of the sex offenders.",
+      new Step( camTarget, "What sausage? Oh that sausage. I make it myself. Wanna try some? ", 
         new Option[] {
-          new Option( "I think I'll pass on the sausage.", 6 )
+          new Option( "Are they pork sausage?", 5 ),
+          new Option( "Sure.", 8 )
+        }
+      ),
+      // 5
+      new Step( camTarget, "Pork? I don't eat pork, I'm Jewish. They're made out of human.", 
+        new Option[] {
+          new Option( "That sounds horrible.", 6 ),
+          new Option( "Where do you get human meat?", 7 )
         }
       ),
       // 6
-      new Step( camTarget, "Your loss. Best sausage you'll ever eat.",
+      new Step( camTarget, "On the contr...mary. Human meat is the best for sausage. Lots of fat.", 
         new Option[] {
-          new Option( "Can I have your hat?", 7, delegate() { return sadguy.wantsHat && GameObject.Find( "item_hat" ) == null; } ),
-          new Option( "See you later.", -1 )
+          new Option( "Where do you get human meat?", 7 ),
+          new Option( "Well, I'm sold. I'll try a piece.", 8 )
         }
       ),
       // 7
-      new Step( camTarget, "My fedora? That's my most prominent feature. People look at me and they say \"Look at that hat guy. He's so damn hat!\"",
+      new Step( camTarget, "Craigslist.", 
         new Option[] {
-          new Option( "I don't think they were saying \"hat\".", 8 )
+          new Option( "Well, I'm sold. I'll try a piece.", 8 ),
+          new Option( "I have another question.", 3 ),
+          new Option( "I'll see you later.", -1 )
         }
       ),
       // 8
-      new Step( camTarget, "I think I could part with my hat, if you got something for me.",
+      new Step( camTarget, "That'll be $500.", 
         new Option[] {
-          new Option( "What do you need?", 9 )
+          new Option( "I don't have that much money.", 9 ),
+          new Option( "Never mind. I have another question.", 3 ),
+          new Option( "I'll see you later.", -1 )
         }
       ),
       // 9
-      new Step( camTarget, "I need you to get my Action Swede back. I'd do it myself, but my stubby legs can't carry my heftiness.", 
+      new Step( camTarget, "Oh. You got any bacon?", 
         new Option[] {
-          new Option( "What is an Action Swede?", 10 ),
-          new Option( "Where can I find it?", 11 )
-        },
-        delegate() { wantsSwede = true; }   
+          new Option( "Never mind. I have another question.", 3 ),
+          new Option( "I'll see you later.", -1 )
+        }
       ),
       // 10
-      new Step( camTarget, "Action Swede? He's only the coolest, most awesome superhero in all of Scandinavia! I'm his biggest fan, and I paid a lot of money for a limited edition mint condition Action Swede figure.",
+      new Step( camTarget, "Yup. It's a Big Ass™ toilet. It uses nuc...mlear power to flush my Big Ass™ dumps.", 
         new Option[] {
-          new Option( "What happened to it?", 11 ),
-          new Option( "I'll look for it.", -1 )
+          new Option( "Isn't that kind of dangerous?", 11 ),
+          new Option( "Maybe you should try a diet.", 12 )
         }
       ),
       // 11
-      new Step( camTarget, "That bat on the first floor stole it from me. If you get it back for me, I'll let you have my sweet fedora.",
+      new Step( camTarget, "It's only at 50% power. What's really dangerous is my cholest...merol level.", 
         new Option[] {
-          new Option( "I'll go talk to him.", -1 )
+          new Option( "Maybe you should try a diet.", 12 )
         }
       ),
       // 12
-      new Step( camTarget, "Did you get my Action Swede back?",
+      new Step( camTarget, "What is that? Does it taste good?", 
         new Option[] {
-          new Option( "No, I'll be right back", -1 ),
-          new Option( "What's with all the sausage?", 1 ),
-          new Option( "Can I have your hat?", 7, delegate() { return sadguy.wantsHat && GameObject.Find( "item_hat" ) == null; } )
+          new Option( "Never mind. I have another question.", 3 ),
+          new Option( "I'll see you later.", -1 )
         }
       ),
+      // 13
+      new Step( camTarget, "My hat is my most noticable feature. Everyone always says, \"Look at that hat guy, he's so damn hat!\"", 
+        new Option[] {
+          new Option( "What if I trade you for it?", 14 )
+        }
+      ),
+      // 14
+      new Step( camTarget, "I'll tell you what. Someone stole my Action Swede action fig...mure. Bring it back, and you can take the hat.", 
+        new Option[] {
+          new Option( "What is an Action Swede?", 15 ),
+          new Option( "Where can I find it?", 16 ),
+          new Option( "I'll go find it.", -1 ),
+          new Option( "I have another question.", 3 )
+        },
+        delegate() { wantsSwede = true; }
+      ),
+      // 15
+      new Step( camTarget, "He's only the best superhero of all ever. That figure was my most prized possess...uh...thing.", 
+        new Option[] {
+          new Option( "Where can I find it?", 16 ),
+          new Option( "I'll go find it.", -1 ),
+          new Option( "I have another question.", 3 )
+        }
+      ),
+      // 16
+      new Step( camTarget, "I'm pretty sure that Bat guy stole it from me. Mainly because I saw him do it. But you never know.", 
+        new Option[] {
+          new Option( "I'll go find it.", -1 ),
+          new Option( "I have another question.", 3 )
+        }
+      ),
+      // 17
+      new Step( camTarget, "You got my...uh...Action Swebe?", 
+        new Option[] {
+          new Option( "No, I'll go get it.", -1 ),
+          new Option( "No, but I have another question.", 3 )
+        }
+      )
     } );
   }  
 }

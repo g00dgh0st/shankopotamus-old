@@ -21393,11 +21393,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.6139431
+      value: -16.1490078
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.24426174
+      value: -12.83776
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.z
@@ -23382,6 +23382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pig: {fileID: 2061661893}
+  cook: {fileID: 0}
   admittedFigure: 0
   admittedDoesntHave: 0
   askedCode: 0
@@ -49043,7 +49044,7 @@ Transform:
   m_PrefabInternal: {fileID: 508331217}
   m_GameObject: {fileID: 1333868172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.6139431, y: -1.24426174, z: 0}
+  m_LocalPosition: {x: -16.1490078, y: -12.83776, z: 0}
   m_LocalScale: {x: 1.55294144, y: 1.55294144, z: 1.55294144}
   m_Children:
   - {fileID: 1092221449}
@@ -52797,7 +52798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 0}
   levelName: LevelOne
-  startRoom: {fileID: 729043436}
+  startRoom: {fileID: 1248173387}
 --- !u!4 &1450852183
 Transform:
   m_ObjectHideFlags: 0
@@ -56414,6 +56415,8 @@ MonoBehaviour:
   hasChicken: 0
   hasHam: 0
   hasRat: 0
+  knowSwede: 0
+  wantsCola: 0
 --- !u!1 &1552317860
 GameObject:
   m_ObjectHideFlags: 0
@@ -74340,6 +74343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bear: {fileID: 1538976659}
   wantsGlasses: 0
+  knowShank: 0
 --- !u!61 &2000554276
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -76937,6 +76941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sadguy: {fileID: 515385596}
   wantsSwede: 0
+  firstTalk: 0
 --- !u!61 &2061661894
 BoxCollider2D:
   m_ObjectHideFlags: 0
