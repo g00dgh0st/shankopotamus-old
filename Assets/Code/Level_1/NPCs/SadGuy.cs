@@ -13,7 +13,9 @@ public class SadGuy : MonoBehaviour {
   private bool hasChicken = true;
   private bool talkedOnce = false;
   public bool wantsHat = false;
+  
   public Croc croc;
+  public Cook cook;
   
   void Start() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
@@ -33,9 +35,7 @@ public class SadGuy : MonoBehaviour {
 
 
   void OnClick() {
-    if( wantsHat )
-      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 28 ); } );
-    else if( hasChicken ) {
+    if( hasChicken ) {
       if( talkedOnce )
         Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 4 ); } );
       else
@@ -71,8 +71,9 @@ public class SadGuy : MonoBehaviour {
       // 3
       new Step( camTarget, "Oh, Roger, behave! I apologize, he has has a fowl mouth! Ohoho! A joke!",
         new Option[] {
-          new Option( "Why do you have a pet chicken?", 7 ),
           new Option( "Those are nice glasses.", 18, delegate() { return croc.wantsGlasses && GameObject.Find( "item_glasses" ) == null; } ),
+          new Option( "Would you mind if I borrowed Roger for a bit?", 15, delegate() { return cook.wantsIngredients && hasChicken; } ),
+          new Option( "Why do you have a pet chicken?", 7 ),
           new Option( "You seem really old, have you been in here a while?", 23 ),
           new Option( "I'll talk to you later.", -1 )
         }
@@ -84,9 +85,9 @@ public class SadGuy : MonoBehaviour {
       // 6
       new Step( camTarget, "What would you like to talk about, friend?",
         new Option[] {
+          new Option( "Those are nice glasses.", 18, delegate() { return croc.wantsGlasses && GameObject.Find( "item_glasses" ) == null; } ),
+          new Option( "Would you mind if I borrowed Roger for a bit?", 15, delegate() { return cook.wantsIngredients && hasChicken; } ),
           new Option( "Why do you have a pet chicken?", 7 ),
-          new Option( "Would you mind if I borrowed Roger for a bit?", 15 ),
-          new Option( "Those are nice glasses.", 18 ),
           new Option( "You seem really old, have you been in here a while?", 23 ),
           new Option( "Actually, I need to go.", -1 )
         }
