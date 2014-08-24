@@ -15,6 +15,9 @@ public class SewersMaintenanceGuy : MonoBehaviour {
   private bool moving = false;
   private bool noLadder = false;
   public bool wantsStew = false;
+  public bool ratRod = false;
+
+  public Cook cook;
   
   public Transform ladder;
   public Transform fishingPos;
@@ -60,7 +63,7 @@ public class SewersMaintenanceGuy : MonoBehaviour {
   
   void Update() {
     if( moving ) {
-      transform.parent.position = new Vector3( transform.parent.position.x + 0.02f, transform.parent.position.y, 0.8f );
+      transform.parent.position = new Vector3( transform.parent.position.x + 0.02f, transform.parent.position.y, 0f );
       if( transform.parent.position.x > dest.position.x ) moving = false;
     }
   }
@@ -101,7 +104,9 @@ public class SewersMaintenanceGuy : MonoBehaviour {
           new Option( "I broke that- I mean, that fuse box over there broke.", 14, delegate() { return fusebox.broken && !atFuseBox; } ),
           new Option( "What are you doing?", 1 ),
           new Option( "Can I use your ladder?", 9, delegate() { return !noLadder; } ),
-          new Option( "Can I borrow your fishing rod?", 3 ),
+          new Option( "Can I borrow your fishing rod?", 3, delegate() { return ratRod; } ),
+          new Option( "Are there any rats down here?", 19, delegate() { return cook.wantsIngredients; } ),
+          new Option( "Did you realize there is a dead whale in the sewer?", 21, delegate() { return Game.script.GetComponent<Level1>().seenWhale; }),
           new Option( "Sorry.", -1 )
         }
       ),
@@ -110,14 +115,14 @@ public class SewersMaintenanceGuy : MonoBehaviour {
         new Option[] {
           new Option( "Shouldn't you be working?", 4 ),
           new Option( "What can you catch down here?", 2 ),
-          new Option( "Can I borrow your fishing rod?", 3 ),
+          new Option( "Can I borrow your fishing rod?", 3, delegate() { return ratRod; } ),
         }
       ),
       // 2
       new Step( camTarget, "Fish. Also hepatitis.",
         new Option[] {
           new Option( "Shouldn't you be working?", 4 ),
-          new Option( "Can I borrow your fishing rod?", 3 ),
+          new Option( "Can I borrow your fishing rod?", 3, delegate() { return ratRod; } ),
           new Option( "I have another question.", 0 ),
           new Option( "I gotta go.", -1 )
         }
@@ -214,6 +219,7 @@ public class SewersMaintenanceGuy : MonoBehaviour {
       new Step( camTarget, "What do you want?",
         new Option[] {
           new Option( "Do you actually need to use that ladder?", 16, delegate() { return !noLadder; } ),
+          new Option( "Did you realize there is a dead whale in the sewer?", 21, delegate() { return Game.script.GetComponent<Level1>().seenWhale; }),
           new Option( "Nothing.", -1 )
         }
       ), 
@@ -221,6 +227,7 @@ public class SewersMaintenanceGuy : MonoBehaviour {
       new Step( camTarget, "Don't tell me how to do my job. I don't tell you how to be a dumbass.",
         new Option[] {
           new Option( "I just need to use it for a second.", 10 ),
+          new Option( "I'll leave you alone.", -1 )
         }
       ),
       // 17
@@ -236,6 +243,33 @@ public class SewersMaintenanceGuy : MonoBehaviour {
         new Option[] {
           new Option( "I have another question.", 0, delegate() { return !atFuseBox; } ),
           new Option( "I'll go find some Pancake Stew", -1 )
+        }
+      ),
+      // 19
+      new Step( camTarget, "There's a rat who lives in the other side of the sewer. He's a real bastard.", 
+        new Option[] {
+          new Option( "Do you know how I can capture it?", 20 ),
+          new Option( "There's a whale blocking that side.", 21 ),
+          new Option( "I have another question.", 0 ),
+          new Option( "I gotta go.", -1 )
+        }
+      ),
+      // 20
+      new Step( camTarget, "What are you, a dumbass? Put some cheese on a fishing rod.", 
+        new Option[] {
+          new Option( "Can I borrow your fishing rod?", 3 ),
+          new Option( "I have another question.", 0, delegate() { return !atFuseBox; } ),
+          new Option( "I gotta go.", -1 )
+        },
+        delegate() { ratRod = true; }  
+      ),
+      // 21
+      new Step( camTarget, "I tried to move it, but it's too big. What I need to do is flush a whale-sized object into the sewers to push it out of the way.", 22 ),
+      // 22
+      new Step( camTarget, "But I don't care.", 
+        new Option[] {
+          new Option( "I have another question.", 0, delegate() { return !atFuseBox; } ),
+          new Option( "I gotta go.", -1 )
         }
       )
     } );

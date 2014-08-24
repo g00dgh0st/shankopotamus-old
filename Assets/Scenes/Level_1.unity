@@ -6743,7 +6743,7 @@ MonoBehaviour:
   startingRenderQueue: 3000
   mAlpha: 1
   mClipping: 2
-  mClipRange: {x: .111022949, y: 63.5, z: 624, w: 100}
+  mClipRange: {x: -4.57763672e-05, y: 63, z: 625.555664, w: 100}
   mClipSoftness: {x: 4, y: 4}
   mDepth: 0
   mClipOffset: {x: 0, y: 0}
@@ -17455,7 +17455,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 448725137}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 261.999969, y: 165.5, z: 0}
+  m_LocalPosition: {x: 262.666718, y: 166, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1011110387}
@@ -35965,6 +35965,8 @@ MonoBehaviour:
   fusebox: {fileID: 1829670412}
   dest: {fileID: 2054732136}
   wantsStew: 0
+  ratRod: 0
+  cook: {fileID: 1547870465}
   ladder: {fileID: 1463569502}
   fishingPos: {fileID: 1479761618}
   fixingPos: {fileID: 1321262812}
@@ -37480,7 +37482,7 @@ Transform:
   m_GameObject: {fileID: 1011110386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00569800567, y: .00569800567, z: .00569800567}
+  m_LocalScale: {x: .00568181835, y: .00568181835, z: .00568181835}
   m_Children:
   - {fileID: 446293067}
   - {fileID: 1064466907}
@@ -46112,7 +46114,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1211383908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 286.999969, y: 130.5, z: 0}
+  m_LocalPosition: {x: 287.666718, y: 131, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1485608710}
@@ -52948,6 +52950,7 @@ MonoBehaviour:
   lookingForCode: 0
   knowBatCode: 0
   needCafeDistraction: 0
+  seenWhale: 0
 --- !u!114 &1450852186
 MonoBehaviour:
   m_ObjectHideFlags: 0
