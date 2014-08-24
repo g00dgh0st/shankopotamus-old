@@ -21947,6 +21947,7 @@ MonoBehaviour:
   roger_block: {fileID: 249077202}
   wantsHat: 0
   croc: {fileID: 2000554275}
+  cook: {fileID: 1547870465}
 --- !u!61 &515385597
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -43,7 +43,7 @@ public class DialogueManager : MonoBehaviour {
     
     Game.TargetCam( step.speaker );
     bub.SetActive( true );
-    bub.GetComponent<DialogueBubble>().SetText( step.text );
+    bub.GetComponent<DialogueBubble>().SetText( idx + ": " + step.text );
     
     Game.player.FaceTarget( step.speaker.transform.position, 0.1f );
   }

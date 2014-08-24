@@ -41,7 +41,7 @@ public class SadGuy : MonoBehaviour {
       else
         Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
     } else
-      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 26 ); } );
+      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 6 ); } );
   }
 
   void OnHover( bool isOver ) {
@@ -87,7 +87,7 @@ public class SadGuy : MonoBehaviour {
         new Option[] {
           new Option( "Those are nice glasses.", 18, delegate() { return croc.wantsGlasses && GameObject.Find( "item_glasses" ) == null; } ),
           new Option( "Would you mind if I borrowed Roger for a bit?", 15, delegate() { return cook.wantsIngredients && hasChicken; } ),
-          new Option( "Why do you have a pet chicken?", 7 ),
+          new Option( "Why do you have a pet chicken?", 7, delegate() { return hasChicken; } ),
           new Option( "You seem really old, have you been in here a while?", 23 ),
           new Option( "Actually, I need to go.", -1 )
         }
@@ -103,7 +103,10 @@ public class SadGuy : MonoBehaviour {
       // 11
       new Step( camTarget, "Oh I do remember that, it was one shell of a good time! Ohoho a joke! Because of the eggs, you see!",
         new Option[] {
-          new Option( "Can you understand what he says?", 12 )
+          new Option( "Can you understand what he says?", 12 ),
+          new Option( "Would you mind if I borrowed Roger for a bit?", 15, delegate() { return cook.wantsIngredients && hasChicken; } ),
+          new Option( "I have another question.", 6 ),
+          new Option( "I gotta go.", -1 )
         }
       ),
       // 12
@@ -113,7 +116,9 @@ public class SadGuy : MonoBehaviour {
       // 14
       new Step( camTarget, "See! He knows exactly what I'm going to say!",
         new Option[] {
-          new Option( "Would you mind if I borrowed Roger for a bit?", 15 )
+          new Option( "Would you mind if I borrowed Roger for a bit?", 15, delegate() { return cook.wantsIngredients && hasChicken; } ),
+          new Option( "I have another question.", 6 ),
+          new Option( "I gotta go.", -1 )
         }
       ),
       // 15
@@ -122,27 +127,38 @@ public class SadGuy : MonoBehaviour {
       new Step( chickenTarget, "If I spend another minute with this man, I might kill myself.", 17 ),
       // 17
       new Step( camTarget, "What was that, Roger? I couldn't understand you. Well, I suppose it would be good for Roger to get some fresh air. Just be sure to bring him back!",
-        new Option[] {
-          new Option( "Yeah, sure.", delegate() { hasChicken = false; Destroy( roger ); Destroy( roger_block ); Game.script.AddItem( "chicken" ); ; Game.dialogueManager.StopDialogue(); } )
-        }
+        delegate() { 
+          hasChicken = false; 
+          Destroy( roger ); 
+          Destroy( roger_block ); 
+          Game.script.AddItem( "chicken" );
+          Game.dialogueManager.StopDialogue(); 
+        },
+        true
       ),
       // 18
       new Step( camTarget, "Why thank you, I made them myself.",
         new Option[] {
           new Option( "Could you make another pair of glasses?", 19 ),
-          new Option( "Can I borrow your glasses for a bit?", 20 )
+          new Option( "Can I borrow your glasses for a bit?", 20 ),
+          new Option( "I have another question.", 6 ),
+          new Option( "I gotta go.", -1 )
         }
       ),
       // 19
       new Step( camTarget, "Unfortunately, I don't have the tools anymore. I let someone borrow them, and they never gave them back.",
         new Option[] {
-          new Option( "Can I borrow your glasses for a bit?", 20 )
+          new Option( "Can I borrow your glasses for a bit?", 20 ),
+          new Option( "I have another question.", 6 ),
+          new Option( "I gotta go.", -1 )
         }
       ),
       // 20
-      new Step( camTarget, "Well, I hate to be so forward, but may I propose a trade?",
+      new Step( camTarget, "How about we do a nice, friendly trade?",
         new Option[] {
-          new Option( "Sure, what do you need?", 21 )
+          new Option( "What do you need?", 21 ),
+          new Option( "I have another question.", 6 ),
+          new Option( "I gotta go.", -1 )
         }
       ),
       // 21
@@ -156,7 +172,8 @@ public class SadGuy : MonoBehaviour {
       // 22
       new Step( camTarget, "Maybe go to Hats 'R' Us! Oho! Another joke!",
         new Option[] {
-          new Option( "Yeah, uh, funny joke. I'll go find a hat.", -1 )
+          new Option( "Yeah, uh, funny joke. I'll go find a hat.", -1 ),
+          new Option( "Let me ask you something else.", 6 )
         }
       ),
       // 23
@@ -175,23 +192,6 @@ public class SadGuy : MonoBehaviour {
       new Step( camTarget, "I also did a lot of pedophile stuff.",
         new Option[] {
           new Option( "Oh.", -1 )
-        }
-      ),
-      // 26
-      new Step( camTarget, "Hello friend! How is Roger doing?",
-        new Option[] {
-          new Option( "He's just fine. He's made some new friends.", 27 ),
-          new Option( "Those are nice glasses.", 18, delegate() { return croc.wantsGlasses && GameObject.Find( "item_glasses" ) == null; } ),
-          new Option( "You seem really old, have you been in here a while?", 23 ),
-          new Option( "I'll talk to you later.", -1 )
-        }
-      ),
-      // 27
-      new Step( camTarget, "Wonderful! I do hope he comes back soon.",
-        new Option[] {
-          new Option( "Those are nice glasses.", 18, delegate() { return croc.wantsGlasses && GameObject.Find( "item_glasses" ) == null; } ),
-          new Option( "You seem really old, have you been in here a while?", 23 ),
-          new Option( "I'll talk to you later.", -1 )
         }
       )
     } );
