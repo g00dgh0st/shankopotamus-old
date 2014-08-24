@@ -11,6 +11,10 @@ public class Whale : MonoBehaviour {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
   }
   
+  void OnEnable() {
+    Game.script.GetComponent<Level1>().seenWhale = true;
+  }
+  
   IEnumerator MoveWhale() {
     Debug.Log( "Knock Whale" );
     gameObject.GetComponent<SpriteRenderer>().enabled = false;
