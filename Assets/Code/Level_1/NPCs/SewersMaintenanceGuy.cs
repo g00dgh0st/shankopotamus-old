@@ -111,36 +111,38 @@ public class SewersMaintenanceGuy : MonoBehaviour {
           new Option( "Shouldn't you be working?", 4 ),
           new Option( "What can you catch down here?", 2 ),
           new Option( "Can I borrow your fishing rod?", 3 ),
-          new Option( "Can I use your ladder?", 9, delegate() { return !noLadder; } )
         }
       ),
       // 2
       new Step( camTarget, "Fish. Also hepatitis.",
         new Option[] {
-          new Option( "Are you sure that fish is safe to eat?", 6 ),
+          new Option( "Shouldn't you be working?", 4 ),
           new Option( "Can I borrow your fishing rod?", 3 ),
-          new Option( "Can I use your ladder?", 9, delegate() { return !noLadder; } )
+          new Option( "I have another question.", 0 ),
+          new Option( "I gotta go.", -1 )
         }
       ),
       // 3
       new Step( camTarget, "I'm using it.",
         new Option[] {
-          new Option( "What can you catch down here?", 2 ),
           new Option( "Shouldn't you be working?", 4 ),
-          new Option( "What about your ladder?", 9, delegate() { return !noLadder; } ),
+          new Option( "I have another question.", 0 ),
           new Option( "Ok. I'll leave then.", -1 )
         }
       ),
       // 4
-      new Step( camTarget, "I'm a maintenance guy. There ain't nothing broken, so there ain't nothing to maintain.",
+      new Step( camTarget, "I'm a maintenance guy. Ain't nothing broken, so there ain't nothing to maintain.",
         new Option[] {
           new Option( "Isn't maintenance more about preventing things from breaking?", 8 ),
-          new Option( "What if something broke right now?", 5 )
+          new Option( "What if something broke right now?", 5 ),
+          new Option( "I have another question.", 0 ),
+          new Option( "Ok. I'll leave then.", -1 )
         }
       ),
       // 5
-      new Step( camTarget, "Well then, I guess I would have to go fix it wouldn't I?",
+      new Step( camTarget, "I guess I'd have to go fix it wouldn't I?",
         new Option[] {
+          new Option( "I have another question.", 0 ),
           new Option( "Ok, I'm going to go.", -1 )
         }
       ),
@@ -154,7 +156,6 @@ public class SewersMaintenanceGuy : MonoBehaviour {
       new Step( camTarget, "These fish are die-hard \"Toddlers & Tiaras\" fans. They deserve it.",
         new Option[] {
           new Option( "Can I borrow your fishing rod?", 3 ),
-          new Option( "Can I use your ladder?", 9, delegate() { return !noLadder; } ),
           new Option( "Bye.", -1 )
         }
       ),
@@ -162,6 +163,7 @@ public class SewersMaintenanceGuy : MonoBehaviour {
       new Step( camTarget, "Right now I'm preventing myself from breaking your face. How's that for maintenance?",
         new Option[] {
           new Option( "What if something broke right now?", 5 ),
+          new Option( "I have another question.", 0 ),
           new Option( "I think I'll leave you alone.", -1 )
         }
       ),
@@ -169,23 +171,25 @@ public class SewersMaintenanceGuy : MonoBehaviour {
       new Step( camTarget, "I'm using it.",
         new Option[] {
           new Option( "Why don't you sit on something else?", 12 ),
-          new Option( "What if I trade you for it?", 10 )
+          new Option( "I just need to use it for a second.", 10 )
         }
       ),
       // 10
       new Step( camTarget, "I tell you what, you get me a can of Pancake Stew, you can do whatever you want with this ladder.",
         new Option[] {
           new Option( "What's Pancake Stew?", 11 ),
-          new Option( "Can I have your fishing rod?", 3, delegate() { return !atFuseBox; } ),
-          new Option( "Ok, I'll try to find one.", -1 )
+          new Option( "Where can I find one?", 17 ),
+          new Option( "I have another question.", 0, delegate() { return !atFuseBox; } ),
+          new Option( "I'll try to find one.", -1 )
         },
         delegate() { wantsStew = true; }
       ),
       // 11
-      new Step( camTarget, "That's a stupid question. The prison's been running out of cans lately, so if you can find one, I'll give you the ladder.",
+      new Step( camTarget, "That's a stupid question.",
         new Option[] {
-          new Option( "Can I have your fishing rod?", 3, delegate() { return !atFuseBox; }  ), 
-          new Option( "Ok I'll try to find a can.", -1 )
+          new Option( "Where can I find one?", 17 ),
+          new Option( "I have another question.", 0, delegate() { return !atFuseBox; } ),
+          new Option( "I'll try to find one.", -1 )
         }
       ),
       // 12
@@ -193,7 +197,9 @@ public class SewersMaintenanceGuy : MonoBehaviour {
       // 13
       new Step( camTarget, "That didn't come out right.",
         new Option[] {
-          new Option( "What if I trade you for it?", 10 )
+          new Option( "I just need to use it for a second.", 10 ),
+          new Option( "I have another question.", 0, delegate() { return !atFuseBox; } ),
+          new Option( "I'll leave you alone.", -1 )
         }
       ),
       // 14
@@ -214,7 +220,22 @@ public class SewersMaintenanceGuy : MonoBehaviour {
       // 16
       new Step( camTarget, "Don't tell me how to do my job. I don't tell you how to be a dumbass.",
         new Option[] {
-          new Option( "How about I trade you something for that ladder?", 10 )
+          new Option( "I just need to use it for a second.", 10 ),
+        }
+      ),
+      // 17
+      new Step( camTarget, "One of the inmates is a hoarder. Got anything you could ask for. He sold me a bucket of cat feces once.", 
+        new Option[] {
+          new Option( "What did you need that for?", 18 ),
+          new Option( "I have another question.", 0, delegate() { return !atFuseBox; } ),
+          new Option( "I'll go talk to him.", -1 )
+        }
+      ),
+      // 18
+      new Step( camTarget, "That's a stupid question.", 
+        new Option[] {
+          new Option( "I have another question.", 0, delegate() { return !atFuseBox; } ),
+          new Option( "I'll go find some Pancake Stew", -1 )
         }
       )
     } );
