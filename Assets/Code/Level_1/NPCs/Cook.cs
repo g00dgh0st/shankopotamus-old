@@ -35,6 +35,7 @@ public class Cook : Clicker {
         if( bub != null ) Destroy( bub );
         bub = Game.script.ShowSpeechBubble( "Thanks, kid. Here, take the toy.", transform.parent.Find( "BubTarget" ), 5f );
         Game.script.AddItem( "action_swede" );
+        Game.script.UseItem();
         wantsCola = false;
       });
     }
