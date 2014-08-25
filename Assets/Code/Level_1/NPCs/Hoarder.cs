@@ -8,6 +8,8 @@ public class Hoarder : MonoBehaviour {
 
   public SewersMaintenanceGuy sewerDude;
   public bool wantsHoney = false;
+  public bool wantsRadio = false;
+  private bool firstTalk = false;
   
   void Start() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
@@ -18,16 +20,24 @@ public class Hoarder : MonoBehaviour {
   void OnItemClick() {
     if( wantsHoney && Game.heldItem.name == "item_honey" ) {
       Game.script.UseItem();
-      Game.script.ShowSpeechBubble( "Thanks, guy. Here's that Pancake Stew I promised you.", transform.parent.Find( "BubTarget" ), 3f );
+      Game.script.ShowSpeechBubble( "Thanks, man. Here's that Pancake Stew I promised you.", transform.parent.Find( "BubTarget" ), 3f );
       Game.script.AddItem( "pancake_stew" );
       wantsHoney = false;
+    }
+    
+    if( wantsRadio && Game.heldItem.name == "item_radio" ) {
+      Game.script.UseItem();
+      Game.script.ShowSpeechBubble( "Aww yeah! Here, take this battery from my wazoo.", transform.parent.Find( "BubTarget" ), 3f );
+      Game.script.AddItem( "battery" );
+      wantsRadio = false;
+      Game.script.GetComponent<Level1>().needBattery = false;
     }
   }
 
 
   void OnClick() {
-    if( wantsHoney )
-      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 15 ); } );
+    if( firstTalk )
+      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 11 ); } );
     else
       Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
   }
@@ -45,114 +55,189 @@ public class Hoarder : MonoBehaviour {
     dialogue.SetSteps(
     new Step[] {
       // 0
-      new Step( camTarget, "Hey, guy, you want some potato skins?",
+      new Step( camTarget, "Hey man, you wanna buy some potato skins?",
         new Option[] {
-          new Option( "Not really.", 1 ),
-          new Option( "Do you have any Pancake Stew?", 5, delegate() { return sewerDude.wantsStew && GameObject.Find( "item_pancake_stew" ) == null;  } ),
-          new Option( "Why do you have so much stuff?", 9 ),
-          new Option( "Do you have anything useful?", 3 )
-        }
+          new Option( "Why would I want potato skins?", 1 ),
+          new Option( "No thanks. Do you have anything useful?", 4 ),
+          new Option( "Why do you have all this stuff?", 8 ),
+          new Option( "No, I gotta go.", -1 )
+        },
+        delegate() { firstTalk = true; }
       ),
       // 1
-      new Step( camTarget, "These are top quality. Peeled 'em myself. You're missing out on some good product here.",
+      new Step( camTarget, "Whaaaat?! Are you serious? These are primo potato skins! Look at 'em!", 
         new Option[] {
-          new Option( "What did you you with the rest of the potatoes?", 2 ),
-          new Option( "Do you have anything else?", 3 )
+          new Option( "What did you do with the rest of the potatoes?", 2 ),
+          new Option( "Do you have anything useful?", 4 )
         }
       ),
-      // 2 
-      new Step( camTarget, "That's irrelevant. I'm talking about primo potato skins here.", 
+      // 2
+      new Step( camTarget, "Man, I don't think you even ascertain the gravity of this opportunity.", 
         new Option[] {
-          new Option( "I think I'll pass, What else do you have?", 3 ),
-          new Option( "Why do you have so much stuff?", 9 )
+          new Option( "Are you high?", 3 ),
+          new Option( "Do you have anything useful?", 4 )
         }
       ),
       // 3
-      new Step( camTarget, "I got pretty much anything you need. You name it, I got it.",
+      new Step( camTarget, "Oh most definitely.", 
         new Option[] {
-          new Option( "Do you have a deflated basketball signed by Phill Collins?", 4 ),
-          new Option( "Do you have any Pancake Stew?", 5, delegate() { return sewerDude.wantsStew && GameObject.Find( "item_pancake_stew" ) == null; } ),
-          new Option( "Why do you have so much stuff?", 9 )
+          new Option( "Do you have anything useful?", 4 ),
+          new Option( "Why do you have all this stuff?", 8 ),
+          new Option( "I have another quesiton.", 11 ),
+          new Option( "No thanks, I gotta go.", -1 )
         }
       ),
       // 4
-      new Step( camTarget, "Yeah, but it's not for sale.",
+      new Step( camTarget, "Man, I got anything you could ever need.", 
         new Option[] {
-          new Option( "How about a sweater knitted from the beard hairs of a homeless guy from Euguene, Oregon?", 12 ),
-          new Option( "Do you have any Pancake Stew?", 5, delegate() { return sewerDude.wantsStew && GameObject.Find( "item_pancake_stew" ) == null; } ),
-          new Option( "Why do you have so much stuff?", 9 )
+          new Option( "Do you have a deflated basketball signed by Phil Collins?", 5 ),
+          new Option( "You got anything I can use to sharpen metal?", 18, delegate() { return GameObject.Find( "item_spoon" ); } ),
+          new Option( "I'm looking for a can of Pancake Stew. You got any?", 12, delegate() { return sewerDude.wantsStew && GameObject.Find( "item_pancake_stew" ) == null;  } ),
+          new Option( "Do you have any batteries?", 18, delegate(){ return Game.script.GetComponent<Level1>().needBattery; } ),
+          new Option( "Do you have any weapons?", 16 ),
+          new Option( "Why do you have all this stuff?", 8 )
         }
       ),
       // 5
-      new Step( camTarget, "I just happen to have the last can in this prison.",
+      new Step( camTarget, "Yup. I also have a soup can that he once threw at a hobo.", 
         new Option[] {
-          new Option( "Can I have it?", 6 )
+          new Option( "Do you have a can of Surge soda from 1997?", 6 ),
+          new Option( "You got anything I can use to sharpen metal?", 18, delegate() { return GameObject.Find( "item_spoon" ); } ),
+          new Option( "How about a can of Pancake Stew?", 12, delegate() { return sewerDude.wantsStew && GameObject.Find( "item_pancake_stew" ) == null;  } ),
+          new Option( "Do you have any batteries?", 18, delegate(){ return Game.script.GetComponent<Level1>().needBattery; } ),
+          new Option( "Do you have any weapons?", 16 ),
+          new Option( "Why do you have all this stuff?", 8 )
         }
       ),
       // 6
-      new Step( camTarget, "Sure you can. But I'll need you to trade me something. A jar of honey.",
+      new Step( camTarget, "Yeah, but you think I'm gonna let you touch it?", 
         new Option[] {
-          new Option( "Just a jar of honey?",  7 )
+          new Option( "How about the original Bible?", 7 ),
+          new Option( "You got anything I can use to sharpen metal?", 18, delegate() { return GameObject.Find( "item_spoon" ); } ),
+          new Option( "You have a can of Pancake Stew?", 12, delegate() { return sewerDude.wantsStew && GameObject.Find( "item_pancake_stew" ) == null;  } ),
+          new Option( "Do you have any batteries?", 18, delegate(){ return Game.script.GetComponent<Level1>().needBattery; } ),
+          new Option( "Do you have any weapons?", 16 ),
+          new Option( "Why do you have all this stuff?", 8 )
         }
       ),
       // 7
-      new Step( camTarget, "Not just a jar of honey. Russian honey. That bear on the first floor has the best honey I ever tasted. But he won't trade it to me for some reason.",
+      new Step( camTarget, "I got you one better. I have the graphic novel it was based on.", 
         new Option[] {
-          new Option( "How do you expect me to get any?", 8 ),
-          new Option( "I'll try to get some.", -1 )
-        },
-        delegate() { wantsHoney = true; }    
+          new Option( "You got anything I can use to sharpen metal?", 18, delegate() { return GameObject.Find( "item_spoon" ); } ),
+          new Option( "Do you have a can of Pancake Stew?", 12, delegate() { return sewerDude.wantsStew && GameObject.Find( "item_pancake_stew" ) == null;  } ),
+          new Option( "Do you have any batteries?", 18, delegate(){ return Game.script.GetComponent<Level1>().needBattery; } ),
+          new Option( "Do you have any weapons?", 16 ),
+          new Option( "Why do you have all this stuff?", 8 ),
+          new Option( "I have another question.", 11 ),
+          new Option( "I gotta go.", -1 )
+        }
       ),
       // 8
-      new Step( camTarget, "Not my problem. But if you want a can of Pancake Stew, you'll get me a jar of honey.",
+      new Step( camTarget, "On the outside, I was a serial entrepreneur. Business is all I know. It's like a drug for me.",
         new Option[] {
-          new Option( "I'll see what I can do.", -1 )
+          new Option( "How did you end up here?", 9 ),
+          new Option( "I have another question.", 11 ),
+          new Option( "I gotta go.", -1 )
         }
       ),
       // 9
-      new Step( camTarget, "On the outside, I was a serial entrepreneur. Business is all I know. It's like a drug for me.",
+      new Step( camTarget, "I also happened to be a serial killer.", 
         new Option[] {
-          new Option( "How did you end up here?", 10 ),
-          new Option( "What do you have?", 3 )
+          new Option( "How did you get caught?", 10 ),
+          new Option( "I have another question.", 11 ),
+          new Option( "I gotta go.", -1 )
         }
       ),
       // 10
-      new Step( camTarget, "I also happened to be a serial killer.",
+      new Step( camTarget, "I posted it on social media. #DoItForTheVine.", 
         new Option[] {
-          new Option( "What kind of stuff do you have?", 3 ),
-          new Option( "How did you get caught?", 11 )        
+          new Option( "I have another question.", 11 ),
+          new Option( "I gotta go.", -1 )
         }
       ),
       // 11
-      new Step( camTarget, "I forgot to hide the location on my Instagram posts.",
+      new Step( camTarget, "Whatchu need? Potato skins?", 
         new Option[] {
-          new Option( "What kind of stuff do you have?", 3 ),
-          new Option( "I need to go.", -1 )        
+          new Option( "You got anything I can use to sharpen metal?", 22, delegate() { return GameObject.Find( "item_spoon" ); } ),
+          new Option( "What else do you have?", 4 ),
+          new Option( "Why do you have all this stuff?", 8 ),
+          new Option( "No, I gotta go.", -1 )
         }
       ),
       // 12
-      new Step( camTarget, "I got seven. He also makes hats.",
+      new Step( camTarget, "I just happen to have the last can in this prison. ", 
         new Option[] {
-          new Option( "What about a can of Surge soda?", 13 ),
-          new Option( "Do you have any Pancake Stew?", 5, delegate() { return sewerDude.wantsStew && GameObject.Find( "item_pancake_stew" ) == null; } ),
-          new Option( "Why do you have so much stuff?", 9 )
+          new Option( "Can I have it?", 13 )
         }
       ),
       // 13
-      new Step( camTarget, "Sadly, no. That is my holy grail. The greatest soda ever made. Would that I could feel its electrifying caress on my lips just one last time. Alas, that is but a fevered dream of a hopeless madman.", 14 ),
-      // 14
-      new Step( camTarget, "So you want the potato skins or what?",
+      new Step( camTarget, "Whatch think this is? A charity? You gotta trade me something for it.", 
         new Option[] {
-          new Option( "Do you have any Pancake Stew?", 5, delegate() { return sewerDude.wantsStew && GameObject.Find( "item_pancake_stew" ) == null; } ),
-          new Option( "No thanks. I'll talk to you later.", -1 )
+          new Option( "What do you need?", 14 ),
+          new Option( "I have another question.", 11 ),
+          new Option( "Never mind. I gotta go.", -1 )
         }
       ),
-      // 15
-      new Step( camTarget, "You got that honey?",
+      // 14
+      new Step( camTarget, "I need you to get me a jar of honey.", 
         new Option[] {
-          new Option( "I'll go get some.", -1 ),
-          new Option( "Why do you have so much stuff?", 9 ),
-          new Option( "Do you have anything useful?", 3 )
+          new Option( "Where can I find that?", 15 ),
+          new Option( "I'll go find one.", -1 ),
+          new Option( "I have another question.", 11 )
+        },
+        delegate() { wantsHoney = true; }
+      ),
+      // 15
+      new Step( camTarget, "I don't know, man. I'm really high right now. Did you realize that your eyes are bleeding jelly?", 
+        new Option[] {
+          new Option( "I'll go look for some honey.", -1 ),
+          new Option( "I have another question.", 11 )
+        }
+      ),
+      // 16
+      new Step( camTarget, "No. When I was arrested, I decided to become a pacifist. I refuse any form of violence. ", 17 ),
+      // 17
+      new Step( camTarget, "But if you tell anyone that, I WILL beat yo ass to death.", 
+        new Option[] {
+          new Option( "I have another question.", 11 ),
+          new Option( "Never mind. I gotta go.", -1 )
+        }
+      ),
+      // 18
+      new Step( camTarget, "Man, I got batteries comin' out the wazoo. That's what I call the box I keep my batteries in.", 
+        new Option[] {
+          new Option( "Can I get one?", 19 )
+        }
+      ),
+      // 19
+      new Step( camTarget, "Whatchu think this is? Socialism? You gotta trade me something for it.", 
+        new Option[] {
+          new Option( "What do you need?", 20 ),
+          new Option( "I have another question.", 11 ),
+          new Option( "Never mind. I gotta go.", -1 )
+        }
+      ),
+      // 20
+      new Step( camTarget, "I traded some guy my radio for some drugs, but now I'm out of drugs, and I want my radio back.", 
+        new Option[] {
+          new Option( "Where can I find it?", 21 ),
+          new Option( "I'll go look for it.", -1 ),
+          new Option( "I have another question.", 11 )
+        },
+        delegate() { wantsRadio = true; }
+      ),
+      // 21
+      new Step( camTarget, "Man, I don't think you even ascertain the gravity of how high I am.", 
+        new Option[] {
+          new Option( "I'll look for your radio.", -1 ),
+          new Option( "I have another question.", 11 )
+        }
+      ),
+      // 22
+      new Step( camTarget, "I had a metal file, but one of the Guards confiscated it and took it up to the Guard Tower.", 
+        new Option[] {
+          new Option( "Thanks, I gotta go.", -1 ),
+          new Option( "I have another question.", 11 )
         }
       )
     } );
