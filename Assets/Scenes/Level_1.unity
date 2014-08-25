@@ -965,6 +965,7 @@ MonoBehaviour:
   wantsMeat: 0
   talkedOnce: 0
   onFire: 0
+  needDistract: 0
 --- !u!1 &42819355
 GameObject:
   m_ObjectHideFlags: 0
@@ -30743,6 +30744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44c159649f46405d813390bb9af7110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tough: {fileID: 38775669}
 --- !u!61 &791601200
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -11,6 +11,8 @@ public class CafeteriaGuard : MonoBehaviour {
   private bool moving = false;
   private bool distracted = false;
   
+  public ToughGuy tough;
+  
   void Start() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
     
@@ -113,6 +115,7 @@ public class CafeteriaGuard : MonoBehaviour {
       // 10
       new Step( camTarget, "Where do you think you're going with that spoon? Put it back where you got it!", 
         delegate() {
+          tough.needDistract = true;
           Game.dialogueManager.StopDialogue();
           Game.script.GetComponent<Level1>().needCafeDistraction = true;
       }, true ),

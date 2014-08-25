@@ -39,7 +39,7 @@ public class WimpyGuy : Clicker {
     
       Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, index ); } );
     } else {
-      Game.script.ShowSpeechBubble( "Oh jeez, I'm on fire. Boy it hurts.", transform.parent.Find( "BubTarget" ), 3f );
+      Game.script.ShowSpeechBubble( "Oh jeez, I'm on fire again.", transform.parent.Find( "BubTarget" ), 3f );
     }
   }
 
