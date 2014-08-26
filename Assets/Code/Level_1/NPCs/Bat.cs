@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Bat : MonoBehaviour {
+public class Bat : Clicker {
   
   private Sprite cursor;
   
@@ -22,7 +22,7 @@ public class Bat : MonoBehaviour {
 
 
   void OnClick() {
-    Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
+    Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
   }
 
   void OnHover( bool isOver ) {

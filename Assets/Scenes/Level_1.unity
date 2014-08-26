@@ -347,6 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb104c5b6a42b40dfbb5ec91d1c723bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: -16.4218197, y: -16.3655548, z: 0}
 --- !u!1 &15912614
 GameObject:
   m_ObjectHideFlags: 0
@@ -2887,7 +2888,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 64483211}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.18105292, y: -.325714588, z: 0}
+  m_LocalPosition: {x: 1.1810528, y: -.325714409, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 262623314}
@@ -2905,6 +2906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbbd19e40085b4aafb57af381ed6efb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: 1.04898119, y: -4.81585836, z: 0}
   isOn: 0
 --- !u!61 &64483214
 BoxCollider2D:
@@ -3007,6 +3009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69e7a4f4667f4b1baf17b749f677b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: 11.8927279, y: -1.31953692, z: 0}
 --- !u!61 &69862681
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14724,7 +14727,7 @@ Transform:
   m_PrefabInternal: {fileID: 1539071985}
   m_GameObject: {fileID: 381675695}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.433111191, y: .0790627003, z: 0}
+  m_LocalPosition: {x: -.433110714, y: .0790628195, z: 0}
   m_LocalScale: {x: .0731450021, y: .932596982, z: 1}
   m_Children:
   - {fileID: 562632690}
@@ -14741,6 +14744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62bf73eef59541a4b4d5c410f348bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: -19.9309921, y: -3.2517066, z: 0}
   screens: {fileID: 584849066}
   moveTo: {fileID: 0}
   camName: cellblock
@@ -20733,7 +20737,7 @@ Transform:
   m_PrefabInternal: {fileID: 1441734957}
   m_GameObject: {fileID: 486005648}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.433111429, y: -.0932545662, z: 0}
+  m_LocalPosition: {x: -.433111429, y: -.0932542607, z: 0}
   m_LocalScale: {x: .0731450021, y: 1.32895076, z: 1}
   m_Children:
   - {fileID: 1402396304}
@@ -20750,6 +20754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62bf73eef59541a4b4d5c410f348bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: 2.95779181, y: -4.9295907, z: 0}
   screens: {fileID: 584849066}
   moveTo: {fileID: 0}
   camName: showers
@@ -21445,11 +21450,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 11.9733028
+      value: -1.50901294
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.32219815
+      value: -1.46169949
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.z
@@ -21995,6 +22000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d40a5304d65f44d62b72e7957cc57bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: -5.83873463, y: -16.4806538, z: 0}
   roger: {fileID: 387650488}
   roger_block: {fileID: 249077202}
   wantsHat: 0
@@ -23419,7 +23425,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 529224273}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.000357369718, y: -.000679410121, z: 0}
+  m_LocalPosition: {x: -.000357608951, y: -.000679456978, z: 0}
   m_LocalScale: {x: .383238465, y: .219632551, z: 1.34100354}
   m_Children: []
   m_Father: {fileID: 1817237140}
@@ -23434,6 +23440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254de9a42c0c64e43b2cf79eaa4f852c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: -21.5698738, y: -16.5022411, z: 0}
   pig: {fileID: 2061661893}
   cook: {fileID: 0}
   admittedFigure: 0
@@ -23670,7 +23677,7 @@ Transform:
   m_PrefabInternal: {fileID: 940729521}
   m_GameObject: {fileID: 545991905}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.433111191, y: .0790627003, z: 0}
+  m_LocalPosition: {x: -.433111429, y: .0790627003, z: 0}
   m_LocalScale: {x: .0731450021, y: .932596982, z: 1}
   m_Children:
   - {fileID: 1608947165}
@@ -23687,6 +23694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62bf73eef59541a4b4d5c410f348bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: 3.8062892, y: -1.64190292, z: 0}
   screens: {fileID: 584849066}
   moveTo: {fileID: 416287321}
   camName: cafeteria
@@ -24689,6 +24697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164e0047631ad4c1ca246ac33b265020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: 12.7958002, y: -1.3741523, z: 0}
   camerasOff: 0
   guardPos: {fileID: 1799687166}
   cafeteriaCam: {fileID: 272646911}
@@ -24943,8 +24952,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f674413cc29634390b32f2c0f55cbb11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: -19.8607502, y: -8.5509119, z: 0}
   itemName: fuse_box_key
-  point: {fileID: 1372402850}
 --- !u!212 &598812097
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -28420,6 +28429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b019d7fcbcc194e82bf3795b60febd9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: 0, y: 0, z: 0}
   isPowered: 0
 --- !u!1 &662999829
 GameObject:
@@ -30436,7 +30446,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 772344478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.22449541, y: -.325714588, z: 0}
+  m_LocalPosition: {x: -1.22449541, y: -.325714409, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 435214548}
@@ -30454,6 +30464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbbd19e40085b4aafb57af381ed6efb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: -.770496488, y: -4.8196702, z: 0}
   isOn: 0
 --- !u!61 &772344481
 BoxCollider2D:
@@ -30612,6 +30623,32 @@ SpriteRenderer:
   m_SortingLayerID: 4096241421
   m_Sprite: {fileID: 21300026, guid: 885f14b1847154846b26db2b739e9027, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &778232224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 778232225}
+  m_Layer: 0
+  m_Name: movePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &778232225
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 778232224}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .597596884, y: -.565269887, z: 0}
+  m_LocalScale: {x: .238901332, y: .431006402, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1081991591}
 --- !u!1 &780108168
 GameObject:
   m_ObjectHideFlags: 0
@@ -30855,7 +30892,7 @@ Transform:
   m_PrefabInternal: {fileID: 940729521}
   m_GameObject: {fileID: 791601197}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0195426941, y: -.0634430647, z: 0}
+  m_LocalPosition: {x: .0249610543, y: -.0781941414, z: 0}
   m_LocalScale: {x: .236249849, y: .512500048, z: 1}
   m_Children: []
   m_Father: {fileID: 841379153}
@@ -30871,6 +30908,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44c159649f46405d813390bb9af7110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: -.930514216, y: -1.37853944, z: 0}
+  distracted: 0
   tough: {fileID: 38775669}
 --- !u!61 &791601200
 BoxCollider2D:
@@ -31325,7 +31364,7 @@ Transform:
   m_PrefabInternal: {fileID: 940729521}
   m_GameObject: {fileID: 807817020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.108884573, y: .252878189, z: 0}
+  m_LocalPosition: {x: -.160558939, y: .261490583, z: 0}
   m_LocalScale: {x: .337500006, y: .512499988, z: 1}
   m_Children: []
   m_Father: {fileID: 841379153}
@@ -32390,7 +32429,7 @@ Transform:
   m_PrefabInternal: {fileID: 940729521}
   m_GameObject: {fileID: 841379152}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.92833281, y: -.248532116, z: 0}
+  m_LocalPosition: {x: -.785675347, y: -.0590589643, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 437906969}
@@ -33423,7 +33462,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 890575263}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0925235748, y: -.250481606, z: 0}
+  m_LocalPosition: {x: -.170711517, y: -.274538994, z: 0}
   m_LocalScale: {x: 1.40367997, y: 1.40367997, z: 1.40367997}
   m_Children:
   - {fileID: 1018332282}
@@ -35377,8 +35416,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 951470417}
   - 212: {fileID: 951470420}
-  - 65: {fileID: 951470419}
   - 114: {fileID: 951470418}
+  - 61: {fileID: 951470419}
   m_Layer: 0
   m_Name: MetalFile
   m_TagString: Untagged
@@ -35408,18 +35447,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa286ab6e728466e85f6cbdc9e56e20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &951470419
-BoxCollider:
+  movePoint: {x: 12.0742416, y: -1.31556606, z: 0}
+--- !u!61 &951470419
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 951470416}
+  m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: .0659999996, y: .0759999976, z: .200000003}
-  m_Center: {x: 0, y: 1.1920929e-07, z: 0}
+  m_Size: {x: .0659999996, y: .0759999976}
+  m_Center: {x: 0, y: 1.1920929e-07}
 --- !u!212 &951470420
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -36174,6 +36213,7 @@ MonoBehaviour:
   ladder: {fileID: 1463569502}
   fishingPos: {fileID: 1479761618}
   fixingPos: {fileID: 1321262812}
+  movePoint: {fileID: 778232225}
 --- !u!61 &982695591
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37647,6 +37687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80b4ba75db7844936addb9b2d7636054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: -11.0716448, y: -12.7577515, z: 0}
   sewerDude: {fileID: 982695590}
   wantsHoney: 0
   wantsRadio: 0
@@ -41198,6 +41239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6de28ab45fff04bdea45a9bada7eeaaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: 12.2271318, y: -1.32070947, z: 0}
   exitDoor: {fileID: 1897823976}
   firstTime: 1
   atScreens: 0
@@ -41467,12 +41509,13 @@ Transform:
   m_LocalScale: {x: 1.40367997, y: 1.40367997, z: 1.40367997}
   m_Children:
   - {fileID: 512950117}
+  - {fileID: 1235604187}
+  - {fileID: 778232225}
   - {fileID: 982695589}
   - {fileID: 618148818}
   - {fileID: 1370794663}
   - {fileID: 598812095}
   - {fileID: 1463569502}
-  - {fileID: 1235604187}
   m_Father: {fileID: 1829813682}
 --- !u!1 &1082053656
 GameObject:
@@ -41514,8 +41557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f674413cc29634390b32f2c0f55cbb11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: -17.2427349, y: -12.7190323, z: 0}
   itemName: cheese
-  point: {fileID: 0}
 --- !u!61 &1082053659
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41668,7 +41711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f8ad1617617945db9bd3ca599110e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movePoint: {x: 0, y: 0, z: 0}
+  movePoint: {x: -16.2525253, y: -12.7079611, z: 0}
   zoomView: {fileID: 1796117075}
 --- !u!61 &1087872613
 BoxCollider2D:
@@ -49203,7 +49246,7 @@ Transform:
   m_PrefabInternal: {fileID: 508331217}
   m_GameObject: {fileID: 1333868172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.9733028, y: -1.32219815, z: 0}
+  m_LocalPosition: {x: -1.50901294, y: -1.46169949, z: 0}
   m_LocalScale: {x: 1.55294144, y: 1.55294144, z: 1.55294144}
   m_Children:
   - {fileID: 1092221449}
@@ -50218,8 +50261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f674413cc29634390b32f2c0f55cbb11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: 0, y: 0, z: 0}
   itemName: fishing_rod
-  point: {fileID: 0}
 --- !u!1 &1368500006
 GameObject:
   m_ObjectHideFlags: 0
@@ -52717,7 +52760,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -.0932545662
+      value: -.0932542607
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
       propertyPath: m_LocalScale.y
@@ -52830,6 +52873,14 @@ Prefab:
     - target: {fileID: 100004, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
+      propertyPath: movePoint.x
+      value: 2.95779181
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
+      propertyPath: movePoint.y
+      value: -4.9295907
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
@@ -52957,7 +53008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 0}
   levelName: LevelOne
-  startRoom: {fileID: 1242774106}
+  startRoom: {fileID: 729043436}
 --- !u!4 &1450852183
 Transform:
   m_ObjectHideFlags: 0
@@ -53124,7 +53175,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookingForCode: 0
   knowBatCode: 0
-  needCafeDistraction: 0
   seenWhale: 0
   needBattery: 0
 --- !u!114 &1450852186
@@ -54352,8 +54402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f674413cc29634390b32f2c0f55cbb11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: 0, y: 0, z: 0}
   itemName: ladder
-  point: {fileID: 0}
 --- !u!1 &1464172274
 GameObject:
   m_ObjectHideFlags: 0
@@ -56125,7 +56175,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1538976657}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0203475952, y: .020029068, z: 0}
+  m_LocalPosition: {x: .0203469731, y: .0200290103, z: 0}
   m_LocalScale: {x: .320366442, y: .577980638, z: 1.34100354}
   m_Children: []
   m_Father: {fileID: 1822168405}
@@ -56140,6 +56190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1848c0a87e5244351a89578da56ba9a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: -21.4162731, y: -12.6941223, z: 0}
   wantsWine: 0
   knowsMilitary: 0
   hoarder: {fileID: 1009889897}
@@ -56252,6 +56303,22 @@ Prefab:
     - target: {fileID: 21200000, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.433110714
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .0790628195
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
+      propertyPath: movePoint.x
+      value: -19.9309921
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
+      propertyPath: movePoint.y
+      value: -3.2517066
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b596477537a641beb4fd68e924a4ef0, type: 2}
@@ -61609,8 +61676,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f674413cc29634390b32f2c0f55cbb11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: 13.038166, y: -1.41507804, z: 0}
   itemName: wire_cutter
-  point: {fileID: 0}
 --- !u!61 &1734945830
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65660,8 +65727,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b74900d596df346deab8cdbac2295499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: -9.30544853, y: -8.55063629, z: 0}
   zoomView: {fileID: 2032055027}
-  moveTo: {fileID: 440279863}
   broken: 0
 --- !u!61 &1829670413
 BoxCollider2D:
@@ -71584,6 +71651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6116b7c8f582e47bf920829e4a22f955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: -1.29262853, y: -1.39540875, z: 0}
 --- !u!1 &1942106577
 GameObject:
   m_ObjectHideFlags: 0
@@ -72954,7 +73022,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1982417140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.45294523, y: -.325715065, z: 0}
+  m_LocalPosition: {x: -2.45294523, y: -.325715035, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1922574753}
@@ -72983,6 +73051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbbd19e40085b4aafb57af381ed6efb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: -1.22573614, y: -4.80784321, z: 0}
   isOn: 0
 --- !u!1 &1984806255
 GameObject:
@@ -74547,6 +74616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a65270f5b54c947849fc98607a8e684a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: -16.3988495, y: -16.4893398, z: 0}
   bear: {fileID: 1538976659}
   wantsGlasses: 0
   knowShank: 0
@@ -76433,7 +76503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba42efd83aad741d0a64286c27e72714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveTo: {fileID: 1055023210}
+  movePoint: {x: .562230766, y: -8.58038235, z: 0}
 --- !u!114 &2033553536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77130,7 +77200,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2061661891}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0128639508, y: .0244852602, z: 0}
+  m_LocalPosition: {x: .0128644118, y: .0244854148, z: 0}
   m_LocalScale: {x: .403061122, y: .370630115, z: 1.34100354}
   m_Children: []
   m_Father: {fileID: 1525436011}
@@ -77145,6 +77215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe787d54e54154f89b7d62038538a72f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: -16.3134327, y: -12.7484789, z: 0}
   sadguy: {fileID: 515385596}
   wantsSwede: 0
   firstTalk: 0
@@ -77241,7 +77312,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2064739145}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.45238924, y: -.325714588, z: 0}
+  m_LocalPosition: {x: 2.45238924, y: -.325714409, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1863075001}
@@ -77259,6 +77330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbbd19e40085b4aafb57af381ed6efb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: 2.01498437, y: -4.80853558, z: 0}
   isOn: 0
 --- !u!61 &2064739148
 BoxCollider2D:

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Croc : MonoBehaviour {
+public class Croc : Clicker {
   
   private Sprite cursor;
   
@@ -20,28 +20,34 @@ public class Croc : MonoBehaviour {
 
   void OnItemClick() {
     if( wantsGlasses && Game.heldItem.name == "item_glasses" ) {
-      Game.script.UseItem();
-      Game.script.ShowSpeechBubble( "Great. Here, take this bottle, and fill it up with some wine.", transform.parent.Find( "BubTarget" ), 3f );
-      Game.script.AddItem( "empty_bottle" );
-      wantsGlasses = false;
+      Game.player.MoveTo( movePoint, delegate( bool b ) {
+        Game.script.UseItem();
+        Game.script.ShowSpeechBubble( "Great. Here, take this bottle, and fill it up with some wine.", transform.parent.Find( "BubTarget" ), 3f );
+        Game.script.AddItem( "empty_bottle" );
+        wantsGlasses = false;
+      } );
     } 
     
     if( Game.heldItem != null && Game.heldItem.name == "item_icicle" ) {
-      Game.script.UseItem();
-      Game.script.ShowSpeechBubble( "Oh I'm dead! There's no animation, but pretend like I'm dead.", transform.parent.Find( "BubTarget" ), 5f ); 
+      Game.player.MoveTo( movePoint, delegate( bool b ) {
+        Game.script.UseItem();
+        Game.script.ShowSpeechBubble( "Oh I'm dead! There's no animation, but pretend like I'm dead.", transform.parent.Find( "BubTarget" ), 5f ); 
+      } );
     }
     
     if( Game.heldItem != null && Game.heldItem.name == "item_sharpened_spoon" ) {
-      Game.script.UseItem();
-      Game.script.ShowSpeechBubble( "Oh I'm dead! There's no animation, but pretend like I'm dead.", transform.parent.Find( "BubTarget" ), 5f );
+      Game.player.MoveTo( movePoint, delegate( bool b ) {
+        Game.script.UseItem();
+        Game.script.ShowSpeechBubble( "Oh I'm dead! There's no animation, but pretend like I'm dead.", transform.parent.Find( "BubTarget" ), 5f );
+      } );
     }
   }
 
   void OnClick() {
     if( wantsGlasses )
-      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 15 ); } );
+      Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 15 ); } );
     else
-      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
+      Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
   }
 
   void OnHover( bool isOver ) {

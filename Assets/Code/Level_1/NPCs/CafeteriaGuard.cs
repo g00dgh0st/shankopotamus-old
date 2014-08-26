@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class CafeteriaGuard : MonoBehaviour {
+public class CafeteriaGuard : Clicker {
     
   private GameObject bub;
   private Sprite cursor;
@@ -22,9 +22,9 @@ public class CafeteriaGuard : MonoBehaviour {
   void OnClick() {
     if( distracted ) return;
     if( GameObject.Find( "item_spoon" ) == null )
-      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0); } );
+      Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0); } );
     else
-      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 10); } );
+      Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 10); } );
   }
 
   void OnHover( bool isOver  ) {

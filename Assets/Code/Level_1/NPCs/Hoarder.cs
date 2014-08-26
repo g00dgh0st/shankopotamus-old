@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Hoarder : MonoBehaviour {
+public class Hoarder : Clicker {
   
   private Sprite cursor;
   private Dialogue dialogue;
@@ -19,27 +19,31 @@ public class Hoarder : MonoBehaviour {
   
   void OnItemClick() {
     if( wantsHoney && Game.heldItem.name == "item_honey" ) {
-      Game.script.UseItem();
-      Game.script.ShowSpeechBubble( "Thanks, man. Here's that Pancake Stew I promised you.", transform.parent.Find( "BubTarget" ), 3f );
-      Game.script.AddItem( "pancake_stew" );
-      wantsHoney = false;
+      Game.player.MoveTo( movePoint, delegate( bool b ) {
+        Game.script.UseItem();
+        Game.script.ShowSpeechBubble( "Thanks, man. Here's that Pancake Stew I promised you.", transform.parent.Find( "BubTarget" ), 3f );
+        Game.script.AddItem( "pancake_stew" );
+        wantsHoney = false;
+      } );
     }
     
     if( wantsRadio && Game.heldItem.name == "item_radio" ) {
-      Game.script.UseItem();
-      Game.script.ShowSpeechBubble( "Aww yeah! Here, take this battery from my wazoo.", transform.parent.Find( "BubTarget" ), 3f );
-      Game.script.AddItem( "battery" );
-      wantsRadio = false;
-      Game.script.GetComponent<Level1>().needBattery = false;
+      Game.player.MoveTo( movePoint, delegate( bool b ) {
+        Game.script.UseItem();
+        Game.script.ShowSpeechBubble( "Aww yeah! Here, take this battery from my wazoo.", transform.parent.Find( "BubTarget" ), 3f );
+        Game.script.AddItem( "battery" );
+        wantsRadio = false;
+        Game.script.GetComponent<Level1>().needBattery = false;
+      } );
     }
   }
 
 
   void OnClick() {
     if( firstTalk )
-      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 11 ); } );
+      Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 11 ); } );
     else
-      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
+      Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
   }
 
   void OnHover( bool isOver ) {

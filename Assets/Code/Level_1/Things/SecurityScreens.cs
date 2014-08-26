@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class SecurityScreens : MonoBehaviour {
+public class SecurityScreens : Clicker {
   
   private Sprite cursor;
   
@@ -44,7 +44,7 @@ public class SecurityScreens : MonoBehaviour {
     if( scrip.firstTime ) {
       Game.GetScript<GuardTowerGuard>().OnClick();
     } else {
-      Game.player.MoveTo( transform.position, delegate( bool b ) { 
+      Game.player.MoveTo( movePoint, delegate( bool b ) { 
         if( camerasOff == 0 ) {
           Game.dialogueManager.StartDialogue( dialogue, 0 );
         } else if( camerasOff == 1 ) {

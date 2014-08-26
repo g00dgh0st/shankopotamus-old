@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Bear : MonoBehaviour {
+public class Bear : Clicker {
   
   private GameObject bub;
   private Sprite cursor;
@@ -21,18 +21,20 @@ public class Bear : MonoBehaviour {
   
   void OnItemClick() {
     if( Game.heldItem.name == "item_wine_bottle" && wantsWine ) {
-      Game.script.UseItem();
-      Game.script.ShowSpeechBubble( "Praise be to Allah. Please, take honey.", transform.parent.Find( "BubTarget" ), 3f );
-      Game.script.AddItem( "honey" );
-      wantsWine = false;
+      Game.player.MoveTo( movePoint, delegate( bool b ) {
+        Game.script.UseItem();
+        Game.script.ShowSpeechBubble( "Praise be to Allah. Please, take honey.", transform.parent.Find( "BubTarget" ), 3f );
+        Game.script.AddItem( "honey" );
+        wantsWine = false;
+      } );
     }
   }
 
   void OnClick() {
     if( wantsWine )
-      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 17 ); } );
+      Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 17 ); } );
     else
-      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
+      Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
   }
 
   void OnHover( bool isOver ) {

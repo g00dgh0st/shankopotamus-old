@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class FlushHandle : MonoBehaviour {
+public class FlushHandle : Clicker {
   
   private Sprite cursor;
   

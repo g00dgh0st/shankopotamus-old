@@ -1,11 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
-public class FuseBox : MonoBehaviour {
+public class FuseBox : Clicker {
   public GameObject zoomView;
   private Sprite cursor;
-  
-  public Transform moveTo;
   
   private bool open = false;
   
@@ -18,8 +16,7 @@ public class FuseBox : MonoBehaviour {
 
   void OnItemClick() {
     if( Game.heldItem.name == "item_fuse_box_key" && !open ) {
-      Transform pos = moveTo == null ? transform : moveTo;
-      Game.player.MoveTo( pos.position, delegate( bool b ) {
+      Game.player.MoveTo( movePoint, delegate( bool b ) {
         Game.script.UseItem();
         transform.parent.Find( "closed" ).gameObject.SetActive( false );
         transform.parent.Find( "open" ).gameObject.SetActive( true );
@@ -31,8 +28,7 @@ public class FuseBox : MonoBehaviour {
   
   void OnClick() {
     if( open ) {
-      Transform pos = moveTo == null ? transform : moveTo;
-      Game.player.MoveTo( pos.position, delegate( bool b ) {
+      Game.player.MoveTo( movePoint, delegate( bool b ) {
         zoomView.SetActive( true );
         Game.cookies.Add( "zoomed", true );
         Game.ZoomIn();

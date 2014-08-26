@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class WineToilet : MonoBehaviour {
+public class WineToilet : Clicker {
   private Sprite cursor;
   
   void Start() {
@@ -10,13 +10,17 @@ public class WineToilet : MonoBehaviour {
 
   void OnItemClick() {
     if( Game.heldItem.name == "item_empty_bottle" ) {
-      Game.script.UseItem();
-      Game.script.AddItem( "wine_bottle" );
+      Game.player.MoveTo( movePoint, delegate( bool b ) {
+        Game.script.UseItem();
+        Game.script.AddItem( "wine_bottle" );
+      } );
     }
   }
   
   void OnClick() {
-    Game.script.ShowSpeechBubble( "Looks like the toilet is filled with what looks like wine.", Game.player.transform.Find( "BubTarget" ), 3f );
+    Game.player.MoveTo( movePoint, delegate( bool b ) {
+      Game.script.ShowSpeechBubble( "Looks like the toilet is filled with what looks like wine.", Game.player.transform.Find( "BubTarget" ), 3f );
+    } );
   }
   
   void OnHover( bool isOver ) {

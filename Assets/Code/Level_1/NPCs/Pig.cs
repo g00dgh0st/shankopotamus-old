@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Pig : MonoBehaviour {
+public class Pig : Clicker {
   
   private Sprite cursor;
   
@@ -20,22 +20,24 @@ public class Pig : MonoBehaviour {
   
   void OnItemClick() {
     if( Game.heldItem.name == "item_action_swede" && wantsSwede ) {
-      Game.script.UseItem();
-      Game.script.ShowSpeechBubble( "Thanks! Here, take my hat.", transform.parent.Find( "BubTarget" ), 3f );
-      Game.script.AddItem( "hat" );
-      transform.parent.Find( "pig_hat" ).gameObject.SetActive( false );
-      wantsSwede = false;
+      Game.player.MoveTo( movePoint, delegate( bool b ) {
+        Game.script.UseItem();
+        Game.script.ShowSpeechBubble( "Thanks! Here, take my hat.", transform.parent.Find( "BubTarget" ), 3f );
+        Game.script.AddItem( "hat" );
+        transform.parent.Find( "pig_hat" ).gameObject.SetActive( false );
+        wantsSwede = false;
+      } );
     }
   }
 
 
   void OnClick() {
     if( firstTalk && !wantsSwede )
-      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 3 ); } );
+      Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 3 ); } );
     else if( wantsSwede )
-      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 17 ); } );
+      Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 17 ); } );
       else
-      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
+      Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
   }
 
   void OnHover( bool isOver ) {

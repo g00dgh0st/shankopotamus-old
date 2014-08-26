@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class SpoonPickup : MonoBehaviour {
+public class SpoonPickup : Clicker {
   
   private Sprite cursor;
   
@@ -10,7 +10,7 @@ public class SpoonPickup : MonoBehaviour {
   }
   
   void OnClick() {
-    Game.player.MoveTo( transform.position, delegate( bool b ) { 
+    Game.player.MoveTo( movePoint, delegate( bool b ) { 
       
       CafeteriaGuard scrip = Game.GetScript<CafeteriaGuard>();
       

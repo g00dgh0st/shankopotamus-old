@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Whale : MonoBehaviour {
+public class Whale : Clicker {
 
-  public Transform moveTo;
-  
   private Sprite cursor;
   
   void Start() {
@@ -35,7 +33,7 @@ public class Whale : MonoBehaviour {
   }
   
   void OnClick() {
-    Game.player.MoveTo( moveTo.position, delegate( bool b ) { Game.script.ShowSpeechBubble( "This whale is blocking the path. \nMaybe if I could flush something really big through the sewers...", Game.player.transform.Find( "BubTarget" ), 5f ); } );
+    Game.player.MoveTo( movePoint, delegate( bool b ) { Game.script.ShowSpeechBubble( "This whale is blocking the path. \nMaybe if I could flush something really big through the sewers...", Game.player.transform.Find( "BubTarget" ), 5f ); } );
   }
   
   void OnTriggerEnter2D( Collider2D collider ) {

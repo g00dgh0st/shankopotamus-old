@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class SadGuy : MonoBehaviour {
+public class SadGuy : Clicker {
   
   private Sprite cursor;
   
@@ -25,11 +25,13 @@ public class SadGuy : MonoBehaviour {
   
   void OnItemClick() {
     if( Game.heldItem.name == "item_hat" && wantsHat ) {
-      Game.script.UseItem();
-      Game.script.ShowSpeechBubble( "Why, thank you! Here, take my glasses. My head shall never be cold again!", transform.parent.Find( "BubTarget" ), 3f );
-      Game.script.AddItem( "glasses" );
-      transform.parent.Find( "pig_hat" ).gameObject.SetActive( true );
-      wantsHat = false;
+      Game.player.MoveTo( movePoint, delegate( bool b ) {
+        Game.script.UseItem();
+        Game.script.ShowSpeechBubble( "Why, thank you! Here, take my glasses. My head shall never be cold again!", transform.parent.Find( "BubTarget" ), 3f );
+        Game.script.AddItem( "glasses" );
+        transform.parent.Find( "pig_hat" ).gameObject.SetActive( true );
+        wantsHat = false;
+      } );
     }
   }
 
@@ -37,11 +39,11 @@ public class SadGuy : MonoBehaviour {
   void OnClick() {
     if( hasChicken ) {
       if( talkedOnce )
-        Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 4 ); } );
+        Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 4 ); } );
       else
-        Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
+        Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
     } else
-      Game.player.MoveTo( transform.position, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 6 ); } );
+      Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 6 ); } );
   }
 
   void OnHover( bool isOver ) {

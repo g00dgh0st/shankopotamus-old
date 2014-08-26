@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class DietCola : MonoBehaviour {
+public class DietCola : Clicker {
   
   private Sprite cursor;
   
@@ -10,7 +10,7 @@ public class DietCola : MonoBehaviour {
   }
   
   void OnClick() {
-    Game.player.MoveTo( transform.position, delegate( bool b ) { 
+    Game.player.MoveTo( movePoint, delegate( bool b ) { 
     
       GuardTowerGuard scrip = Game.GetScript<GuardTowerGuard>();
     

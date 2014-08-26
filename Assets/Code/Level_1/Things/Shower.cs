@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Shower : MonoBehaviour {
+public class Shower : Clicker {
   
   private Sprite cursor;
   public bool isOn = false;
@@ -11,7 +11,7 @@ public class Shower : MonoBehaviour {
   }
   
   void OnClick() {
-    Game.player.MoveTo( transform.position, delegate( bool b ) {
+    Game.player.MoveTo( movePoint, delegate( bool b ) {
       if( !isOn ) {
         transform.Find( "sparks" ).gameObject.SetActive( true );
         transform.Find( "steam" ).gameObject.SetActive( true );
