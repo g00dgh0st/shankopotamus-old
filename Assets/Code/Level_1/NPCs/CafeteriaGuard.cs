@@ -9,7 +9,7 @@ public class CafeteriaGuard : MonoBehaviour {
   private Dialogue dialogue;
   
   private bool moving = false;
-  private bool distracted = false;
+  public bool distracted = false;
   
   public ToughGuy tough;
   
@@ -36,11 +36,10 @@ public class CafeteriaGuard : MonoBehaviour {
       transform.parent.position = new Vector3( transform.parent.position.x - 0.01f, transform.parent.position.y, -3 );
       if( transform.parent.position.x < transform.position.x ) moving = false;
     }
-    
-    if( !distracted && GameObject.Find( "item_spoon" ) && Game.player.transform.position.x > 2.74f && Game.player.InMotion() && Game.player.gameObject.GetComponent<PolyNavAgent>().movingDirection.x > 0 ) {
-      Game.player.StopMove( true );
-      Game.dialogueManager.StartDialogue( dialogue, 10 );
-    }
+  }
+  
+  public void StopSpoon() {
+    Game.dialogueManager.StartDialogue( dialogue, 10 );
   }
   
   public IEnumerator Distraction() {
@@ -64,7 +63,7 @@ public class CafeteriaGuard : MonoBehaviour {
       new Step( camTarget, "Don't touch me.",
         new Option[] {
           new Option( "I didn't touch you.", 1 ),
-          new Option( "Would you mind leaving for a few minutes?", 3, delegate() { return Game.script.GetComponent<Level1>().needCafeDistraction; } ),
+          new Option( "Would you mind leaving for a few minutes?", 3, delegate() { return tough.needDistract; } ),
           new Option( "Sorry.", -1 )
         }
       ),
@@ -113,11 +112,10 @@ public class CafeteriaGuard : MonoBehaviour {
       // 9
       new Step( camTarget, "I had a weird childhood." ),
       // 10
-      new Step( camTarget, "Where do you think you're going with that spoon? Put it back where you got it!", 
+      new Step( camTarget, "Don't touch that spoon, maggot!", 
         delegate() {
           tough.needDistract = true;
           Game.dialogueManager.StopDialogue();
-          Game.script.GetComponent<Level1>().needCafeDistraction = true;
       }, true ),
     } );
   }  

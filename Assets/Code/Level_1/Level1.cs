@@ -7,7 +7,6 @@ public class Level1 : MonoBehaviour {
   
   public bool lookingForCode = false;
   public bool knowBatCode = false;
-  public bool needCafeDistraction = false;
   public bool seenWhale = false;
   public bool needBattery = false;
 

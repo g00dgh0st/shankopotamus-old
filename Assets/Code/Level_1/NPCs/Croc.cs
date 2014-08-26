@@ -30,6 +30,11 @@ public class Croc : MonoBehaviour {
       Game.script.UseItem();
       Game.script.ShowSpeechBubble( "Oh I'm dead! There's no animation, but pretend like I'm dead.", transform.parent.Find( "BubTarget" ), 5f ); 
     }
+    
+    if( Game.heldItem != null && Game.heldItem.name == "item_sharpened_spoon" ) {
+      Game.script.UseItem();
+      Game.script.ShowSpeechBubble( "Oh I'm dead! There's no animation, but pretend like I'm dead.", transform.parent.Find( "BubTarget" ), 5f );
+    }
   }
 
   void OnClick() {
