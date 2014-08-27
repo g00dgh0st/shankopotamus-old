@@ -175,7 +175,7 @@ public class Hoarder : Clicker {
         }
       ),
       // 13
-      new Step( camTarget, "Whatch think this is? A charity? You gotta trade me something for it.", 
+      new Step( camTarget, "Whatchu think this is? A charity? You gotta trade me something for it.", 
         new Option[] {
           new Option( "What do you need?", 14 ),
           new Option( "I have another question.", 11 ),

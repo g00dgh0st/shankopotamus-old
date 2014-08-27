@@ -27,7 +27,6 @@ public class SecurityCamera : Clicker {
     if( Game.heldItem.name == "item_wire_cutter" && !broked ) {
       Game.player.MoveTo( movePoint, delegate( bool b ) { 
       
-        Debug.Log( "Cut wire" );
         transform.parent.Find( "Wire" ).gameObject.SetActive( false );
         transform.parent.Find( "BrokeWire" ).gameObject.SetActive( true );
       

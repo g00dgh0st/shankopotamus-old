@@ -21450,11 +21450,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.50901294
+      value: -11.0008965
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.46169949
+      value: -16.1634121
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: df25b17bb014b4fcf935efefa051b085, type: 2}
       propertyPath: m_LocalPosition.z
@@ -23442,7 +23442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movePoint: {x: -21.5698738, y: -16.5022411, z: 0}
   pig: {fileID: 2061661893}
-  cook: {fileID: 0}
+  cook: {fileID: 1547870465}
   admittedFigure: 0
   admittedDoesntHave: 0
   askedCode: 0
@@ -49246,7 +49246,7 @@ Transform:
   m_PrefabInternal: {fileID: 508331217}
   m_GameObject: {fileID: 1333868172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.50901294, y: -1.46169949, z: 0}
+  m_LocalPosition: {x: -11.0008965, y: -16.1634121, z: 0}
   m_LocalScale: {x: 1.55294144, y: 1.55294144, z: 1.55294144}
   m_Children:
   - {fileID: 1092221449}
@@ -50235,7 +50235,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1360302010}
   m_LocalRotation: {x: 0, y: 0, z: .196626753, w: .980478406}
-  m_LocalPosition: {x: .302091599, y: .207462788, z: 0}
+  m_LocalPosition: {x: .302091628, y: .207462803, z: 0}
   m_LocalScale: {x: .731805325, y: .148493782, z: 1}
   m_Children: []
   m_Father: {fileID: 1370794663}
@@ -50261,7 +50261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f674413cc29634390b32f2c0f55cbb11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movePoint: {x: 0, y: 0, z: 0}
+  movePoint: {x: -18.6892033, y: -8.53442383, z: 0}
   itemName: fishing_rod
 --- !u!1 &1368500006
 GameObject:
@@ -53008,7 +53008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 0}
   levelName: LevelOne
-  startRoom: {fileID: 729043436}
+  startRoom: {fileID: 1239921773}
 --- !u!4 &1450852183
 Transform:
   m_ObjectHideFlags: 0
@@ -54402,7 +54402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f674413cc29634390b32f2c0f55cbb11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movePoint: {x: 0, y: 0, z: 0}
+  movePoint: {x: -19.7068462, y: -8.53533459, z: 0}
   itemName: ladder
 --- !u!1 &1464172274
 GameObject:
