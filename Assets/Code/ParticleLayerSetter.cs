@@ -5,10 +5,9 @@ public class ParticleLayerSetter : MonoBehaviour {
 
   public int layer = 10;
 
-  void Start ()
-  {
+  void Start () {
     // Set the sorting layer of the particle system.
-    particleSystem.renderer.sortingLayerName = "Foreground";
+    particleSystem.renderer.sortingLayerName = "Main";
     particleSystem.renderer.sortingOrder = layer;
   }
 }

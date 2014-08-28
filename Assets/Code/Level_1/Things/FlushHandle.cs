@@ -7,18 +7,34 @@ public class FlushHandle : Clicker {
   
   public bool isPowered = false;
   
+  public ParticleSystem small;
+  public ParticleSystem big;
+  
   void Start() {
     cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
   }
   
   void OnClick() {
     if( !isPowered ) {
-      Debug.Log( "normal flush" );
+      Game.script.ShowSpeechBubble( "Careful, don't get sucked in.", GameObject.Find( "Pig" ).transform.Find( "BubTarget" ), 3f );
+      small.Play();
     } else {
-      Debug.Log( "suck in pig" );
-      Destroy( GameObject.Find( "Pig" ) );
-      Game.cookies.Add( "pigInSewer", true );
+      big.Play();
+      
+      StartCoroutine( SuckInPig() );
     }
+  }
+  
+  IEnumerator SuckInPig() {
+    Transform pig = GameObject.Find( "Pig" ).transform;
+    Game.script.ShowSpeechBubble( "Ahhh!", pig.Find( "BubTarget" ), 1.5f );
+    
+    while( pig.localPosition.x < 0.45821f ) {
+      pig.position = new Vector3( pig.position.x + 0.05f, pig.position.y, pig.position.z );
+      yield return null;
+    }
+    Destroy( GameObject.Find( "Pig" ) );
+    Game.cookies.Add( "pigInSewer", true );
   }
 
   

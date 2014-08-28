@@ -28,7 +28,9 @@ public class Ham : MonoBehaviour {
   
   public IEnumerator GetHam() {
     
-    Game.player.transform.position = new Vector3( Game.player.transform.position.x, Game.player.transform.position.y + 0.25f, Game.player.transform.position.z );
+    Game.player.PauseNav();
+    
+    Game.player.transform.position = new Vector3( Game.player.transform.position.x, Game.player.transform.position.y + 0.1f, Game.player.transform.position.z );
     
     yield return new WaitForSeconds( 0.5f );
 
@@ -37,7 +39,9 @@ public class Ham : MonoBehaviour {
     
     yield return new WaitForSeconds( 0.5f );
 
-    Game.player.transform.position = new Vector3( Game.player.transform.position.x, Game.player.transform.position.y - 0.25f, Game.player.transform.position.z );
+    Game.player.transform.position = new Vector3( Game.player.transform.position.x, Game.player.transform.position.y - 0.1f, Game.player.transform.position.z );
+    
+    Game.player.ResumeNav();
     
     Game.ResumeClicks();
     

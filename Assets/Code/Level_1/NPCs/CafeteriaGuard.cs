@@ -11,6 +11,8 @@ public class CafeteriaGuard : Clicker {
   private bool moving = false;
   public bool distracted = false;
   
+  public Transform distract;
+  
   public ToughGuy tough;
   
   void Start() {
@@ -33,8 +35,8 @@ public class CafeteriaGuard : Clicker {
   
   void Update() {
     if( moving ) {
-      transform.parent.position = new Vector3( transform.parent.position.x - 0.01f, transform.parent.position.y, -3 );
-      if( transform.parent.position.x < transform.position.x ) moving = false;
+      transform.parent.position = new Vector3( transform.parent.position.x + 0.01f, transform.parent.position.y, -3 );
+      if( transform.parent.position.x > distract.position.x ) moving = false;
     }
   }
   
@@ -45,6 +47,7 @@ public class CafeteriaGuard : Clicker {
   public IEnumerator Distraction() {
     yield return new WaitForSeconds( 1f );
     Game.script.ShowSpeechBubble( "Hey! Are you bastards lighting each other on fire again?", transform.parent.Find( "BubTarget" ), 5f );
+    transform.parent.localScale = new Vector3( -1f, 1f, 1f );
     moving = true;
     distracted = true;
     yield return new WaitForSeconds( 5f );

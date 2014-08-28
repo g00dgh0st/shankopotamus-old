@@ -66,6 +66,14 @@ public class Player : MonoBehaviour {
 		return gameObject.GetComponent<PolyNavAgent>().hasPath;
   }
   
+  public void PauseNav() {
+    gameObject.GetComponent<PolyNavAgent>().paused = true;
+  }
+
+  public void ResumeNav() {
+    gameObject.GetComponent<PolyNavAgent>().paused = false;
+  }
+  
   public void FaceTarget( Vector3 target ) {
     if( ( target.x > transform.position.x && transform.localScale.x < 0 ) || ( target.x < transform.position.x && transform.localScale.x > 0 ) ) {
       transform.localScale = new Vector3( -1 * transform.localScale.x, transform.localScale.y, transform.localScale.z );

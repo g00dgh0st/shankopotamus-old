@@ -6,7 +6,7 @@ public class ZoomClicker : Clicker {
   private Sprite cursor;
   
   void Awake() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_eye" );
+    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
   }
   
   void OnClick() {

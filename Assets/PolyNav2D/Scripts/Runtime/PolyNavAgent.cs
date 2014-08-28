@@ -25,6 +25,8 @@ public class PolyNavAgent : MonoBehaviour{
 	private Vector2 _primeGoal        = Vector2.zero;
 	private Transform _transform;
 	private Action<bool> reachedCallback;
+  
+  public bool paused = false;
 
 	public static int totalAgents;
 
@@ -355,6 +357,7 @@ public class PolyNavAgent : MonoBehaviour{
 
 	//keep agent within valid area
 	private void Restrict(){
+    if( paused ) return;
 
 		if (!polyNav.PointIsValid(agentPosition))
 			agentPosition = polyNav.GetCloserEdgePoint(agentPosition);

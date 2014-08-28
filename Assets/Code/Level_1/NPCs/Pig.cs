@@ -30,7 +30,6 @@ public class Pig : Clicker {
     }
   }
 
-
   void OnClick() {
     if( firstTalk && !wantsSwede )
       Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 3 ); } );
@@ -129,7 +128,7 @@ public class Pig : Clicker {
         }
       ),
       // 10
-      new Step( camTarget, "Yup. It's a Big Ass™ toilet. It uses nuc...mlear power to flush my Big Ass™ dumps.", 
+      new Step( camTarget, "Yup. It's a Big Ass™ toilet. It uses nuc...mlear power to flush my Big Ass™ dumps. It uses some kinda wormhole technology.", 
         new Option[] {
           new Option( "Isn't that kind of dangerous?", 11 ),
           new Option( "Maybe you should try a diet.", 12 )

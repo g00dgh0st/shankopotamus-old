@@ -20,7 +20,6 @@ public class FuseBox : Clicker {
         Game.script.UseItem();
         transform.parent.Find( "closed" ).gameObject.SetActive( false );
         transform.parent.Find( "open" ).gameObject.SetActive( true );
-        cursor = Resources.Load<Sprite>( "Cursors/cursor_eye" );
         open = true;
       } );
     }

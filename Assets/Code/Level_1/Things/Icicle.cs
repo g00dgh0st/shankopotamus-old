@@ -28,7 +28,9 @@ public class Icicle : MonoBehaviour {
   
   public IEnumerator GetHam() {
     
-    Game.player.transform.position = new Vector3( Game.player.transform.position.x, Game.player.transform.position.y + 0.25f, Game.player.transform.position.z );
+    Game.player.PauseNav();
+    
+    Game.player.transform.position = new Vector3( Game.player.transform.position.x, Game.player.transform.position.y + 0.15f, Game.player.transform.position.z );
     
     yield return new WaitForSeconds( 0.5f );
 
@@ -39,10 +41,12 @@ public class Icicle : MonoBehaviour {
     
     yield return new WaitForSeconds( 0.5f );
 
-    Game.player.transform.position = new Vector3( Game.player.transform.position.x, Game.player.transform.position.y - 0.25f, Game.player.transform.position.z );
+    Game.player.transform.position = new Vector3( Game.player.transform.position.x, Game.player.transform.position.y - 0.15f, Game.player.transform.position.z );
+    
+    Game.player.ResumeNav();
     
     Game.ResumeClicks();
     
-    Destroy( gameObject );
+    gameObject.GetComponent<BoxCollider2D>().enabled = false;
   }
 }

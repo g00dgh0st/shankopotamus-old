@@ -20,6 +20,10 @@ public class GuardTowerGuard : Clicker {
   }
 
   public void OnClick() {
+    if( atScreens ) {
+      Game.script.ShowSpeechBubble( "Dont't touch me, I'm busy.", transform.parent.Find( "BubTarget" ), 2f );
+      return;
+    }
     if( firstTime )
       Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
     else
