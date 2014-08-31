@@ -6,13 +6,15 @@ public class Player : MonoBehaviour {
   
   public Animation anim;
   
+  private bool interacting = false;
+  
   public void Start() {
     anim = transform.Find( "Shanko" ).gameObject.GetComponent<Animation>();
   }
 
 	public void Update() {
     if( InMotion() ) {
-      anim.Play( "walk" );
+      if( !interacting ) anim.CrossFade( "walk" );
       GetComponent<LayerSetter>().SetOrder( Game.currentRoom.GetComponent<Room>().GetNewOrder( transform.position ) );
       if( ( transform.localScale.x > 0 && Direction() < 0 ) || ( transform.localScale.x < 0 && Direction() > 0 ) ) {
         transform.localScale = new Vector3( -1 * transform.localScale.x, transform.localScale.y, transform.localScale.z );
@@ -21,8 +23,8 @@ public class Player : MonoBehaviour {
           Game.ReverseNormals( filter.mesh );
         }
       }
-    } else if( anim.IsPlaying( "walk" ) ) {
-      anim.Play( "static" ); // switch to idle
+    } else if( !interacting ) {
+      anim.CrossFade( "static" ); // switch to idle
     } 
   }
   
@@ -80,19 +82,20 @@ public class Player : MonoBehaviour {
   
   /// INTERACTION STUFFFF
   public void Interact( String animation, Action callback ) {
+    interacting = true;
     switch( animation ) {
       case "press":
-        anim.Play( "press" );
+        anim.CrossFade( "press" );
         break;
       case "take_high":
-        anim.Play( "take_high" );
+        anim.CrossFade( "take_high" );
         break;
       case "take_low":
-        anim.Play( "take_low" );
+        anim.CrossFade( "take_low" );
         break;
       case "take":
       default:
-        anim.Play( "take" );
+        anim.CrossFade( "take" );
         break;
     }
     StartCoroutine( InterationThing( callback ) );
@@ -101,5 +104,6 @@ public class Player : MonoBehaviour {
   IEnumerator InterationThing( Action callback ) {
     yield return new WaitForSeconds( 0.8f );
     callback();
+    interacting = false;
   }
 }
