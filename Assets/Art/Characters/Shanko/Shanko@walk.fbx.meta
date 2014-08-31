@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 137c178695b2f4a8fbe163045eea12c8
+guid: 719c3aea83a9141fea42bfa2eab6ec60
 ModelImporter:
   serializedVersion: 15
   fileIDToRecycleName:
@@ -223,10 +223,6 @@ ModelImporter:
     2300050: Shanko_Rig:hand_R_relaxed_geo
     2300052: Shanko_Rig:head_back_geo
     2300054: Shanko_Rig:head_mouth_geo
-    2300056: Shanko_Rig:arm_L_geo
-    2300058: Shanko_Rig:arm_R_geo
-    2300060: Shanko_Rig:leg_L_geo
-    2300062: Shanko_Rig:leg_R_geo
     3300000: Shanko_Rig:body_geo
     3300002: Shanko_Rig:ear_L_geo
     3300004: Shanko_Rig:ear_R_geo
@@ -255,10 +251,6 @@ ModelImporter:
     3300050: Shanko_Rig:hand_R_relaxed_geo
     3300052: Shanko_Rig:head_back_geo
     3300054: Shanko_Rig:head_mouth_geo
-    3300056: Shanko_Rig:arm_L_geo
-    3300058: Shanko_Rig:arm_R_geo
-    3300060: Shanko_Rig:leg_L_geo
-    3300062: Shanko_Rig:leg_R_geo
     4300000: Shanko_Rig:arm_L_geo
     4300002: Shanko_Rig:arm_R_geo
     4300004: Shanko_Rig:leg_L_geo
@@ -291,7 +283,7 @@ ModelImporter:
     4300058: Shanko_Rig:hand_R_fist_geo
     4300060: Shanko_Rig:hand_R_open_geo
     4300062: Shanko_Rig:hand_R_point_geo
-    7400000: static
+    7400000: walk
     9500000: //RootNode
     11100000: //RootNode
     13700000: Shanko_Rig:arm_L_geo
@@ -314,10 +306,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: static
+      name: walk
       takeName: Take 001
-      firstFrame: .899999976
-      lastFrame: 1
+      firstFrame: 2
+      lastFrame: 31
       wrapMode: 2
       orientationOffsetY: 0
       level: 0

@@ -15,14 +15,21 @@ public class FlushHandle : Clicker {
   }
   
   void OnClick() {
-    if( !isPowered ) {
-      Game.script.ShowSpeechBubble( "Careful, don't get sucked in.", GameObject.Find( "Pig" ).transform.Find( "BubTarget" ), 3f );
-      small.Play();
-    } else {
-      big.Play();
+    Game.player.MoveTo( movePoint, delegate( bool b ) { 
+      Game.player.FaceTarget( transform.position );
       
-      StartCoroutine( SuckInPig() );
-    }
+      if( !isPowered ) {
+        Game.player.Interact( "press", delegate() {
+          Game.script.ShowSpeechBubble( "Careful, don't get sucked in.", GameObject.Find( "Pig" ).transform.Find( "BubTarget" ), 3f );
+          small.Play();
+        } );
+      } else {
+        Game.player.Interact( "press", delegate() {
+          big.Play();
+          StartCoroutine( SuckInPig() );
+        } );
+      }
+    } );
   }
   
   IEnumerator SuckInPig() {

@@ -3,18 +3,16 @@ using System;
 using System.Collections;
 
 public class Player : MonoBehaviour {
-  // public delegate void Callback();
-  // private Callback moveCallback = null;
   
-  // public bool canMove = true;
-  // public float moveSpeed = 0.25f;
+  public Animation anim;
   
   public void Start() {
-    // speed = moveSpeed; // override the Pathfinding speed
+    anim = transform.Find( "Shanko" ).gameObject.GetComponent<Animation>();
   }
 
 	public void Update() {
     if( InMotion() ) {
+      anim.Play( "walk" );
       GetComponent<LayerSetter>().SetOrder( Game.currentRoom.GetComponent<Room>().GetNewOrder( transform.position ) );
       if( ( transform.localScale.x > 0 && Direction() < 0 ) || ( transform.localScale.x < 0 && Direction() > 0 ) ) {
         transform.localScale = new Vector3( -1 * transform.localScale.x, transform.localScale.y, transform.localScale.z );
@@ -23,6 +21,8 @@ public class Player : MonoBehaviour {
           Game.ReverseNormals( filter.mesh );
         }
       }
+    } else if( anim.IsPlaying( "walk" ) ) {
+      anim.Play( "static" ); // switch to idle
     } 
   }
   
@@ -37,21 +37,6 @@ public class Player : MonoBehaviour {
   public void MoveTo( Vector3 dest, Action<bool> c ) {
 		gameObject.GetComponent<PolyNavAgent>().SetDestination(dest, c);
   }
-  // 
-  // public IEnumerator MoveCallback( Vector3 target ) {
-  //   yield return new WaitForSeconds( 0.5f );
-  //   
-  //   while( InMotion() ) {
-  //     yield return null;
-  //   }
-  //   
-  //   FaceTarget( target );
-  // 
-  //   Game.ResumeClicks();
-  //   
-  //   moveCallback();
-  //   moveCallback = null;
-  // }
 
   public void MoveTo( Vector3 dest ) {
 		gameObject.GetComponent<PolyNavAgent>().SetDestination(dest);
@@ -89,5 +74,32 @@ public class Player : MonoBehaviour {
     if( ( target.x > transform.position.x && transform.localScale.x < 0 ) || ( target.x < transform.position.x && transform.localScale.x > 0 ) ) {
       transform.localScale = new Vector3( -1 * transform.localScale.x, transform.localScale.y, transform.localScale.z );
     }
+  }
+  
+  
+  
+  /// INTERACTION STUFFFF
+  public void Interact( String animation, Action callback ) {
+    switch( animation ) {
+      case "press":
+        anim.Play( "press" );
+        break;
+      case "take_high":
+        anim.Play( "take_high" );
+        break;
+      case "take_low":
+        anim.Play( "take_low" );
+        break;
+      case "take":
+      default:
+        anim.Play( "take" );
+        break;
+    }
+    StartCoroutine( InterationThing( callback ) );
+  }
+  
+  IEnumerator InterationThing( Action callback ) {
+    yield return new WaitForSeconds( 0.8f );
+    callback();
   }
 }

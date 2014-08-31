@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Shanko
-  m_Shader: {fileID: 4800000, guid: 6072accf69e1a44a58cdfe67d5fc50a5, type: 3}
+  m_Shader: {fileID: 30, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -17,25 +17,10 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 71a04191ca2e04eb7a30b4b7d292177a, type: 3}
+          m_Texture: {fileID: 2800000, guid: e088ff6f05ca44639b5a0d1f2bd922f0, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _BumpMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-    m_Floats:
-      data:
-        first:
-          name: _Cutoff
-        second: .5
-      data:
-        first:
-          name: PixelSnap
-        second: 0
+    m_Floats: {}
     m_Colors:
       data:
         first:
