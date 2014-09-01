@@ -436,7 +436,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_SortingLayerID: 586977489
   m_Sprite: {fileID: 21300000, guid: 676216e1ae45f4b51a1bb879dd991978, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -27114,6 +27114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
+  pauseScale: 0
   camType: 3
   lookAhead: .5
 --- !u!114 &624754025
@@ -34387,7 +34388,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 845157047}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0189857483, y: .108061194, z: 0}
+  m_LocalPosition: {x: -.0220246315, y: .0898344517, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 397103439}
@@ -39694,8 +39695,8 @@ MonoBehaviour:
     dynamicTrans2: {fileID: 1172704051}
     pos1: {x: -5.89436388, y: -1.50963378}
     pos2: {x: -5.72479296, y: -1.65570796}
-    orderAbove: 0
-    orderBelow: 2
+    orderAbove: 1
+    orderBelow: 3
   - name: Door Overlay
     boundType: 0
     dynamicTrans1: {fileID: 806181974}

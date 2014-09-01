@@ -23,6 +23,7 @@ public class Ham : MonoBehaviour {
   
   public void StartGetHam( bool b ) {
     Game.PauseClicks();
+    Camera.main.GetComponent<CameraControl>().pauseScale = true;
     StartCoroutine( GetHam() );
   }
   
@@ -44,6 +45,8 @@ public class Ham : MonoBehaviour {
     Game.player.ResumeNav();
     
     Game.ResumeClicks();
+    
+    Camera.main.GetComponent<CameraControl>().pauseScale = false;
     
     Destroy( gameObject );
   }

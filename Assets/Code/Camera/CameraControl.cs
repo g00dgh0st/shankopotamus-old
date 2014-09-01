@@ -8,6 +8,7 @@ public class CameraControl : MonoBehaviour {
   private float mouseScrollSpeed = 1.5f;
   
   public bool isPaused = false;
+  public bool pauseScale = false;
   
   public Room.CameraType camType = Room.CameraType.FreeScroll;
   
@@ -57,7 +58,7 @@ public class CameraControl : MonoBehaviour {
     
     // handle character scale here if depth
     Room curRoom = Game.currentRoom.GetComponent<Room>();
-    if( curRoom.characterScaleType == Room.ScaleType.Depth ) {
+    if( curRoom.characterScaleType == Room.ScaleType.Depth && !pauseScale ) {
       
       float inter = Mathf.InverseLerp( curRoom.backY, curRoom.frontY, Game.player.transform.position.y );
       float cScale = Mathf.Lerp( curRoom.backScale, curRoom.frontScale, inter );
