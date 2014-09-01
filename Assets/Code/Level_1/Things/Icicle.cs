@@ -11,7 +11,9 @@ public class Icicle : MonoBehaviour {
   
   void OnClick() {
     if( GameObject.Find( "BoxClicker" ).GetComponent<FreezerBox>().currentPos == 2 ) {
-      Game.player.MoveTo( GameObject.Find( "BoxClicker" ).transform.position, StartGetHam );
+      Game.player.MoveTo( GameObject.Find( "BoxClicker" ).transform.position, delegate( bool b ) {
+        StartCoroutine( GetHam() );
+      } );
     } else {
       Game.script.ShowSpeechBubble( "I can't reach that.",  Game.player.transform.Find( "BubTarget" ), 3f );
     }
@@ -21,32 +23,32 @@ public class Icicle : MonoBehaviour {
     Game.CursorHover( isOver, cursor );
   }
   
-  public void StartGetHam( bool b ) {
-    Game.PauseClicks();
-    StartCoroutine( GetHam() );
-  }
-  
   public IEnumerator GetHam() {
-    
+    Game.PauseClicks();
+    Camera.main.GetComponent<CameraControl>().pauseScale = true;
     Game.player.PauseNav();
     
     Game.player.transform.position = new Vector3( Game.player.transform.position.x, Game.player.transform.position.y + 0.15f, Game.player.transform.position.z );
+    yield return new WaitForSeconds( 0.1f );
     
-    yield return new WaitForSeconds( 0.5f );
-
-    Game.script.AddItem( "icicle" );
-    transform.Find( "icicle_whole" ).gameObject.SetActive( false );
-    transform.Find( "icicle_broke" ).gameObject.SetActive( true );
-    gameObject.GetComponent<SpriteRenderer>().enabled = false;
+    Game.player.Interact( "take_high", delegate() {
+      Game.script.AddItem( "icicle" );
+      transform.Find( "icicle_whole" ).gameObject.SetActive( false );
+      transform.Find( "icicle_broke" ).gameObject.SetActive( true );
+      gameObject.GetComponent<SpriteRenderer>().enabled = false;
+    });
     
-    yield return new WaitForSeconds( 0.5f );
-
+    while( Game.player.anim.IsPlaying( "take_high" ) ) {
+      yield return null;
+    }
+    
+    yield return new WaitForSeconds( 0.1f );
     Game.player.transform.position = new Vector3( Game.player.transform.position.x, Game.player.transform.position.y - 0.15f, Game.player.transform.position.z );
     
     Game.player.ResumeNav();
-    
     Game.ResumeClicks();
+    Camera.main.GetComponent<CameraControl>().pauseScale = false;
     
-    gameObject.GetComponent<BoxCollider2D>().enabled = false;
+    Destroy( gameObject );
   }
 }
