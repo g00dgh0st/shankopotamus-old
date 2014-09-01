@@ -4,8 +4,8 @@ using System.Collections;
 public class LayerSetter : MonoBehaviour {
   public enum SortLayer { Background, Main, Foreground };
   
-  public int sortingOrder = 10;
   public SortLayer sortingLayer = SortLayer.Main;
+  public int sortingOrder = 10;
 
   void Start() { 
     Reset();

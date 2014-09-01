@@ -95,7 +95,7 @@ public class Game : MonoBehaviour {
   
   public void HoldItem( GameObject item ) {
     Game.heldItem = item;
-    Game.cursor.GetComponent<CustomCursor>().SetCursor( item.GetComponent<UI2DSprite>().sprite2D );
+    Game.cursor.GetComponent<CustomCursor>().SetItemCursor( item.GetComponent<UI2DSprite>().sprite2D );
     Screen.showCursor = false;
     item.SetActive( false );
   }

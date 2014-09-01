@@ -27,7 +27,7 @@ public class SimpleItemPickup : Clicker {
       };
       
       if( itemHeight == ItemHeight.High ) Game.player.Interact( "take_high", callback );
-      if( itemHeight == ItemHeight.Low ) Game.player.Interact( "take_low", callback );
+      else if( itemHeight == ItemHeight.Low ) Game.player.Interact( "take_low", callback );
       else Game.player.Interact( "take", callback );
     } );
   }

@@ -20,8 +20,9 @@ public class CameraControl : MonoBehaviour {
 	}
   
   public void Reset() {
-    camType = Game.currentRoom.GetComponent<Room>().cameraType;
-    lookAhead = Game.currentRoom.GetComponent<Room>().lookAhead;
+    Room curRoom = Game.currentRoom.GetComponent<Room>();
+    camType = curRoom.cameraType;
+    lookAhead = curRoom.lookAhead;
     Vector3 plPos = playerTrans.position;
     
     switch( camType ) {
@@ -32,20 +33,37 @@ public class CameraControl : MonoBehaviour {
         transform.position = new Vector3( Game.currentRoom.transform.position.x, Game.currentRoom.transform.position.y, transform.position.z );
         break;
       case Room.CameraType.HorizontalScroll:
-        transform.position = new Vector3( plPos.x, Game.currentRoom.GetComponent<Room>().YLock, transform.position.z );
+        transform.position = new Vector3( plPos.x, curRoom.YLock, transform.position.z );
         break;
       case Room.CameraType.VerticalScroll:
-        transform.position = new Vector3( Game.currentRoom.GetComponent<Room>().XLock, plPos.y, transform.position.z );
+        transform.position = new Vector3( curRoom.XLock, plPos.y, transform.position.z );
         break;
       default:
         transform.position = new Vector3( plPos.x, plPos.y, transform.position.z );
         break;
     }
+    
+    // handle character scale here if static
+    if( curRoom.characterScaleType == Room.ScaleType.Static ) {
+      float cScale = curRoom.characterScale;
+      Game.player.transform.localScale = new Vector3( ( Game.player.transform.localScale.x < 0 ? -cScale : cScale ), cScale, cScale );
+    }
+    
   }
 	
 	// Update is called once per frame
 	void Update() {    
     if( isPaused ) return;
+    
+    // handle character scale here if depth
+    Room curRoom = Game.currentRoom.GetComponent<Room>();
+    if( curRoom.characterScaleType == Room.ScaleType.Depth ) {
+      
+      float inter = Mathf.InverseLerp( curRoom.backY, curRoom.frontY, Game.player.transform.position.y );
+      float cScale = Mathf.Lerp( curRoom.backScale, curRoom.frontScale, inter );
+      
+      Game.player.transform.localScale = new Vector3( ( Game.player.transform.localScale.x < 0 ? -cScale : cScale ), cScale, cScale );
+    }
     
     ArrayList sprites = new ArrayList();
     

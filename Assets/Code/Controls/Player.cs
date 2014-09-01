@@ -3,10 +3,11 @@ using System;
 using System.Collections;
 
 public class Player : MonoBehaviour {
-  
+  [HideInInspector]
   public Animation anim;
-  
-  private bool interacting = false;
+
+  [HideInInspector]
+  public bool interacting = false;
   
   public void Start() {
     anim = transform.Find( "Shanko" ).gameObject.GetComponent<Animation>();
@@ -81,7 +82,7 @@ public class Player : MonoBehaviour {
   
   
   /// INTERACTION STUFFFF
-  public void Interact( String animation, Action callback ) {
+  public void Interact( String animation, Action callback, float waitTime ) {
     interacting = true;
     switch( animation ) {
       case "press":
@@ -93,17 +94,33 @@ public class Player : MonoBehaviour {
       case "take_low":
         anim.CrossFade( "take_low" );
         break;
+      case "push_box_start":
+        anim.CrossFade( "push_box_start", 0.01f );
+        break;
+      case "push_box_stop":
+        anim.CrossFade( "push_box_stop", 0.1f );
+        break;
+      case "push_box":
+        anim.CrossFade( "push_box" );
+        break;
       case "take":
       default:
         anim.CrossFade( "take" );
         break;
     }
-    StartCoroutine( InterationThing( callback ) );
+    StartCoroutine( InteractionThing( animation, callback, waitTime ) );
   }
   
-  IEnumerator InterationThing( Action callback ) {
-    yield return new WaitForSeconds( 0.8f );
+  public void Interact( String animation, Action callback ) {
+    Interact( animation, callback, 0.8f );
+  }
+  
+  IEnumerator InteractionThing( String animation, Action callback, float waitTime ) {
+    yield return new WaitForSeconds( waitTime );
     callback();
+    while( anim.IsPlaying( animation ) ) {
+      yield return null;
+    }
     interacting = false;
   }
 }

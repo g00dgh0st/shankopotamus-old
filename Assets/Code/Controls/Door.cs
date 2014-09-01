@@ -51,7 +51,7 @@ public class Door : MonoBehaviour {
   
   void Update() {
     if( isLocked ) return;
-    if( collider2D.OverlapPoint( Game.player.transform.position ) && !Game.clicksPaused && !Door.goingThrough ) OnClick();
+    // if( collider2D.OverlapPoint( Game.player.transform.position ) && !Game.clicksPaused && !Door.goingThrough ) OnClick();
   }
   
   public void OnClick() {
@@ -115,8 +115,6 @@ public class Door : MonoBehaviour {
       
       Camera.main.GetComponent<CameraControl>().Reset();
     
-      float cScale = destRoom.GetComponent<Room>().characterScale;
-      Game.player.transform.localScale = new Vector3( ( Game.player.transform.localScale.x < 0 ? -cScale : cScale ), cScale, cScale );
       Game.ResumeClicks();
       
       Game.player.MoveTo( destination.gameObject.GetComponent<Door>().exitPoint.position, delegate( bool b ) { 
