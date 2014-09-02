@@ -28,8 +28,10 @@ public class Radio : Clicker {
             Game.script.ShowSpeechBubble( "Hey! I can barely see you tryin' to steal my radio!", transform.Find( "BubTarget" ), 3f );
             break;
           case 4:
-            Game.script.AddItem( "radio" );
-            Destroy( gameObject );
+            Game.player.Interact( "take_high", delegate() {
+              Game.script.AddItem( "radio" );
+              Destroy( gameObject );
+            });
             break;
           default:
             Game.script.ShowSpeechBubble( "Hey! I can clearly see you tryin' to steal my radio!", transform.Find( "BubTarget" ), 3f );
