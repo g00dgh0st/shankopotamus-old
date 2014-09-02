@@ -34,7 +34,9 @@ public class FuseBox : Clicker {
         zoomView.transform.position = new Vector3( Camera.main.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z + 5f );
       });
     } else {
-      Game.script.ShowSpeechBubble( "It's locked. Looks like I need a key.", Game.player.transform.Find( "BubTarget" ), 5f );
+      Game.player.MoveTo( movePoint, delegate( bool b ) {
+        Game.script.ShowSpeechBubble( "It's locked. Looks like I need a key.", Game.player.transform.Find( "BubTarget" ), 5f );
+      } );
     }
   }
   

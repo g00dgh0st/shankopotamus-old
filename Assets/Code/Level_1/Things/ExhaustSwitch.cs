@@ -13,7 +13,9 @@ public class ExhaustSwitch : Clicker {
   }
   
   void OnClick() {
-    Game.script.ShowSpeechBubble( "I can't reach it.", Game.player.transform.Find( "BubTarget" ), 3f );
+    Game.player.MoveTo( movePoint, delegate( bool b ) {
+      Game.script.ShowSpeechBubble( "I can't reach it.", Game.player.transform.Find( "BubTarget" ), 3f );
+    } );
   }
   
   void OnItemClick() {
@@ -35,6 +37,8 @@ public class ExhaustSwitch : Clicker {
     transform.Find( "climbingLadder" ).gameObject.SetActive( true );
 
     yield return new WaitForSeconds( 0.5f );
+
+    Game.player.FaceTarget( transform.position );
     
     Game.player.transform.position = new Vector3( Game.player.transform.position.x, Game.player.transform.position.y + 0.5f, Game.player.transform.position.z );
     

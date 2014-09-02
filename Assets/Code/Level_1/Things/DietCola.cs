@@ -19,8 +19,11 @@ public class DietCola : Clicker {
       } else if( !scrip.atScreens && !scrip.firstTime ) {
         scrip.DontTouchBubble();
       } else if( scrip.atScreens ) {
-        Game.script.AddItem( "diet_cola" );
-        Destroy( gameObject );
+        Game.player.Interact( "take", delegate() {
+          Game.player.FaceTarget( transform.position );
+          Game.script.AddItem( "diet_cola" );
+          Destroy( gameObject );
+        });
       }
     } );
   }
