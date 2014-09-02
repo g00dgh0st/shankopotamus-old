@@ -40,7 +40,7 @@ public class FreezerFan : MonoBehaviour {
     }
     
     if( exhaust.goingOut )
-      Game.script.ShowSpeechBubble( "It looks like it's sucking in the warm air.", Game.player.transform.Find( "BubTarget" ), 3f );
+      Game.script.ShowSpeechBubble( "It looks like it's sucking in air.", Game.player.transform.Find( "BubTarget" ), 3f );
     else
       Game.script.ShowSpeechBubble( "It's blowing out some awful smelling air.", Game.player.transform.Find( "BubTarget" ), 3f );
   }

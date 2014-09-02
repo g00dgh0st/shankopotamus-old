@@ -25,7 +25,7 @@ public class Player : MonoBehaviour {
         }
       }
     } else if( !interacting ) {
-      anim.CrossFade( "static" ); // switch to idle
+      anim.CrossFade( "idle", 0.05f );
     } 
   }
   

@@ -36,19 +36,21 @@ public class ExhaustSwitch : Clicker {
 
     yield return new WaitForSeconds( 0.5f );
     
-    Game.player.transform.position = new Vector3( Game.player.transform.position.x, Game.player.transform.position.y + 0.6f, Game.player.transform.position.z );
+    Game.player.transform.position = new Vector3( Game.player.transform.position.x, Game.player.transform.position.y + 0.5f, Game.player.transform.position.z );
     
     yield return new WaitForSeconds( 0.5f );
-
-    goingOut = false;
-    transform.Find( "switch_in" ).gameObject.SetActive( true );
-    transform.Find( "switch_out" ).gameObject.SetActive( false );
-    transform.Find( "wind_in" ).gameObject.SetActive( true );
-    transform.Find( "wind_out" ).gameObject.SetActive( false );
     
-    yield return new WaitForSeconds( 0.5f );
+    Game.player.Interact( "take_high", delegate() {
+      goingOut = false;
+      transform.Find( "switch_in" ).gameObject.SetActive( true );
+      transform.Find( "switch_out" ).gameObject.SetActive( false );
+      transform.Find( "wind_in" ).gameObject.SetActive( true );
+      transform.Find( "wind_out" ).gameObject.SetActive( false );
+    });
+    
+    yield return new WaitForSeconds( 1.8f );
 
-    Game.player.transform.position = new Vector3( Game.player.transform.position.x, Game.player.transform.position.y - 0.6f, Game.player.transform.position.z );
+    Game.player.transform.position = new Vector3( Game.player.transform.position.x, Game.player.transform.position.y - 0.5f, Game.player.transform.position.z );
     
     yield return new WaitForSeconds( 0.5f );
     

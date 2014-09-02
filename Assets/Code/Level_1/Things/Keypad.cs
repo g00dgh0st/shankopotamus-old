@@ -60,7 +60,7 @@ public class Keypad : MonoBehaviour {
       StartCoroutine( HideKeypad() );
     } else if( number == -1 && input.Length > 0 && int.Parse( input ) != solution ) {
       input = "_";
-      string[] texts = new string[] { "NO", "NO", "NO", "NO", "NO", "LOL NO", "HELL NO", "NOPE", "POOP" };
+      string[] texts = new string[] { "NO", "NO", "NO", "LOL NO", "HELL NO", "NOPE", "POOP" };
       switch( texts[Random.Range( 0, texts.Length - 1 )] ) {
         case "NO":
         default:

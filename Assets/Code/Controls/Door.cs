@@ -34,6 +34,7 @@ public class Door : MonoBehaviour {
   }
   
   void OnHover( bool isOver ) {
+    if( Door.goingThrough ) return;
     Game.CursorHover( isOver, cursor );
     
     if( isLocked ) return;

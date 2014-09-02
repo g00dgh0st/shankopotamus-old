@@ -17,8 +17,10 @@ public class SpoonPickup : Clicker {
       if( !scrip.distracted ) {
         scrip.StopSpoon();
       } else {
-        Game.script.AddItem( "spoon" );  
-        Destroy( gameObject );
+        Game.player.Interact( "take", delegate() {
+          Game.script.AddItem( "spoon" );  
+          Destroy( gameObject );
+        });
       }
     } );
   }

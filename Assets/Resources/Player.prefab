@@ -1556,7 +1556,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.0901661, y: -16.5285873, z: 0}
+  m_LocalPosition: {x: -6.22541761, y: -1.52628434, z: 0}
   m_LocalScale: {x: 1.55294144, y: 1.55294144, z: 1.55294144}
   m_Children:
   - {fileID: 400124}
@@ -3598,9 +3598,9 @@ Animation:
   m_GameObject: {fileID: 100196}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 137c178695b2f4a8fbe163045eea12c8, type: 3}
+  m_Animation: {fileID: 7400002, guid: 719c3aea83a9141fea42bfa2eab6ec60, type: 3}
   m_Animations:
-  - {fileID: 7400000, guid: 137c178695b2f4a8fbe163045eea12c8, type: 3}
+  - {fileID: 7400002, guid: 719c3aea83a9141fea42bfa2eab6ec60, type: 3}
   - {fileID: 7400000, guid: 719c3aea83a9141fea42bfa2eab6ec60, type: 3}
   - {fileID: 7400000, guid: 3f43cf5dff66941fc96415bf56404b84, type: 3}
   - {fileID: 7400000, guid: 6252eac3ff2eb41ebb975d4ea9d98147, type: 3}
@@ -3611,6 +3611,7 @@ Animation:
   - {fileID: 7400002, guid: d747941419d3644e88202cea4f74f939, type: 3}
   - {fileID: 7400000, guid: d747941419d3644e88202cea4f74f939, type: 3}
   - {fileID: 7400004, guid: d747941419d3644e88202cea4f74f939, type: 3}
+  - {fileID: 7400000, guid: 137c178695b2f4a8fbe163045eea12c8, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -3627,6 +3628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+  interacting: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3658,8 +3660,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e5824e81d5e43c09b0ca94fa3d9626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortingOrder: -1
   sortingLayer: 1
+  sortingOrder: -1
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
