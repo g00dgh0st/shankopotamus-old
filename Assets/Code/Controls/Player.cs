@@ -17,7 +17,7 @@ public class Player : MonoBehaviour {
     if( InMotion() ) {
       if( !interacting ) anim.CrossFade( "walk" );
       GetComponent<LayerSetter>().SetOrder( Game.currentRoom.GetComponent<Room>().GetNewOrder( transform.position ) );
-      if( ( transform.localScale.x > 0 && Direction() < 0 ) || ( transform.localScale.x < 0 && Direction() > 0 ) ) {
+      if( Direction() != 0 && ( ( transform.localScale.x > 0 && Direction() < 0 ) || ( transform.localScale.x < 0 && Direction() > 0 ) ) ){
         transform.localScale = new Vector3( -1 * transform.localScale.x, transform.localScale.y, transform.localScale.z );
         
         foreach( MeshFilter filter in GetComponentsInChildren<MeshFilter>() ) {
@@ -30,7 +30,8 @@ public class Player : MonoBehaviour {
   }
   
   public int Direction() {
-    return ( gameObject.GetComponent<PolyNavAgent>().movingDirection.x > 0 ? 1 : -1 );
+    float dir = gameObject.GetComponent<PolyNavAgent>().movingDirection.x;
+    return ( dir > 0 ? 1 : ( dir == 0 ? 0 : -1 ) );
   }
   
   public void TeleportTo( Vector3 dest ) {

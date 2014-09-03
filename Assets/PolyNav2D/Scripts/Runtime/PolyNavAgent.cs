@@ -8,7 +8,7 @@ public class PolyNavAgent : MonoBehaviour{
 
 	public float maxSpeed             = 3.5f;
 	public float mass                 = 20;
-	public float stoppingDistance     = 0.1f;
+	public float stoppingDistance     = 4f;
   // public float slowingDistance      = 1;
   // public float decelerationRate     = 2;
 	public bool closerPointOnInvalid  = false;

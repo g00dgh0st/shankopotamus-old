@@ -48,7 +48,6 @@ public class ExhaustSwitch : Clicker {
       goingOut = false;
       transform.Find( "switch_in" ).gameObject.SetActive( true );
       transform.Find( "switch_out" ).gameObject.SetActive( false );
-      transform.Find( "wind_in" ).gameObject.SetActive( true );
       transform.Find( "wind_out" ).gameObject.SetActive( false );
     });
     

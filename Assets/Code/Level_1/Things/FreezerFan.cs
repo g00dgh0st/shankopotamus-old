@@ -19,14 +19,6 @@ public class FreezerFan : MonoBehaviour {
       steaming = false;
       transform.Find( "steam" ).gameObject.SetActive( false );
     }
-    
-    if( exhaust.goingOut ) {
-      transform.Find( "wind_in" ).gameObject.SetActive( true );
-      transform.Find( "wind_out" ).gameObject.SetActive( false );
-    } else {
-      transform.Find( "wind_out" ).gameObject.SetActive( true );
-      transform.Find( "wind_in" ).gameObject.SetActive( false );
-    }
   }
   
   void Start() {
@@ -35,14 +27,18 @@ public class FreezerFan : MonoBehaviour {
   
   void OnClick() {
     if( steaming ) {
+      Game.player.FaceTarget( transform.position );
       Game.script.ShowSpeechBubble( "There's steam blowing out of the fan.", Game.player.transform.Find( "BubTarget" ), 3f );
       return;
     }
     
-    if( exhaust.goingOut )
+    if( exhaust.goingOut ) {
+      Game.player.FaceTarget( transform.position );
       Game.script.ShowSpeechBubble( "It looks like it's sucking in air.", Game.player.transform.Find( "BubTarget" ), 3f );
-    else
+    } else {
+      Game.player.FaceTarget( transform.position );
       Game.script.ShowSpeechBubble( "It's blowing out some awful smelling air.", Game.player.transform.Find( "BubTarget" ), 3f );
+    }
   }
 
   void OnHover( bool isOver ) {
