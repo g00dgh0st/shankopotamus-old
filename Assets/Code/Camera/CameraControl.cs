@@ -103,7 +103,7 @@ public class CameraControl : MonoBehaviour {
 	}
   
   private bool CheckBounds( Bounds roomBounds, Vector3 newPos, Vector3 pos ) {
-    Vector3 offset = new Vector2( Screen.width * 0.25f, Screen.height * 0.25f );
+    Vector3 offset = new Vector2( Screen.width * 0.45f, Screen.height * 0.45f );
     
     Vector3 top = Camera.main.ScreenToWorldPoint( new Vector3( Screen.width / 2f, ( Screen.height / 2f ) + offset.y, 0f ) );
     Vector3 bot = Camera.main.ScreenToWorldPoint( new Vector3( Screen.width / 2f, ( Screen.height / 2f ) - offset.y, 0f ) );

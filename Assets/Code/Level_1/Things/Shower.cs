@@ -15,8 +15,7 @@ public class Shower : Clicker {
       Game.player.Interact( "press", delegate( ) {
         Game.player.FaceTarget( transform.position );
         if( !isOn ) {
-          transform.Find( "sparks" ).gameObject.SetActive( true );
-          transform.Find( "steam" ).gameObject.SetActive( true );
+          transform.Find( "water" ).gameObject.SetActive( true );
           transform.Find( "Showers_Handle" ).localScale = new Vector3( -1.346163f, 1.346163f, 1.346163f );
           isOn = true;
           if( Game.cookies.Contains( "showersOn" ) ) {
@@ -25,8 +24,7 @@ public class Shower : Clicker {
             Game.cookies.Add( "showersOn", 1 );
           }
         } else {
-          transform.Find( "sparks" ).gameObject.SetActive( false );
-          transform.Find( "steam" ).gameObject.SetActive( false );
+          transform.Find( "water" ).gameObject.SetActive( false );
           transform.Find( "Showers_Handle" ).localScale = new Vector3( 1.346163f, 1.346163f, 1.346163f );
           isOn = false;
           if( Game.cookies.Contains( "showersOn" ) && (int)Game.cookies["showersOn"] > 1 ) {
