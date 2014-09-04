@@ -91,11 +91,20 @@ public class Game : MonoBehaviour {
   
   void Update() {
     if( heldItem != null && Input.GetMouseButton( 1 ) ) DropItem();
+    
+    if( Input.GetMouseButtonUp( 1 ) ) {
+      Transform menu = GameObject.Find( "MenuBar" ).transform;
+      Transform outt = GameObject.Find( "menuOut" ).transform;
+      Transform inn = GameObject.Find( "menuIn" ).transform;
+      
+      if( menu.position == outt.position ) menu.position = inn.position;
+      else menu.position = outt.position;
+    }
   }
   
   public void HoldItem( GameObject item ) {
     Game.heldItem = item;
-    Game.cursor.GetComponent<CustomCursor>().SetItemCursor( item.GetComponent<UI2DSprite>().sprite2D );
+    Game.cursor.GetComponent<CustomCursor>().SetItemCursor( item.transform.Find( "Sprite" ).GetComponent<SpriteRenderer>().sprite );
     Screen.showCursor = false;
     item.SetActive( false );
   }
@@ -121,7 +130,7 @@ public class Game : MonoBehaviour {
     
     if( template == null ) return;
     
-    newItem.GetComponent<UI2DSprite>().sprite2D = template.sprite;
+    newItem.transform.Find( "Sprite" ).GetComponent<SpriteRenderer>().sprite = template.sprite;
     
     GameObject inv = GameObject.Find( "Inventory" );
     
@@ -132,9 +141,9 @@ public class Game : MonoBehaviour {
     newItem.GetComponent<ItemClicker>().combos = template.combos;
     
     newItem.transform.parent = inv.transform;
-    newItem.transform.localScale = new Vector3( 1f, 1f, 1f );
-    inv.GetComponent<UIGrid>().Reposition();
-    newItem.transform.localPosition = new Vector3( newItem.transform.localPosition.x, newItem.transform.localPosition.y, 0f );
+    newItem.transform.localScale = new Vector3( 100f, 100f, 1f );
+    inv.GetComponent<UIGrid>().repositionNow = true;
+    // newItem.transform.localPosition = new Vector3( newItem.transform.localPosition.x, newItem.transform.localPosition.y, 0f );
   }
   
   public void RemoveItem( string itemName ) {
@@ -147,6 +156,7 @@ public class Game : MonoBehaviour {
     DropItem();
     RemoveItem( iName );
     Game.heldItem = null;
+    GameObject.Find( "Inventory" ).GetComponent<UIGrid>().repositionNow = true;
   }
 // END ITEM STUFF
   

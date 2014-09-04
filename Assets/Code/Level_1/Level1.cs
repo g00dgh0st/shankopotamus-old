@@ -11,6 +11,8 @@ public class Level1 : MonoBehaviour {
   public bool needBattery = false;
 
   void Start() {
-
+    Game.script.AddItem( "glasses" );
+    Game.script.AddItem( "wine_bottle" );
+    Game.script.AddItem( "ham" );
   }
 }
