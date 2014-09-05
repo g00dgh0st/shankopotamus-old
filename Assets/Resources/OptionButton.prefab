@@ -109,7 +109,7 @@ MonoBehaviour:
   mTrueTypeFont: {fileID: 12800000, guid: 7584e4ba86965466f93860484f3aeab8, type: 3}
   mFont: {fileID: 11400000, guid: 16a2d4ace59bac64dbcf4085964b38eb, type: 2}
   mText: 'fdsfsdfsdfsdf sdf sdffs fsdf sdf sdfsdf sdf sdf sd fsdfsd fsdf sd fsdf '
-  mFontSize: 25
+  mFontSize: 30
   mFontStyle: 0
   mAlignment: 1
   mEncoding: 1
@@ -160,12 +160,12 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mWidth: 762
-  mHeight: 40
+  mHeight: 60
   mDepth: 3
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 19.0499992
+  aspectRatio: 12.6999998
   mAtlas: {fileID: 11400000, guid: f95e07e3d350bf748b0c42b453a69d2e, type: 2}
   mSpriteName: Window
   mType: 1

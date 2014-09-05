@@ -17,6 +17,8 @@ public class DialogueManager : MonoBehaviour {
   }
   
   public void StartDialogue( Dialogue dlg, int idx ) {
+    Game.GetScript<MenuToggle>().CloseMenu();
+    
     inDialogue = true;
     
     Game.PauseClicks();

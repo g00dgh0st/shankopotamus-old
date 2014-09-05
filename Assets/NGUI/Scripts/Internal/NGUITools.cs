@@ -307,6 +307,35 @@ static public class NGUITools
 #endif
 		}
 	}
+  
+	/// <summary>
+	/// Adjust the widget's collider based on the depth of the widgets, as well as the widget's dimensions. For 2D colliders.
+	/// </summary>
+
+	static public void UpdateWidgetCollider2D (BoxCollider2D box, bool considerInactive)
+	{
+		if (box != null)
+		{
+			GameObject go = box.gameObject;
+			UIWidget w = go.GetComponent<UIWidget>();
+
+			if (w != null)
+			{
+				Vector4 region = w.drawingDimensions;
+				box.center = new Vector2((region.x + region.z) * 0.5f, (region.y + region.w) * 0.5f);
+				box.size = new Vector2(region.z - region.x, region.w - region.y);
+			}
+			else
+			{
+				Bounds b = NGUIMath.CalculateRelativeWidgetBounds(go.transform, considerInactive);
+				box.center = b.center;
+				box.size = new Vector3(b.size.x, b.size.y, 0f);
+			}
+#if UNITY_EDITOR
+			NGUITools.SetDirty(box);
+#endif
+		}
+	}
 
 	/// <summary>
 	/// Helper function that returns the string name of the type.

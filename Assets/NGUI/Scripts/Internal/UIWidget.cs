@@ -557,7 +557,12 @@ public class UIWidget : UIRect
 		get
 		{
 			BoxCollider box = collider as BoxCollider;
-			return (box != null);
+      if( box != null ) return true;
+      
+			BoxCollider2D box2 = collider2D as BoxCollider2D;
+      if( box2 != null ) return true;
+      
+			return false;
 		}
 	}
 
@@ -729,6 +734,10 @@ public class UIWidget : UIRect
 		{
 			BoxCollider box = collider as BoxCollider;
 			if (box != null) NGUITools.UpdateWidgetCollider(box, true);
+      else {
+        BoxCollider2D box2 = collider2D as BoxCollider2D;
+  			if (box2 != null) NGUITools.UpdateWidgetCollider2D(box2, true);
+      }
 		}
 	}
 

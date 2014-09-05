@@ -81,28 +81,28 @@ MonoBehaviour:
   leftAnchor:
     target: {fileID: 0}
     relative: 0
-    absolute: 0
+    absolute: -337
   rightAnchor:
     target: {fileID: 0}
     relative: 1
-    absolute: 0
+    absolute: 337
   bottomAnchor:
     target: {fileID: 0}
     relative: 0
-    absolute: 0
+    absolute: 81
   topAnchor:
     target: {fileID: 0}
     relative: 0
-    absolute: 80
+    absolute: 261
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 675
-  mHeight: 80
-  mDepth: 2
+  mWidth: 674
+  mHeight: 180
+  mDepth: 1
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 8.4375
+  aspectRatio: 3.74444437
   mAtlas: {fileID: 11400000, guid: f95e07e3d350bf748b0c42b453a69d2e, type: 2}
   mSpriteName: Window
   mType: 1
@@ -147,7 +147,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 645
   mHeight: 60
-  mDepth: 4
+  mDepth: 1
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
   mTrueTypeFont: {fileID: 12800000, guid: 7584e4ba86965466f93860484f3aeab8, type: 3}
   mFont: {fileID: 11400000, guid: 16a2d4ace59bac64dbcf4085964b38eb, type: 2}
   mText: "fdsfsdfsdfsdf sdf sdf\n fsd fsdf sdfs df sdf "
-  mFontSize: 30
+  mFontSize: 45
   mFontStyle: 0
   mAlignment: 1
   mEncoding: 1
