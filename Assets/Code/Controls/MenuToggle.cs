@@ -3,7 +3,6 @@ using System.Collections;
 
 public class MenuToggle : MonoBehaviour {
   
-  private Sprite cursor;
   private bool isOpen = false;
   
   private Transform menu;
@@ -11,7 +10,6 @@ public class MenuToggle : MonoBehaviour {
   private Transform inn;
   
   void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
     menu = GameObject.Find( "MenuBar" ).transform;
     outt = GameObject.Find( "menuOut" ).transform;
     inn = GameObject.Find( "menuIn" ).transform;
@@ -30,10 +28,6 @@ public class MenuToggle : MonoBehaviour {
     
     if( isOpen && Mathf.Abs( menu.position.y - inn.position.y ) < 0.001f ) menu.position = inn.position;
     if( !isOpen && Mathf.Abs( menu.position.y - outt.position.y ) < 0.001f ) menu.position = outt.position;
-  }
-  
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
   }
   
   public void CloseMenu() {

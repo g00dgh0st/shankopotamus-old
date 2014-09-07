@@ -40,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .100006104, y: 170.999985, z: 0}
+  m_LocalPosition: {x: -.233184814, y: -270, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -81,30 +81,30 @@ MonoBehaviour:
   leftAnchor:
     target: {fileID: 0}
     relative: 0
-    absolute: -337
+    absolute: 0
   rightAnchor:
     target: {fileID: 0}
     relative: 1
-    absolute: 337
+    absolute: 0
   bottomAnchor:
     target: {fileID: 0}
     relative: 0
-    absolute: 81
+    absolute: 0
   topAnchor:
     target: {fileID: 0}
     relative: 0
-    absolute: 261
+    absolute: 180
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 674
+  mWidth: 1280
   mHeight: 180
   mDepth: 1
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 3.74444437
-  mAtlas: {fileID: 11400000, guid: f95e07e3d350bf748b0c42b453a69d2e, type: 2}
-  mSpriteName: Window
+  mAtlas: {fileID: 11400000, guid: f4f05993e9f0c49c7a93cee83de9bcdc, type: 2}
+  mSpriteName: Speech Bubble
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -130,31 +130,31 @@ MonoBehaviour:
   leftAnchor:
     target: {fileID: 400000}
     relative: 0
-    absolute: 15
+    absolute: 25
   rightAnchor:
     target: {fileID: 400000}
     relative: 1
-    absolute: -15
+    absolute: -25
   bottomAnchor:
     target: {fileID: 400000}
     relative: 0
-    absolute: 10
+    absolute: 20
   topAnchor:
     target: {fileID: 400000}
     relative: 1
-    absolute: -10
+    absolute: -20
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
-  mWidth: 645
-  mHeight: 60
-  mDepth: 1
+  mWidth: 1230
+  mHeight: 140
+  mDepth: 2
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 10.75
+  aspectRatio: 8.78571415
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 7584e4ba86965466f93860484f3aeab8, type: 3}
-  mFont: {fileID: 11400000, guid: 16a2d4ace59bac64dbcf4085964b38eb, type: 2}
+  mTrueTypeFont: {fileID: 12800000, guid: 57211d63bc4c64019bbdf898d4e36455, type: 3}
+  mFont: {fileID: 0}
   mText: "fdsfsdfsdfsdf sdf sdf\n fsd fsdf sdfs df sdf "
   mFontSize: 45
   mFontStyle: 0

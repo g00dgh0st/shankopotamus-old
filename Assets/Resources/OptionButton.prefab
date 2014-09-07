@@ -27,6 +27,7 @@ GameObject:
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400004}
   - 61: {fileID: 6100000}
+  - 114: {fileID: 11400008}
   - 114: {fileID: 11400006}
   m_Layer: 9
   m_Name: OptionButton
@@ -53,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.10351562e-05, y: -29.5539246, z: 0}
+  m_LocalPosition: {x: -.122039795, y: -29.5539246, z: 0}
   m_LocalScale: {x: 1.00003242, y: 1.00003242, z: 1.00003242}
   m_Children:
   - {fileID: 400000}
@@ -98,16 +99,16 @@ MonoBehaviour:
     absolute: -10
   mColor: {r: .0147058964, g: .0147058964, b: .0147058964, a: 1}
   mPivot: 4
-  mWidth: 645
-  mHeight: 20
+  mWidth: 1250
+  mHeight: 40
   mDepth: 4
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 32.25
+  aspectRatio: 31.25
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 7584e4ba86965466f93860484f3aeab8, type: 3}
-  mFont: {fileID: 11400000, guid: 16a2d4ace59bac64dbcf4085964b38eb, type: 2}
+  mTrueTypeFont: {fileID: 12800000, guid: 57211d63bc4c64019bbdf898d4e36455, type: 3}
+  mFont: {fileID: 0}
   mText: 'fdsfsdfsdfsdf sdf sdffs fsdf sdf sdfsdf sdf sdf sd fsdfsd fsdf sd fsdf '
   mFontSize: 30
   mFontStyle: 0
@@ -159,15 +160,15 @@ MonoBehaviour:
     absolute: 0
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 762
+  mWidth: 1280
   mHeight: 60
   mDepth: 3
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 12.6999998
-  mAtlas: {fileID: 11400000, guid: f95e07e3d350bf748b0c42b453a69d2e, type: 2}
-  mSpriteName: Window
+  mAtlas: {fileID: 11400000, guid: f4f05993e9f0c49c7a93cee83de9bcdc, type: 2}
+  mSpriteName: Speech Bubble
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -203,6 +204,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrollView: {fileID: 0}
   draggablePanel: {fileID: 0}
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 100002}
+  hover: {r: .948529422, g: .676524699, b: .132515147, a: 1}
+  pressed: {r: .669117689, g: .487221241, b: .00491998764, a: 1}
+  disabledColor: {r: .5, g: .5, b: .5, a: 1}
+  duration: 0
+  dragHighlight: 0
+  hoverSprite: 
+  pressedSprite: 
+  disabledSprite: 
+  pixelSnap: 0
+  onClick: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

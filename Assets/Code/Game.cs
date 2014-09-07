@@ -132,7 +132,7 @@ public class Game : MonoBehaviour {
     newItem.GetComponent<ItemClicker>().combos = template.combos;
     
     newItem.transform.parent = inv.transform;
-    newItem.transform.localScale = new Vector3( 100f, 100f, 1f );
+    newItem.transform.localScale = new Vector3( 240f, 240f, 1f );
     inv.GetComponent<UIGrid>().repositionNow = true;
     newItem.transform.localPosition = new Vector3( newItem.transform.localPosition.x, newItem.transform.localPosition.y, -1f );
   }

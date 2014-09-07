@@ -24,6 +24,6 @@ public class OptionButton : MonoBehaviour {
   }
   
   void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
+    // Game.CursorHover( isOver, cursor );
   }
 }

@@ -68,12 +68,12 @@ public class UIButton : UIButtonColor
 		get
 		{
 			if (!enabled) return false;
-			Collider col = collider;
+			Collider2D col = collider2D;
 			return col && col.enabled;
 		}
 		set
 		{
-			Collider col = collider;
+			Collider2D col = collider2D;
 
 			if (col != null)
 			{
