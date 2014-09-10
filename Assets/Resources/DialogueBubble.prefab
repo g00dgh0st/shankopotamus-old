@@ -153,10 +153,10 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 8.78571415
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 57211d63bc4c64019bbdf898d4e36455, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: 85203d0c93e1d4c578ff809e2659aac1, type: 3}
   mFont: {fileID: 0}
   mText: "fdsfsdfsdfsdf sdf sdf\n fsd fsdf sdfs df sdf "
-  mFontSize: 45
+  mFontSize: 30
   mFontStyle: 0
   mAlignment: 1
   mEncoding: 1

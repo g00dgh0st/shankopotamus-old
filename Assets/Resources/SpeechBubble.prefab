@@ -156,10 +156,10 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 6.53846169
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 57211d63bc4c64019bbdf898d4e36455, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: 85203d0c93e1d4c578ff809e2659aac1, type: 3}
   mFont: {fileID: 0}
   mText: Speech Bubble
-  mFontSize: 25
+  mFontSize: 20
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1

@@ -23,7 +23,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -9.61827564, y: -4.44177151, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -40,15 +40,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 6048e7248ca1e404e9b4cb63170fc304, type: 2}
   mSprites:
-  - name: Speech Bubble
-    x: 7
-    y: 8
-    width: 200
-    height: 100
-    borderLeft: 4
-    borderRight: 4
-    borderTop: 4
-    borderBottom: 4
+  - name: BlackBG
+    x: 0
+    y: 2
+    width: 132
+    height: 132
+    borderLeft: 1
+    borderRight: 1
+    borderTop: 1
+    borderBottom: 1
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: BlackTriangle
+    x: 132
+    y: 54
+    width: 74
+    height: 80
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: speechbubl
+    x: 0
+    y: 134
+    width: 218
+    height: 122
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0

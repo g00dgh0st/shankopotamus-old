@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MenuToggle : MonoBehaviour {
   
-  private bool isOpen = false;
+  public static bool isMoving = false;
   
   private Transform menu;
   private Transform outt;
@@ -16,25 +16,40 @@ public class MenuToggle : MonoBehaviour {
   }
  
   void OnClick() {
-    isOpen = !isOpen;
+    StartCoroutine( ToggleMenu() );
   }
   
   void Update() {
-    if( isOpen && menu.position.y != inn.position.y ) {
-      menu.position = new Vector3( menu.position.x, menu.position.y + ( ( inn.position.y - menu.position.y ) * 0.4f ), menu.position.z );
-    } else if( !isOpen && menu.position.y != outt.position.y ) {
-      menu.position = new Vector3( menu.position.x, menu.position.y + ( ( outt.position.y - menu.position.y ) * 0.4f ), menu.position.z );
+    if( Input.GetMouseButton( 0 ) && IsOpen() && !menu.gameObject.GetComponent<Collider2D>().OverlapPoint( Camera.main.ScreenToWorldPoint( Input.mousePosition ) ) ) CloseMenu();
+  }
+  
+  IEnumerator ToggleMenu() {
+    if( MenuToggle.isMoving ) yield break;
+        
+    MenuToggle.isMoving = true;
+    
+    Transform target = ( menu.position.y == outt.position.y ? inn : outt );
+    
+    while( Mathf.Abs( menu.position.y - target.position.y ) > 0.001f ) {
+      menu.position = new Vector3( menu.position.x, menu.position.y + ( ( target.position.y - menu.position.y ) * 0.4f ), menu.position.z );
+      yield return null;
     }
     
-    if( isOpen && Mathf.Abs( menu.position.y - inn.position.y ) < 0.001f ) menu.position = inn.position;
-    if( !isOpen && Mathf.Abs( menu.position.y - outt.position.y ) < 0.001f ) menu.position = outt.position;
+    menu.position = target.position;
+
+    MenuToggle.isMoving = false;
   }
   
   public void CloseMenu() {
-    isOpen = false;
+    StartCoroutine( ToggleMenu() );
   }
   
   public void OpenMenu() {
-    isOpen = true;
+    StartCoroutine( ToggleMenu() );
   }
+  
+  public bool IsOpen() {
+    return menu.position.y == inn.position.y;
+  }
+  
 }

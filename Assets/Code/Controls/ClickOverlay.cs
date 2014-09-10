@@ -8,6 +8,6 @@ public class ClickOverlay : MonoBehaviour {
       GameObject.FindGameObjectWithTag( "ZoomView" ).transform.position = new Vector3( 0f, 5f, 0f );
       GameObject.FindGameObjectWithTag( "ZoomView" ).SetActive( false );
       Game.ZoomOut();
-    }
+    }    
   }
 }
