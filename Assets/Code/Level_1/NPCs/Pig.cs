@@ -45,7 +45,7 @@ public class Pig : Clicker {
     dialogue.SetSteps(
     new Step[] {
       // 0
-      new Step( camTarget, "...",
+      new Step( camTarget, ". . .",
         new Option[] {
           new Option( "Hello?", 1 ),
           new Option( "Good talk. Bye.", -1 )
@@ -121,7 +121,7 @@ public class Pig : Clicker {
         }
       ),
       // 10
-      new Step( camTarget, "Yup. It's a Big Ass™ toilet. It uses nuc...mlear power to flush my Big Ass™ dumps. It uses some kinda wormhole technology.", 
+      new Step( camTarget, "Yup. It's a Big Ass\u2122 toilet. It uses nuc...mlear power to flush my Big Ass\u2122 dumps. It uses some kinda wormhole technology.", 
         new Option[] {
           new Option( "Isn't that kind of dangerous?", 11 ),
           new Option( "Maybe you should try a diet.", 12 )

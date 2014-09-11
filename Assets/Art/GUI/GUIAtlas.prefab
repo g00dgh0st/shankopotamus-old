@@ -41,21 +41,21 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 6048e7248ca1e404e9b4cb63170fc304, type: 2}
   mSprites:
   - name: BlackBG
-    x: 222
+    x: 0
     y: 2
-    width: 130
-    height: 130
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
+    width: 132
+    height: 132
+    borderLeft: 1
+    borderRight: 1
+    borderTop: 1
+    borderBottom: 1
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: ChatCursor
-    x: 354
-    y: 115
+    x: 218
+    y: 35
     width: 110
     height: 110
     borderLeft: 0
@@ -67,8 +67,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: DoorCursor
-    x: 2
-    y: 126
+    x: 328
+    y: 146
     width: 110
     height: 110
     borderLeft: 0
@@ -80,8 +80,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: EyeCursor
-    x: 114
-    y: 134
+    x: 328
+    y: 36
     width: 110
     height: 110
     borderLeft: 0
@@ -93,8 +93,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: HandCursor
-    x: 354
-    y: 2
+    x: 218
+    y: 145
     width: 110
     height: 111
     borderLeft: 0
@@ -106,8 +106,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: speechbubl
-    x: 2
-    y: 2
+    x: 0
+    y: 134
     width: 218
     height: 122
     borderLeft: 0
