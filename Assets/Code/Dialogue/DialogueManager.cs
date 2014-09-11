@@ -19,6 +19,8 @@ public class DialogueManager : MonoBehaviour {
   public void StartDialogue( Dialogue dlg, int idx ) {
     inDialogue = true;
     
+    Game.HideMenu();
+    
     Game.PauseClicks();
     Game.PauseCam();
     
@@ -43,7 +45,7 @@ public class DialogueManager : MonoBehaviour {
     
     Game.TargetCam( step.speaker );
     bub.SetActive( true );
-    bub.GetComponent<DialogueBubble>().SetText( idx + ": " + step.text );
+    bub.GetComponent<DialogueBubble>().SetText( step.text );
     
     Game.player.FaceTarget( step.speaker.transform.position, 0.1f );
   }
@@ -66,19 +68,18 @@ public class DialogueManager : MonoBehaviour {
       
       Game.TargetCam( Game.player.transform.Find( "CamTarget" ) );
       
-      for( int i=0; i < step.options.Length; i++ ) {
+      int optCount = -1;
+      
+      for( int i = step.options.Length - 1; i >= 0; i-- ) {
         if( step.options[i].condition != null && step.options[i].condition() == false ) continue;
-        
+        optCount++;
         GameObject newOpt = Instantiate( opt ) as GameObject;
         newOpt.SetActive( true );
         newOpt.transform.parent = opt.transform.parent;
         newOpt.transform.localScale = new Vector3( 1f, 1f, 1f );
-        newOpt.transform.position = Vector3.zero;
-        newOpt.GetComponent<OptionButton>().Setup( step.options[i].text, i );
+        newOpt.transform.position = opt.transform.position;
+        newOpt.GetComponent<OptionButton>().Setup( step.options[i].text, i, optCount );
       }
-      
-      opt.transform.parent.GetComponent<UIGrid>().Reposition();
-      GameObject.Find( "OptsContainer" ).GetComponent<UIScrollView>().ResetPosition();
     } else {
       // if no options, go to the next step in the array
       int stepIdx = Step[].IndexOf( dialogue.steps, step ); 
@@ -91,6 +92,8 @@ public class DialogueManager : MonoBehaviour {
   
   public void StopDialogue() {
     inDialogue = false;
+    
+    Game.ShowMenu();
     
     Game.ResumeClicks();
     Game.ResumeCam();

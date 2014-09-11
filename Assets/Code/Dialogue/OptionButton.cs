@@ -4,19 +4,11 @@ using System.Collections;
 public class OptionButton : MonoBehaviour {
   
   private int optionIndex;
-  private Sprite cursor;
   
-  void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
-  }
-  
-  public void Setup( string t, int i ) {
-    transform.Find( "Label" ).gameObject.GetComponent<UILabel>().text = t;
+  public void Setup( string t, int i, int count ) {
+    gameObject.GetComponent<UILabel>().text = t;
     optionIndex = i;
-  }
-  
-  void Update() {
-    gameObject.GetComponent<BoxCollider2D>().size = new Vector2( gameObject.GetComponent<UISprite>().width, 40f );
+    transform.localPosition = new Vector3( transform.localPosition.x, transform.localPosition.y + ( (float)count * 40f ), transform.localPosition.z );
   }
   
   void OnClick() {
@@ -24,6 +16,6 @@ public class OptionButton : MonoBehaviour {
   }
   
   void OnHover( bool isOver ) {
-    // Game.CursorHover( isOver, cursor );
+    Game.CursorHover( isOver, "HandCursor" );
   }
 }

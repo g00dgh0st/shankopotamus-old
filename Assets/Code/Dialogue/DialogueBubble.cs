@@ -8,7 +8,7 @@ public class DialogueBubble : MonoBehaviour {
   private int counter;
   
   void Start() {
-    label = transform.Find( "Label" ).gameObject.GetComponent<UILabel>();
+    label = gameObject.GetComponent<UILabel>();
   }
   
   public void SetText( string t ) {

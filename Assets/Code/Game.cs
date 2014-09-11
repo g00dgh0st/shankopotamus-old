@@ -170,6 +170,14 @@ public class Game : MonoBehaviour {
   
   
 // STATIC METHODS
+  
+  public static void HideMenu() {
+    GameObject.Find( "MenuBar" ).transform.Find( "MenuToggle" ).gameObject.SetActive( false );
+  }
+  
+  public static void ShowMenu() {
+    GameObject.Find( "MenuBar" ).transform.Find( "MenuToggle" ).gameObject.SetActive( true );
+  }
 
   public delegate void Callback();
   
