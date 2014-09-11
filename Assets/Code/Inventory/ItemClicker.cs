@@ -8,7 +8,6 @@ public class ItemClicker : MonoBehaviour {
   public ItemCombo[] combos;
   
   void OnClick() {
-    Debug.Log( "click" );
     Game.script.HoldItem( gameObject );
   }
   

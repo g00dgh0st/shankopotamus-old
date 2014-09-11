@@ -48602,7 +48602,7 @@ MonoBehaviour:
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
-  mFlip: 2
+  mFlip: 0
   mFillCenter: 1
   centerType: 1
   leftType: 1
