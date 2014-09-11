@@ -3,8 +3,6 @@ using System.Collections;
 
 public class Bat : Clicker {
   
-  private Sprite cursor;
-  
   private Dialogue dialogue;
   
   public Pig pig;
@@ -15,18 +13,13 @@ public class Bat : Clicker {
   public bool askedCode = false;
   
   void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
-    
     SetupDialogue();
+    cursorType = Clicker.CursorType.Chat;
   }
 
 
   void OnClick() {
     Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
-  }
-
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
   }
   
   // All dialogue is "written" here

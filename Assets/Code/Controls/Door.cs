@@ -14,8 +14,6 @@ public class Door : MonoBehaviour {
   private GameObject room;
   private GameObject destRoom;
   
-  protected Sprite cursor;
-  
   public bool isLocked = false;
   
   void Awake() {
@@ -29,13 +27,9 @@ public class Door : MonoBehaviour {
     }
   }
   
-  void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_door" );
-  }
-  
   void OnHover( bool isOver ) {
     if( Door.goingThrough ) return;
-    Game.CursorHover( isOver, cursor );
+    Game.CursorHover( isOver, "DoorCursor" );
     
     if( isLocked ) return;
     if( transform.Find( "closed" ) && transform.Find( "open" ) ) {

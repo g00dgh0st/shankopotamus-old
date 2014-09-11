@@ -15,12 +15,6 @@ public class RatHole : MonoBehaviour {
   public Transform moveTo;
   private float speed = 0.1f;
   
-  private Sprite cursor;
-  
-  void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
-  }
-  
   void OnItemClick() {
     if( Game.heldItem.name == "item_cheese_rod" && ratPos == 0 && moveTo == null ) {
       Destroy( rat.gameObject );
@@ -39,7 +33,7 @@ public class RatHole : MonoBehaviour {
   }
   
   void OnHover( bool isOver ) {
-    if( ratPos == 0 ) Game.CursorHover( isOver, cursor );
+    if( ratPos == 0 ) Game.CursorHover( isOver, "HandCursor" );
   }
   
   void Update() {

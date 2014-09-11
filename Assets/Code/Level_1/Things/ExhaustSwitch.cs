@@ -4,12 +4,11 @@ using System.Collections;
 public class ExhaustSwitch : Clicker {
   
   public bool goingOut = true;
-  private Sprite cursor;
   
   public FreezerFan fan;
   
   void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
+    cursorType = Clicker.CursorType.Hand;
   }
   
   void OnClick() {
@@ -66,7 +65,4 @@ public class ExhaustSwitch : Clicker {
     gameObject.GetComponent<BoxCollider2D>().enabled = false;
   }
 
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
-  }
 }

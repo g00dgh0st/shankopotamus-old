@@ -5,12 +5,6 @@ public class ZoomFuseBox : MonoBehaviour {
   
   private bool broken = false;
   
-  private Sprite cursor;
-  
-  void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
-  }
-  
   void OnClick() {
     if( !broken ) {
       transform.Find( "Electric1" ).gameObject.GetComponent<ParticleSystem>().Play();
@@ -27,7 +21,7 @@ public class ZoomFuseBox : MonoBehaviour {
   }
   
   void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
+    Game.CursorHover( isOver, "HandCursor" );
   }
   
 }

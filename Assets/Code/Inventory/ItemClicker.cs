@@ -7,13 +7,8 @@ public class ItemClicker : MonoBehaviour {
   public string description;
   public ItemCombo[] combos;
   
-  private Sprite cursor;
-  
-  void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
-  }
-
   void OnClick() {
+    Debug.Log( "click" );
     Game.script.HoldItem( gameObject );
   }
   
@@ -29,6 +24,6 @@ public class ItemClicker : MonoBehaviour {
   }
   
   void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
+    Game.CursorHover( isOver, "HandCursor" );
   }
 }

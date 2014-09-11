@@ -3,8 +3,6 @@ using System.Collections;
 
 public class SewersMaintenanceGuy : MonoBehaviour {
   
-  private Sprite cursor;
-  
   private Dialogue dialogue;
   
   public FuseBox fusebox;
@@ -26,9 +24,11 @@ public class SewersMaintenanceGuy : MonoBehaviour {
   public Transform movePoint;
   
   void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
-    
     SetupDialogue();
+  }
+  
+  void OnHover( bool isOver ) {
+    Game.CursorHover( isOver, "ChatCursor" );
   }
 
   void OnItemClick( string itemName ) {
@@ -59,10 +59,6 @@ public class SewersMaintenanceGuy : MonoBehaviour {
     }
   }
 
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
-  }
-  
   void Update() {
     if( moving ) {
       transform.parent.position = new Vector3( transform.parent.position.x + 0.02f, transform.parent.position.y, 0f );

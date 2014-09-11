@@ -3,8 +3,6 @@ using System.Collections;
 
 public class WimpyGuy : Clicker {
     
-  private Sprite cursor;
-  
   private Dialogue dialogue;
   
   private ToughGuy toughGuy;
@@ -12,7 +10,7 @@ public class WimpyGuy : Clicker {
   public bool onFire = false;
   
   void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
+    cursorType = Clicker.CursorType.Chat;
     
     toughGuy = Game.GetScript<ToughGuy>();
     
@@ -54,9 +52,5 @@ public class WimpyGuy : Clicker {
         StartCoroutine( Game.GetScript<CafeteriaGuard>().Distraction() );
       });
     } 
-  }
-  
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
   }
 }

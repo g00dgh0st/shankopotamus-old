@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Hoarder : Clicker {
   
-  private Sprite cursor;
   private Dialogue dialogue;
 
   public SewersMaintenanceGuy sewerDude;
@@ -12,8 +11,7 @@ public class Hoarder : Clicker {
   private bool firstTalk = false;
   
   void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
-    
+    cursorType = Clicker.CursorType.Chat;
     SetupDialogue();
   }
   
@@ -46,10 +44,6 @@ public class Hoarder : Clicker {
       Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
   }
 
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
-  }
-  
   // All dialogue is "written" here
   public void SetupDialogue() {
     Transform camTarget = transform.parent.Find( "CamTarget" );

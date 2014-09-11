@@ -1,9 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class FreezerFan : MonoBehaviour {
-  
-  private Sprite cursor;
+public class FreezerFan : Clicker {
   
   public ExhaustSwitch exhaust;
   public bool steaming;
@@ -19,10 +17,6 @@ public class FreezerFan : MonoBehaviour {
       steaming = false;
       transform.Find( "steam" ).gameObject.SetActive( false );
     }
-  }
-  
-  void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
   }
   
   void OnClick() {
@@ -42,6 +36,6 @@ public class FreezerFan : MonoBehaviour {
   }
 
   void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
+    Game.CursorHover( isOver, "EyeCursor" );
   }
 }

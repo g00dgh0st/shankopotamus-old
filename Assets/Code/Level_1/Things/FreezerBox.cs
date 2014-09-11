@@ -8,10 +8,7 @@ public class FreezerBox : MonoBehaviour {
   
   public int currentPos;
   
-  private Sprite cursor;
-  
   void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
     transform.position = new Vector3( box.position.x, box.position.y, transform.position.z );
   }
   
@@ -61,6 +58,6 @@ public class FreezerBox : MonoBehaviour {
   }
   
   void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
+    Game.CursorHover( isOver, "HandCursor" );
   }
 }

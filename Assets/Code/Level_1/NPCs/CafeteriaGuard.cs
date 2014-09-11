@@ -4,7 +4,6 @@ using System.Collections;
 public class CafeteriaGuard : Clicker {
     
   private GameObject bub;
-  private Sprite cursor;
   
   private Dialogue dialogue;
   
@@ -16,8 +15,7 @@ public class CafeteriaGuard : Clicker {
   public ToughGuy tough;
   
   void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
-    
+    cursorType = Clicker.CursorType.Chat;
     SetupDialogue();
   }
 
@@ -30,7 +28,7 @@ public class CafeteriaGuard : Clicker {
   }
 
   void OnHover( bool isOver  ) {
-    if( !distracted ) Game.CursorHover( isOver, cursor );
+    if( !distracted ) base.OnHover( isOver );
   }
   
   void Update() {

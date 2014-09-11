@@ -95,7 +95,7 @@ public class Game : MonoBehaviour {
   
   public void HoldItem( GameObject item ) {
     Game.heldItem = item;
-    Game.cursor.GetComponent<CustomCursor>().SetItemCursor( item.transform.Find( "Sprite" ).GetComponent<SpriteRenderer>().sprite );
+    Game.cursor.GetComponent<CustomCursor>().SetItemCursor( item.GetComponent<ItemClicker>().name );
     Screen.showCursor = false;
     item.SetActive( false );
   }
@@ -121,18 +121,21 @@ public class Game : MonoBehaviour {
     
     if( template == null ) return;
     
-    newItem.transform.Find( "Sprite" ).GetComponent<SpriteRenderer>().sprite = template.sprite;
+    // set sprite
+    // newItem.transform.Find( "Sprite" ).GetComponent<SpriteRenderer>().sprite = template.sprite;
+    newItem.GetComponent<UISprite>().spriteName = itemName;
     
-    GameObject inv = GameObject.Find( "Inventory" );
-    
+    // set up prefab with item data
     newItem.name = "item_" + itemName;
+    newItem.GetComponent<ItemClicker>().name = template.name;
     newItem.GetComponent<ItemClicker>().label = template.label;
     newItem.GetComponent<ItemClicker>().description = template.description;
-    newItem.GetComponent<ItemClicker>().name = template.name;
     newItem.GetComponent<ItemClicker>().combos = template.combos;
     
+    // Add to scene
+    GameObject inv = GameObject.Find( "Inventory" );
     newItem.transform.parent = inv.transform;
-    newItem.transform.localScale = new Vector3( 240f, 240f, 1f );
+    newItem.transform.localScale = new Vector3( 1f, 1f, 1f );
     inv.GetComponent<UIGrid>().repositionNow = true;
     newItem.transform.localPosition = new Vector3( newItem.transform.localPosition.x, newItem.transform.localPosition.y, -1f );
   }
@@ -234,7 +237,7 @@ public class Game : MonoBehaviour {
 		}
   }
   
-  public static void CursorHover( bool isOver, Sprite cursor ) {
+  public static void CursorHover( bool isOver, string cursor ) {
     if( Game.heldItem != null ) return;
     if( isOver ) {
       Game.cursor.GetComponent<CustomCursor>().SetCursor( cursor );

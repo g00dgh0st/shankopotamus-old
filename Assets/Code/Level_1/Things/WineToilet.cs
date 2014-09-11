@@ -2,10 +2,9 @@ using UnityEngine;
 using System.Collections;
 
 public class WineToilet : Clicker {
-  private Sprite cursor;
   
   void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
+    cursorType = Clicker.CursorType.Eye;
   }
 
   void OnItemClick() {
@@ -23,7 +22,4 @@ public class WineToilet : Clicker {
     } );
   }
   
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
-  }
 }

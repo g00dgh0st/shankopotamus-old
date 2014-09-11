@@ -3,10 +3,9 @@ using System.Collections;
 
 public class ZoomClicker : Clicker {
   public GameObject zoomView;
-  private Sprite cursor;
   
-  void Awake() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
+  void Start() {
+    cursorType = Clicker.CursorType.Eye;
   }
   
   void OnClick() {
@@ -18,8 +17,5 @@ public class ZoomClicker : Clicker {
     });
     
   }
-  
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
-  }
 }
+

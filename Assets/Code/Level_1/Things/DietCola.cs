@@ -3,10 +3,8 @@ using System.Collections;
 
 public class DietCola : Clicker {
   
-  private Sprite cursor;
-  
   void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
+    cursorType = Clicker.CursorType.Hand;
   }
   
   void OnClick() {
@@ -26,9 +24,5 @@ public class DietCola : Clicker {
         });
       }
     } );
-  }
-  
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
   }
 }

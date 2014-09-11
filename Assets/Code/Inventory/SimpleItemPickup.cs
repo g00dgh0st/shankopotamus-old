@@ -4,16 +4,10 @@ using System.Collections;
 
 public class SimpleItemPickup : Clicker {
   
-  private Sprite cursor;
-  
   public string itemName;
   
   public enum ItemHeight { High, Normal, Low };
   public ItemHeight itemHeight = ItemHeight.Normal;
-  
-  void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
-  }
   
   void OnClick() {
     Game.player.MoveTo( movePoint, delegate( bool b ) { 
@@ -33,6 +27,6 @@ public class SimpleItemPickup : Clicker {
   }
   
   void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
+    Game.CursorHover( isOver, "HandCursor" );
   }
 }

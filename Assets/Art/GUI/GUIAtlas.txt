@@ -8,13 +8,37 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":130,"h":130},
 	"sourceSize": {"w":130,"h":130}
 },
-"BlackTriangle.png":
+"ChatCursor.png":
 {
-	"frame": {"x":354,"y":2,"w":74,"h":80},
-	"rotated": true,
+	"frame": {"x":354,"y":115,"w":110,"h":110},
+	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":74,"h":80},
-	"sourceSize": {"w":74,"h":80}
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":110},
+	"sourceSize": {"w":110,"h":110}
+},
+"DoorCursor.png":
+{
+	"frame": {"x":2,"y":126,"w":110,"h":110},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":110},
+	"sourceSize": {"w":110,"h":110}
+},
+"EyeCursor.png":
+{
+	"frame": {"x":114,"y":134,"w":110,"h":110},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":110},
+	"sourceSize": {"w":110,"h":110}
+},
+"HandCursor.png":
+{
+	"frame": {"x":354,"y":2,"w":110,"h":111},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":111},
+	"sourceSize": {"w":110,"h":111}
 },
 "speechbubl.png":
 {
@@ -31,6 +55,6 @@
 	"format": "RGBA8888",
 	"size": {"w":512,"h":512},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:a310537200083926a411093bd0e4cf86:9596149d6251ed75d46b451e0e743f6a:8824b5c9b6983bdacb06d9146278ae0e$"
+	"smartupdate": "$TexturePacker:SmartUpdate:fc57d4229ac692896cbff09ac38a7a04:2026f81fa8c6e7d14940d965f5a3443c:8824b5c9b6983bdacb06d9146278ae0e$"
 }
 }

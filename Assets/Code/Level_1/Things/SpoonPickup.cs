@@ -3,10 +3,8 @@ using System.Collections;
 
 public class SpoonPickup : Clicker {
   
-  private Sprite cursor;
-  
   void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
+    cursorType = Clicker.CursorType.Hand;
   }
   
   void OnClick() {
@@ -25,7 +23,4 @@ public class SpoonPickup : Clicker {
     } );
   }
   
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
-  }
 }

@@ -7,18 +7,12 @@ public class Rat : MonoBehaviour {
   
   public Transform runAwayPos;
   
-  private Sprite cursor;
-  
-  void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
-  }
-  
   void OnClick() {
     Game.player.MoveTo( runAwayPos.position );
   }
   
   void OnHover( bool isOver ) {
-    if( hole.ratPos == 1 && hole.moveTo == null ) Game.CursorHover( isOver, cursor );
+    if( hole.ratPos == 1 && hole.moveTo == null ) Game.CursorHover( isOver, "HandCursor" );
   }
   
   void Update() {

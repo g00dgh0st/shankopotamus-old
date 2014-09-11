@@ -3,8 +3,6 @@ using System.Collections;
 
 public class SecurityCamera : Clicker {
   
-  private Sprite cursor;
-  
   public SecurityScreens screens;
   
   private bool broked = false;
@@ -14,7 +12,7 @@ public class SecurityCamera : Clicker {
   public string camName;
   
   void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
+    cursorType = Clicker.CursorType.Eye;
   }
   
   void OnClick() {
@@ -40,9 +38,5 @@ public class SecurityCamera : Clicker {
           Game.script.UseItem();
       } );
     }
-  }
-  
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
   }
 }

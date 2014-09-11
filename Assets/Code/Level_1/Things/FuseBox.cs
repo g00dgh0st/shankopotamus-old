@@ -3,7 +3,6 @@ using System.Collections;
 
 public class FuseBox : Clicker {
   public GameObject zoomView;
-  private Sprite cursor;
   
   private bool open = false;
   
@@ -11,7 +10,7 @@ public class FuseBox : Clicker {
   
   void Start() {
     zoomView.SetActive( false );
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
+    cursorType = Clicker.CursorType.Hand;
   }
 
   void OnItemClick() {
@@ -40,7 +39,4 @@ public class FuseBox : Clicker {
     }
   }
   
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
-  }
 }

@@ -3,8 +3,6 @@ using System.Collections;
 
 public class SecurityScreens : Clicker {
   
-  private Sprite cursor;
-  
   private Dialogue dialogue;
   
   public int camerasOff = 0;
@@ -16,7 +14,7 @@ public class SecurityScreens : Clicker {
   public GameObject cellblockCam;
   
   void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
+    cursorType = Clicker.CursorType.Eye;
     
     Transform camTarget = GameObject.Find( "GuardTowerGuard" ).transform.Find( "CamTarget" );
     
@@ -74,9 +72,5 @@ public class SecurityScreens : Clicker {
     }
     
     camerasOff++;
-  }
-  
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
   }
 }

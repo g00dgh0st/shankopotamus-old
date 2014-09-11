@@ -3,11 +3,10 @@ using System.Collections;
 
 public class Shower : Clicker {
   
-  private Sprite cursor;
   public bool isOn = false;
   
   void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
+    cursorType = Clicker.CursorType.Hand;
   }
   
   void OnClick() {
@@ -36,9 +35,5 @@ public class Shower : Clicker {
         transform.parent.Find( "SteamFog" ).gameObject.GetComponent<SteamFog>().CheckShowers();
       });
     });
-  }
-  
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
   }
 }

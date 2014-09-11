@@ -3,10 +3,8 @@ using System.Collections;
 
 public class Radio : Clicker {
   
-  private Sprite cursor;
-  
   void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
+    cursorType = Clicker.CursorType.Hand;
   }
   
   void OnClick() {
@@ -41,9 +39,5 @@ public class Radio : Clicker {
         Game.script.ShowSpeechBubble( "Hey! I can clearly see you tryin' to steal my radio!", transform.Find( "BubTarget" ), 3f );
       }
     } );
-  }
-  
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
   }
 }

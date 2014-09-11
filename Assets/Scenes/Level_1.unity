@@ -348,6 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: -16.4218197, y: -16.3655548, z: 0}
+  cursorType: 0
 --- !u!1 &15912614
 GameObject:
   m_ObjectHideFlags: 0
@@ -2122,6 +2123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: 1.50767112, y: -1.42466223, z: 0}
+  cursorType: 0
   wantsMeat: 0
   talkedOnce: 0
   onFire: 0
@@ -2178,6 +2180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &43525427
 GameObject:
   m_ObjectHideFlags: 0
@@ -2292,6 +2296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1001 &44731952
 Prefab:
   m_ObjectHideFlags: 0
@@ -2720,6 +2726,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &56453252
 GameObject:
   m_ObjectHideFlags: 0
@@ -2889,6 +2897,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &62122149
 GameObject:
   m_ObjectHideFlags: 0
@@ -3057,6 +3067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: 1.04898119, y: -4.81585836, z: 0}
+  cursorType: 0
   isOn: 0
 --- !u!61 &64483214
 BoxCollider2D:
@@ -3188,6 +3199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: 11.6858435, y: -1.50770056, z: 0}
+  cursorType: 0
 --- !u!61 &69862681
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4778,6 +4790,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &81928445
 GameObject:
   m_ObjectHideFlags: 0
@@ -6196,6 +6210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &97338760
 GameObject:
   m_ObjectHideFlags: 0
@@ -7001,6 +7017,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &115868259
 GameObject:
   m_ObjectHideFlags: 0
@@ -7452,6 +7470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &138918908
 GameObject:
   m_ObjectHideFlags: 0
@@ -14661,6 +14681,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &253282869
 GameObject:
   m_ObjectHideFlags: 0
@@ -15804,6 +15826,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &303615124
 GameObject:
   m_ObjectHideFlags: 0
@@ -15938,6 +15962,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1001 &305898407
 Prefab:
   m_ObjectHideFlags: 0
@@ -16394,6 +16420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &315736765
 GameObject:
   m_ObjectHideFlags: 0
@@ -16807,6 +16835,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &323784017
 GameObject:
   m_ObjectHideFlags: 0
@@ -19639,6 +19669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: -19.9309921, y: -3.2517066, z: 0}
+  cursorType: 0
   screens: {fileID: 584849066}
   moveTo: {fileID: 0}
   camName: cellblock
@@ -23767,6 +23798,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &448701948
 GameObject:
   m_ObjectHideFlags: 0
@@ -23881,6 +23914,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &452542599
 GameObject:
   m_ObjectHideFlags: 0
@@ -23972,6 +24007,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!4 &452726741
 Transform:
   m_ObjectHideFlags: 0
@@ -25775,6 +25812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: 2.95779181, y: -4.9295907, z: 0}
+  cursorType: 0
   screens: {fileID: 584849066}
   moveTo: {fileID: 0}
   camName: showers
@@ -27179,6 +27217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: -19.9647789, y: -8.36461449, z: 0}
+  cursorType: 0
   goingOut: 1
   fan: {fileID: 0}
 --- !u!4 &503807986
@@ -27385,6 +27424,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dfb33d593b704ef6b280cc892d03a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePoint: {x: 0, y: 0, z: 0}
+  cursorType: 0
   exhaust: {fileID: 503807985}
   steaming: 0
 --- !u!61 &504400839
@@ -27704,6 +27745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: -6.26358032, y: -16.4171009, z: 0}
+  cursorType: 0
   roger: {fileID: 387650488}
   roger_block: {fileID: 249077202}
   wantsHat: 0
@@ -27977,6 +28019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: -21.5698738, y: -16.5022411, z: 0}
+  cursorType: 0
   pig: {fileID: 2061661893}
   cook: {fileID: 1547870465}
   admittedFigure: 0
@@ -29141,6 +29184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: 1.08406079, y: -4.85383987, z: 0}
+  cursorType: 0
 --- !u!61 &539075364
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29227,6 +29271,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &543703227
 GameObject:
   m_ObjectHideFlags: 0
@@ -29364,6 +29410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: 3.8062892, y: -1.64190292, z: 0}
+  cursorType: 0
   screens: {fileID: 584849066}
   moveTo: {fileID: 416287321}
   camName: cafeteria
@@ -30664,6 +30711,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &557289706
 GameObject:
   m_ObjectHideFlags: 0
@@ -30716,6 +30765,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &559220538
 GameObject:
   m_ObjectHideFlags: 0
@@ -31189,6 +31240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &579397251
 GameObject:
   m_ObjectHideFlags: 0
@@ -31241,6 +31294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &579579890
 GameObject:
   m_ObjectHideFlags: 0
@@ -31547,6 +31602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: 13.0153236, y: -1.6062206, z: 0}
+  cursorType: 0
   camerasOff: 0
   guardPos: {fileID: 1799687166}
   cafeteriaCam: {fileID: 272646911}
@@ -32773,6 +32829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: -19.6448975, y: -8.3485508, z: 0}
+  cursorType: 0
   itemName: fuse_box_key
   itemHeight: 1
 --- !u!212 &598812097
@@ -35104,6 +35161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: 1.48983169, y: -1.42926919, z: 0}
+  cursorType: 0
   onFire: 0
 --- !u!1 &636442008
 GameObject:
@@ -35690,6 +35748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: -16.5572853, y: -12.72791, z: 0}
+  cursorType: 0
   isPowered: 0
   small: {fileID: 405509382}
   big: {fileID: 1859828524}
@@ -35927,6 +35986,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3c6dd9f935f4db2a5e75650e053da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
   pointA: {fileID: 1165661726}
   pointB: {fileID: 1078129937}
 --- !u!1 &675757560
@@ -36089,6 +36150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &677098729
 GameObject:
   m_ObjectHideFlags: 0
@@ -36206,6 +36269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &682119642
 GameObject:
   m_ObjectHideFlags: 0
@@ -36376,6 +36441,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &693118872
 GameObject:
   m_ObjectHideFlags: 0
@@ -38086,6 +38153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &719550745
 GameObject:
   m_ObjectHideFlags: 0
@@ -38965,6 +39034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: -.770496488, y: -4.8196702, z: 0}
+  cursorType: 0
   isOn: 0
 --- !u!61 &772344481
 BoxCollider2D:
@@ -39462,6 +39532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: -.930514216, y: -1.37853944, z: 0}
+  cursorType: 0
   distracted: 0
   distract: {fileID: 403650683}
   tough: {fileID: 38775669}
@@ -40029,6 +40100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &811795086
 GameObject:
   m_ObjectHideFlags: 0
@@ -42140,6 +42213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &859087186
 GameObject:
   m_ObjectHideFlags: 0
@@ -42282,6 +42357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &863740918
 GameObject:
   m_ObjectHideFlags: 0
@@ -42334,6 +42411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &867116300
 GameObject:
   m_ObjectHideFlags: 0
@@ -45157,6 +45236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &932925707
 GameObject:
   m_ObjectHideFlags: 0
@@ -46597,6 +46678,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &945867431
 GameObject:
   m_ObjectHideFlags: 0
@@ -46649,6 +46732,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &948720676
 GameObject:
   m_ObjectHideFlags: 0
@@ -46798,6 +46883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: 11.9067001, y: -1.51903033, z: 0}
+  cursorType: 0
 --- !u!61 &951470419
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46911,6 +46997,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &955390535
 GameObject:
   m_ObjectHideFlags: 0
@@ -48177,6 +48265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: -11.0716448, y: -12.7577515, z: 0}
+  cursorType: 0
   sewerDude: {fileID: 982695590}
   wantsHoney: 0
   wantsRadio: 0
@@ -49499,12 +49588,12 @@ MonoBehaviour:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: 7ae4e54a783d3407681c1b7d003dee86, type: 2}
-  m_PrefabInternal: {fileID: 1450172263}
+  m_PrefabInternal: {fileID: 1963252532}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1064466907}
-  - 114: {fileID: 1064466909}
   - 114: {fileID: 1064466908}
+  - 114: {fileID: 1064466909}
   m_Layer: 9
   m_Name: CustomCursor
   m_TagString: Untagged
@@ -49516,7 +49605,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 7ae4e54a783d3407681c1b7d003dee86, type: 2}
-  m_PrefabInternal: {fileID: 1450172263}
+  m_PrefabInternal: {fileID: 1963252532}
   m_GameObject: {fileID: 1064466906}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -508, y: 81, z: 10}
@@ -49528,23 +49617,25 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: 7ae4e54a783d3407681c1b7d003dee86,
     type: 2}
-  m_PrefabInternal: {fileID: 1450172263}
+  m_PrefabInternal: {fileID: 1963252532}
   m_GameObject: {fileID: 1064466906}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8d049bfa433e4d5487210f530906811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemAtlas: {fileID: 11400000, guid: 97a75de13167d4d968375bc0ee37328b, type: 2}
+  guiAtlas: {fileID: 11400000, guid: f4f05993e9f0c49c7a93cee83de9bcdc, type: 2}
 --- !u!114 &1064466909
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400002, guid: 7ae4e54a783d3407681c1b7d003dee86,
     type: 2}
-  m_PrefabInternal: {fileID: 1450172263}
+  m_PrefabInternal: {fileID: 1963252532}
   m_GameObject: {fileID: 1064466906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96b31ce75e592f45a1cff563a4869db, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
@@ -49567,15 +49658,24 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 20
   mHeight: 20
-  mDepth: 7
+  mDepth: 6
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mSprite: {fileID: 21300000, guid: 3feb5f0cbf87f46c69457f38d11656b7, type: 3}
-  mMat: {fileID: 0}
-  mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
-  nextSprite: {fileID: 0}
+  mAtlas: {fileID: 11400000, guid: 97a75de13167d4d968375bc0ee37328b, type: 2}
+  mSpriteName: cheese
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
+  mFlip: 0
+  mFillCenter: 1
+  centerType: 1
+  leftType: 1
+  rightType: 1
+  bottomType: 1
+  topType: 1
 --- !u!1 &1065413594
 GameObject:
   m_ObjectHideFlags: 0
@@ -49884,6 +49984,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1076212987
 GameObject:
   m_ObjectHideFlags: 0
@@ -49936,6 +50038,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1078044795
 GameObject:
   m_ObjectHideFlags: 0
@@ -49976,6 +50080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: 12.2020435, y: -1.50260091, z: 0}
+  cursorType: 0
   exitDoor: {fileID: 1897823976}
   firstTime: 1
   atScreens: 0
@@ -50186,6 +50291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: -17.1381302, y: -12.7713346, z: 0}
+  cursorType: 0
   itemName: cheese
   itemHeight: 1
 --- !u!61 &1082053659
@@ -50341,6 +50447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: -16.2525253, y: -12.7079611, z: 0}
+  cursorType: 0
   zoomView: {fileID: 1796117075}
 --- !u!61 &1087872613
 BoxCollider2D:
@@ -50457,6 +50564,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1094523152
 GameObject:
   m_ObjectHideFlags: 0
@@ -50509,6 +50618,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1001 &1094806552
 Prefab:
   m_ObjectHideFlags: 0
@@ -51762,6 +51873,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1106278302
 GameObject:
   m_ObjectHideFlags: 0
@@ -55647,6 +55760,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1001 &1199776293
 Prefab:
   m_ObjectHideFlags: 0
@@ -56334,6 +56449,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1239921773
 GameObject:
   m_ObjectHideFlags: 0
@@ -57342,6 +57459,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1274544171
 GameObject:
   m_ObjectHideFlags: 0
@@ -58460,6 +58579,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1314815233
 GameObject:
   m_ObjectHideFlags: 0
@@ -60849,6 +60970,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1355986763
 GameObject:
   m_ObjectHideFlags: 0
@@ -60998,6 +61121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1359027489
 GameObject:
   m_ObjectHideFlags: 0
@@ -62148,6 +62273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: -18.6892033, y: -8.53442383, z: 0}
+  cursorType: 0
   itemName: fishing_rod
   itemHeight: 2
 --- !u!1 &1368500006
@@ -62202,6 +62328,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1369336818
 GameObject:
   m_ObjectHideFlags: 0
@@ -63353,6 +63481,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1382590998
 GameObject:
   m_ObjectHideFlags: 0
@@ -66060,54 +66190,6 @@ MonoBehaviour:
   destination: {fileID: 1737240743}
   exitPoint: {fileID: 1119386407}
   isLocked: 0
---- !u!1001 &1450172263
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1011110387}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 7ae4e54a783d3407681c1b7d003dee86, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -508
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7ae4e54a783d3407681c1b7d003dee86, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 81
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7ae4e54a783d3407681c1b7d003dee86, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7ae4e54a783d3407681c1b7d003dee86, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7ae4e54a783d3407681c1b7d003dee86, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7ae4e54a783d3407681c1b7d003dee86, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7ae4e54a783d3407681c1b7d003dee86, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400002, guid: 7ae4e54a783d3407681c1b7d003dee86, type: 2}
-      propertyPath: mDepth
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400002, guid: 7ae4e54a783d3407681c1b7d003dee86, type: 2}
-      propertyPath: mPivot
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 7ae4e54a783d3407681c1b7d003dee86, type: 2}
-  m_RootGameObject: {fileID: 1064466906}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &1450852181
 GameObject:
   m_ObjectHideFlags: 0
@@ -66478,6 +66560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: -19.5522137, y: -8.36620522, z: 0}
+  cursorType: 0
   itemName: ladder
   itemHeight: 1
 --- !u!1 &1464172274
@@ -67529,7 +67612,7 @@ MonoBehaviour:
   cellWidth: 120
   cellHeight: 120
   animateSmoothly: 1
-  sorted: 0
+  sorted: 1
   hideInactive: 0
   keepWithinPanel: 0
 --- !u!114 &1485608712
@@ -67756,6 +67839,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1493985014
 GameObject:
   m_ObjectHideFlags: 0
@@ -68152,6 +68237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1516021200
 GameObject:
   m_ObjectHideFlags: 0
@@ -68419,6 +68506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: -21.4162731, y: -12.6941223, z: 0}
+  cursorType: 0
   wantsWine: 0
   knowsMilitary: 0
   hoarder: {fileID: 1009889897}
@@ -68686,6 +68774,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1544860486
 GameObject:
   m_ObjectHideFlags: 0
@@ -68738,6 +68828,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1547279844
 GameObject:
   m_ObjectHideFlags: 0
@@ -68858,6 +68950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: -1.55800295, y: -1.46589398, z: 0}
+  cursorType: 0
   threeMeatOpen: 0
   wantsIngredients: 0
   hasChicken: 0
@@ -68963,7 +69056,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1558101969
 Transform:
   m_ObjectHideFlags: 0
@@ -69456,6 +69549,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1575528886
 GameObject:
   m_ObjectHideFlags: 0
@@ -72073,6 +72168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1598097528
 GameObject:
   m_ObjectHideFlags: 0
@@ -72322,6 +72419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1614931436
 GameObject:
   m_ObjectHideFlags: 0
@@ -73890,6 +73989,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1636617152
 GameObject:
   m_ObjectHideFlags: 0
@@ -74000,6 +74101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1645298778
 GameObject:
   m_ObjectHideFlags: 0
@@ -74052,6 +74155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1649119801
 GameObject:
   m_ObjectHideFlags: 0
@@ -74416,6 +74521,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1001 &1666750447
 Prefab:
   m_ObjectHideFlags: 0
@@ -75153,6 +75260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1685531375
 GameObject:
   m_ObjectHideFlags: 0
@@ -75205,6 +75314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1689933649
 GameObject:
   m_ObjectHideFlags: 0
@@ -75284,6 +75395,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1692749008
 GameObject:
   m_ObjectHideFlags: 0
@@ -75430,6 +75543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: -28.4179821, y: -4.28768778, z: 0}
+  cursorType: 0
   zoomView: {fileID: 1371910867}
 --- !u!61 &1696194655
 BoxCollider2D:
@@ -76561,6 +76675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: 13.2389193, y: -1.65380275, z: 0}
+  cursorType: 0
   itemName: wire_cutter
   itemHeight: 1
 --- !u!61 &1734945830
@@ -79017,6 +79132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1776437285
 GameObject:
   m_ObjectHideFlags: 0
@@ -79069,6 +79186,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1777369646
 GameObject:
   m_ObjectHideFlags: 0
@@ -79403,6 +79522,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1785495884
 GameObject:
   m_ObjectHideFlags: 0
@@ -80711,6 +80832,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1788030938
 GameObject:
   m_ObjectHideFlags: 0
@@ -82788,6 +82911,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1829670410
 GameObject:
   m_ObjectHideFlags: 0
@@ -82828,6 +82953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: -9.30544853, y: -8.39828682, z: 0}
+  cursorType: 0
   zoomView: {fileID: 2032055027}
   broken: 0
 --- !u!61 &1829670413
@@ -87704,6 +87830,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!4 &1889214064
 Transform:
   m_ObjectHideFlags: 0
@@ -87767,6 +87895,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1896787128
 GameObject:
   m_ObjectHideFlags: 0
@@ -88123,6 +88253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1001 &1913510635
 Prefab:
   m_ObjectHideFlags: 0
@@ -89501,6 +89633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: -1.40138102, y: -1.39580965, z: 0}
+  cursorType: 0
 --- !u!1 &1942085669
 GameObject:
   m_ObjectHideFlags: 0
@@ -89681,6 +89814,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1951079254
 GameObject:
   m_ObjectHideFlags: 0
@@ -91198,6 +91333,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1956468126
 GameObject:
   m_ObjectHideFlags: 0
@@ -91387,6 +91524,46 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .125, y: .125, z: .125}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &1963252532
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1011110387}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 7ae4e54a783d3407681c1b7d003dee86, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -508
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7ae4e54a783d3407681c1b7d003dee86, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 81
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7ae4e54a783d3407681c1b7d003dee86, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7ae4e54a783d3407681c1b7d003dee86, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7ae4e54a783d3407681c1b7d003dee86, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7ae4e54a783d3407681c1b7d003dee86, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7ae4e54a783d3407681c1b7d003dee86, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 7ae4e54a783d3407681c1b7d003dee86, type: 2}
+  m_RootGameObject: {fileID: 1064466906}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &1964845728
 GameObject:
   m_ObjectHideFlags: 0
@@ -92965,6 +93142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: -1.22573614, y: -4.80784321, z: 0}
+  cursorType: 0
   isOn: 0
 --- !u!1 &1984806255
 GameObject:
@@ -93068,6 +93246,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &1991752391
 GameObject:
   m_ObjectHideFlags: 0
@@ -93450,6 +93630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: -16.3988495, y: -16.4893398, z: 0}
+  cursorType: 0
   bear: {fileID: 1538976659}
   wantsGlasses: 0
   knowShank: 0
@@ -94932,6 +95113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &2018827436
 GameObject:
   m_ObjectHideFlags: 0
@@ -95279,6 +95462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: .562230766, y: -8.58038235, z: 0}
+  cursorType: 0
 --- !u!114 &2033553536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95995,6 +96179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: -16.3134327, y: -12.7484789, z: 0}
+  cursorType: 0
   sadguy: {fileID: 515385596}
   wantsSwede: 0
   firstTalk: 0
@@ -96051,6 +96236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {x: 2.01498437, y: -4.80853558, z: 0}
+  cursorType: 0
   isOn: 0
 --- !u!61 &2064739148
 BoxCollider2D:
@@ -97105,6 +97291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1 &2101985536
 GameObject:
   m_ObjectHideFlags: 0
@@ -97791,6 +97979,11 @@ MonoBehaviour:
   - {fileID: 2118979002}
   - {fileID: 2122260491}
   SearchMethod: 1
+  freeSpot: 1
+  updateinterval: 1
+  frames: 0
+  timeleft: 1
+  FPS: 60
 --- !u!4 &2116603379
 Transform:
   m_ObjectHideFlags: 0
@@ -99810,6 +100003,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f619fa2773ad4d3cbeba3737c366e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  cursor: {fileID: 0}
 --- !u!1001 &2142949298
 Prefab:
   m_ObjectHideFlags: 0

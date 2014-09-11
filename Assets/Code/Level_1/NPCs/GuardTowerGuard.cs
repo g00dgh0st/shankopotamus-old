@@ -3,8 +3,6 @@ using System.Collections;
 
 public class GuardTowerGuard : Clicker {
   
-  private Sprite cursor;
-  
   private Dialogue dialogue;
   
   public Door exitDoor;
@@ -14,8 +12,7 @@ public class GuardTowerGuard : Clicker {
   public bool atScreens = false;
   
   void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
-    
+    cursorType = Clicker.CursorType.Chat;
     SetupDialogue();
   }
 
@@ -30,10 +27,6 @@ public class GuardTowerGuard : Clicker {
       Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 2 ); } );
   }
 
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
-  }
-  
   public void DontTouchBubble() {
     Game.script.ShowSpeechBubble( "Dont't touch that!", transform.parent.Find( "BubTarget" ), 1f );
   }

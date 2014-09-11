@@ -3,8 +3,6 @@ using System.Collections;
 
 public class SadGuy : Clicker {
   
-  private Sprite cursor;
-  
   private Dialogue dialogue;
   
   public GameObject roger;
@@ -18,8 +16,7 @@ public class SadGuy : Clicker {
   public Cook cook;
   
   void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
-    
+    cursorType = Clicker.CursorType.Chat;
     SetupDialogue();
   }
   
@@ -46,10 +43,6 @@ public class SadGuy : Clicker {
       Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 6 ); } );
   }
 
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
-  }
-  
   // All dialogue is "written" here
   public void SetupDialogue() {
     Transform camTarget = transform.parent.Find( "CamTarget" );

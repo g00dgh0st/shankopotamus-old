@@ -3,12 +3,6 @@ using System.Collections;
 
 public class Icicle : MonoBehaviour {
   
-  private Sprite cursor;
-  
-  void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
-  }
-  
   void OnClick() {
     if( GameObject.Find( "BoxClicker" ).GetComponent<FreezerBox>().currentPos == 2 ) {
       Game.player.MoveTo( GameObject.Find( "BoxClicker" ).transform.position, delegate( bool b ) {
@@ -20,7 +14,7 @@ public class Icicle : MonoBehaviour {
   }
   
   void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
+    Game.CursorHover( isOver, "HandCursor" );
   }
   
   public IEnumerator GetHam() {

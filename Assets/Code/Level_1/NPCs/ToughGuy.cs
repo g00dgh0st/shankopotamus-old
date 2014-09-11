@@ -8,13 +8,10 @@ public class ToughGuy : Clicker {
   public bool onFire = false;
   public bool needDistract = false;
   
-  private Sprite cursor;
-  
   public Dialogue dialogue;
   
   void Awake() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
-    
+    cursorType = Clicker.CursorType.Chat;
     SetupDialogue();
   }
 
@@ -54,11 +51,6 @@ public class ToughGuy : Clicker {
       });
     } 
   }
-  
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
-  }
-  
   
   // All dialogue is "written" here
   public void SetupDialogue() {

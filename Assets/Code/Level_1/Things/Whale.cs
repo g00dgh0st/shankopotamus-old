@@ -3,10 +3,8 @@ using System.Collections;
 
 public class Whale : Clicker {
 
-  private Sprite cursor;
-  
   void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
+    cursorType = Clicker.CursorType.Hand;
   }
   
   void OnEnable() {
@@ -41,9 +39,5 @@ public class Whale : Clicker {
       Destroy( collider.gameObject );
       StartCoroutine( MoveWhale() );
     }
-  }
-  
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
   }
 }

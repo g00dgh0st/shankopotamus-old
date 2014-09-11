@@ -3,8 +3,6 @@ using System.Collections;
 
 public class Croc : Clicker {
   
-  private Sprite cursor;
-  
   private Dialogue dialogue;
   
   public Bear bear;
@@ -13,8 +11,7 @@ public class Croc : Clicker {
   public bool knowShank = false;
   
   void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
-    
+    cursorType = Clicker.CursorType.Chat;
     SetupDialogue();
   }
 
@@ -50,10 +47,6 @@ public class Croc : Clicker {
       Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
   }
 
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
-  }
-  
   // All dialogue is "written" here
   public void SetupDialogue() {
     Transform camTarget = transform.parent.Find( "CamTarget" );

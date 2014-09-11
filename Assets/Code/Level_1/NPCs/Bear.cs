@@ -4,7 +4,6 @@ using System.Collections;
 public class Bear : Clicker {
   
   private GameObject bub;
-  private Sprite cursor;
   
   private Dialogue dialogue;
   
@@ -14,9 +13,8 @@ public class Bear : Clicker {
   public Hoarder hoarder;
   
   void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
-    
     SetupDialogue();
+    cursorType = Clicker.CursorType.Chat;
   }
   
   void OnItemClick() {
@@ -37,10 +35,6 @@ public class Bear : Clicker {
       Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
   }
 
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
-  }
-  
   // All dialogue is "written" here
   public void SetupDialogue() {
     Transform camTarget = transform.parent.Find( "CamTarget" );

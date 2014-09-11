@@ -14,13 +14,11 @@ public class Cook : Clicker {
   public bool wantsCola = false;
   
   private GameObject bub;
-  private Sprite cursor;
   
   private Dialogue dialogue;
   
   void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_chat" );
-    
+    cursorType = Clicker.CursorType.Chat;
     SetupDialogue();
   }
 
@@ -69,10 +67,6 @@ public class Cook : Clicker {
         }
       });
     }
-  }
-  
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
   }
   
   

@@ -3,15 +3,13 @@ using System.Collections;
 
 public class FlushHandle : Clicker {
   
-  private Sprite cursor;
-  
   public bool isPowered = false;
   
   public ParticleSystem small;
   public ParticleSystem big;
   
   void Start() {
-    cursor = Resources.Load<Sprite>( "Cursors/cursor_hand" );
+    cursorType = Clicker.CursorType.Hand;
   }
   
   void OnClick() {
@@ -42,10 +40,5 @@ public class FlushHandle : Clicker {
     }
     Destroy( GameObject.Find( "Pig" ) );
     Game.cookies.Add( "pigInSewer", true );
-  }
-
-  
-  void OnHover( bool isOver ) {
-    Game.CursorHover( isOver, cursor );
   }
 }
