@@ -40,7 +40,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 50badb3382ce14fbcb654e918ef0db13, type: 2}
   mSprites:
-  - name: bottle_empty
+  - name: action_swede
     x: 2
     y: 2
     width: 120
@@ -53,9 +53,9 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: wine_bottle
+  - name: battery
     x: 2
-    y: 134
+    y: 124
     width: 120
     height: 120
     borderLeft: 0
@@ -68,7 +68,46 @@ MonoBehaviour:
     paddingBottom: 0
   - name: cheese
     x: 2
-    y: 260
+    y: 246
+    width: 120
+    height: 120
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: chicken
+    x: 2
+    y: 368
+    width: 120
+    height: 120
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: diet_cola
+    x: 2
+    y: 490
+    width: 120
+    height: 120
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: empty_bottle
+    x: 2
+    y: 612
     width: 120
     height: 120
     borderLeft: 0
@@ -80,8 +119,34 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: fishing_rod
-    x: 8
-    y: 388
+    x: 2
+    y: 734
+    width: 120
+    height: 120
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: fuse_box_key
+    x: 2
+    y: 856
+    width: 120
+    height: 120
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: glasses
+    x: 124
+    y: 2
     width: 120
     height: 120
     borderLeft: 0
@@ -93,7 +158,20 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ham
-    x: 132
+    x: 246
+    y: 2
+    width: 120
+    height: 120
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hat
+    x: 368
     y: 2
     width: 120
     height: 120
@@ -106,7 +184,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: honey
-    x: 260
+    x: 490
     y: 2
     width: 120
     height: 120
@@ -119,21 +197,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icicle
-    x: 385
-    y: 5
-    width: 120
-    height: 120
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: fuse_box_key
-    x: 131
-    y: 134
+    x: 612
+    y: 2
     width: 120
     height: 120
     borderLeft: 0
@@ -145,8 +210,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ladder
-    x: 132
-    y: 255
+    x: 734
+    y: 2
     width: 120
     height: 120
     borderLeft: 0
@@ -157,9 +222,9 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: three_meat_surprise
-    x: 129
-    y: 388
+  - name: pancake_stew
+    x: 856
+    y: 2
     width: 120
     height: 120
     borderLeft: 0
@@ -170,9 +235,9 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: diet_cola
-    x: 258
-    y: 133
+  - name: rat
+    x: 124
+    y: 124
     width: 120
     height: 120
     borderLeft: 0
@@ -184,8 +249,34 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: spoon
-    x: 386
-    y: 133
+    x: 124
+    y: 246
+    width: 120
+    height: 120
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: three_meat_surprise
+    x: 124
+    y: 368
+    width: 120
+    height: 120
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: wine_bottle
+    x: 124
+    y: 490
     width: 120
     height: 120
     borderLeft: 0
@@ -197,8 +288,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: wire_cutter
-    x: 261
-    y: 259
+    x: 124
+    y: 612
     width: 120
     height: 120
     borderLeft: 0

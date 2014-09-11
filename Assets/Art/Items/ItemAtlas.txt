@@ -1,6 +1,6 @@
 {"frames": {
 
-"icon_bottle_empty.png":
+"action_swede.png":
 {
 	"frame": {"x":2,"y":2,"w":120,"h":120},
 	"rotated": false,
@@ -8,7 +8,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
 	"sourceSize": {"w":120,"h":120}
 },
-"icon_bottle_wine.png":
+"battery.png":
 {
 	"frame": {"x":2,"y":124,"w":120,"h":120},
 	"rotated": false,
@@ -16,7 +16,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
 	"sourceSize": {"w":120,"h":120}
 },
-"icon_cheese.png":
+"cheese.png":
 {
 	"frame": {"x":2,"y":246,"w":120,"h":120},
 	"rotated": false,
@@ -24,7 +24,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
 	"sourceSize": {"w":120,"h":120}
 },
-"icon_fishing_rod.png":
+"chicken.png":
 {
 	"frame": {"x":2,"y":368,"w":120,"h":120},
 	"rotated": false,
@@ -32,7 +32,39 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
 	"sourceSize": {"w":120,"h":120}
 },
-"icon_ham.png":
+"diet_cola.png":
+{
+	"frame": {"x":2,"y":490,"w":120,"h":120},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
+	"sourceSize": {"w":120,"h":120}
+},
+"empty_bottle.png":
+{
+	"frame": {"x":2,"y":612,"w":120,"h":120},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
+	"sourceSize": {"w":120,"h":120}
+},
+"fishing_rod.png":
+{
+	"frame": {"x":2,"y":734,"w":120,"h":120},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
+	"sourceSize": {"w":120,"h":120}
+},
+"fuse_box_key.png":
+{
+	"frame": {"x":2,"y":856,"w":120,"h":120},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
+	"sourceSize": {"w":120,"h":120}
+},
+"glasses.png":
 {
 	"frame": {"x":124,"y":2,"w":120,"h":120},
 	"rotated": false,
@@ -40,7 +72,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
 	"sourceSize": {"w":120,"h":120}
 },
-"icon_honey.png":
+"ham.png":
 {
 	"frame": {"x":246,"y":2,"w":120,"h":120},
 	"rotated": false,
@@ -48,7 +80,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
 	"sourceSize": {"w":120,"h":120}
 },
-"icon_icicle.png":
+"hat.png":
 {
 	"frame": {"x":368,"y":2,"w":120,"h":120},
 	"rotated": false,
@@ -56,7 +88,39 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
 	"sourceSize": {"w":120,"h":120}
 },
-"icon_key.png":
+"honey.png":
+{
+	"frame": {"x":490,"y":2,"w":120,"h":120},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
+	"sourceSize": {"w":120,"h":120}
+},
+"icicle.png":
+{
+	"frame": {"x":612,"y":2,"w":120,"h":120},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
+	"sourceSize": {"w":120,"h":120}
+},
+"ladder.png":
+{
+	"frame": {"x":734,"y":2,"w":120,"h":120},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
+	"sourceSize": {"w":120,"h":120}
+},
+"pancake_stew.png":
+{
+	"frame": {"x":856,"y":2,"w":120,"h":120},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
+	"sourceSize": {"w":120,"h":120}
+},
+"rat.png":
 {
 	"frame": {"x":124,"y":124,"w":120,"h":120},
 	"rotated": false,
@@ -64,7 +128,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
 	"sourceSize": {"w":120,"h":120}
 },
-"icon_ladder.png":
+"spoon.png":
 {
 	"frame": {"x":124,"y":246,"w":120,"h":120},
 	"rotated": false,
@@ -72,7 +136,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
 	"sourceSize": {"w":120,"h":120}
 },
-"icon_meat_surprise.png":
+"three_meat_surprise.png":
 {
 	"frame": {"x":124,"y":368,"w":120,"h":120},
 	"rotated": false,
@@ -80,25 +144,17 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
 	"sourceSize": {"w":120,"h":120}
 },
-"icon_soda.png":
+"wine_bottle.png":
 {
-	"frame": {"x":246,"y":124,"w":120,"h":120},
+	"frame": {"x":124,"y":490,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
 	"sourceSize": {"w":120,"h":120}
 },
-"icon_spoon.png":
+"wire_cutter.png":
 {
-	"frame": {"x":368,"y":124,"w":120,"h":120},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
-	"sourceSize": {"w":120,"h":120}
-},
-"icon_wirecutter.png":
-{
-	"frame": {"x":246,"y":246,"w":120,"h":120},
+	"frame": {"x":124,"y":612,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -109,8 +165,8 @@
 	"version": "1.0",
 	"image": "ItemAtlas.png",
 	"format": "RGBA8888",
-	"size": {"w":490,"h":490},
+	"size": {"w":1024,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:b6c063814de25c7b9e808c6c6d92f79b:8681fe29e5f8e5418d14d0f05c28f1bb:5a5cbfcf094f56430516390ff3b4603d$"
+	"smartupdate": "$TexturePacker:SmartUpdate:2db16a0f4717503c30a939894271f2c6:536741ba43edfda22a913450b1e524e8:5a5cbfcf094f56430516390ff3b4603d$"
 }
 }
