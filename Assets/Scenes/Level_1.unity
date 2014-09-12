@@ -73391,7 +73391,7 @@ MonoBehaviour:
   movePoint: {x: -16.3988495, y: -16.4893398, z: 0}
   cursorType: 0
   bear: {fileID: 1538976659}
-  wantsGlasses: 1
+  wantsGlasses: 0
   knowShank: 0
 --- !u!61 &2000554276
 BoxCollider2D:

@@ -40,13 +40,13 @@ public class Cook : Clicker {
     if( item == "ham" || item == "rat" || item == "chicken" ) {
       Game.script.UseItem();
       Game.player.MoveTo( movePoint, delegate( bool b ) {
-        if( Game.heldItem.name == "item_ham" ) {
+        if( item == "ham" ) {
           hasHam = true;
           Game.script.ShowSpeechBubble( "That's a fine looking ham.", transform.parent.Find( "BubTarget" ), 5f );
-        } else if( Game.heldItem.name == "item_chicken" ) {
+        } else if( item == "chicken" ) {
           hasChicken = true;
           Game.script.ShowSpeechBubble( "Are you sure this is chicken? Whatever, it's good enough.", transform.parent.Find( "BubTarget" ), 5f );
-        } else if( Game.heldItem.name == "item_rat" ) {
+        } else if( item == "rat" ) {
           hasRat = true;
           Game.script.ShowSpeechBubble( "Where'd you find this, the sewer?. That's good, it adds more flavor.", transform.parent.Find( "BubTarget" ), 5f );
         }
