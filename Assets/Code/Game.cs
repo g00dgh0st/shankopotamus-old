@@ -31,7 +31,6 @@ public class Game : MonoBehaviour {
   public void Awake() {
     player = GameObject.FindGameObjectsWithTag( "Player" )[0].GetComponent<Player>();
     cursor = GameObject.Find( "CustomCursor" );
-    cursor.SetActive( false );
     script = this;
     cookies = new Hashtable();
     
@@ -244,11 +243,8 @@ public class Game : MonoBehaviour {
     if( isOver ) {
       Game.cursor.GetComponent<CustomCursor>().SetCursor( cursor );
       Game.cursor.transform.position = GameObject.Find( "Camera" ).GetComponent<Camera>().ScreenToWorldPoint( Input.mousePosition );
-      Game.cursor.SetActive( true );
-      Screen.showCursor = false;
     } else {
-      Game.cursor.SetActive( false );
-      Screen.showCursor = true;
+      Game.cursor.GetComponent<CustomCursor>().SetCursor( "PointerCursor" );
     }
   }
   

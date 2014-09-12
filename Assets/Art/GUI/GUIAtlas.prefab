@@ -41,8 +41,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 6048e7248ca1e404e9b4cb63170fc304, type: 2}
   mSprites:
   - name: BlackBG
-    x: 0
-    y: 260
+    x: 222
+    y: 2
     width: 130
     height: 130
     borderLeft: 1
@@ -54,8 +54,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ChatCursor
-    x: 328
-    y: 402
+    x: 354
+    y: 115
     width: 110
     height: 110
     borderLeft: 0
@@ -67,8 +67,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: DoorCursor
-    x: 0
-    y: 150
+    x: 2
+    y: 126
     width: 110
     height: 110
     borderLeft: 0
@@ -80,8 +80,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: EyeCursor
-    x: 0
-    y: 40
+    x: 216
+    y: 134
     width: 110
     height: 110
     borderLeft: 0
@@ -93,10 +93,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Fade
-    x: 130
-    y: 288
-    width: 102
-    height: 102
+    x: 114
+    y: 126
+    width: 100
+    height: 100
     borderLeft: 1
     borderRight: 1
     borderTop: 1
@@ -105,22 +105,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: Fade (Copy)
-    x: 232
-    y: 288
-    width: 102
-    height: 102
-    borderLeft: 1
-    borderRight: 1
-    borderTop: 1
-    borderBottom: 1
+  - name: FingerCursor
+    x: 328
+    y: 227
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: HandCursor
-    x: 218
-    y: 401
+    x: 354
+    y: 2
     width: 110
     height: 111
     borderLeft: 0
@@ -131,9 +131,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: PointerCursor
+    x: 2
+    y: 339
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: speechbubl
-    x: 0
-    y: 390
+    x: 2
+    y: 2
     width: 218
     height: 122
     borderLeft: 7

@@ -107,15 +107,11 @@ public class DialogueManager : MonoBehaviour {
     Game.TargetCam( Game.player.transform.Find( "CamTarget" ) );
     bub.SetActive( false );
     ClearOptions();
-    
-    Game.cursor.SetActive( false );
-    Screen.showCursor = true;
   }
 
   public void ChooseOption( int optionIndex ) {
-    Game.cursor.SetActive( false );
-    Screen.showCursor = true;
     step.options[optionIndex].action();
+    Game.cursor.GetComponent<CustomCursor>().SetCursor( "PointerCursor" );
   }
   
   private void ClearOptions() {

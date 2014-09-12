@@ -40,6 +40,14 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":100},
 	"sourceSize": {"w":100,"h":100}
 },
+"FingerCursor.png":
+{
+	"frame": {"x":328,"y":227,"w":110,"h":110},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":110},
+	"sourceSize": {"w":110,"h":110}
+},
 "HandCursor.png":
 {
 	"frame": {"x":354,"y":2,"w":110,"h":111},
@@ -47,6 +55,14 @@
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":111},
 	"sourceSize": {"w":110,"h":111}
+},
+"PointerCursor.png":
+{
+	"frame": {"x":2,"y":339,"w":110,"h":110},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":110},
+	"sourceSize": {"w":110,"h":110}
 },
 "speechbubl.png":
 {
@@ -63,6 +79,6 @@
 	"format": "RGBA8888",
 	"size": {"w":512,"h":512},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:d3f6d2b23000f20d635d500691773782:80ec56968382cfb7ff8bfa82ff3a026b:8824b5c9b6983bdacb06d9146278ae0e$"
+	"smartupdate": "$TexturePacker:SmartUpdate:9b8a5fa1e61df8a5c13b7dbdeddb80f4:b08fb9d6942c550c8e83b11992cc7278:8824b5c9b6983bdacb06d9146278ae0e$"
 }
 }

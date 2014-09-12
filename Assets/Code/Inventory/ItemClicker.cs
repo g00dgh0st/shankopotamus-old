@@ -30,11 +30,13 @@ public class ItemClicker : MonoBehaviour {
     transform.position = Camera.main.ScreenToWorldPoint( Input.mousePosition );
     collider2D.enabled = false;
     Game.script.HoldItem( gameObject );
+    gameObject.GetComponent<UISprite>().depth = 4;
   }
   
   void OnDragEnd() {
     collider2D.enabled = true;
 		UICamera.hoveredObject.SendMessage( "OnItemDrop", name, SendMessageOptions.DontRequireReceiver );
+    gameObject.GetComponent<UISprite>().depth = 3;
     Game.script.DropItem();
   }
 }
