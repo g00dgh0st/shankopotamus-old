@@ -3,8 +3,6 @@ using System.Collections;
 
 public class Bear : Clicker {
   
-  private GameObject bub;
-  
   private Dialogue dialogue;
   
   public bool wantsWine = false;
@@ -17,10 +15,10 @@ public class Bear : Clicker {
     cursorType = Clicker.CursorType.Chat;
   }
   
-  void OnItemClick() {
-    if( Game.heldItem.name == "item_wine_bottle" && wantsWine ) {
+  void OnItemDrop( string item ) {
+    if( item == "wine_bottle" && wantsWine ) {
+      Game.script.UseItem();
       Game.player.MoveTo( movePoint, delegate( bool b ) {
-        Game.script.UseItem();
         Game.script.ShowSpeechBubble( "Praise be to Allah. Please, take honey.", transform.parent.Find( "BubTarget" ), 3f );
         Game.script.AddItem( "honey" );
         wantsWine = false;

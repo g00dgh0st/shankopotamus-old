@@ -17,7 +17,6 @@ public class Bat : Clicker {
     cursorType = Clicker.CursorType.Chat;
   }
 
-
   void OnClick() {
     Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
   }

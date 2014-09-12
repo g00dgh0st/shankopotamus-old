@@ -3,8 +3,6 @@ using System.Collections;
 
 public class CafeteriaGuard : Clicker {
     
-  private GameObject bub;
-  
   private Dialogue dialogue;
   
   private bool moving = false;

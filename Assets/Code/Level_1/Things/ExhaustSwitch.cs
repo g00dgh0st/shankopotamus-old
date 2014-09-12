@@ -17,14 +17,12 @@ public class ExhaustSwitch : Clicker {
     } );
   }
   
-  void OnItemClick() {
-    if( Game.heldItem.name == "item_ladder" ) {
+  void OnItemDrop( string item ) {
+    if( item == "ladder" ) {
+      Game.script.UseItem();
       Game.player.MoveTo( movePoint, delegate( bool b ) {
-        Game.script.UseItem();
-        
         Game.PauseClicks();
         StartCoroutine( FlipSwitch() );
-        
       });
     }
   }

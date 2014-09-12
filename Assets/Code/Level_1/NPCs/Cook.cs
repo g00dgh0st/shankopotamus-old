@@ -13,8 +13,6 @@ public class Cook : Clicker {
   public bool knowSwede = false;
   public bool wantsCola = false;
   
-  private GameObject bub;
-  
   private Dialogue dialogue;
   
   void Start() {
@@ -27,41 +25,34 @@ public class Cook : Clicker {
     Game.player.MoveTo( movePoint, delegate( bool b ) { Game.dialogueManager.StartDialogue( dialogue, 0 ); } );
   }
 
-  void OnItemClick() {
-    if( wantsCola && Game.heldItem.name == "item_diet_cola" ) {
+  void OnItemDrop( string item ) {
+    if( wantsCola && item == "diet_cola" ) {
+      Game.script.UseItem();
       Game.player.MoveTo( movePoint, delegate( bool b ) {
-        if( bub != null ) Destroy( bub );
-        bub = Game.script.ShowSpeechBubble( "Thanks, kid. Here, take the toy.", transform.parent.Find( "BubTarget" ), 5f );
+        Game.script.ShowSpeechBubble( "Thanks, kid. Here, take the toy.", transform.parent.Find( "BubTarget" ), 5f );
         Game.script.AddItem( "action_swede" );
-        Game.script.UseItem();
         wantsCola = false;
       });
     }
     
     if( !wantsIngredients ) return;
     
-    if( Game.heldItem.name == "item_ham" || Game.heldItem.name == "item_rat" || Game.heldItem.name == "item_chicken" ) {
+    if( item == "ham" || item == "rat" || item == "chicken" ) {
+      Game.script.UseItem();
       Game.player.MoveTo( movePoint, delegate( bool b ) {
         if( Game.heldItem.name == "item_ham" ) {
           hasHam = true;
-          Game.script.UseItem();
-          if( bub != null ) Destroy( bub );
-          bub = Game.script.ShowSpeechBubble( "That's a fine looking ham.", transform.parent.Find( "BubTarget" ), 5f );
+          Game.script.ShowSpeechBubble( "That's a fine looking ham.", transform.parent.Find( "BubTarget" ), 5f );
         } else if( Game.heldItem.name == "item_chicken" ) {
           hasChicken = true;
-          Game.script.UseItem();
-          if( bub != null ) Destroy( bub );
-          bub = Game.script.ShowSpeechBubble( "Are you sure this is chicken? Whatever, it's good enough.", transform.parent.Find( "BubTarget" ), 5f );
+          Game.script.ShowSpeechBubble( "Are you sure this is chicken? Whatever, it's good enough.", transform.parent.Find( "BubTarget" ), 5f );
         } else if( Game.heldItem.name == "item_rat" ) {
           hasRat = true;
-          Game.script.UseItem();
-          if( bub != null ) Destroy( bub );
-          bub = Game.script.ShowSpeechBubble( "Where'd you find this, the sewer?. That's good, it adds more flavor.", transform.parent.Find( "BubTarget" ), 5f );
+          Game.script.ShowSpeechBubble( "Where'd you find this, the sewer?. That's good, it adds more flavor.", transform.parent.Find( "BubTarget" ), 5f );
         }
     
         if( hasRat && hasChicken && hasHam ) {
-          if( bub != null ) Destroy( bub );
-          bub = Game.script.ShowSpeechBubble( "That's all the ingredients. Here's my world famous \"Three Meat Surprise\".", transform.parent.Find( "BubTarget" ), 5f );
+          Game.script.ShowSpeechBubble( "That's all the ingredients. Here's my world famous \"Three Meat Surprise\".", transform.parent.Find( "BubTarget" ), 5f );
           Game.script.AddItem( "three_meat_surprise" );
           wantsIngredients = false;
         }

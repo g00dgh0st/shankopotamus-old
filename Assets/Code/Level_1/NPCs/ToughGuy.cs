@@ -39,10 +39,10 @@ public class ToughGuy : Clicker {
     }
   }
 
-  void OnItemClick() {
-    if( wantsMeat && Game.heldItem.name == "item_three_meat_surprise" ) {
+  void OnItemDrop( string item ) {
+    if( wantsMeat && item == "three_meat_surprise" ) {
+      Game.script.UseItem();
       Game.player.MoveTo( movePoint, delegate( bool b ) {
-        Game.script.UseItem();
         GameObject.Find( "WimpyGuy" ).transform.Find( "fire" ).gameObject.SetActive( true );
         Game.GetScript<WimpyGuy>().onFire = true;
         Game.script.ShowSpeechBubble( "I set him on fire.", transform.parent.Find( "BubTarget" ), 3f );

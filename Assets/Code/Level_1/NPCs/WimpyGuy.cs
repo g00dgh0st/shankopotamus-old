@@ -41,10 +41,10 @@ public class WimpyGuy : Clicker {
     }
   }
 
-  void OnItemClick() {
-    if( toughGuy.wantsMeat && Game.heldItem.name == "item_three_meat_surprise" ) {
+  void OnItemDrop( string item ) {
+    if( toughGuy.wantsMeat && item == "three_meat_surprise" ) {
+      Game.script.UseItem();
       Game.player.MoveTo( movePoint, delegate( bool b ) {
-        Game.script.UseItem();
         GameObject.Find( "ToughGuy" ).transform.Find( "fire" ).gameObject.SetActive( true );
         toughGuy.onFire = true;
         Game.script.ShowSpeechBubble( "I set him on fire.", transform.parent.Find( "BubTarget" ), 3f );

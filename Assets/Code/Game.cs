@@ -141,16 +141,15 @@ public class Game : MonoBehaviour {
   }
   
   public void UseItem() {
-    string iName = Game.heldItem.GetComponent<ItemClicker>().name;
-    DropItem();
-    RemoveItem( iName );
-    Game.heldItem = null;
     GameObject.Find( "Inventory" ).GetComponent<UIGrid>().repositionNow = true;
+    RemoveItem( Game.heldItem.GetComponent<ItemClicker>().name );
+    Game.heldItem = null;
   }
 // END ITEM STUFF
   
 // BEGIN DIALOGUE STUFF
   public GameObject ShowSpeechBubble( string text, Transform target, float time ) {
+    Destroy( GameObject.FindWithTag( "SpeechBubble" ) );
     GameObject bub = Instantiate( Resources.Load( "SpeechBubble" ) ) as GameObject;
     bub.GetComponent<SpeechBubble>().text = text;
     bub.GetComponent<SpeechBubble>().target = target;

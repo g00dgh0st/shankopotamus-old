@@ -15,13 +15,14 @@ public class RatHole : MonoBehaviour {
   public Transform moveTo;
   private float speed = 0.1f;
   
-  void OnItemClick() {
-    if( Game.heldItem.name == "item_cheese_rod" && ratPos == 0 && moveTo == null ) {
-      Destroy( rat.gameObject );
-      ratPos = 3;
+  void OnItemDrop( string item ) {
+    if( item == "cheese_rod" && ratPos == 0 && moveTo == null ) {
       Game.script.UseItem();
-      Game.script.AddItem( "rat" );
-      Debug.Log( "Fished out rat" );
+      Game.player.MoveTo( transform.position, delegate( bool b ) {
+        Destroy( rat.gameObject );
+        ratPos = 3;
+        Game.script.AddItem( "rat" );
+      } );
     }
   }
   

@@ -7,10 +7,10 @@ public class WineToilet : Clicker {
     cursorType = Clicker.CursorType.Eye;
   }
 
-  void OnItemClick() {
-    if( Game.heldItem.name == "item_empty_bottle" ) {
+  void OnItemDrop( string item ) {
+    if( item == "empty_bottle" ) {
+      Game.script.UseItem();
       Game.player.MoveTo( movePoint, delegate( bool b ) {
-        Game.script.UseItem();
         Game.script.AddItem( "wine_bottle" );
       } );
     }

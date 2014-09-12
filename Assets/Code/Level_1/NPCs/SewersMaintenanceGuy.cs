@@ -31,10 +31,10 @@ public class SewersMaintenanceGuy : MonoBehaviour {
     Game.CursorHover( isOver, "ChatCursor" );
   }
 
-  void OnItemClick( string itemName ) {
-    if( wantsStew && itemName == "pancake_stew" ) {
+  void OnItemDrop( string item ) {
+    if( wantsStew && item == "pancake_stew" ) {
+      Game.script.UseItem();
       Game.player.MoveTo( movePoint.position, delegate( bool b ) {
-        Game.script.UseItem();
         Game.script.ShowSpeechBubble( "Thanks. You can have the ladder.", transform.parent.Find( "BubTarget" ), 3f );
         wantsStew = false;
         noLadder = true;

@@ -16,7 +16,7 @@ public class PowerPanel : MonoBehaviour {
     }
   }
   
-  void OnItemClick() {
+  void OnItemDrop( string item ) {
     if( Game.heldItem.name == "item_battery" ) {
       Game.script.UseItem();
       batt1.SetActive( true );

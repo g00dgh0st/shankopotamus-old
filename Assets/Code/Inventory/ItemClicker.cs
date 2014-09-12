@@ -11,9 +11,9 @@ public class ItemClicker : MonoBehaviour {
     Game.script.ShowSpeechBubble( description, Game.player.transform.Find( "BubTarget" ), 2f );
   }
   
-  void OnItemDrop() {
+  void OnItemDrop( string item ) {
     foreach( ItemCombo combo in combos ) {
-      if( combo.combine == Game.heldItem.GetComponent<ItemClicker>().name ) {
+      if( combo.combine == item ) {
         Game.script.AddItem( combo.result );
         Game.script.UseItem();
         Game.script.RemoveItem( name );

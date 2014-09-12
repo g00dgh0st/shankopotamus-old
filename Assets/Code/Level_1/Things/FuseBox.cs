@@ -13,10 +13,10 @@ public class FuseBox : Clicker {
     cursorType = Clicker.CursorType.Hand;
   }
 
-  void OnItemClick() {
-    if( Game.heldItem.name == "item_fuse_box_key" && !open ) {
+  void OnItemDrop( string item ) {
+    if( item == "fuse_box_key" && !open ) {
+      Game.script.UseItem();
       Game.player.MoveTo( movePoint, delegate( bool b ) {
-        Game.script.UseItem();
         transform.parent.Find( "closed" ).gameObject.SetActive( false );
         transform.parent.Find( "open" ).gameObject.SetActive( true );
         open = true;

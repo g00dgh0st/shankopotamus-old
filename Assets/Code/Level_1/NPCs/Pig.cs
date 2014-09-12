@@ -15,10 +15,10 @@ public class Pig : Clicker {
     SetupDialogue();
   }
   
-  void OnItemClick() {
-    if( Game.heldItem.name == "item_action_swede" && wantsSwede ) {
+  void OnItemDrop( string item ) {
+    if( item == "action_swede" && wantsSwede ) {
+      Game.script.UseItem();
       Game.player.MoveTo( movePoint, delegate( bool b ) {
-        Game.script.UseItem();
         Game.script.ShowSpeechBubble( "Thanks! Here, take my fat.", transform.parent.Find( "BubTarget" ), 3f );
         Game.script.AddItem( "hat" );
         transform.parent.Find( "pig_hat" ).gameObject.SetActive( false );

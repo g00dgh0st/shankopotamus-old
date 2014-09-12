@@ -21,21 +21,19 @@ public class SecurityCamera : Clicker {
     } );
   }
   
-  void OnItemClick() {
-    if( Game.heldItem.name == "item_wire_cutter" && !broked ) {
-      Game.player.MoveTo( movePoint, delegate( bool b ) { 
+  void OnItemDrop( string item ) {
+    if( item == "wire_cutter" && !broked ) {
       
+      if( screens.camerasOff < 3 ) Game.script.DropItem();
+      else Game.script.UseItem();
+      
+      Game.player.MoveTo( movePoint, delegate( bool b ) { 
         transform.parent.Find( "Wire" ).gameObject.SetActive( false );
         transform.parent.Find( "BrokeWire" ).gameObject.SetActive( true );
       
         screens.DestroyCam( camName );
 
         broked = true;
-      
-        if( screens.camerasOff < 3 )
-          Game.script.DropItem();
-        else
-          Game.script.UseItem();
       } );
     }
   }

@@ -15,19 +15,19 @@ public class Hoarder : Clicker {
     SetupDialogue();
   }
   
-  void OnItemClick() {
-    if( wantsHoney && Game.heldItem.name == "item_honey" ) {
+  void OnItemDrop( string item ) {
+    if( wantsHoney && item == "honey" ) {
+      Game.script.UseItem();
       Game.player.MoveTo( movePoint, delegate( bool b ) {
-        Game.script.UseItem();
         Game.script.ShowSpeechBubble( "Thanks, man. Here's that Pancake Stew I promised you.", transform.parent.Find( "BubTarget" ), 3f );
         Game.script.AddItem( "pancake_stew" );
         wantsHoney = false;
       } );
     }
     
-    if( wantsRadio && Game.heldItem.name == "item_radio" ) {
+    if( wantsRadio && item == "radio" ) {
+      Game.script.UseItem();
       Game.player.MoveTo( movePoint, delegate( bool b ) {
-        Game.script.UseItem();
         Game.script.ShowSpeechBubble( "Aww yeah! Here, take this battery from my wazoo.", transform.parent.Find( "BubTarget" ), 3f );
         Game.script.AddItem( "battery" );
         wantsRadio = false;
