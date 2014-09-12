@@ -35,6 +35,8 @@ public class SecurityCamera : Clicker {
 
         broked = true;
       } );
+    } else {
+      base.OnItemDrop( item );
     }
   }
 }

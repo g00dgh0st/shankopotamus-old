@@ -66,7 +66,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: DoorCursor
+  - name: CloseIcon
     x: 2
     y: 126
     width: 110
@@ -79,9 +79,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: EyeCursor
+  - name: DoorCursor
     x: 216
     y: 134
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: EyeCursor
+    x: 328
+    y: 227
     width: 110
     height: 110
     borderLeft: 0
@@ -106,8 +119,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: FingerCursor
-    x: 328
-    y: 227
+    x: 2
+    y: 339
     width: 110
     height: 110
     borderLeft: 0
@@ -132,7 +145,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: PointerCursor
-    x: 2
+    x: 114
     y: 339
     width: 110
     height: 110

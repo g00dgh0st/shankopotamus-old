@@ -8,13 +8,27 @@ public class Clicker : MonoBehaviour {
   public enum CursorType { Hand, Chat, Eye, Door };
   public CursorType cursorType = CursorType.Hand;
   
-  
   void OnDrawGizmosSelected() {
     Gizmos.color = Color.red;
     Gizmos.DrawSphere( movePoint, 0.02f );
   }
-  
 
+  private void OnDragOver( GameObject obj ) {
+    if( obj.CompareTag( "Item" ) ) {
+      obj.GetComponent<UISprite>().alpha = 0.5f;
+    }
+  }
+  
+  private void OnDragOut( GameObject obj ) {
+    if( obj.CompareTag( "Item" ) ) {
+      obj.GetComponent<UISprite>().alpha = 1f;
+    }
+  }
+  
+  protected void OnItemDrop( string item ) {
+    Game.script.ShowSpeechBubble( "That won't do anything.", Game.player.transform.Find( "BubTarget" ), 2f );
+  }
+  
   protected void OnHover( bool isOver ) {
     string crs;
     switch( cursorType ) {

@@ -23,20 +23,18 @@ public class Croc : Clicker {
         Game.script.AddItem( "empty_bottle" );
         wantsGlasses = false;
       } );
-    } 
-    
-    if( Game.heldItem != null && item == "icicle" ) {
+    } else if( Game.heldItem != null && item == "icicle" ) {
       Game.script.UseItem();
       Game.player.MoveTo( movePoint, delegate( bool b ) {
         Game.script.ShowSpeechBubble( "Oh I'm dead! There's no animation, but pretend like I'm dead.", transform.parent.Find( "BubTarget" ), 5f ); 
       } );
-    }
-    
-    if( Game.heldItem != null && item == "sharpened_spoon" ) {
+    } else if( Game.heldItem != null && item == "sharpened_spoon" ) {
       Game.script.UseItem();
       Game.player.MoveTo( movePoint, delegate( bool b ) {
         Game.script.ShowSpeechBubble( "Oh I'm dead! There's no animation, but pretend like I'm dead.", transform.parent.Find( "BubTarget" ), 5f );
       } );
+    } else {
+      base.OnItemDrop( item );
     }
   }
 
