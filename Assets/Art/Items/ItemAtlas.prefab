@@ -79,9 +79,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: chicken
+  - name: cheese_rod
     x: 2
     y: 368
+    width: 120
+    height: 120
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: chicken
+    x: 2
+    y: 490
     width: 120
     height: 120
     borderLeft: 0
@@ -94,7 +107,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: diet_cola
     x: 2
-    y: 490
+    y: 612
     width: 120
     height: 120
     borderLeft: 0
@@ -107,7 +120,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: empty_bottle
     x: 2
-    y: 612
+    y: 734
     width: 120
     height: 120
     borderLeft: 0
@@ -120,19 +133,6 @@ MonoBehaviour:
     paddingBottom: 0
   - name: fishing_rod
     x: 2
-    y: 734
-    width: 120
-    height: 120
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: fuse_box_key
-    x: 2
     y: 856
     width: 120
     height: 120
@@ -144,7 +144,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: glasses
+  - name: fuse_box_key
     x: 124
     y: 2
     width: 120
@@ -157,7 +157,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: ham
+  - name: glasses
     x: 246
     y: 2
     width: 120
@@ -170,7 +170,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: hat
+  - name: ham
     x: 368
     y: 2
     width: 120
@@ -183,7 +183,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: honey
+  - name: hat
     x: 490
     y: 2
     width: 120
@@ -196,7 +196,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: icicle
+  - name: honey
     x: 612
     y: 2
     width: 120
@@ -209,7 +209,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: ladder
+  - name: icicle
     x: 734
     y: 2
     width: 120
@@ -222,7 +222,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: pancake_stew
+  - name: ladder
     x: 856
     y: 2
     width: 120
@@ -235,7 +235,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: rat
+  - name: pancake_stew
     x: 124
     y: 124
     width: 120
@@ -248,7 +248,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: spoon
+  - name: rat
     x: 124
     y: 246
     width: 120
@@ -261,7 +261,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: three_meat_surprise
+  - name: spoon
     x: 124
     y: 368
     width: 120
@@ -274,7 +274,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: wine_bottle
+  - name: three_meat_surprise
     x: 124
     y: 490
     width: 120
@@ -287,9 +287,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: wire_cutter
+  - name: wine_bottle
     x: 124
     y: 612
+    width: 120
+    height: 120
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: wire_cutter
+    x: 124
+    y: 734
     width: 120
     height: 120
     borderLeft: 0

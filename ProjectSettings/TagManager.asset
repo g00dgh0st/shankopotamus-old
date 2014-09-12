@@ -12,11 +12,13 @@ TagManager:
   - ZoomView
   - OptionButton
   - SpeechBubble
-  - 
+  - Item
   - Enemy
   - Obst
   - 
   - FxTemporaire
+  - 
+  - Drag and Drop Root
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

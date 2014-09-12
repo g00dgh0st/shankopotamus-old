@@ -107,7 +107,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 4.15094328
   mAtlas: {fileID: 11400000, guid: f4f05993e9f0c49c7a93cee83de9bcdc, type: 2}
-  mSpriteName: SpeechBubble
+  mSpriteName: speechbubl
   mType: 1
   mFillDirection: 4
   mFillAmount: 1

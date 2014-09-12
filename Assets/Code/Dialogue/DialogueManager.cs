@@ -19,8 +19,9 @@ public class DialogueManager : MonoBehaviour {
   public void StartDialogue( Dialogue dlg, int idx ) {
     inDialogue = true;
     
-    Game.HideMenu();
+    GameObject.Find( "DialogueContainer" ).transform.Find( "DialogueFade" ).gameObject.SetActive( true );
     
+    Game.HideMenu();
     Game.PauseClicks();
     Game.PauseCam();
     
@@ -93,8 +94,9 @@ public class DialogueManager : MonoBehaviour {
   public void StopDialogue() {
     inDialogue = false;
     
-    Game.ShowMenu();
+    GameObject.Find( "DialogueContainer" ).transform.Find( "DialogueFade" ).gameObject.SetActive( false );
     
+    Game.ShowMenu();
     Game.ResumeClicks();
     Game.ResumeCam();
     

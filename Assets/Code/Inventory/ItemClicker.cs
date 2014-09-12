@@ -8,10 +8,10 @@ public class ItemClicker : MonoBehaviour {
   public ItemCombo[] combos;
   
   void OnClick() {
-    Game.script.HoldItem( gameObject );
+    Game.script.ShowSpeechBubble( description, Game.player.transform.Find( "BubTarget" ), 2f );
   }
   
-  void OnItemClick() {
+  void OnItemDrop() {
     foreach( ItemCombo combo in combos ) {
       if( combo.combine == Game.heldItem.GetComponent<ItemClicker>().name ) {
         Game.script.AddItem( combo.result );
@@ -24,5 +24,17 @@ public class ItemClicker : MonoBehaviour {
   
   void OnHover( bool isOver ) {
     Game.CursorHover( isOver, "HandCursor" );
+  }
+  
+  void OnDrag( Vector2 delta ) {
+    transform.position = Camera.main.ScreenToWorldPoint( Input.mousePosition );
+    collider2D.enabled = false;
+    Game.script.HoldItem( gameObject );
+  }
+  
+  void OnDragEnd() {
+    collider2D.enabled = true;
+		UICamera.hoveredObject.SendMessage( "OnItemDrop", name, SendMessageOptions.DontRequireReceiver );
+    Game.script.DropItem();
   }
 }

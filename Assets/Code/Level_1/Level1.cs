@@ -12,5 +12,7 @@ public class Level1 : MonoBehaviour {
 
   void Start() {
     Game.script.AddItem( "cheese" );
+    Game.script.AddItem( "fishing_rod" );
+    Game.script.AddItem( "pancake_stew" );
   }
 }

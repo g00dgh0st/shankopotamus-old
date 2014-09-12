@@ -1380,7 +1380,10 @@ public class UICamera : MonoBehaviour
 				// OnDragOver is sent for consistency, so that OnDragOut is always preceded by OnDragOver
 				isDragging = true;
 				Notify(currentTouch.dragged, "OnDragStart", null);
-				Notify(currentTouch.last, "OnDragOver", currentTouch.dragged);
+        if( Game.heldItem != null )
+					Notify(currentTouch.current, "OnItemDragOver", currentTouch.dragged);
+        else
+					Notify(currentTouch.current, "OnDragOver", currentTouch.dragged);
 				isDragging = false;
 			}
 			else if (!currentTouch.dragStarted && drag < mag)
@@ -1402,12 +1405,18 @@ public class UICamera : MonoBehaviour
 				if (justStarted)
 				{
 					Notify(currentTouch.dragged, "OnDragStart", null);
-					Notify(currentTouch.current, "OnDragOver", currentTouch.dragged);
+          if( Game.heldItem != null )
+  					Notify(currentTouch.current, "OnItemDragOver", currentTouch.dragged);
+          else
+  					Notify(currentTouch.current, "OnDragOver", currentTouch.dragged);
 				}
 				else if (currentTouch.last != currentTouch.current)
 				{
 					Notify(currentTouch.last, "OnDragOut", currentTouch.dragged);
-					Notify(currentTouch.current, "OnDragOver", currentTouch.dragged);
+          if( Game.heldItem != null )
+  					Notify(currentTouch.current, "OnItemDragOver", currentTouch.dragged);
+          else
+  					Notify(currentTouch.current, "OnDragOver", currentTouch.dragged);
 				}
 
 				Notify(currentTouch.dragged, "OnDrag", currentTouch.delta);

@@ -95,16 +95,11 @@ public class Game : MonoBehaviour {
   
   public void HoldItem( GameObject item ) {
     Game.heldItem = item;
-    Game.cursor.GetComponent<CustomCursor>().SetItemCursor( item.GetComponent<ItemClicker>().name );
-    Screen.showCursor = false;
-    item.SetActive( false );
   }
   
   public void DropItem() {
-    Game.heldItem.SetActive( true );
-    Game.cursor.SetActive( false );
-    Screen.showCursor = true;
     Game.heldItem = null;
+    GameObject.Find( "Inventory" ).GetComponent<UIGrid>().repositionNow = true;
   }
   
   public void AddItem( string itemName ) {
