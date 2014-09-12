@@ -21,6 +21,8 @@ public class FuseBox : Clicker {
         transform.parent.Find( "open" ).gameObject.SetActive( true );
         open = true;
       } );
+    } else {
+      base.OnItemDrop( item );
     }
   }
   

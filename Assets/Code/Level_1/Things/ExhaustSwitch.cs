@@ -24,6 +24,8 @@ public class ExhaustSwitch : Clicker {
         Game.PauseClicks();
         StartCoroutine( FlipSwitch() );
       });
+    } else {
+      base.OnItemDrop( item );
     }
   }
   

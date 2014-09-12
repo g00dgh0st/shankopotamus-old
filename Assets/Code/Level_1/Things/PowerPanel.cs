@@ -16,6 +16,18 @@ public class PowerPanel : MonoBehaviour {
     }
   }
   
+  private void OnDragOver( GameObject obj ) {
+    if( obj.CompareTag( "Item" ) ) {
+      obj.GetComponent<UISprite>().alpha = 0.5f;
+    }
+  }
+  
+  private void OnDragOut( GameObject obj ) {
+    if( obj.CompareTag( "Item" ) ) {
+      obj.GetComponent<UISprite>().alpha = 1f;
+    }
+  }
+  
   void OnItemDrop( string item ) {
     if( Game.heldItem.name == "item_battery" ) {
       Game.script.UseItem();
@@ -23,6 +35,8 @@ public class PowerPanel : MonoBehaviour {
       batt2.SetActive( true );
       panel.SetActive( true );
       Game.GetScript<FlushHandle>().isPowered = true;
-    } 
+    } else {
+      Game.script.ShowSpeechBubble( "That won't do anything.", Game.player.transform.Find( "BubTarget" ), 2f );
+    }
   }
 }

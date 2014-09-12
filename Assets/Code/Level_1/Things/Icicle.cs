@@ -13,6 +13,18 @@ public class Icicle : MonoBehaviour {
     }
   }
   
+  private void OnDragOver( GameObject obj ) {
+    if( obj.CompareTag( "Item" ) ) {
+      obj.GetComponent<UISprite>().alpha = 0.5f;
+    }
+  }
+  
+  private void OnDragOut( GameObject obj ) {
+    if( obj.CompareTag( "Item" ) ) {
+      obj.GetComponent<UISprite>().alpha = 1f;
+    }
+  }
+  
   void OnHover( bool isOver ) {
     Game.CursorHover( isOver, "HandCursor" );
   }

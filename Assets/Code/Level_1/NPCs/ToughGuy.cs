@@ -49,6 +49,8 @@ public class ToughGuy : Clicker {
         Game.script.ShowSpeechBubble( "AAAAHHHH!", GameObject.Find( "WimpyGuy" ).transform.Find( "BubTarget" ), 3f );
         StartCoroutine( Game.GetScript<CafeteriaGuard>().Distraction() );
       });
+    } else {
+      base.OnItemDrop( item );
     } 
   }
   

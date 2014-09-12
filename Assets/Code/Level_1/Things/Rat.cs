@@ -15,6 +15,22 @@ public class Rat : MonoBehaviour {
     if( hole.ratPos == 1 && hole.moveTo == null ) Game.CursorHover( isOver, "HandCursor" );
   }
   
+  private void OnDragOver( GameObject obj ) {
+    if( obj.CompareTag( "Item" ) ) {
+      obj.GetComponent<UISprite>().alpha = 0.5f;
+    }
+  }
+  
+  private void OnDragOut( GameObject obj ) {
+    if( obj.CompareTag( "Item" ) ) {
+      obj.GetComponent<UISprite>().alpha = 1f;
+    }
+  }
+  
+  void OnItemDrop( string item ) {
+    Game.script.ShowSpeechBubble( "That won't do anything.", Game.player.transform.Find( "BubTarget" ), 2f );
+  }
+  
   void Update() {
     if( hole.ratPos == 1 && hole.moveTo == null ) {
       if( Vector3.Distance( Game.player.transform.position, runAwayPos.position ) < 0.5f ) {

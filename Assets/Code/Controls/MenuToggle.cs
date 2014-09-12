@@ -35,7 +35,7 @@ public class MenuToggle : MonoBehaviour {
       yield return null;
     }
     
-    menu.position = target.position;
+    menu.position = new Vector3( menu.position.x, target.position.y, menu.position.z );
 
     MenuToggle.isMoving = false;
   }

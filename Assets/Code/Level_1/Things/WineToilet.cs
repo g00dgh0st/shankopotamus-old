@@ -13,6 +13,8 @@ public class WineToilet : Clicker {
       Game.player.MoveTo( movePoint, delegate( bool b ) {
         Game.script.AddItem( "wine_bottle" );
       } );
+    } else {
+      base.OnItemDrop( item );
     }
   }
   

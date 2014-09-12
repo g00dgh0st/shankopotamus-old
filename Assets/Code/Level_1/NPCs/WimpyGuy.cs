@@ -51,6 +51,8 @@ public class WimpyGuy : Clicker {
         Game.script.ShowSpeechBubble( "AAAAHHHH!", GameObject.Find( "ToughGuy" ).transform.Find( "BubTarget" ), 3f );
         StartCoroutine( Game.GetScript<CafeteriaGuard>().Distraction() );
       });
+    } else {
+      base.OnItemDrop( item );
     } 
   }
 }

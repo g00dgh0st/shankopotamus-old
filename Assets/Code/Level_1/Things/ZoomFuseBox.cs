@@ -24,4 +24,19 @@ public class ZoomFuseBox : MonoBehaviour {
     Game.CursorHover( isOver, "HandCursor" );
   }
   
+  void OnItemDrop( string item ) {
+    Game.script.ShowSpeechBubble( "That won't do anything.", Game.player.transform.Find( "BubTarget" ), 2f );
+  }
+
+  private void OnDragOver( GameObject obj ) {
+    if( obj.CompareTag( "Item" ) ) {
+      obj.GetComponent<UISprite>().alpha = 0.5f;
+    }
+  }
+  
+  private void OnDragOut( GameObject obj ) {
+    if( obj.CompareTag( "Item" ) ) {
+      obj.GetComponent<UISprite>().alpha = 1f;
+    }
+  }  
 }

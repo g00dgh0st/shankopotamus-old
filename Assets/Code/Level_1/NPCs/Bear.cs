@@ -23,6 +23,8 @@ public class Bear : Clicker {
         Game.script.AddItem( "honey" );
         wantsWine = false;
       } );
+    } else {
+      base.OnItemDrop( item );
     }
   }
 

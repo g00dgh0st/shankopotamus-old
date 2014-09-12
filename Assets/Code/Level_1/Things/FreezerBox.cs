@@ -12,6 +12,18 @@ public class FreezerBox : MonoBehaviour {
     transform.position = new Vector3( box.position.x, box.position.y, transform.position.z );
   }
   
+  private void OnDragOver( GameObject obj ) {
+    if( obj.CompareTag( "Item" ) ) {
+      obj.GetComponent<UISprite>().alpha = 0.5f;
+    }
+  }
+  
+  private void OnDragOut( GameObject obj ) {
+    if( obj.CompareTag( "Item" ) ) {
+      obj.GetComponent<UISprite>().alpha = 1f;
+    }
+  }
+  
   void OnClick() {
     Vector3 moveTo = transform.parent.Find( "BoxPush" + ( currentPos + 1 ) ).position;
     

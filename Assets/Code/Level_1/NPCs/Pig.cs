@@ -24,6 +24,8 @@ public class Pig : Clicker {
         transform.parent.Find( "pig_hat" ).gameObject.SetActive( false );
         wantsSwede = false;
       } );
+    } else {
+      base.OnItemDrop( item );
     }
   }
 

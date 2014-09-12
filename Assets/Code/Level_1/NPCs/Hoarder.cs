@@ -23,9 +23,7 @@ public class Hoarder : Clicker {
         Game.script.AddItem( "pancake_stew" );
         wantsHoney = false;
       } );
-    }
-    
-    if( wantsRadio && item == "radio" ) {
+    } else if( wantsRadio && item == "radio" ) {
       Game.script.UseItem();
       Game.player.MoveTo( movePoint, delegate( bool b ) {
         Game.script.ShowSpeechBubble( "Aww yeah! Here, take this battery from my wazoo.", transform.parent.Find( "BubTarget" ), 3f );
@@ -33,6 +31,8 @@ public class Hoarder : Clicker {
         wantsRadio = false;
         Game.script.GetComponent<Level1>().needBattery = false;
       } );
+    } else {
+      base.OnItemDrop( item );
     }
   }
 

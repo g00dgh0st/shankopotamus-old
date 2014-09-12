@@ -23,6 +23,8 @@ public class RatHole : MonoBehaviour {
         ratPos = 3;
         Game.script.AddItem( "rat" );
       } );
+    } else {
+      Game.script.ShowSpeechBubble( "That won't do anything.", Game.player.transform.Find( "BubTarget" ), 2f );
     }
   }
   
@@ -30,6 +32,18 @@ public class RatHole : MonoBehaviour {
     if( ratPos == 0 && moveTo == null ) {
       ratPos = 2;
       StartCoroutine( PeekOut() );
+    }
+  }
+  
+  private void OnDragOver( GameObject obj ) {
+    if( obj.CompareTag( "Item" ) ) {
+      obj.GetComponent<UISprite>().alpha = 0.5f;
+    }
+  }
+  
+  private void OnDragOut( GameObject obj ) {
+    if( obj.CompareTag( "Item" ) ) {
+      obj.GetComponent<UISprite>().alpha = 1f;
     }
   }
   

@@ -29,6 +29,8 @@ public class SadGuy : Clicker {
         transform.parent.Find( "pig_hat" ).gameObject.SetActive( true );
         wantsHat = false;
       } );
+    } else {
+      base.OnItemDrop( item );
     }
   }
 

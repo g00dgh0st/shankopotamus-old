@@ -18,6 +18,7 @@ public class CustomCursor : MonoBehaviour {
   } 
 
 	void Update() {
+    Screen.showCursor = false;
     transform.position = GameObject.Find( "Camera" ).GetComponent<Camera>().ScreenToWorldPoint( new Vector2( Input.mousePosition.x + offsetX, Input.mousePosition.y + offsetY ) );
 	}
   

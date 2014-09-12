@@ -30,6 +30,18 @@ public class SewersMaintenanceGuy : MonoBehaviour {
   void OnHover( bool isOver ) {
     Game.CursorHover( isOver, "ChatCursor" );
   }
+  
+  private void OnDragOver( GameObject obj ) {
+    if( obj.CompareTag( "Item" ) ) {
+      obj.GetComponent<UISprite>().alpha = 0.5f;
+    }
+  }
+  
+  private void OnDragOut( GameObject obj ) {
+    if( obj.CompareTag( "Item" ) ) {
+      obj.GetComponent<UISprite>().alpha = 1f;
+    }
+  }
 
   void OnItemDrop( string item ) {
     if( wantsStew && item == "pancake_stew" ) {
@@ -48,6 +60,8 @@ public class SewersMaintenanceGuy : MonoBehaviour {
           transform.parent.position = fixingPos.position;
         }
       });
+    } else {
+      Game.script.ShowSpeechBubble( "That won't do anything.", Game.player.transform.Find( "BubTarget" ), 2f );
     }
   }
 
