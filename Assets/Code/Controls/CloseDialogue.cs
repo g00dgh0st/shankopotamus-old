@@ -16,7 +16,7 @@ public class CloseDialogue : MonoBehaviour {
   IEnumerator Quittin() {
     GameObject.Find( "ExitConfirm" ).transform.Find( "BG" ).transform.Find( "Title" ).GetComponent<UILabel>().text = "Go to hell.";
     
-    yield return new WaitForSeconds( 0.1f );
+    yield return new WaitForSeconds( 0.05f );
     
     Application.LoadLevel( 0 );
   }

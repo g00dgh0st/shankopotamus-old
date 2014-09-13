@@ -33,8 +33,7 @@ public class Cook : Clicker {
         Game.script.AddItem( "action_swede" );
         wantsCola = false;
       });
-    } else if( !wantsIngredients ) return;
-    else if( item == "ham" || item == "rat" || item == "chicken" ) {
+    } else if( wantsIngredients && ( item == "ham" || item == "rat" || item == "chicken" ) ) {
       Game.script.UseItem();
       Game.player.MoveTo( movePoint, delegate( bool b ) {
         if( item == "ham" ) {
