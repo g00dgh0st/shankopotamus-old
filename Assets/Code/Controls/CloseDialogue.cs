@@ -18,6 +18,6 @@ public class CloseDialogue : MonoBehaviour {
     
     yield return new WaitForSeconds( 0.1f );
     
-    Application.Quit();
+    Application.LoadLevel( 0 );
   }
 }

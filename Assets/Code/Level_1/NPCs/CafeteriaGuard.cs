@@ -62,7 +62,7 @@ public class CafeteriaGuard : Clicker {
       new Step( camTarget, "Don't touch me.",
         new Option[] {
           new Option( "I didn't touch you.", 1 ),
-          new Option( "Would you mind leaving for a few minutes?", 3, delegate() { return tough.needDistract; } ),
+          new Option( "Would you mind leaving for a few minutes?", 3 ),
           new Option( "Sorry.", -1 )
         }
       ),
@@ -113,7 +113,6 @@ public class CafeteriaGuard : Clicker {
       // 10
       new Step( camTarget, "Don't touch that spoon, maggot!", 
         delegate() {
-          tough.needDistract = true;
           Game.dialogueManager.StopDialogue();
       }, true ),
     } );

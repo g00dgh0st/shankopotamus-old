@@ -6,7 +6,6 @@ public class ToughGuy : Clicker {
   public bool wantsMeat = false;
   public bool talkedOnce = false;
   public bool onFire = false;
-  public bool needDistract = false;
   
   public Dialogue dialogue;
   
@@ -157,9 +156,9 @@ public class ToughGuy : Clicker {
       // 20
       new Step( wimpyTarget, "I'm smarter than him, I can help better!", 
         new Option[] {
+          new Option( "What can you do for me?", 22 ),
           new Option( "What exactly is Three Meat Surprise?", 21 ),
           new Option( "Why can't you just get it yourself?", 27 ),
-          new Option( "What can you do for me?", 22 ),
           new Option( "Sorry, I'm busy.", -1 )
         }
       ),
@@ -174,7 +173,7 @@ public class ToughGuy : Clicker {
       // 22
       new Step( wimpyTarget, "What do you need?", 
         new Option[] {
-          new Option( "Can you distract the guard?", 23, delegate() { return needDistract; } ),
+          new Option( "Can you distract the guard?", 23 ),
           new Option( "Do you have a copy of \"Ernest Goes to Africa\"?", 34 ),
           new Option( "Nothing. I gotta go.", -1 )
         }
@@ -186,9 +185,9 @@ public class ToughGuy : Clicker {
         new Option[] {
           new Option( "What is Three Meat Surprise?", 21 ),
           new Option( "Why can't you just get it yourself?", 27 ),
-          new Option( "I'll go ask the cook for some.", delegate() { wantsMeat = true; Game.GetScript<Cook>().threeMeatOpen = true; Game.dialogueManager.ChangeStep( 25 ); } ),
-          new Option( "I'll have to think about it.", -1 )
-        }
+          new Option( "I'll go ask the cook for some.", -1 ),
+        }, 
+        delegate() { wantsMeat = true; Game.GetScript<Cook>().threeMeatOpen = true; Game.dialogueManager.ChangeStep( 25 ); }
       ),
       // 25
       new Step( toughTarget, "Remember, bring it to me.", 26 ),
@@ -229,7 +228,7 @@ public class ToughGuy : Clicker {
       // 34
       new Step( wimpyTarget, "Um...No...", 
         new Option[] {
-          new Option( "Can you distract the guard?", 23, delegate() { return needDistract; } ), 
+          new Option( "Can you distract the guard?", 23 ), 
           new Option( "How about \"Ernest Saves Christmas\"?", 35 ),
           new Option( "Then, no deal!", -1 )
         }
@@ -237,7 +236,7 @@ public class ToughGuy : Clicker {
       // 35
       new Step( toughTarget, "We are not fans of the \"Ernest\" film franchise.", 
         new Option[] {
-          new Option( "Can you distract the guard?", 23, delegate() { return needDistract; } ), 
+          new Option( "Can you distract the guard?", 23 ), 
           new Option( "Then, no deal!", -1 )
         }
       ),
