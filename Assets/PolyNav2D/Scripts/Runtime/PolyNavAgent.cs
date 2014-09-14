@@ -156,7 +156,7 @@ public class PolyNavAgent : MonoBehaviour{
 			return true;
     
     // find a point on the bottom edge 
-    if( Game.currentRoom.GetComponent<Room>().lockToBottom ) {
+    if( Game.currentRoom && Game.currentRoom.GetComponent<Room>().lockToBottom ) {
       float offset = 0.01f;
       while( PolyNav2D.current.masterCollider.OverlapPoint( new Vector2( goal.x, goal.y - offset ) ) ) {
         offset += 0.01f;

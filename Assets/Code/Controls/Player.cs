@@ -16,7 +16,7 @@ public class Player : MonoBehaviour {
 	public void Update() {
     if( InMotion() ) {
       if( !interacting ) anim.CrossFade( "walk" );
-      GetComponent<LayerSetter>().SetOrder( Game.currentRoom.GetComponent<Room>().GetNewOrder( transform.position ) );
+      if( Game.currentRoom ) GetComponent<LayerSetter>().SetOrder( Game.currentRoom.GetComponent<Room>().GetNewOrder( transform.position ) );
       if( Direction() != 0 && ( ( transform.localScale.x > 0 && Direction() < 0 ) || ( transform.localScale.x < 0 && Direction() > 0 ) ) ){
         transform.localScale = new Vector3( -1 * transform.localScale.x, transform.localScale.y, transform.localScale.z );
         

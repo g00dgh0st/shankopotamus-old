@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Shanko
-  m_Shader: {fileID: 4800000, guid: 6072accf69e1a44a58cdfe67d5fc50a5, type: 3}
+  m_Shader: {fileID: 4800000, guid: ed16e4ee34d46488cb370289e3794b10, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -23,6 +23,20 @@ Material:
       data:
         first:
           name: _BumpMap
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _NormalsTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _CelRamp
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
