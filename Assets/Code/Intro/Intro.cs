@@ -29,13 +29,15 @@ public class Intro : MonoBehaviour {
       player.GetComponent<LayerSetter>().SetOrder( 0 );
     }  
     
-    if( guard && guard.transform.position.x > -0.739535f && guard.transform.parent.gameObject.name == "Player" ) {
+    if( !guard ) return;
+    
+    if( guard.transform.position.x > -0.739535f && guard.transform.parent.gameObject.name == "Player" ) {
       guard.transform.parent = guard.transform.parent.parent;
-      ShowSpeechBubble( "Get comfy maggot.\nYou're gonna be in there a while.", guard.transform.Find( "BubTarget" ), 4f );
+      ShowSpeechBubble( "Welcome to your new home, dingus.", guard.transform.Find( "BubTarget" ), 4f );
     }  
     
     if( moveGuard ) {
-      guard.transform.position = new Vector3( guard.transform.position.x - 0.01f, guard.transform.position.y, guard.transform.position.z );
+      guard.transform.position = new Vector3( guard.transform.position.x - 0.005f, guard.transform.position.y, guard.transform.position.z );
     }
   }
   
@@ -59,6 +61,8 @@ public class Intro : MonoBehaviour {
     player.transform.localScale = new Vector3( -player.transform.localScale.x, player.transform.localScale.y, player.transform.localScale.z );
     
     yield return new WaitForSeconds( 1f );
+    
+    guard.transform.localScale = new Vector3( -guard.transform.localScale.x, guard.transform.localScale.y, guard.transform.localScale.z );
     
     moveGuard = true;
     
