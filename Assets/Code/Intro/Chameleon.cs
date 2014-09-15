@@ -21,18 +21,23 @@ public class Chameleon : Clicker {
     
     dialogue = new Dialogue();
     
+    Option[] firstOpts = new Option[] {
+      new Option( "Who are you?", 1 ),
+      new Option( "What up?", 1 ),
+      new Option( "You talkin' to me?", 1 )
+    };
+    
+    for( int t=0; t < firstOpts.Length; t++ ) {
+      Option tmp = firstOpts[t];
+      int r = Random.Range( t, firstOpts.Length );
+      firstOpts[t] = firstOpts[r];
+      firstOpts[r] = tmp;
+    }
+    
     dialogue.SetSteps(
     new Step[] {
       // 0
-      new Step( camTarget, "Well, hello.",
-        new Option[] {
-          new Option( "Bye.", -1 ),
-          new Option( "Bye.", -1 ),
-          new Option( "Bye.", -1 ),
-          new Option( "Bye.", -1 ),
-          new Option( "Bye.", -1 )
-        }
-      )
+      new Step( camTarget, "Well, hello.", firstOpts )
     } );
   }  
 }
