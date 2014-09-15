@@ -114,6 +114,17 @@ public class DialogueManager : MonoBehaviour {
       Destroy( obj );
     }
   }
+  
+  public void ShowDialogueBubble( string text ) {
+    Game.HideMenu();
+    bub.SetActive( true );
+    bub.GetComponent<DialogueBubble>().SetText( text );
+  }
+  
+  public void HideDialogueBubble() {
+    Game.ShowMenu();
+    bub.SetActive( false );
+  }
 
 }
 

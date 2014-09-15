@@ -22,7 +22,7 @@ public class DialogueBubble : MonoBehaviour {
       label.text = text.Substring( 0, counter );
     }
     
-    if( Input.GetMouseButtonUp( 0 ) ) {
+    if( Input.GetMouseButtonUp( 0 ) && Game.dialogueManager.inDialogue ) {
       if( counter < text.Length ) {
         counter = text.Length - 1;
         return;

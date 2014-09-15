@@ -47,6 +47,9 @@ public class Game : MonoBehaviour {
     Application.targetFrameRate = 60;
     
     if( startRoom ) currentRoom = startRoom;
+    
+    isFading = 2;
+    aLerp = 1.0f;
   }
   
   void Start() {
