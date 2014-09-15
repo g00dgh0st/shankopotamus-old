@@ -39974,7 +39974,7 @@ Transform:
   m_PrefabInternal: {fileID: 1584457115}
   m_GameObject: {fileID: 1017463050}
   m_LocalRotation: {x: 0, y: 0, z: -.382683456, w: .923879504}
-  m_LocalPosition: {x: -637.999939, y: 57.5000076, z: 0}
+  m_LocalPosition: {x: -639.499939, y: 50.0000076, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1859187424}
@@ -39994,28 +39994,28 @@ MonoBehaviour:
   leftAnchor:
     target: {fileID: 1211383909}
     relative: 0
-    absolute: -55
+    absolute: -50
   rightAnchor:
     target: {fileID: 1211383909}
     relative: 0
-    absolute: 58
+    absolute: 50
   bottomAnchor:
     target: {fileID: 1211383909}
     relative: .5
-    absolute: 8
+    absolute: 0
   topAnchor:
     target: {fileID: 1211383909}
     relative: 1
-    absolute: 57
+    absolute: 50
   mColor: {r: .015084357, g: .683823526, b: .213400096, a: 1}
   mPivot: 4
-  mWidth: 113
-  mHeight: 99
+  mWidth: 100
+  mHeight: 100
   mDepth: 0
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: 1.01010096
   mAtlas: {fileID: 11400000, guid: f4f05993e9f0c49c7a93cee83de9bcdc, type: 2}
   mSpriteName: BlackBG
   mType: 0
@@ -55851,7 +55851,7 @@ Prefab:
       objectReference: {fileID: 1211383909}
     - target: {fileID: 11400008, guid: 90677a480f85845c897fcaf3f069ff11, type: 2}
       propertyPath: leftAnchor.absolute
-      value: -55
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 11400008, guid: 90677a480f85845c897fcaf3f069ff11, type: 2}
       propertyPath: rightAnchor.target
@@ -55863,7 +55863,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400008, guid: 90677a480f85845c897fcaf3f069ff11, type: 2}
       propertyPath: rightAnchor.absolute
-      value: 58
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 11400008, guid: 90677a480f85845c897fcaf3f069ff11, type: 2}
       propertyPath: bottomAnchor.target
@@ -55875,7 +55875,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400008, guid: 90677a480f85845c897fcaf3f069ff11, type: 2}
       propertyPath: bottomAnchor.absolute
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400008, guid: 90677a480f85845c897fcaf3f069ff11, type: 2}
       propertyPath: topAnchor.target
@@ -55883,7 +55883,7 @@ Prefab:
       objectReference: {fileID: 1211383909}
     - target: {fileID: 11400008, guid: 90677a480f85845c897fcaf3f069ff11, type: 2}
       propertyPath: topAnchor.absolute
-      value: 57
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 90677a480f85845c897fcaf3f069ff11, type: 2}
       propertyPath: m_LocalPosition.x
@@ -55895,11 +55895,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 90677a480f85845c897fcaf3f069ff11, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -637.999939
+      value: -639.499939
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 90677a480f85845c897fcaf3f069ff11, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 57.5000076
+      value: 50.0000076
       objectReference: {fileID: 0}
     - target: {fileID: 11400020, guid: 90677a480f85845c897fcaf3f069ff11, type: 2}
       propertyPath: leftAnchor.relative
@@ -55907,7 +55907,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6100004, guid: 90677a480f85845c897fcaf3f069ff11, type: 2}
       propertyPath: m_Size.x
-      value: 73
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 11400020, guid: 90677a480f85845c897fcaf3f069ff11, type: 2}
       propertyPath: leftAnchor.absolute
@@ -55931,7 +55931,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6100004, guid: 90677a480f85845c897fcaf3f069ff11, type: 2}
       propertyPath: m_Size.y
-      value: 72
+      value: 73
       objectReference: {fileID: 0}
     - target: {fileID: 11400020, guid: 90677a480f85845c897fcaf3f069ff11, type: 2}
       propertyPath: bottomAnchor.absolute
@@ -56068,6 +56068,18 @@ Prefab:
     - target: {fileID: 400008, guid: 90677a480f85845c897fcaf3f069ff11, type: 2}
       propertyPath: m_LocalPosition.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: 90677a480f85845c897fcaf3f069ff11, type: 2}
+      propertyPath: mWidth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: 90677a480f85845c897fcaf3f069ff11, type: 2}
+      propertyPath: mHeight
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: 90677a480f85845c897fcaf3f069ff11, type: 2}
+      propertyPath: aspectRatio
+      value: 1.01010096
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90677a480f85845c897fcaf3f069ff11, type: 2}
@@ -67341,8 +67353,8 @@ MonoBehaviour:
     absolute: 0
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 73
-  mHeight: 72
+  mWidth: 60
+  mHeight: 73
   mDepth: 2
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -67403,7 +67415,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 73, y: 72}
+  m_Size: {x: 60, y: 73}
   m_Center: {x: 0, y: 0}
 --- !u!114 &1859187428
 MonoBehaviour:

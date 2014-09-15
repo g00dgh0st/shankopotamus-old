@@ -37,7 +37,8 @@ public class Chameleon : Clicker {
     dialogue.SetSteps(
     new Step[] {
       // 0
-      new Step( camTarget, "Well, hello.", firstOpts )
+      new Step( camTarget, "Well, hello.", firstOpts ),
+      new Step( camTarget, "There's gonna be some meaningful dialogue here. But it's not here now.", delegate() { Application.LoadLevel( 2 ); }, true )
     } );
   }  
 }
