@@ -5,23 +5,19 @@ public class Intro : MonoBehaviour {
 
   private GameObject player;
   private GameObject guard;
+  private GameObject chameleon;
   
-  private bool canDo = false;
   private bool moveGuard = false;
 
 
   void Start() {
     player = GameObject.Find( "Player" );
     guard = GameObject.Find( "Guard" );
+    chameleon = GameObject.Find( "Chameleon" );
     player.GetComponent<Player>().MoveTo( GameObject.Find( "InCellTarget" ).transform.position );
     player.GetComponent<Player>().PauseNav();
+    Game.PauseClicks();
     StartCoroutine( WaitForEnter() );
-  }
-  
-  void OnPress( bool press ) {
-    if( press && canDo ) {
-      player.GetComponent<Player>().MoveTo( Camera.main.ScreenToWorldPoint( Input.mousePosition ) );
-    }
   }
   
   void Update() {
@@ -74,6 +70,7 @@ public class Intro : MonoBehaviour {
     Color clr = new Color( 1f, 1f, 1f, 1f );
     float multi = 0.1f;
     
+    Vector3 diff = new Vector3( ( player.transform.localScale.x > 0 ? 1 : -1 ) * 1.338778f, 1.338778f, 1.338778f ) - player.transform.localScale;
     
     while( sprites.transform.Find( "Cell" ).GetComponent<SpriteRenderer>().color.a > 0f ) {
       foreach( SpriteRenderer renderer in sprites.GetComponentsInChildren<SpriteRenderer>() ) {
@@ -81,6 +78,8 @@ public class Intro : MonoBehaviour {
         
         renderer.color = clr;
       }
+      
+      if( Mathf.Abs( player.transform.localScale.x ) > 1.338778f ) player.transform.localScale += 0.005f * diff * multi;
       
       root.transform.localScale = root.transform.localScale * ( 1f + ( 0.0025f * multi ) );
       
@@ -93,13 +92,24 @@ public class Intro : MonoBehaviour {
     }
     
     PolyNav2D.current.GenerateMap();
-    
+
     moveGuard = false;
     Destroy( guard );
-    
+
     player.GetComponent<Player>().ResumeNav();
+    Game.ResumeClicks();
     player.GetComponent<PolyNavAgent>().maxSpeed = 1f;
-    canDo = true;
+    
+    yield return new WaitForSeconds( 5f );
+      
+    SpriteRenderer cSprite = chameleon.transform.Find( "chameleon_test" ).GetComponent<SpriteRenderer>();
+    
+    while( cSprite.color.a < 1f ) {
+      cSprite.color = new Color( 1f, 1f, 1f, cSprite.color.a + 0.005f );
+      yield return null;
+    }
+    
+    chameleon.collider2D.enabled = true;
+      
   }
-  
 }

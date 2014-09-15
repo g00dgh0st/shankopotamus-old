@@ -10,12 +10,6 @@ public class DialogueManager : MonoBehaviour {
   public GameObject bub;
   public GameObject opt;
   
-  void Update() {
-    if( inDialogue ) {
-      
-    }
-  }
-  
   public void StartDialogue( Dialogue dlg, int idx ) {
     inDialogue = true;
     
@@ -28,6 +22,7 @@ public class DialogueManager : MonoBehaviour {
     dialogue = dlg;
     
     step = dialogue.steps[idx];
+    
     if( step.action != null && !step.actionLast ) step.action();
     
     Camera.main.orthographicSize = 0.6f;

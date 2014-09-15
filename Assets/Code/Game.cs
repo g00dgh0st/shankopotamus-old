@@ -46,7 +46,7 @@ public class Game : MonoBehaviour {
     
     Application.targetFrameRate = 60;
     
-    currentRoom = startRoom;
+    if( startRoom ) currentRoom = startRoom;
   }
   
   void Start() {
@@ -165,11 +165,11 @@ public class Game : MonoBehaviour {
 // STATIC METHODS
   
   public static void HideMenu() {
-    GameObject.Find( "MenuBar" ).transform.Find( "MenuToggle" ).gameObject.SetActive( false );
+    if( GameObject.Find( "MenuBar" ) ) GameObject.Find( "MenuBar" ).transform.Find( "MenuToggle" ).gameObject.SetActive( false );
   }
   
   public static void ShowMenu() {
-    GameObject.Find( "MenuBar" ).transform.Find( "MenuToggle" ).gameObject.SetActive( true );
+    if( GameObject.Find( "MenuBar" ) ) GameObject.Find( "MenuBar" ).transform.Find( "MenuToggle" ).gameObject.SetActive( true );
   }
 
   public delegate void Callback();
@@ -200,11 +200,11 @@ public class Game : MonoBehaviour {
   }
   
   public static void PauseCam() {
-    Camera.main.gameObject.GetComponent<CameraControl>().isPaused = true;
+    if( Camera.main.gameObject.GetComponent<CameraControl>() ) Camera.main.gameObject.GetComponent<CameraControl>().isPaused = true;
   }
   
   public static void ResumeCam() {
-    Camera.main.gameObject.GetComponent<CameraControl>().isPaused = false;
+    if( Camera.main.gameObject.GetComponent<CameraControl>() ) Camera.main.gameObject.GetComponent<CameraControl>().isPaused = false;
   }
   
   public static void ZoomIn() {
