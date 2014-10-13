@@ -45,68 +45,50 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: Camera_0
-      rect:
-        serializedVersion: 2
-        x: 103
-        y: 488
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: Camera_1
-      rect:
-        serializedVersion: 2
-        x: 123
-        y: 488
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: Camera_2
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 432
-        width: 132
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: Camera_3
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 351
-        width: 76
-        height: 71
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: Camera_4
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 15
-        width: 30
-        height: 316
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: Camera_5
-      rect:
-        serializedVersion: 2
-        x: 46
-        y: 120
-        width: 26
-        height: 211
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: Camera_6
+    - name: stand
       rect:
         serializedVersion: 2
         x: 43
-        y: 15
-        width: 29
-        height: 84
+        y: 617
+        width: 117
+        height: 110
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
+    - name: cam_1
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 606
+        width: 197
+        height: 121
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: cord_intact
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 61
+        width: 62
+        height: 536
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: cam_2
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 471
+        width: 160
+        height: 126
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: cord_cut
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 0
+        width: 62
+        height: 597
+      alignment: 0
+      pivot: {x: .5, y: .5}
   spritePackingTag: 
   userData: 

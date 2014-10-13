@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e7247c34723444cd9879277b51e3bafb
+guid: 4e2187a134a57430c9056e3384d28184
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -20,8 +20,8 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -1
-  maxTextureSize: 1024
+  textureFormat: -3
+  maxTextureSize: 2048
   textureSettings:
     filterMode: -1
     aniso: 1
@@ -45,58 +45,58 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: testAtlas_0
+    - name: power_panel_0
       rect:
         serializedVersion: 2
-        x: 43
-        y: 873
-        width: 119
-        height: 115
+        x: 24
+        y: 19
+        width: 771
+        height: 1114
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: testAtlas_1
+    - name: power_panel_1
       rect:
         serializedVersion: 2
-        x: 173
-        y: 872
-        width: 171
-        height: 115
+        x: 824
+        y: 813
+        width: 478
+        height: 315
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: testAtlas_2
+    - name: power_panel_2
       rect:
         serializedVersion: 2
-        x: 365
-        y: 668
-        width: 503
-        height: 338
+        x: 824
+        y: 650
+        width: 186
+        height: 134
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: testAtlas_3
+    - name: power_panel_3
       rect:
         serializedVersion: 2
-        x: 28
-        y: 683
-        width: 150
-        height: 178
+        x: 801
+        y: 344
+        width: 195
+        height: 279
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: testAtlas_4
+    - name: power_panel_4
       rect:
         serializedVersion: 2
-        x: 27
-        y: 482
-        width: 150
-        height: 178
+        x: 1000
+        y: 542
+        width: 117
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: testAtlas_5
+    - name: power_panel_5
       rect:
         serializedVersion: 2
-        x: 363
-        y: 285
-        width: 503
-        height: 338
+        x: 1000
+        y: 502
+        width: 45
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
   spritePackingTag: 

@@ -11,7 +11,7 @@ public class Level1 : MonoBehaviour {
   public bool needBattery = false;
 
   void Start() {
-    StartCoroutine( Intro() ); 
+    // StartCoroutine( Intro() ); 
   }
   
   IEnumerator Intro() {

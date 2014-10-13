@@ -54,97 +54,6 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: battery
-    x: 2
-    y: 124
-    width: 120
-    height: 120
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: cheese
-    x: 2
-    y: 246
-    width: 120
-    height: 120
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: cheese_rod
-    x: 2
-    y: 368
-    width: 120
-    height: 120
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: chicken
-    x: 2
-    y: 490
-    width: 120
-    height: 120
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: diet_cola
-    x: 2
-    y: 612
-    width: 120
-    height: 120
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: empty_bottle
-    x: 2
-    y: 734
-    width: 120
-    height: 120
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: fishing_rod
-    x: 2
-    y: 856
-    width: 120
-    height: 120
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: fuse_box_key
     x: 124
     y: 2
     width: 120
@@ -157,7 +66,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: glasses
+  - name: cheese
     x: 246
     y: 2
     width: 120
@@ -170,7 +79,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: ham
+  - name: cheese_rod
     x: 368
     y: 2
     width: 120
@@ -183,7 +92,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: hat
+  - name: chicken
     x: 490
     y: 2
     width: 120
@@ -196,7 +105,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: honey
+  - name: diet_cola
     x: 612
     y: 2
     width: 120
@@ -209,7 +118,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: icicle
+  - name: empty_bottle
     x: 734
     y: 2
     width: 120
@@ -222,7 +131,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: ladder
+  - name: fishing_rod
     x: 856
     y: 2
     width: 120
@@ -235,7 +144,20 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: metal_file
+  - name: fuse_box_key
+    x: 2
+    y: 124
+    width: 120
+    height: 120
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: glasses
     x: 124
     y: 124
     width: 120
@@ -248,8 +170,86 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: ham
+    x: 246
+    y: 124
+    width: 120
+    height: 120
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hat
+    x: 368
+    y: 124
+    width: 120
+    height: 120
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: honey
+    x: 490
+    y: 124
+    width: 120
+    height: 120
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: icicle
+    x: 612
+    y: 124
+    width: 120
+    height: 120
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ladder
+    x: 734
+    y: 124
+    width: 120
+    height: 120
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: metal_file
+    x: 856
+    y: 124
+    width: 120
+    height: 120
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: pancake_stew
-    x: 124
+    x: 2
     y: 246
     width: 120
     height: 120
@@ -263,7 +263,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: radio
     x: 124
-    y: 368
+    y: 246
     width: 120
     height: 120
     borderLeft: 0
@@ -275,8 +275,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: rat
-    x: 124
-    y: 490
+    x: 246
+    y: 246
     width: 120
     height: 120
     borderLeft: 0
@@ -288,8 +288,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: sharpened_spoon
-    x: 124
-    y: 612
+    x: 368
+    y: 246
     width: 120
     height: 120
     borderLeft: 0
@@ -301,8 +301,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: spoon
-    x: 124
-    y: 734
+    x: 490
+    y: 246
     width: 120
     height: 120
     borderLeft: 0
@@ -314,8 +314,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: three_meat_surprise
-    x: 124
-    y: 856
+    x: 612
+    y: 246
     width: 120
     height: 120
     borderLeft: 0
@@ -327,8 +327,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: wine_bottle
-    x: 246
-    y: 124
+    x: 734
+    y: 246
     width: 120
     height: 120
     borderLeft: 0
@@ -340,8 +340,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: wire_cutter
-    x: 368
-    y: 124
+    x: 856
+    y: 246
     width: 120
     height: 120
     borderLeft: 0

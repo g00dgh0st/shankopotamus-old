@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Collections;
 
-public class PowerPanel : MonoBehaviour {
+public class PowerPanel : Clicker {
   
-  public GameObject batt1;
-  public GameObject batt2;
-  public GameObject panel;
+  public GameObject batt;
+  public GameObject fifty;
+  
+  public GameObject miniBatt;
+  public GameObject miniFifty;
   
   private bool clickedOnce = false;
   
@@ -31,9 +33,10 @@ public class PowerPanel : MonoBehaviour {
   void OnItemDrop( string item ) {
     if( Game.heldItem.name == "item_battery" ) {
       Game.script.UseItem();
-      batt1.SetActive( true );
-      batt2.SetActive( true );
-      panel.SetActive( true );
+      batt.SetActive( true );
+      fifty.SetActive( false );
+      miniBatt.SetActive( true );
+      miniFifty.SetActive( false );
       Game.GetScript<FlushHandle>().isPowered = true;
     } else {
       Game.script.ShowSpeechBubble( "That won't do anything.", Game.player.transform.Find( "BubTarget" ), 2f );
