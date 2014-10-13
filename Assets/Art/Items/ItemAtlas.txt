@@ -10,7 +10,7 @@
 },
 "battery.png":
 {
-	"frame": {"x":2,"y":124,"w":120,"h":120},
+	"frame": {"x":124,"y":2,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -18,7 +18,7 @@
 },
 "cheese.png":
 {
-	"frame": {"x":2,"y":246,"w":120,"h":120},
+	"frame": {"x":246,"y":2,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -26,7 +26,7 @@
 },
 "cheese_rod.png":
 {
-	"frame": {"x":2,"y":368,"w":120,"h":120},
+	"frame": {"x":368,"y":2,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -34,7 +34,7 @@
 },
 "chicken.png":
 {
-	"frame": {"x":2,"y":490,"w":120,"h":120},
+	"frame": {"x":490,"y":2,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -42,7 +42,7 @@
 },
 "diet_cola.png":
 {
-	"frame": {"x":2,"y":612,"w":120,"h":120},
+	"frame": {"x":612,"y":2,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -50,7 +50,7 @@
 },
 "empty_bottle.png":
 {
-	"frame": {"x":2,"y":734,"w":120,"h":120},
+	"frame": {"x":734,"y":2,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -58,7 +58,7 @@
 },
 "fishing_rod.png":
 {
-	"frame": {"x":2,"y":856,"w":120,"h":120},
+	"frame": {"x":856,"y":2,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -66,7 +66,7 @@
 },
 "fuse_box_key.png":
 {
-	"frame": {"x":124,"y":2,"w":120,"h":120},
+	"frame": {"x":2,"y":124,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -74,7 +74,7 @@
 },
 "glasses.png":
 {
-	"frame": {"x":246,"y":2,"w":120,"h":120},
+	"frame": {"x":124,"y":124,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -82,7 +82,7 @@
 },
 "ham.png":
 {
-	"frame": {"x":368,"y":2,"w":120,"h":120},
+	"frame": {"x":246,"y":124,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -90,7 +90,7 @@
 },
 "hat.png":
 {
-	"frame": {"x":490,"y":2,"w":120,"h":120},
+	"frame": {"x":368,"y":124,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -98,7 +98,7 @@
 },
 "honey.png":
 {
-	"frame": {"x":612,"y":2,"w":120,"h":120},
+	"frame": {"x":490,"y":124,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -106,7 +106,7 @@
 },
 "icicle.png":
 {
-	"frame": {"x":734,"y":2,"w":120,"h":120},
+	"frame": {"x":612,"y":124,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -114,7 +114,7 @@
 },
 "ladder.png":
 {
-	"frame": {"x":856,"y":2,"w":120,"h":120},
+	"frame": {"x":734,"y":124,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -122,7 +122,7 @@
 },
 "metal_file.png":
 {
-	"frame": {"x":124,"y":124,"w":120,"h":120},
+	"frame": {"x":856,"y":124,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -130,7 +130,7 @@
 },
 "pancake_stew.png":
 {
-	"frame": {"x":124,"y":246,"w":120,"h":120},
+	"frame": {"x":2,"y":246,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -138,7 +138,7 @@
 },
 "radio.png":
 {
-	"frame": {"x":124,"y":368,"w":120,"h":120},
+	"frame": {"x":124,"y":246,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -146,7 +146,7 @@
 },
 "rat.png":
 {
-	"frame": {"x":124,"y":490,"w":120,"h":120},
+	"frame": {"x":246,"y":246,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -154,7 +154,7 @@
 },
 "sharpened_spoon.png":
 {
-	"frame": {"x":124,"y":612,"w":120,"h":120},
+	"frame": {"x":368,"y":246,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -162,7 +162,7 @@
 },
 "spoon.png":
 {
-	"frame": {"x":124,"y":734,"w":120,"h":120},
+	"frame": {"x":490,"y":246,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -170,7 +170,7 @@
 },
 "three_meat_surprise.png":
 {
-	"frame": {"x":124,"y":856,"w":120,"h":120},
+	"frame": {"x":612,"y":246,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -178,7 +178,7 @@
 },
 "wine_bottle.png":
 {
-	"frame": {"x":246,"y":124,"w":120,"h":120},
+	"frame": {"x":734,"y":246,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -186,7 +186,7 @@
 },
 "wire_cutter.png":
 {
-	"frame": {"x":368,"y":124,"w":120,"h":120},
+	"frame": {"x":856,"y":246,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -199,6 +199,6 @@
 	"format": "RGBA8888",
 	"size": {"w":1024,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:c049cea5c4a809593406d8ecc1bfbb12:1db9b98eb8e7016be6ea94f057275555:5a5cbfcf094f56430516390ff3b4603d$"
+	"smartupdate": "$TexturePacker:SmartUpdate:c9383a613449bcd0a9d14cd8ae5b288f:b695796b54ac4ecc689b8851f717f313:5a5cbfcf094f56430516390ff3b4603d$"
 }
 }

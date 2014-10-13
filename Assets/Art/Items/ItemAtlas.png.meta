@@ -24,10 +24,10 @@ TextureImporter:
   maxTextureSize: 4096
   textureSettings:
     filterMode: 2
-    aniso: 4
+    aniso: 1
     mipBias: -1
     wrapMode: 1
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
@@ -45,7 +45,7 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: ItemAtlas_0
+    - name: swede
       rect:
         serializedVersion: 2
         x: 0
@@ -53,8 +53,8 @@ TextureImporter:
         width: 122
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_1
+      pivot: {x: .5, y: .5}
+    - name: battery
       rect:
         serializedVersion: 2
         x: 122
@@ -62,8 +62,8 @@ TextureImporter:
         width: 122
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_2
+      pivot: {x: .5, y: .5}
+    - name: cheese
       rect:
         serializedVersion: 2
         x: 244
@@ -71,8 +71,8 @@ TextureImporter:
         width: 122
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_3
+      pivot: {x: .5, y: .5}
+    - name: cheese rod
       rect:
         serializedVersion: 2
         x: 366
@@ -80,8 +80,8 @@ TextureImporter:
         width: 122
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_4
+      pivot: {x: .5, y: .5}
+    - name: chicken
       rect:
         serializedVersion: 2
         x: 488
@@ -89,8 +89,8 @@ TextureImporter:
         width: 122
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_5
+      pivot: {x: .5, y: .5}
+    - name: diet cola
       rect:
         serializedVersion: 2
         x: 610
@@ -98,8 +98,8 @@ TextureImporter:
         width: 122
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_6
+      pivot: {x: .5, y: .5}
+    - name: empty bottle
       rect:
         serializedVersion: 2
         x: 732
@@ -107,8 +107,8 @@ TextureImporter:
         width: 122
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_7
+      pivot: {x: .5, y: .5}
+    - name: fishing rod
       rect:
         serializedVersion: 2
         x: 854
@@ -116,8 +116,8 @@ TextureImporter:
         width: 122
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_8
+      pivot: {x: .5, y: .5}
+    - name: key
       rect:
         serializedVersion: 2
         x: 0
@@ -125,8 +125,8 @@ TextureImporter:
         width: 122
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_9
+      pivot: {x: .5, y: .5}
+    - name: glasses
       rect:
         serializedVersion: 2
         x: 122
@@ -134,8 +134,8 @@ TextureImporter:
         width: 122
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_10
+      pivot: {x: .5, y: .5}
+    - name: ham
       rect:
         serializedVersion: 2
         x: 244
@@ -143,8 +143,8 @@ TextureImporter:
         width: 122
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_11
+      pivot: {x: .5, y: .5}
+    - name: hat
       rect:
         serializedVersion: 2
         x: 366
@@ -152,8 +152,44 @@ TextureImporter:
         width: 122
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_12
+      pivot: {x: .5, y: .5}
+    - name: honey
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 780
+        width: 122
+        height: 122
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: icicle
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 780
+        width: 122
+        height: 122
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: ladder
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 780
+        width: 122
+        height: 122
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: file
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 780
+        width: 122
+        height: 122
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: pancake stew
       rect:
         serializedVersion: 2
         x: 0
@@ -161,8 +197,8 @@ TextureImporter:
         width: 122
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_13
+      pivot: {x: .5, y: .5}
+    - name: radio
       rect:
         serializedVersion: 2
         x: 122
@@ -170,96 +206,60 @@ TextureImporter:
         width: 122
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_14
+      pivot: {x: .5, y: .5}
+    - name: rat
       rect:
         serializedVersion: 2
-        x: 0
-        y: 536
+        x: 244
+        y: 658
         width: 122
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_15
+      pivot: {x: .5, y: .5}
+    - name: shiv
       rect:
         serializedVersion: 2
-        x: 122
-        y: 536
+        x: 366
+        y: 658
         width: 122
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_16
+      pivot: {x: .5, y: .5}
+    - name: spoon
       rect:
         serializedVersion: 2
-        x: 0
-        y: 414
+        x: 488
+        y: 658
         width: 122
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_17
+      pivot: {x: .5, y: .5}
+    - name: three meat
       rect:
         serializedVersion: 2
-        x: 122
-        y: 414
+        x: 610
+        y: 658
         width: 122
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_18
+      pivot: {x: .5, y: .5}
+    - name: wine bottle
       rect:
         serializedVersion: 2
-        x: 0
-        y: 292
+        x: 732
+        y: 658
         width: 122
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_19
+      pivot: {x: .5, y: .5}
+    - name: wire cutters
       rect:
         serializedVersion: 2
-        x: 122
-        y: 292
+        x: 854
+        y: 658
         width: 122
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_20
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 170
-        width: 122
-        height: 122
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_21
-      rect:
-        serializedVersion: 2
-        x: 122
-        y: 170
-        width: 122
-        height: 122
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_22
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 48
-        width: 122
-        height: 122
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: ItemAtlas_23
-      rect:
-        serializedVersion: 2
-        x: 122
-        y: 48
-        width: 122
-        height: 122
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
   spritePackingTag: 
   userData: 
