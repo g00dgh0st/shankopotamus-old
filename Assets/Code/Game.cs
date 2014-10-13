@@ -213,13 +213,13 @@ public class Game : MonoBehaviour {
   public static void ZoomIn() {
     Game.PauseClicks();
     Game.PauseCam();
-    Camera.main.gameObject.GetComponent<Blur>().enabled = true;
+    Camera.main.gameObject.GetComponent<Vignetting>().blur = 100000;
   }
   
   public static void ZoomOut() {
     Game.ResumeClicks();
     Game.ResumeCam();
-    Camera.main.gameObject.GetComponent<Blur>().enabled = false;
+    Camera.main.gameObject.GetComponent<Vignetting>().blur = 0;
   }
   
   public static void ReverseNormals( Mesh mesh ) {

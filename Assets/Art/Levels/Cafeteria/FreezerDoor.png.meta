@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1a9b49c7e6eb040139d575796c71fdca
+guid: 7c43dab4c916b4ced8613008d275a21a
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -21,7 +21,7 @@ TextureImporter:
   generateCubemap: 0
   seamlessCubemap: 0
   textureFormat: -3
-  maxTextureSize: 1024
+  maxTextureSize: 512
   textureSettings:
     filterMode: -1
     aniso: 1
@@ -30,7 +30,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -44,6 +44,24 @@ TextureImporter:
     textureFormat: -2
     compressionQuality: 50
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: FreezerDoor_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6
+        width: 202
+        height: 398
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FreezerDoor_1
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 0
+        width: 138
+        height: 405
+      alignment: 0
+      pivot: {x: 0, y: 0}
   spritePackingTag: 
   userData: 
