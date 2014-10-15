@@ -2,7 +2,7 @@
 {
 	Properties
 	{
-		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
+		_MainTex ("Base (RGB)", 2D) = "white" {}
 		_NormalsTex ("Sprite Normals", 2D) = "bump" {}
 		_CelRamp ("Cel shading ramp", 2D) = "white" {}
 		_Color ("Tint", Color) = (1,1,1,1)
