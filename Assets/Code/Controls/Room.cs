@@ -31,6 +31,12 @@ public class Room : MonoBehaviour {
   public float navRadius = 0.0f;
   public float lookAhead = 0.5f;
   
+  // Ambient light color
+  public Color ambientLight = new Color( 228f, 228f, 228f, 255f );
+  
+  // TODO color bounds
+  public colorBoundary[] colorBounds;
+  
   void Start() {
     SetUp();
   }
@@ -74,6 +80,21 @@ public class Room : MonoBehaviour {
     else 
       return closest.orderBelow;
   }
+}
+
+[System.Serializable]
+public class colorBoundary {
+  public string name;
+  
+  public enum BoundType{ GreaterThan, LessThan };
+  public BoundType boundType = BoundType.GreaterThan;
+  
+  public enum BoundAxis{ X, Y };
+  public BoundAxis boundAxis = BoundAxis.X;
+  
+  public float boundValue;
+  
+  public Color ambientColor;
 }
 
 

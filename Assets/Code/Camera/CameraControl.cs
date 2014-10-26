@@ -50,6 +50,9 @@ public class CameraControl : MonoBehaviour {
       Game.player.transform.localScale = new Vector3( ( Game.player.transform.localScale.x < 0 ? -cScale : cScale ), cScale, cScale );
     }
     
+    // Change ambient light
+    RenderSettings.ambientLight = curRoom.ambientLight;
+    
   }
 	
 	// Update is called once per frame
